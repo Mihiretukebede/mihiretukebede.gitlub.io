@@ -2,4 +2,3 @@
 title: "About This Website"
 ---
 
-<link rel="stylesheet" href="styles.css" type="text/css">
