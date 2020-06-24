@@ -1,17 +1,14 @@
 ---
-title: "My Website"
+title: "About me"
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(cache = TRUE)
 ```
   
----
----
-
 <link rel="stylesheet" href="styles.css" type="text/css">
 
-<img src="images/myphoto.jpg" style="width:25%; border:10px solid; margin-right: 20px" align="left">
+<img src="myphoto.jpg" style="width:25%; border:10px solid; margin-right: 20px" align="left">
 
 Mihiretu Kebede was born in Gondar, Ethiopia. In 2006, he completed his Bachelor of Science degree in Medical Laboratory Technology at Addis Ababa University. After working for four years as a medical laboratory technologist, he did his MPH in Health Informatics at the University of Gondar in 2012. In 2015, he received a scholarship from the Basel Kanton to do advanced diploma in International Health at the Swiss Tropical and Public Health Institute in Basel. After finishing his advanced diploma, he moved back to Gondar and continued working as a lecturer at the University of Gondar.
 
