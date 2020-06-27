@@ -1,25 +1,30 @@
-name: "Mihiretu M Kebede(Ph.D)"
+name: "Mihiretu M. Kebede(PhD)"
 output_dir: "."
 navbar:
-  title: "Mihiretu M Kebede(Ph.D)"
-left:
-- text: "Home"
-  href: index.html
-- text: "About"
-  href: about.html
-- text: "Blog"
-  href: blog.html
-- text: "CV"
-  href: CV.html
-- text: "Publications"
-  href: publications.html
-  
-  output:
+  title: "Mihiretu M. Kebede(PhD)"
+  left:
+    - text: "Home"
+      href: research.html
+    - text: "About"
+      href: about.html
+    - text: "Blog"
+      href: blog.html
+    - text: "CV"
+      href: cv.html
+    - text: "Publications"
+      href: publications.html
+  right:
+    - icon: fa-envelope fa-lg
+      href: contact.html
+    - icon: fa-github fa-lg
+      href: https://gitlab.com/Mihiretu/website
+    - icon: fa-twitter fa-lg
+      href: https://twitter.com/MihiretuKebede1
+    - icon: fa-linkedin fa-lg
+      href: https://www.linkedin.com/in/mihiretu-m-kebede-18831b70/
+    - icon: fa-orcid fa-log
+      href: https://orcid.org/0000-0002-5599-2823
+output:
   html_document:
-    theme: cosmo
-    highlight: textmate
-    include:
-      after_body: footer.html
-    css: styles.css
-    
-    footer.html: <p>Copyright &copy; 2016 Skynet, Inc. All rights reserved.</p>
+    theme: paper
+    css: 'styles.css'

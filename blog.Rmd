@@ -4,4 +4,4 @@ title: "Blogs"
 
 <link rel="stylesheet" href="styles.css" type="text/css">
 
-  Hello, blogs!
+  Hello, blogs are coming soon!
