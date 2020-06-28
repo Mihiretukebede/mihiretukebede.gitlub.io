@@ -1,0 +1,5 @@
+---
+title: "Welcome"
+---
+Thank you for visiting my page 
+<img src="myphoto.jpg" style="width:25%; border:10px solid; margin-right: 20px" align="left">

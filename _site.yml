@@ -1,10 +1,11 @@
+--- 
 name: "Mihiretu M. Kebede(PhD)"
 output_dir: "."
 navbar:
   title: "Mihiretu M. Kebede(PhD)"
   left:
     - text: "Home"
-      href: research.html
+      href: home.html
     - text: "About"
       href: about.html
     - text: "Blog"

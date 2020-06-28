@@ -1,4 +1,15 @@
 ---
-title: "About This Website"
+title: "About me"
 ---
 
+<link rel="stylesheet" href="styles.css" type="text/css">
+
+<img src="myphoto.jpg" style="width:25%; border:10px solid; margin-right: 20px" align="left">
+
+Mihiretu M. Kebede (PhD) was born in Gondar, Ethiopia. In 2006, he completed his Bachelor of Science degree in Medical Laboratory Technology at Addis Ababa University. After working for four years as a medical laboratory technologist, he did his MPH in Health Informatics at the University of Gondar in 2012. In 2015, he received a scholarship from the Basel Kanton to do advanced diploma in International Health at the Swiss Tropical and Public Health Institute in Basel. After finishing his advanced diploma, he moved back to Gondar and continued working as a lecturer at the University of Gondar.
+
+In April 2016, Mihiretu came back to Europe and joined the University of Bremen. He received a doctoral research fellow position from the Leibniz Institute for Prevention Research and Epidemiology (BIPS) in the department of Prevention and Evaluation headed by Professor Hajo Zeeb. 
+
+In October 2019, he successfully defended his Ph.D. entitled “Augmenting Diabetes Care and Self-management: What can digital health offer?” During his time at the University of Bremen and while working at BIPS, he presented his papers in several national and international diabetes and epidemiology conferences notably the ADA, EASD, JBI, and DGEPI conferences. He authored more than 30 journal articles published in several peer-reviewed international medical and public health journals. In 2018, he received an award from Publons for being one of the top 1% Peer-reviewers in his field.
+
+Mihiretu Kebede currently works in the division of Cancer Epidemiology at the German Cancer Research Centre in Heidelberg.
