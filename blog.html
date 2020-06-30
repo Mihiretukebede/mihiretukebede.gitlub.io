@@ -336,7 +336,46 @@ $(document).ready(function () {
 
 
 <p><link rel="stylesheet" href="styles.css" type="text/css"></p>
-<p>Hello, blogs are coming soon!</p>
+<div id="animating-bargraph" class="section level1">
+<h1>Animating Bargraph</h1>
+<p>Hello, this is my first ever blog post. Detail explanations of this data vizualization and other upcoming blogs are coming soon soon! Stay tuned.</p>
+<pre class="r"><code>library(readxl)
+mystepcount &lt;- read_excel(&quot;mystepcount.xlsx&quot;)
+
+str(mystepcount)</code></pre>
+<pre><code>## tibble [8 x 4] (S3: tbl_df/tbl/data.frame)
+##  $ Date       : chr [1:8] &quot;Sept_14&quot; &quot;Sept_15&quot; &quot;Sept_16&quot; &quot;Sept_17&quot; ...
+##  $ September  : num [1:8] 14 15 16 17 18 19 20 21
+##  $ Steps      : num [1:8] 1907 18767 10438 23128 28300 ...
+##  $ Killometres: num [1:8] 1.1 12.8 7.4 17.1 19.1 12.9 13.7 4.9</code></pre>
+<pre class="r"><code>library(ggplot2)
+library(gganimate)
+library(scales)
+theme_set(theme_bw())
+
+
+
+mystepcount$September &lt;- as.character(mystepcount$September)
+
+animate(
+  ggplot(mystepcount, aes(x=September,y=Steps)) + 
+  geom_bar(fill=&quot;#004C99&quot;, stat=&quot;identity&quot;, width=1, position=position_dodge()) + 
+    geom_hline(yintercept = 10000, col=&quot;black&quot;, size=1) +
+  transition_states(September, wrap = FALSE) +
+  shadow_mark() +
+  enter_grow() +
+  enter_fade() + 
+  theme(axis.text = element_text(size=16),
+        axis.title = element_text(size=16, face=&quot;bold&quot;)) + 
+  xlab(&quot;September&quot;) +  
+  scale_y_discrete(name=&quot;Step counts&quot;, limits=c(5000,10000, 15000, 20000, 25000, 30000)) +
+  theme(axis.line = element_line(colour = &quot;black&quot;),
+          panel.border = element_blank()) ,
+  
+  duration = .001
+  )</code></pre>
+<p><img src="blog_files/figure-html/unnamed-chunk-1-1.gif" /><!-- --></p>
+</div>
 
 
 

@@ -7,7 +7,7 @@ title: "CURRICULUM VITAE"
 Dr Mihiretu M. Kebede, Husarensttasse 3 | DE-69121 Heidelberg | +49 (0)176 87170349 | mihiretaabush@gmail.com
 
 # PERSONAL DETAILS
-- Nationality:	Ethiopian
+- Nationality:	Ethiopian 
 - Date of Birth:	05 April 1986                                                  
 - ORCID ID	https://orcid.org/0000-0002-5599-2823
 - Publons	https://publons.com/a/556310
