@@ -27,5 +27,7 @@ navbar:
       href: https://orcid.org/0000-0002-5599-2823
 output:
   html_document:
-    theme: paper
+    theme: cosmo
+    highlight: textmate
     css: 'styles.css'
+
