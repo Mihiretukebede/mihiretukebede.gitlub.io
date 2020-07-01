@@ -353,11 +353,8 @@ library(gganimate)
 library(scales)
 theme_set(theme_bw())
 
-
-
-mystepcount$September &lt;- as.character(mystepcount$September)
-
-animate(
+mystepcount$September &lt;- as.character(mystepcount$September)</code></pre>
+<pre class="r"><code>animate(
   ggplot(mystepcount, aes(x=September,y=Steps)) + 
   geom_bar(fill=&quot;#004C99&quot;, stat=&quot;identity&quot;, width=1, position=position_dodge()) + 
     geom_hline(yintercept = 10000, col=&quot;black&quot;, size=1) +
@@ -367,14 +364,14 @@ animate(
   enter_fade() + 
   theme(axis.text = element_text(size=16),
         axis.title = element_text(size=16, face=&quot;bold&quot;)) + 
-  xlab(&quot;September&quot;) +  
+  xlab(&quot;June&quot;) +  
   scale_y_discrete(name=&quot;Step counts&quot;, limits=c(5000,10000, 15000, 20000, 25000, 30000)) +
   theme(axis.line = element_line(colour = &quot;black&quot;),
           panel.border = element_blank()) ,
   
   duration = .001
   )</code></pre>
-<p><img src="blog_files/figure-html/unnamed-chunk-1-1.gif" /><!-- --></p>
+<p><img src="blog_files/figure-html/unnamed-chunk-2-1.gif" /><!-- --></p>
 </div>
 
 
