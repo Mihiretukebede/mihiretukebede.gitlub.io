@@ -9,7 +9,7 @@ Dr Mihiretu M. Kebede, Husarensttasse 3 | DE-69121 Heidelberg | +49 (0)176 87170
 # PERSONAL DETAILS
 - Nationality:	Ethiopian 
 - Date of Birth:	05 April 1986                                                  
-- ORCID ID	https://orcid.org/0000-0002-5599-2823
+- ORCID	https://orcid.org/0000-0002-5599-2823
 - Publons	https://publons.com/a/556310
 	
 # Bio 
