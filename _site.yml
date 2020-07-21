@@ -5,6 +5,7 @@ navbar:
   title: "Mihiretu M. Kebede (PhD)"
   baseurl: https://github.com/Mihiretukebede/mihiretukebede.gitlub.io 
   google_analytics: "UA-173027539-1"
+  collections:
   left:
     - text: "Home"
       href: home.html
@@ -12,8 +13,6 @@ navbar:
       href: about.html
     - text: "CV"
       href: cv.html
-    - text: "Blog posts"
-    - href: gallery.html
     - text: "Publications"
     - href: publications.html
   right:
@@ -32,8 +31,4 @@ navbar:
     - icon: fa fa-rss
       href: index.xml
 
-output:
-  html_document:
-    theme: cosmo
-    highlight: textmate
-    css: 'styles.css'
+output: distill::distill_article
