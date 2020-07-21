@@ -1,10 +1,18 @@
 ---
-title: "Blogs"
+title: "Animating Bargraph"
+description: |
+  Here we will see the codes for animating a simple barchart
+author:
+  - name: Mihiretu Kebede
+date: "`r Sys.Date()`"
+listing: posts
+output:
+  distill::distill_article:
+    self_contained: false
 ---
 
-<link rel="stylesheet" href="styles.css" type="text/css">
 
-# Animating Bargraph
+<link rel="stylesheet" href="styles.css" type="text/css">
 
   Hello, this is my first ever blog post. Detail explanations of this data vizualization and other upcoming blogs are coming soon soon! Stay tuned. 
   
@@ -22,7 +30,6 @@ theme_set(theme_bw())
 mystepcount$September <- as.character(mystepcount$September)
 
 ```
-  
 
 ```{r}
 animate(
@@ -42,4 +49,4 @@ animate(
   
   duration = .001
   )
-```
+```  

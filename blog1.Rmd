@@ -2,7 +2,6 @@
 title: "Animating scatter plot"
 author: "Mihiretu Kebede"
 date: '2015-07-23'
-layout: post
 permalink: /create-jekyll-Blog posts/
 tags:
 - R Markdown

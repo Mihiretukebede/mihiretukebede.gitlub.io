@@ -3,17 +3,19 @@ name: "Mihiretu M. Kebede (PhD)"
 output_dir: "."
 navbar:
   title: "Mihiretu M. Kebede (PhD)"
+  baseurl: https://github.com/Mihiretukebede/mihiretukebede.gitlub.io 
+  google_analytics: "UA-173027539-1"
   left:
     - text: "Home"
       href: home.html
     - text: "About"
       href: about.html
-    - text: "Blog"
-      href: blog.html
     - text: "CV"
       href: cv.html
+    - text: "Blog posts"
+    - href: gallery.html
     - text: "Publications"
-      href: publications.html
+    - href: publications.html
   right:
     - icon: fa-envelope fa-lg
       href: contact.html
@@ -23,8 +25,13 @@ navbar:
       href: https://twitter.com/MihiretuKebede1
     - icon: fa-linkedin fa-lg
       href: https://www.linkedin.com/in/mihiretu-m-kebede-18831b70/
-    - icon: fa-orcid fa-log
+    - icon: fa-orcid fa-lg
       href: https://orcid.org/0000-0002-5599-2823
+    - icon: fa-google scholar fa-lg
+      href: https://scholar.google.de/citations?user=O93Icv4AAAAJ&hl=en
+    - icon: fa fa-rss
+      href: index.xml
+
 output:
   html_document:
     theme: cosmo

@@ -1,0 +1,297 @@
+---
+title: " Coming soon"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache = TRUE)
+```
+
+
+<!--chapter:end:index.Rmd-->
+
+---
+layout: post
+title: "Animating Bargraph"
+date: "29/06/2020"
+categories: Blog posts
+permalink: /create-jekyll-Blog posts/
+output: html_document
+---
+
+<link rel="stylesheet" href="styles.css" type="text/css">
+
+  Hello, this is my first ever blog post. Detail explanations of this data vizualization and other upcoming blogs are coming soon soon! Stay tuned. 
+  
+```{r}
+library(readxl)
+mystepcount <- read_excel("mystepcount.xlsx")
+
+str(mystepcount)
+
+library(ggplot2)
+library(gganimate)
+library(scales)
+theme_set(theme_bw())
+
+mystepcount$September <- as.character(mystepcount$September)
+
+```
+  
+
+```{r}
+animate(
+  ggplot(mystepcount, aes(x=September,y=Steps)) + 
+  geom_bar(fill="#004C99", stat="identity", width=1, position=position_dodge()) + 
+    geom_hline(yintercept = 10000, col="black", size=1) +
+  transition_states(September, wrap = FALSE) +
+  shadow_mark() +
+  enter_grow() +
+  enter_fade() + 
+  theme(axis.text = element_text(size=16),
+        axis.title = element_text(size=16, face="bold")) + 
+  xlab("June") +  
+  scale_y_discrete(name="Step counts", limits=c(5000,10000, 15000, 20000, 25000, 30000)) +
+  theme(axis.line = element_line(colour = "black"),
+          panel.border = element_blank()) ,
+  
+  duration = .001
+  )
+```
+
+<!--chapter:end:2020-07-13-Animating-bar-graphs.Rmd-->
+
+---
+title: "About me"
+---
+
+<link rel="stylesheet" href="styles.css" type="text/css">
+
+<img src="myphoto.jpg" style="width:25%; border:10px solid; margin-right: 20px" align="left">
+
+Mihiretu M. Kebede (PhD) was born in Gondar, Ethiopia. In 2006, he completed his Bachelor of Science degree in Medical Laboratory Technology at Addis Ababa University. After working for four years as a medical laboratory technologist, he did his MPH in Health Informatics at the University of Gondar in 2012. In 2015, he received a scholarship from the Basel Kanton to do advanced diploma in International Health at the Swiss Tropical and Public Health Institute in Basel. After finishing his advanced diploma, he moved back to Gondar and continued working as a lecturer at the University of Gondar.
+
+In April 2016, Mihiretu came back to Europe and joined the University of Bremen. He received a doctoral research fellow position from the Leibniz Institute for Prevention Research and Epidemiology (BIPS) in the department of Prevention and Evaluation headed by Professor Hajo Zeeb. 
+
+In October 2019, he successfully defended his Ph.D. entitled “Augmenting Diabetes Care and Self-management: What can digital health offer?” During his time at the University of Bremen and while working at BIPS, he presented his papers in several national and international diabetes and epidemiology conferences notably the ADA, EASD, JBI, and DGEPI conferences. He authored more than 30 journal articles published in several peer-reviewed international medical and public health journals. In 2018, he received an award from Publons for being one of the top 1% Peer-reviewers in his field.
+
+Mihiretu Kebede currently works in the division of Cancer Epidemiology at the German Cancer Research Centre in Heidelberg.
+
+<!--chapter:end:about.Rmd-->
+
+---
+title: "Animating scatter plot"
+author: "Mihiretu Kebede"
+date: '2015-07-23'
+permalink: /create-jekyll-Blog posts/
+tags:
+- R Markdown
+- plot
+- regression
+layout: Blogs
+--- 
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+# R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+fit <- lm(dist ~ speed, data = cars)
+fit
+```
+
+# Including Plots
+
+You can also embed plots. See Figure \@ref(fig:pie) for example:
+
+```{r pie, fig.cap='A fancy pie chart.', tidy=FALSE}
+par(mar = c(0, 1, 0, 1))
+pie(
+  c(280, 60, 20),
+  c('Sky', 'Sunny side of pyramid', 'Shady side of pyramid'),
+  col = c('#0292D8', '#F7EA39', '#C4B632'),
+  init.angle = -50, border = NA
+)
+```
+
+<!--chapter:end:blog1.Rmd-->
+
+---
+title: "Contact"
+---
+
+mihiretaabush@gmail.com 
+
+<!--chapter:end:contact.Rmd-->
+
+---
+title: "CURRICULUM VITAE"
+---
+  
+<link rel="stylesheet" href="styles.css" type="text/css">
+
+Dr Mihiretu M. Kebede, Husarensttasse 3 | DE-69121 Heidelberg | +49 (0)176 87170349 | mihiretaabush@gmail.com
+
+# PERSONAL DETAILS
+- Nationality:	Ethiopian 
+- Date of Birth:	05 April 1986                                                  
+- ORCID	https://orcid.org/0000-0002-5599-2823
+- Publons	https://publons.com/a/556310
+	
+# Bio 
+Passionate “early-career” researcher with more than 10 years of experience in healthcare practice, teaching and epidemiological research. Strong practical and methodological background with proven experience on digital epidemiology, global health, HIV/AIDS, diabetes and other chronic diseases, and health systems research. Published about 30 peer-reviewed articles, volunteered to peer-reviewing about 100 manuscripts for 25 international peer-reviewed medical, epidemiology and public health journals.  
+
+
+# EDUCATION		
+- Apr 2016 – Jun 2019,	**PhD in Public Health**: University of Bremen, Germany
+  - Dissertation title: *“Augmenting Diabetes care and Self-management: What can digital health offer?”*
+- Mar - Jun 2015,	**Advanced  Diploma  in  Health  Care  and  Management  in  Tropical	Countries**: University of Basel, Switzerland (Grade 82.5/100)
+- Oct 2010 - Jul 2012,	**Master  of  Public  Health in Health Informatics**:  University  of  Gondar,  Ethiopia  (Grade 3.91/4.0)	
+  - Thesis  title: *“Predictors  of  CD4  count  change  among  patients  on* 
+ *Antiretroviral Treatment: Application of Machine Learning Methods”*
+
+- Sept 2003 - Aug 2006,	**BSc  in  Medical  Laboratory  Technology**:  Addis  Ababa  University, Ethiopia (Grade 3.32/4.0)
+  -  Bachelor thesis: *“Trend of Leprosy in Ethiopia”*
+
+# PROFESSIONAL EXPERIENCE
+- Apr 2016 - Today	Doctoral research fellow: Leibniz Institute for Prevention Research and Epidemiology - BIPS GmbH, Bremen, Germany
+	Department: Prevention and Evaluation
+
+- Oct 2012 - Mar 2016	Lecturer and Head of the Department of Health Informatics: University of Gondar, Ethiopia
+	 - Key responsibilities: head of department, teaching, research and community service
+- Jul 2012– Oct 2012	Public Health Planning Monitoring and Evaluation Officer: Amhara Regional Health Bureau, Bahirdar City Administration Health Office
+  - **Key responsibilities**  
+    -	Preparing annual strategic health plan for city administration health office.
+    -	Coordinating health centers in the district to plan their five year strategic and annual health plans.
+    -	Monitoring progress on planned health center achievements Evaluation of health centers in the district and providing feedback.
+   
+- Oct 2006 – Jun 2012	Medical Laboratory Technologist and Head of laboratory department: Amhara Regional Health Bureau (Abay Health Center), Bahirdar, Ethiopia
+  - **Key responsibilities**
+    - Collecting biological specimens and performing different laboratory diagnostic tests
+    -	Performing laboratory tests incl. HIV testing, CD4 counts, complete blood cell counts and other haematological parameters, and clinical chemistry
+
+# TEACHING, CONFERENCES and PEER-REVIEW and OTHER EXPERIENCES 
+ - Excerpt of courses and topics taught from 2012-2016
+   -	Evidence-based Medicine 
+   -	Evidence-based Practice
+   -	Introduction to Health Informatics
+   -	Health Management Information System (HMIS) 
+   -	Data entry with EPI Info 
+   -	Statistical analysis  with  SPSS, STATA 
+   -	EndNote/Mendeley/Zotero  reference  management systems
+
+#### Trainings with certificate
+-	July 2019, Causal Inference in Epidemiology, 3rd RUHR School of Modern Epidemiology, University of Essen, Essen, Germany.
+-	July 2018: Systematic review and Meta-analysis, 2nd RUHR School of Modern Epidemiology, University of Essen, Essen, Germany
+-	June 2017: Systematic review and Meta-analysis, University of Bristol, Bristol, United Kingdom.
+-	June-July 2019, Machine Learning (A-Z), Udemy online course. 
+-	June 2019:  R Programming: Advanced Analytics In R For Data Science, Online
+-	May 2019:  2019: R Programming A-Z™: R For Data Science With Real Exercises, Online
+-	Certified for 19 data science online courses from DataCamp 
+-	May 2019, Data science, statistical methods and machine learning in R, University of Bremen
+-	March 2019: Reproducible Templates for Analysis and Dissemination, Online 
+-	September 2018: Mathematical modelling and data analysis, Oberwolfach Research Institute for Mathematics (MFO), Oberwolfach, Germany. 
+-	October 2018, Machine Learning, University of Bremen, Germany.
+-	July-Aug 2015: GIS and Public Health, University of Gondar, Ethiopia.
+-	Nov 2014: Good Clinical Practice and Ethical Research by the Institute of Tropical Medicine Antwerp (Belgium),Gondar, Ethiopia
+-	Dec 2014: Introduction to Epidemiology for Global Health, University of Washington, Online Course.
+-	Dec 2014: Principles of STD/HIV Research Course, University of Washington, Online Course. 
+-	April 2014: Leadership And Management, University of Washington, Online Course
+-	Jan 2014: Advanced Biostatistics by the Ohio State University, Gondar, Ethiopia
+Conferences (oral and poster presentations) 
+-	55th Annual Meeting of the European Association for the Study of Diabetes (EASD) 16-20 September 2019 in Barcelona, Spain
+-	October 2018: 14th German Association of Epidemiologists (DGEPI) Annual Conference, Ulm, Germany 
+-	October 2018: 13th German Association of Epidemiologists (DGEPI) Annual Conference, Bremen, Germany 
+-	May 2018: 10th Biennial Joanna Briggs Institute Colloquium, Antwerp, Belgium
+-	June 2018: 78th American Diabetes Association conference, Orlando, USA
+-	Feb 2016: 24th Annual Conference of the Ethiopian Society of Obstetrics and Gynaecologists (ESOG), Addis Ababa, Ethiopia
+-	Feb 2015: 27th Annual Scientific Conference and General Assemble Meeting of the Ethiopian Public Health Association (EPHA), Addis Ababa, Ethiopia
+-	April 2012: 13th World Congress on Public Health, Addis Ababa, Ethiopia
+Active engagement within professional organizations
+-	Member (2007-2012): Ethiopian Medical laboratory technologist association
+-	Life member: Ethiopian Public Health Association (EPHA).
+-	Member: European association of studies in Diabetes (EASD).
+-	From 2012 to April 2016: Team training program field coordinator, University of Gondar, Ethiopia.
+
+# OTHER RELEVANT SKILLS AND (VOLUNTARY) EXPERIENCE
+-	R, STATA, SPSS, COVIDENCE, GRADEpro, RevMan, WEKA, Epi INFO, and ArcGIS
+-	Languages: Amharic (mother tongue), English (fluent), German (B1).
+-	Blog data analyses and visualization on RPubs webpage: http://rpubs.com/Mihiretu1. 
+- Founder and volunteer of a diabetes Facebook page aiming to empower self-care and self-management of diabetes via social media with more than 2200 followers.
+-	Blog non-academic articles on “Health Effect of Climate Change” for Climate change awareness via WorldPress and social media.
+- Voluntary work in different projects supporting schools and health centers in Northwest Ethiopia.
+- Prison health service in Ethiopia.
+
+
+# THIRD-PARTY FUNDING
+-	Co-applicant in the Horizon 2020 project “Text message intervention for anti-retroviral treatment adherence support in Ethiopia”: 1.5 m €
+-	Impulse grant for PhD students at the University of Bremen: 1,500 euros.  
+
+# AWARDS
+-	Highest Grade from University of Gondar MPH, 2012 cohort 
+-	Publons 2018 top 1% peer reviewer (https://publons.com/a/556310). 
+
+# CURRENT COLLABORATIVE WORKS
+
+-	Institute of Health Metrics and Evaluation: Global Burden of Diseases study collaborator on “Local burden of disease project”, “Air pollution and type 2 diabetes” and “GBD HIV 2017”.  
+-	Africa University Clinical Research Centre in Zimbabwe: to provide systematic reviews and meta-analysis course and to work on developing a community-based digital intervention.
+-	Digital health innovation for NCD in Zimbabwe- NIH project. 
+
+# REFERENCES
+
+- Prof. Dr med Hajo Zeeb, Relationship: PhD supervisor, Email: zeeb@leibniz-bips.de 
+- Claudia Pischke (BA, MA, PhD, PDDr), Relationship: PhD supervisor, Email: ClaudiaRuth.Pischke@med.uni-duesseldorf.de 
+- Dr. Berihun Megabiaw Zeleke (MD, MPH, PHD), Relationship: Master’s thesis supervisor and Epidemiology course teacher, Email: Berihun.Zeleke@monash.edu 
+
+<!--chapter:end:cv.Rmd-->
+
+---
+title: "Welcome"
+---
+Thank you for visiting my page 
+<img src="myphoto.jpg" style="width:25%; border:10px solid; margin-right: 20px" align="left">
+
+<!--chapter:end:home.Rmd-->
+
+---
+title: "List of publications"
+---
+
+
+1.	GBD 2017 HIV collaborators, Global, regional, and national incidence, prevalence, and mortality of HIV, 1980–2017, and forecasts to 2030, for 195 countries and territories: a systematic analysis for the Global Burden of Diseases, Injuries, and Risk Factors Study 2017, the Lancet HIV, August 2019, https://doi.org/10.1016/S2352-3018(19)30196-1. 
+2.	Tesfaye B;  Atique S; Azim A; Kebede M, Predicting Skilled delivery service use in Ethiopia: dual application of logistic regression and machine learning BMC Medical Informatics and Decision Making, 19(209), DOI: https://doi.org/10.1186/s12911-019-0942-5.
+3.	Kebede M.M., Schuett C,  Pischke C.R., The Role of Continuous Glucose Monitoring, Diabetes Smartphone Applications, and Self-Care Behavior in Glycemic Control: Results of a Multi-National Online Survey. J. Clinical Medicine, 2019, 8(109), https://doi.org/10.3390/jcm8010109. 
+4.	Mihiretu M Kebede, Claudia R Pischke, Popular diabetes apps and the impact of diabetes app use on self-care behaviour: A survey among the digital community of persons with diabetes on Social Media, Frontiers in Endocrinology 2019, 10(135) 10.3389/fendo.2019.00135, https://doi.org/10.3389/fendo.2019.00135.  
+5.	Mihiretu Kebede, Hajo Zeeb, Manuela Peters, Thomas H. Heisse,Claudia Pischke, Comparison of Three Meta-analytic Methods Using Data From Digital Interventions on Type 2 Diabetes, In press at Diabetes, Metabolic Syndrome and Obesity: Targets and Therapy, 2018 Dec 19;12:59-73. doi: https://doi.org/10.2147/DMSO.S180106. eCollection 2019.
+6.	Mihiretu M. Kebede, Hajo Zeeb, Manuela Peters, Thomas L. Heise, and Claudia R. Pischke. Effectiveness of Digital Interventions for Improving Glycemic Control in Persons with Poorly Controlled Type 2 Diabetes: A Systematic Review, Meta-analysis, and Meta-regression Analysis. Diabetes Technol Therapeutics. 2018 Nov;20(11):767-782. https://doi.org/10.1089/dia.2018.0216. Epub 2018 Sep 26. 
+7.	Kebede MM, Liedtke TP, Möllers T, Pischke CR: Characterizing Active Ingredients of eHealth Interventions Targeting Persons With Poorly Controlled Type 2 Diabetes Mellitus Using the Behavior Change Techniques Taxonomy: Scoping Review. Journal of medical Internet research 2017, 19(10):e348-e348, https://www.jmir.org/2017/10/e348/.
+8.	Kebede M, Christianson L, Khan Z, Heise TL, Pischke CR: Effectiveness of behavioral change techniques employed in eHealth interventions designed to improve glycemic control in persons with poorly controlled type 2 diabetes: a systematic review and meta-analysis protocol. Systematic reviews 2017, 6(1):211.
+9.	Kebede M, Steenbock B, Helmer SM, Sill J, Möllers T, Pischke CR Identifying Evidence-Informed Physical Activity Apps: Content Analysis JMIR Mhealth Uhealth 2018;6(12):e10314 DOI: 10.2196/10314 
+10.	Kebede Mihiretu, Steenbock B, Helmer SM, Sill J, Möllers T, Pischke CR, There Are Many Physical Activity Apps But Only Few Are Evidence-Informed:     Results of a Content-Analysis, JMIR mHealth and uHealth. (forthcoming/in press), DOI: 10.2196/10314, URL: https://preprints.jmir.org/preprint/10314.
+11.	Adamu Takele Jemere, Yohannes Ezezew Yeneneh, Biniam Tilahun, Fleur Fritz (PhD), Shitaye Alemu, Mihiretu Kebede, Access to mobile phone and willingness to receive mobile phone-based health services among diabetic patients in Northwest Ethiopia, BMJ Open. 2019 Jan 24;9(1):e021766. doi: 10.1136/bmjopen-2018-021766. 
+12.	Yeshiwas S, Kiflie M, Zeleke AA, Kebede M. Civil servants' demand for social health insurance in Northwest Ethiopia. Arch Public Health. 2018;76:48. Published 2018 Sep 13. doi:10.1186/s13690-018-0297-x.
+13.	Kebede M, Zegeye DT, Zeleke BM: Predicting CD4 count changes among patients on antiretroviral treatment: Application of data mining techniques. Computer methods and programs in biomedicine 2017, 152:149-157.
+14.	Dilu E, Gebreslassie M, Kebede M. Human Resource Information System implementation readiness in the Ethiopian health sector: a cross-sectional study. Hum Resour Health. 2017;15(1):85. Published 2017 Dec 20. doi:10.1186/s12960-017-0259-3.
+15.	Rahel Abiy,  Kassahun Gashu, Tarekegn Asemaw, Mebratu Mitiku, Berhanu Fekadie, Zeleke Abebaw, Adane Mamuye, Ashenafi Tazebew, Alemayehu Teklu, Fedilu Nurhussien, Mihiretu Kebede, Fleur Fritz,  and Binyam Tilahun  A Comparison of Electronic Medical Record Data to Paper Records in Antiretroviral Therapy Clinic in Ethiopia: What is affecting the Quality of the Data?. Online J Public Health Inform. 2018;10(2):e212. Published 2018 Sep 21. doi:10.5210/ojphi.v10i2.8309.
+16.	Astatikie G, Limenih MA, Kebede M: Maternal and fetal outcomes of uterine rupture and factors associated with maternal death secondary to uterine rupture. BMC pregnancy and childbirth 2017, 17(1):117, https://doi.org/10.1186/s12884-017-1302-z.
+17.	Beshir  MA,  Woreta  SA,  Kebede  M:  Evidence-based  practice  among  health professionals in hospitals of Northwest Ethiopia: a cross-sectional study. International journal of evidence-based healthcare 2017, 15(4):161-170.
+18.	Kebede M, Endris Y, Zegeye DT: Nursing care documentation practice: The unfinished task of nursing care in the University of Gondar Hospital. Informatics for Health and Social Care 2017, 42(3):290-302.
+19.	Kebede M, Schmaus-Klughammer AE, Tekle BT. Manuscript Submission Invitations from 'Predatory Journals': What Should Authors Do?. J Korean Med Sci. 2017;32(5):709-712.
+20.	Kebede M, Zeleke A, Asemahagn M, Fritz F: Willingness to receive text message medication reminders among patients on antiretroviral treatment in North West Ethiopia: A cross-sectional study. BMC medical informatics and decision making 2015, 15(1):65, https://doi.org/10.1186/s12911-015-0193-z.
+21.	Kebede MM, Bazie BB, Abate GB, Zeleke AA: Knowledge of abortion legislation among female preparatory school students in Dabat District, Ethiopia. African Journal of Reproductive Health 2016, 20(4):13-21.
+22.	Wassie MA, Zeleke AA, Dachew BA, Kebede M: Evidence-based practice and its associated factors among medical laboratory professionals in West Amhara hospitals, Northwest Ethiopia. International journal of evidence-based healthcare 2017. doi: 10.1097/XEB.0000000000000122, PMID: 28937412.
+23.	Tesfaye B, Atique S, Elias N, Dibaba L, Shabbir S-A, Kebede M: Determinants and development of a web-based child mortality prediction model in resource-limited settings: A data mining approach. Computer methods and programs in biomedicine 2017, 140:45-51.
+24.	Tesfaye B, Mathewos T, Kebede M: Skilled delivery inequality in Ethiopia: to what extent are the poorest and uneducated mothers benefiting? International journal for equity in health 2017, 16(1):82.
+25.	Fritz F, Kebede M, Tilahun B: The need for cost-benefit analyses of eHealth in low and middle-income countries. In: MedInfo: 2015; 2015: 981.
+26.	Gashu KD, Meshesha M, Kebede M: HIV counseling and testing uptake among adults in Amhara region; North West Ethiopia. East African Journal of Public Health 2015, 12(1):956-963.
+27.	Tilahuna B, Zelekea A, Fritzb F, Kebede M, Andualema M, Assefaa S, Melesea T, Zegeyea D, Gebeyehuc A, Yifru S: Towards problem-based health informatics education and research: ten years of experience and future directions in Ethiopia. 2014.
+
+
+<!--chapter:end:Publications.Rmd-->
+

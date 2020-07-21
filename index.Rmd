@@ -1,8 +1,6 @@
 ---
-title: " Coming soon"
+title: ' Coming soon'
+site: distill::distill_website
+listing: posts
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(cache = TRUE)
-```
 
