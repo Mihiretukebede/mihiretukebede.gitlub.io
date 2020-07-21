@@ -1,18 +1,13 @@
 [
   {
     "path": "posts/2020-07-19-animating-scatter-plots/",
-    "title": "Animating SCatter Plots",
+    "title": "Aspire Data Solutions",
     "description": "Creating `Gif`for scatter plots",
-    "author": [
-      {
-        "name": "Mihiretu Kebede",
-        "url": {}
-      }
-    ],
+    "author": [],
     "date": "2020-07-21",
     "categories": [],
     "preview": {},
-    "last_modified": "2020-07-21T23:46:18+02:00",
-    "input_file": "07-19-2020-animating-scatter-plots.utf8.md"
+    "last_modified": "2020-07-22T00:10:13+02:00",
+    "input_file": {}
   }
 ]
