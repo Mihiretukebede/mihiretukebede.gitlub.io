@@ -4,7 +4,7 @@ description: |
   Creating `Gif`for scatter plots
 author:
   - name: Mihiretu Kebede
-date: "`r Sys.Date()`"
+date: "2020-07-21"
 listing: posts
 output:
   distill::distill_article:
