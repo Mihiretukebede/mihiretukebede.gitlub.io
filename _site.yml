@@ -1,7 +1,7 @@
 --- 
 name: "Mihiretu M. Kebede (PhD)"
 output_dir: "."
-title: "Mihiretu M. Kebede (PhD)"
+title: "Aspire Data Solutions"
 baseurl: https://github.com/Mihiretukebede/mihiretukebede.gitlub.io 
 google_analytics: "UA-173027539-1"
 collections:
@@ -9,7 +9,7 @@ collections:
     disqus: Blog posts
     share: [twitter, linkedin, facebook, google-plus, pinterest]
     hidden: false
-    feed_items_max: 50
+    feed_items_max: 50 
 navbar:
   left:
     - text: "Home"
@@ -20,6 +20,7 @@ navbar:
       href: cv.html
     - text: "Publications"
     - href: publications.html
+    
   right:
     - icon: fa-envelope fa-lg
       href: contact.html

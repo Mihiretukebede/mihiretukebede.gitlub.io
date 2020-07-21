@@ -1,11 +1,18 @@
 ---
-title: "Animating SCatter Plots"
+name: "Mihiretu M. Kebede (PhD)"
+output_dir: "."
+title: "Aspire Data Solutions"
+google_analytics: "UA-173027539-1"
+date: "2020-07-21"
 description: |
   Creating `Gif`for scatter plots
-author:
-  - name: Mihiretu Kebede
-date: "2020-07-21"
-listing: posts
+baseurl: https://github.com/Mihiretukebede/mihiretukebede.gitlub.io 
+collections:
+  posts:
+    disqus: 
+      shortname: "mihiretukebede"
+      hidden: false
+    share: [twitter, linkedin, facebook, google-plus, pinterest]
 output:
   distill::distill_article:
     self_contained: false
@@ -29,6 +36,7 @@ View(type2pre)
 
 ## Source of data 
 The data is about prevalence of `type 2 diabetes` for 20 countries from 1990-2017
+
 ```{r, include=TRUE}
 # You can downloaded such data from the IHME GBD compare websisite. You can select any indicator(prevalence, DALYs, mortality, etc). Check their website https://vizhub.healthdata.org/gbd-compare/ 
 #We will plot prevalence 
