@@ -6,6 +6,8 @@ navbar:
   baseurl: https://github.com/Mihiretukebede/mihiretukebede.gitlub.io 
   google_analytics: "UA-173027539-1"
   collections:
+  posts:
+    feed_items_max: 50
   left:
     - text: "Home"
       href: home.html

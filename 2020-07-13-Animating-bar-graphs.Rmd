@@ -4,7 +4,7 @@ description: |
   Here we will see the codes for animating a simple barchart
 author:
   - name: Mihiretu Kebede
-date: "`r Sys.Date()`"
+date: "2020-07-18"
 listing: posts
 output:
   distill::distill_article:
@@ -16,7 +16,7 @@ output:
 
   Hello, this is my first ever blog post. Detail explanations of this data vizualization and other upcoming blogs are coming soon soon! Stay tuned. 
   
-```{r}
+```{r, echo=TRUE}
 library(readxl)
 mystepcount <- read_excel("mystepcount.xlsx")
 
@@ -31,7 +31,7 @@ mystepcount$September <- as.character(mystepcount$September)
 
 ```
 
-```{r}
+```{r, echo=TRUE}
 animate(
   ggplot(mystepcount, aes(x=September,y=Steps)) + 
   geom_bar(fill="#004C99", stat="identity", width=1, position=position_dodge()) + 
