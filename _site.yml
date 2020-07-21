@@ -1,13 +1,16 @@
 --- 
 name: "Mihiretu M. Kebede (PhD)"
 output_dir: "."
-navbar:
-  title: "Mihiretu M. Kebede (PhD)"
-  baseurl: https://github.com/Mihiretukebede/mihiretukebede.gitlub.io 
-  google_analytics: "UA-173027539-1"
-  collections:
+title: "Mihiretu M. Kebede (PhD)"
+baseurl: https://github.com/Mihiretukebede/mihiretukebede.gitlub.io 
+google_analytics: "UA-173027539-1"
+collections:
   posts:
+    disqus: Blog posts
+    share: [twitter, linkedin, facebook, google-plus, pinterest]
+    hidden: false
     feed_items_max: 50
+navbar:
   left:
     - text: "Home"
       href: home.html
