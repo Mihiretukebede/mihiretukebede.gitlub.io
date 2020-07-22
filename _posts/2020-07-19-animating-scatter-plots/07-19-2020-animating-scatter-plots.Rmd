@@ -60,7 +60,7 @@ To install the latest version of the packages
 
 ## Load the necessary packages
 
-```{r}
+```{r, echo=TRUE, include=TRUE}
 library(ggplot2) # for plotting 
 library(gganimate) #for animating your plot
 library(scales) # for scaling your x or y-axis 

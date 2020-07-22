@@ -1404,7 +1404,10 @@ type2pre$Yearnum &lt;- as.numeric(type2pre$Year) #To save year as numeric variab
 <p><code>devtools::install_github("thomasp85/gganimate")</code> <code>devtools::install_github("thomasp85/transformr")</code> transformr is a dependency that helps you with transitions for polygons and lines.</p>
 <h2 id="load-the-necessary-packages">Load the necessary packages</h2>
 <div class="layout-chunk" data-layout="l-body">
-
+<pre class="r"><code>
+library(ggplot2) # for plotting 
+library(gganimate) #for animating your plot
+library(scales) # for scaling your x or y-axis </code></pre>
 </div>
 <h2 id="the-plot">The plot</h2>
 <div class="layout-chunk" data-layout="l-body">
