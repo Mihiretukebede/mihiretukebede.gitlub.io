@@ -2,7 +2,7 @@
   {
     "path": "posts/2020-07-19-animating-scatter-plots/",
     "title": "Animating scatter plots",
-    "description": "Creating `Gif`for scatter plots",
+    "description": "Creating `Gif` for scatter plots",
     "author": [
       {
         "name": "Mihiretu Kebede",
@@ -12,7 +12,7 @@
     "date": "2020-07-21",
     "categories": [],
     "preview": {},
-    "last_modified": "2020-07-22T16:44:12+02:00",
-    "input_file": {}
+    "last_modified": "2020-07-22T20:24:34+02:00",
+    "input_file": "07-19-2020-animating-scatter-plots.utf8.md"
   }
 ]

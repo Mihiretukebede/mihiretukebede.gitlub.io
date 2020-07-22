@@ -7,7 +7,7 @@ url: http://www.mihiretukebede.com/
 google_analytics: "UA-173027539-1"
 date: "2020-07-21"
 description: |
-  Creating `Gif`for scatter plots
+  Creating `Gif` for scatter plots
 
 collections:
   posts:
