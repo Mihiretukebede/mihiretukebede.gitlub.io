@@ -1,18 +1,19 @@
 ---
-name: "Mihiretu M. Kebede (PhD)"
+name: "Aspire Data Solutions"
 output_dir: "."
-title: "Aspire Data Solutions"
+title: "Animating scatter plots"
+author: Mihiretu Kebede
+url: http://www.mihiretukebede.com/ 
 google_analytics: "UA-173027539-1"
 date: "2020-07-21"
 description: |
   Creating `Gif`for scatter plots
-baseurl: https://github.com/Mihiretukebede/mihiretukebede.gitlub.io 
 collections:
   posts:
-    disqus: "animating-scatterplot"
-      shortname: "mihiretukebede"
+    disqus: 
+      shortname: "animating-scatter-plots"
       hidden: false
-    share: [twitter, linkedin, facebook, google-plus, pinterest]
+      share: [twitter, linkedin, facebook, google-plus, pinterest]
 output:
   distill::distill_article:
     self_contained: false
@@ -37,17 +38,21 @@ View(type2pre)
 ## Source of data 
 The data is about prevalence of `type 2 diabetes` for 20 countries from 1990-2017
 
-```{r, include=TRUE}
-# You can downloaded such data from the IHME GBD compare websisite. You can select any indicator(prevalence, DALYs, mortality, etc). Check their website https://vizhub.healthdata.org/gbd-compare/ 
+```{r, include=TRUE, echo=TRUE}
+# You can downloaded such data from the IHME GBD compare websisite. You can select any indicator(prevalence, DALYs, mortality, etc). Check their website [GBD](https://vizhub.healthdata.org/gbd-compare/) 
+
 #We will plot prevalence 
 is.factor(type2pre$Year) #to check whether year is coded as numeric variable
 type2pre$yearfactor <- factor(type2pre$Year) #To save year as factor variable
 type2pre$Yearnum <- as.numeric(type2pre$Year) #To save year as numeric variable
 ```
 
-#Install the necessary packages 
+## Install the necessary packages 
 To install the latest version of the packages 
-`library(devtools)` ## NB if you don't have the necessary packages, you need to install them with the following codes
+`library(devtools)` 
+
+- NB if you don't have the necessary packages, you need to install them with the following codes
+
 `devtools::install_github("thomasp85/gganimate")`
 `devtools::install_github("thomasp85/transformr")` transformr is a dependency that helps you with transitions for polygons and lines. 
 
@@ -84,4 +89,4 @@ animate(animateplot, width = 700, height = 500)
 2. https://paldhous.github.io/ucb/2018/dataviz/week14.html 
 
 ## Contact 
- Twitter https://twitter.com/MihiretuKebede1 
+ [@MihiretuKebede1](https://twitter.com/MihiretuKebede1) 

@@ -1,8 +1,11 @@
 --- 
 name: "Aspire Data Solutions"
 output_dir: "."
-title: "Mihiretu M. Kebede (PhD)"
+title: "Mihiretu M. Kebede"
+description: |
+    This is Mihiretu Kebede(PhD)'s personal website. 
 google_analytics: "UA-173027539-1"
+base_url: http://www.mihiretukebede.com/ 
 collections:
   posts:
     disqus: Blog posts

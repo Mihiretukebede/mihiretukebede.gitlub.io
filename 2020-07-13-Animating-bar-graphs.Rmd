@@ -1,9 +1,11 @@
 ---
+name: "Aspire Data Solutions"
+output_dir: "."
 title: "Animating Bargraph"
 description: |
   Here we will see the codes for animating a simple barchart
-author:
-  - name: Mihiretu Kebede
+author: Mihiretu Kebede
+url: http://www.mihiretukebede.com/
 date: "2020-07-18"
 listing: posts
 collections:
@@ -58,4 +60,4 @@ animate(
 ```  
 
 ## Contact 
- [MihiretuKebede1](https://twitter.com/MihiretuKebede1)
+ [@MihiretuKebede1](https://twitter.com/MihiretuKebede1)
