@@ -1,8 +1,7 @@
 --- 
-name: "Mihiretu M. Kebede (PhD)"
+name: "Aspire Data Solutions"
 output_dir: "."
-title: "Aspire Data Solutions"
-baseurl: https://github.com/Mihiretukebede/mihiretukebede.gitlub.io 
+title: "Mihiretu M. Kebede (PhD)"
 google_analytics: "UA-173027539-1"
 collections:
   posts:

@@ -9,7 +9,7 @@ description: |
 baseurl: https://github.com/Mihiretukebede/mihiretukebede.gitlub.io 
 collections:
   posts:
-    disqus: 
+    disqus: "animating-scatterplot"
       shortname: "mihiretukebede"
       hidden: false
     share: [twitter, linkedin, facebook, google-plus, pinterest]
