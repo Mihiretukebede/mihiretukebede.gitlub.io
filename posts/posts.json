@@ -16,5 +16,21 @@
     "input_file": {},
     "preview_width": 1248,
     "preview_height": 768
+  },
+  {
+    "path": "posts/2020-07-22-gif-barch-chart/",
+    "title": "Gif barch chart",
+    "description": "Here we will have a quick look on how to creat `Gif`or animated bar plots.",
+    "author": [
+      {
+        "name": "Mihiretu Kebede",
+        "url": "http://www.mihiretukebede.com/"
+      }
+    ],
+    "date": "2020-07-22",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2020-07-22T22:24:39+02:00",
+    "input_file": "gif-barch-chart.utf8.md"
   }
 ]
