@@ -1,6 +1,6 @@
 --- 
 name: "Mihiretu M. Kebede"
-output_dir: "_site"
+output_dir: "."
 title: "Aspire Data Solutions" 
 description: |
     This is Mihiretu Kebede(PhD)'s personal website. 

@@ -1,0 +1,87 @@
+baseurl: "https://mihiretukebede.com/"
+languageCode: "en-us"
+title: "Mihiretu M. Kebede"
+theme: "hugo-ivy"
+disqusShortname: "yihui"
+ignoreFiles:  ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+hasCJKLanguage: true
+enableEmoji: true
+footnotereturnlinkcontents: "↩"
+rssLimit: 100
+
+
+permalinks:
+  cn: "/cn/:year/:month/:slug/"
+  en: "/en/:year/:month/:slug/"
+
+menu:
+  mname: "About"
+      url: "/en/about/"
+      weight: 1
+    - name: "Blog"
+      url: "/en/"
+      weight: 2
+    - name: "Mihiretu M Kebede"
+      url: "/en/"
+      weight: 3
+    - name: "日志"
+      url: "/cn/"
+      weight: 4
+  en:
+    - name: "Home"
+      url: "/"
+      weight: 1
+    - name: "About"
+      url: "/en/about/"
+      weight: 2
+    - name: "Blog"
+      url: "/en/"
+      weight: 3
+    - name: "CV"
+      url: "/en/vitae/"
+      weight: 4
+    - name: "Publications"
+      url: "/en/"
+      weight: 5
+      
+params:
+  description: "Personal website of Mihiretu M. Kebede (PhD)"
+  footer: "&copy; [Mihiretu M. Kebede](/) 2020"
+  disqusURL: "https://mihiretukebede.com"
+  customJS:
+    - "js/fix-toc.js"
+    - "js/center-img.js"
+    - "js/right-quote.js"
+    - "js/no-highlight.js"
+    - "js/fix-footnote.js"
+    - "js/math-code.js"
+    - "js/external-link.js"
+    - "js/alt-title.js"
+    - "js/header-link.js"
+  githubContentURL: "https://github.com/Mihiretukebede/mihiretukebede.gitlub.io"
+
+  # options for highlight.js (version, additional languages, and theme)
+  highlightjsVersion: "9.12.0"
+  highlightjsCDN: "//cdnjs.cloudflare.com/ajax/libs"
+  highlightjsLang: ["r", "yaml", "tex"]
+  highlightjsTheme: "github"
+
+  logo:
+    en:
+      img: "F:/github/githubwebsite/myphoto.jpg"
+      url: "/"
+      alt: "Mihiretu M Kebede"
+      tag: ""
+
+  author:
+    en: "Mihiretu M. Kebede"
+    
+
+blackfriday:
+    extensionsmask: ["noIntraEmphasis"]
+    fractions: false
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

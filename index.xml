@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Aspire Data Solutions</title>
+    <link>http://www.mihiretukebede.com/</link>
+    <atom:link href="http://www.mihiretukebede.com/index.xml" rel="self" type="application/rss+xml"/>
+    <description>This is Mihiretu Kebede(PhD)'s personal website. 
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Tue, 21 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Animating scatter plots</title>
+      <dc:creator>Mihiretu Kebede</dc:creator>
+      <link>http://www.mihiretukebede.com/posts/2020-07-19-animating-scatter-plots</link>
+      <description>Creating `Gif` for scatter plots</description>
+      <guid>http://www.mihiretukebede.com/posts/2020-07-19-animating-scatter-plots</guid>
+      <pubDate>Tue, 21 Jul 2020 00:00:00 +0000</pubDate>
+      <media:content url="http://www.mihiretukebede.com/posts/2020-07-19-animating-scatter-plots/07-19-2020-animating-scatter-plots_files/figure-html5/setup-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+  </channel>
+</rss>

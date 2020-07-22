@@ -1,0 +1,11 @@
+---
+title: Animating scatter plots
+author: Mihiretu M Kebede
+date: '2020-07-12'
+slug: animating-scatter-plots
+categories: []
+tags:
+  - data vizualization
+  - plot
+  - R Markdown
+---
