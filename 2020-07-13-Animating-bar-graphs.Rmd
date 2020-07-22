@@ -10,12 +10,6 @@ description: |
   Here we will have a quick look on how to creat `Gif`or animated bar plots
 preview: F:/github/githubwebsite/bargraph.JPG
 
-collections:
-  posts:
-    disqus: 
-      shortname: "animating-bar-graphs"
-      hidden: false
-      share: [twitter, linkedin, facebook, google-plus, pinterest]
 output:
   distill::distill_article:
     self_contained: false

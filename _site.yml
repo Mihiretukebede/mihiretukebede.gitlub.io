@@ -9,6 +9,9 @@ base_url: http://www.mihiretukebede.com/
 
 collections:
   posts:
+    disqus: 
+      shortname: "mihiretukebede"
+      hidden: false
       share: [twitter, linkedin, facebook, google-plus, pinterest]
       
 navbar:

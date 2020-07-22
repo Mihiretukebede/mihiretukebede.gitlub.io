@@ -7,13 +7,6 @@ author:
     url: http://www.mihiretukebede.com/ 
 date: 07-22-2020
 preview: F:/github/githubwebsite/bargraph.JPG
-
-collections:
-  posts:
-    disqus: 
-      shortname: "animating-bar-graphs"
-      hidden: false
-      share: [twitter, linkedin, facebook, google-plus, pinterest]
 output:
   distill::distill_article:
     self_contained: false
