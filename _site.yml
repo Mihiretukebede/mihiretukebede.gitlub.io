@@ -11,7 +11,7 @@ collections:
     disqus: Blog posts
     share: [twitter, linkedin, facebook, google-plus, pinterest]
     hidden: false
-    feed_items_max: 50 
+    feed_items_max: 50  
 navbar:
   left:
     - text: "Home"
