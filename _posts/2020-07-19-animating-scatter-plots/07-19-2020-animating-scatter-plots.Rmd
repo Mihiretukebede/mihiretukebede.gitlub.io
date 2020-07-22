@@ -4,6 +4,7 @@ output_dir: "."
 title: "Animating scatter plots"
 author: Mihiretu Kebede
 url: http://www.mihiretukebede.com/ 
+preview: F:/github/githubwebsite/scatterplot.JPG
 google_analytics: "UA-173027539-1"
 date: "2020-07-21"
 description: |
@@ -70,7 +71,9 @@ library(scales) # for scaling your x or y-axis
 ```{r setup, include=TRUE}
 #Basic ggplot
 myplot <- ggplot(type2pre, aes(x=Yearnum, y=Prevalence)) + 
-  geom_point(aes(color=Location, size=3)) 
+  geom_point(aes(color=Location, size=3))
+
+myplot
 
 ## the gganimate part of code
 animateplot <- myplot + transition_time(Yearnum) +

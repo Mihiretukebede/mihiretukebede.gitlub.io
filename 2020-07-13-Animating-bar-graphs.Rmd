@@ -8,7 +8,7 @@ google_analytics: "UA-173027539-1"
 date: "2020-07-13"
 description: |
   Here we will have a quick look on how to creat `Gif`or animated bar plots
-
+preview: F:/github/githubwebsite/bargraph.JPG
 collections:
   posts:
     disqus: 
@@ -61,4 +61,4 @@ animate(
 ```  
 
 ## Contact 
- [@MihiretuKebede1](https://twitter.com/MihiretuKebede1)
+[@MihiretuKebede1](https://twitter.com/MihiretuKebede1)
