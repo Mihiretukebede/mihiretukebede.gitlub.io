@@ -23,7 +23,7 @@ navbar:
     - text: "CV"
       href: cv.html
     - text: "Publications"
-    - href: selected_publications.html
+    - href: publications.html
     
   right:
     - icon: fa-envelope fa-lg

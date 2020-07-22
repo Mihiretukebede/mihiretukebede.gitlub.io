@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
-    <loc>http://www.mihiretukebede.com/2020-07-13-Animating-bar-graphs.html</loc>
-    <lastmod>2020-07-22T22:53:28+02:00</lastmod>
-  </url>
-  <url>
     <loc>http://www.mihiretukebede.com/about.html</loc>
     <lastmod>2020-06-30T23:54:08+02:00</lastmod>
   </url>
@@ -30,11 +26,11 @@
   </url>
   <url>
     <loc>http://www.mihiretukebede.com/</loc>
-    <lastmod>2020-07-21T22:14:06+02:00</lastmod>
+    <lastmod>2020-07-22T23:07:15+02:00</lastmod>
   </url>
   <url>
     <loc>http://www.mihiretukebede.com/Publications.html</loc>
-    <lastmod>2020-07-22T20:58:16+02:00</lastmod>
+    <lastmod>2020-07-22T23:22:07+02:00</lastmod>
   </url>
   <url>
     <loc>http://www.mihiretukebede.com/posts/2020-07-22-gif-barch-chart/</loc>
