@@ -9,6 +9,14 @@
     <generator>Distill</generator>
     <lastBuildDate>Tue, 21 Jul 2020 00:00:00 +0000</lastBuildDate>
     <item>
+      <title>Gif barch chart</title>
+      <dc:creator>Mihiretu Kebede</dc:creator>
+      <link>http://www.mihiretukebede.com/posts/2020-07-22-gif-barch-chart</link>
+      <description>Here we will have a quick look on how to creat `Gif`or animated bar plots.</description>
+      <guid>http://www.mihiretukebede.com/posts/2020-07-22-gif-barch-chart</guid>
+      <pubDate>Tue, 21 Jul 2020 00:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>Animating scatter plots</title>
       <dc:creator>Mihiretu Kebede</dc:creator>
       <link>http://www.mihiretukebede.com/posts/2020-07-19-animating-scatter-plots</link>
@@ -18,12 +26,12 @@
       <media:content url="http://www.mihiretukebede.com/posts/2020-07-19-animating-scatter-plots/07-19-2020-animating-scatter-plots_files/figure-html5/setup-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
-      <title>Gif barch chart</title>
+      <title>Animating bar graphs</title>
       <dc:creator>Mihiretu Kebede</dc:creator>
-      <link>http://www.mihiretukebede.com/posts/2020-07-22-gif-barch-chart</link>
-      <description>Here we will have a quick look on how to creat `Gif`or animated bar plots.</description>
-      <guid>http://www.mihiretukebede.com/posts/2020-07-22-gif-barch-chart</guid>
-      <pubDate>Tue, 21 Jul 2020 00:00:00 +0000</pubDate>
+      <link>http://www.mihiretukebede.com/posts/2020-07-13-Animating-bar-graphs_files</link>
+      <description>Here we will have a quick look on how to creat `Gif`or animated bar plots</description>
+      <guid>http://www.mihiretukebede.com/posts/2020-07-13-Animating-bar-graphs_files</guid>
+      <pubDate>Mon, 13 Jul 2020 00:00:00 +0000</pubDate>
     </item>
   </channel>
 </rss>
