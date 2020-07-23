@@ -1352,7 +1352,7 @@
 <p><link rel="stylesheet" href="styles.css" type="text/css"></p>
 <p>Hello, this is my first ever blog post. Detail explanations of this data vizualization and other upcoming blogs are coming soon soon! Stay tuned.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
+<pre class="text"><code>
 library(readxl)
 mystepcount &lt;- read_excel(&quot;mystepcount.xlsx&quot;)
 
@@ -1363,7 +1363,7 @@ tibble [8 x 4] (S3: tbl_df/tbl/data.frame)
  $ September  : num [1:8] 14 15 16 17 18 19 20 21
  $ Steps      : num [1:8] 1907 18767 10438 23128 28300 ...
  $ Killometres: num [1:8] 1.1 12.8 7.4 17.1 19.1 12.9 13.7 4.9</code></pre>
-<pre class="r"><code>
+<pre class="text"><code>
 library(ggplot2)
 library(gganimate)
 library(scales)
@@ -1372,7 +1372,7 @@ theme_set(theme_bw())
 mystepcount$September &lt;- as.character(mystepcount$September)</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
+<pre class="text"><code>
 animate(
   ggplot(mystepcount, aes(x=September,y=Steps)) + 
   geom_bar(fill=&quot;#004C99&quot;, stat=&quot;identity&quot;, width=1, position=position_dodge()) + 
