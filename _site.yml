@@ -19,9 +19,7 @@ navbar:
       href: about.html
     - text: "CV"
       href: cv.html
-    - text: "Pub"
-      href: Pub.html
-    
+
   right:
     - icon: fa-envelope fa-lg
       href: contact.html

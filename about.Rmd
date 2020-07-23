@@ -13,3 +13,30 @@ In April 2016, Mihiretu came back to Europe and joined the University of Bremen.
 In October 2019, he successfully defended his Ph.D. entitled “Augmenting Diabetes Care and Self-management: What can digital health offer?” During his time at the University of Bremen and while working at BIPS, he presented his papers in several national and international diabetes and epidemiology conferences notably the ADA, EASD, JBI, and DGEPI conferences. He authored more than 30 journal articles published in several peer-reviewed international medical and public health journals. In 2018, he received an award from Publons for being one of the top 1% Peer-reviewers in his field.
 
 Mihiretu Kebede currently works in the division of Cancer Epidemiology at the German Cancer Research Centre in Heidelberg.
+
+# **Selected publications**
+
+1.	**Mihiretu M. Kebede**, Hajo Zeeb, Manuela Peters, Thomas L. Heise, and Claudia R. Pischke. Effectiveness of Digital Interventions for Improving Glycemic Control in Persons with Poorly Controlled Type 2 Diabetes: A Systematic Review, Meta-analysis, and Meta-regression Analysis. Diabetes Technol Therapeutics. 2018 Nov;20(11):767-782.
+https://doi.org/10.1089/dia.2018.0216. Epub 2018 Sep 26.
+
+2.	**Mihiretu Kebede**, Hajo Zeeb, Manuela Peters, Thomas H. Heisse,Claudia Pischke, Comparison of Three Meta-analytic Methods Using Data From Digital Interventions on Type 2 Diabetes, In press at Diabetes, Metabolic Syndrome and Obesity: Targets and Therapy, 2018 Dec 19;12:59-73. doi: https://doi.org/10.2147/DMSO.S180106. 
+
+3.	**Mihiretu M Kebede**, Claudia R Pischke, Popular diabetes apps and the impact of diabetes app use on self-care behaviour: A survey among the digital community of persons with diabetes on Social Media, Frontiers in Endocrinology 2019, 10(135) 10.3389/fendo.2019.00135, https://doi.org/10.3389/fendo.2019.00135.
+
+
+4.	**Kebede M.M**., Schuett C,  Pischke C.R., The Role of Continuous Glucose Monitoring, Diabetes Smartphone Applications, and Self-Care Behavior in Glycemic Control: Results of a Multi-National Online Survey. J. Clinical Medicine, 2019, 8(109), https://doi.org/10.3390/jcm8010109. 
+
+5.	**Kebede MM**, Liedtke TP, Möllers T, Pischke CR: Characterizing Active Ingredients of eHealth Interventions Targeting Persons With Poorly Controlled Type 2 Diabetes Mellitus Using the Behavior Change Techniques Taxonomy: Scoping Review. Journal of medical Internet research 2017, 19(10):e348-e348, https://www.jmir.org/2017/10/e348/ .
+
+
+6.	**Kebede M**, Zegeye DT, Zeleke BM: Predicting CD4 count changes among patients on antiretroviral treatment: Application of data mining techniques. Computer methods and programs in biomedicine 2017, 152:149-157, doi: https://doi.org/10.1016/j.cmpb.2017.09.017. 
+
+7.	Astatikie G, Limenih MA, Kebede M: Maternal and fetal outcomes of uterine rupture and factors associated with maternal death secondary to uterine rupture. BMC pregnancy and childbirth 2017, 17(1):117, https://doi.org/10.1186/s12884-017-1302-z. 
+
+8.	**Kebede M**, Zeleke A, Asemahagn M, Fritz F: Willingness to receive text message medication reminders among patients on antiretroviral treatment in North West Ethiopia: A cross-sectional study. BMC medical informatics and decision making 2015, 15(1):65, https://doi.org/10.1186/s12911-015-0193-z. 
+
+9.	*GBD 2017 HIV collaborators*, Global, regional, and national incidence, prevalence, and mortality of HIV, 1980–2017, and forecasts to 2030, for 195 countries and territories: a systematic analysis for the Global Burden of Diseases, Injuries, and Risk Factors Study 2017, the Lancet HIV, August 2019, https://doi.org/10.1016/S2352-3018(19)30196-1. 
+
+
+## More publications from my [ORCID records](https://orcid.org/0000-0002-5599-2823). 
+
