@@ -11,6 +11,10 @@ description: |
   
 preview: F:\\github\\githubwebsite\\bargraph.JPG
 
+collections:
+  posts:
+      share: [twitter, linkedin, facebook, google-plus, pinterest]
+      
 output:
   distill::distill_article:
     self_contained: false
@@ -21,7 +25,10 @@ output:
 
   Hello, this is my first ever blog post. Detail explanations of this data vizualization and other upcoming blogs are coming soon soon! Stay tuned. 
   
-```{r, echo=TRUE}
+```{r, echo=TRUE, include=TRUE}
+#Set working directory
+setwd("F:/github/githubwebsite")
+
 library(readxl)
 mystepcount <- read_excel("mystepcount.xlsx")
 
@@ -36,7 +43,7 @@ mystepcount$September <- as.character(mystepcount$September)
 
 ```
 
-```{r, echo=TRUE}
+```{r, echo=TRUE, include=TRUE}
 animate(
   ggplot(mystepcount, aes(x=September,y=Steps)) + 
   geom_bar(fill="#004C99", stat="identity", width=1, position=position_dodge()) + 
@@ -57,4 +64,4 @@ animate(
 ```  
 
 ## Contact 
-[@MihiretuKebede1](https://twitter.com/MihiretuKebede1)
+Please mention [MihiretuKebede1](https://www.https://twitter.com/MihiretuKebede1) if you tweet this post. 
