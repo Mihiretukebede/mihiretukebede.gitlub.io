@@ -6,7 +6,7 @@ author:
   - name: Mihiretu Kebede
     url: http://www.mihiretukebede.com/ 
 date: "2020-07-23"
-preview: F:/github/githubwebsite/bargraph.JPG
+preview: bargraph.JPG
 
 collections:
   posts:
