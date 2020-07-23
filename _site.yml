@@ -38,4 +38,4 @@ navbar:
     - icon: fa fa-rss
       href: index.xml
 
-output: distill::distill_article  
+output: distill::distill_article   
