@@ -9,7 +9,7 @@ base_url: http://www.mihiretukebede.com/
 
 collections:
   posts:
-      share: [twitter, linkedin, facebook, google-plus, pinterest]
+      share: [twitter, linkedin, facebook, google-plus, pinterest] 
       
 navbar:
   left:
