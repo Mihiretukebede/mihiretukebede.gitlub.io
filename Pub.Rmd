@@ -2,6 +2,7 @@
 title: "Publications"
 ---
 
+# **Selected publications**
 
 1.	**Mihiretu M. Kebede**, Hajo Zeeb, Manuela Peters, Thomas L. Heise, and Claudia R. Pischke. Effectiveness of Digital Interventions for Improving Glycemic Control in Persons with Poorly Controlled Type 2 Diabetes: A Systematic Review, Meta-analysis, and Meta-regression Analysis. Diabetes Technol Therapeutics. 2018 Nov;20(11):767-782.
 https://doi.org/10.1089/dia.2018.0216. Epub 2018 Sep 26.

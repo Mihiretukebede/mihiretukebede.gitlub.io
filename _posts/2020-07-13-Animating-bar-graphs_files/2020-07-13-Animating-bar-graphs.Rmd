@@ -9,7 +9,7 @@ date: "2020-07-13"
 description: |
   Here we will have a quick look on how to create `Gif` or animated bar plots
   
-preview: F:/github/githubwebsite/bar.png
+preview: F:/github/githubwebsite/bar.png 
 
 collections:
   posts:
@@ -23,7 +23,7 @@ output:
 
 <link rel="stylesheet" href="styles.css" type="text/css">
 
-  Hello, this is my first ever blog post. Detail explanations of this data vizualization and other upcoming blogs are coming soon soon! Stay tuned. 
+Hello, this is my first ever blog post. Detail explanations of this data vizualization and other upcoming blogs are coming soon! Stay tuned. 
   
 ```{r, echo=TRUE, include=TRUE}
 #Set working directory
