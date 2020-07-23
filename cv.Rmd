@@ -92,7 +92,6 @@ Active engagement within professional organizations
 # OTHER RELEVANT SKILLS AND (VOLUNTARY) EXPERIENCE
 -	R, STATA, SPSS, COVIDENCE, GRADEpro, RevMan, WEKA, Epi INFO, and ArcGIS
 -	Languages: Amharic (mother tongue), English (fluent), German (B1).
--	Blog data analyses and visualization on RPubs webpage: http://rpubs.com/Mihiretu1. 
 - Founder and volunteer of a diabetes Facebook page aiming to empower self-care and self-management of diabetes via social media with more than 2200 followers.
 -	Blog non-academic articles on “Health Effect of Climate Change” for Climate change awareness via WorldPress and social media.
 - Voluntary work in different projects supporting schools and health centers in Northwest Ethiopia.

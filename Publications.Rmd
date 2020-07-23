@@ -1,5 +1,5 @@
 ---
-title: "Selected publications"
+title: "Publications"
 output:
   html_document
 ---
