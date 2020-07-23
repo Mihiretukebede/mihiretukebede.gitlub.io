@@ -9,7 +9,13 @@ google_analytics: "UA-173027539-1"
 date: "2020-07-21"
 description: |
   Creating `Gif` for scatter plots
-
+  
+collections:
+  posts:
+    disqus: 
+      shortname: "mihiretukebede"
+      hidden: false
+      share: [twitter, linkedin, facebook, google-plus, pinterest]
 output:
   distill::distill_article:
     self_contained: false
