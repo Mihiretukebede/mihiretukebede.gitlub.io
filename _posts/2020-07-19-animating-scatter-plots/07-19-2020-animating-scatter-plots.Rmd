@@ -93,4 +93,4 @@ animate(animateplot, width = 700, height = 500)
 2. https://paldhous.github.io/ucb/2018/dataviz/week14.html 
 
 ## Contact 
- [@MihiretuKebede1](https://twitter.com/MihiretuKebede1) 
+[@MihiretuKebede1](https://twitter.com/MihiretuKebede1) 
