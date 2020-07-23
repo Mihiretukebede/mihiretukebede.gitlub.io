@@ -5,7 +5,7 @@ title: "Animating bar graphs"
 author: Mihiretu Kebede
 url: http://www.mihiretukebede.com/ 
 google_analytics: "UA-173027539-1"
-date: "`r Sys.Date()`"
+date: July 13, 2020 
 description: |
   Here we will have a quick look on how to creat `Gif`or animated bar plots
 preview: F:/github/githubwebsite/bargraph.JPG
