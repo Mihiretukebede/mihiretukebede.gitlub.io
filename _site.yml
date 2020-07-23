@@ -20,7 +20,7 @@ navbar:
     - text: "CV"
       href: cv.html
     - text: "Publications"
-      href: publications.html
+      href: pub.html
     
   right:
     - icon: fa-envelope fa-lg
