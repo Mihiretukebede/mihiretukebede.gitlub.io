@@ -1,21 +1,5 @@
 [
   {
-    "path": "posts/2020-07-22-gif-barch-chart/",
-    "title": "Gif barch chart",
-    "description": "Here we will have a quick look on how to improve a simple bargraph using `Gif` or animated bar plots.",
-    "author": [
-      {
-        "name": "Mihiretu Kebede",
-        "url": "http://www.mihiretukebede.com/"
-      }
-    ],
-    "date": "2020-07-23",
-    "categories": [],
-    "preview": {},
-    "last_modified": "2020-07-23T22:41:38+02:00",
-    "input_file": "gif-barch-chart.utf8.md"
-  },
-  {
     "path": "posts/2020-07-19-animating-scatter-plots/",
     "title": "Animating scatter plots",
     "description": "Creating `Gif` for scatter plots",
@@ -28,8 +12,8 @@
     "date": "2020-07-21",
     "categories": [],
     "preview": "posts/2020-07-19-animating-scatter-plots/07-19-2020-animating-scatter-plots_files/figure-html5/setup-1.png",
-    "last_modified": "2020-07-23T13:17:45+02:00",
-    "input_file": {},
+    "last_modified": "2020-07-23T23:01:21+02:00",
+    "input_file": "07-19-2020-animating-scatter-plots.utf8.md",
     "preview_width": 1248,
     "preview_height": 768
   },
