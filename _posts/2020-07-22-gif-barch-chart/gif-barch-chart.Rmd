@@ -1,0 +1,63 @@
+---
+title: "Gif barch chart"
+description: |
+  Here we will have a quick look on how to improve a simple bargraph using `Gif` or animated bar plots.
+author:
+  - name: Mihiretu Kebede
+    url: http://www.mihiretukebede.com/ 
+date: "2020-07-23"
+preview: F:/github/githubwebsite/bargraph.JPG
+
+collections:
+  posts:
+      share: [twitter, linkedin, facebook, google-plus, pinterest]
+      
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+<link rel="stylesheet" href="styles.css" type="text/css">
+
+  Hello, this is my first ever blog post. Detail explanations of this data vizualization and other upcoming blogs are coming soon soon! Stay tuned. 
+  
+```{r, echo=TRUE, include=TRUE}
+#Set working directory
+setwd("F:/github/githubwebsite")
+
+library(readxl)
+mystepcount <- read_excel("mystepcount.xlsx")
+
+str(mystepcount)
+
+library(ggplot2)
+library(gganimate)
+library(scales)
+theme_set(theme_bw())
+
+mystepcount$September <- as.character(mystepcount$September)
+
+```
+
+```{r, echo=TRUE, include=TRUE}
+animate(
+  ggplot(mystepcount, aes(x=September,y=Steps)) + 
+  geom_bar(fill="#004C99", stat="identity", width=1, position=position_dodge()) + 
+    geom_hline(yintercept = 10000, col="black", size=1) +
+  transition_states(September, wrap = FALSE) +
+  shadow_mark() +
+  enter_grow() +
+  enter_fade() + 
+  theme(axis.text = element_text(size=16),
+        axis.title = element_text(size=16, face="bold")) + 
+  xlab("September") +  
+  scale_y_discrete(name="Step counts", limits=c(5000,10000, 15000, 20000, 25000, 30000)) +
+  theme(axis.line = element_line(colour = "black"),
+          panel.border = element_blank()) ,
+  
+  duration = .001
+  )
+```  
+
+## Contact 
+Please mention [MihiretuKebede1](https://www.https://twitter.com/MihiretuKebede1) if you tweet this post. 
