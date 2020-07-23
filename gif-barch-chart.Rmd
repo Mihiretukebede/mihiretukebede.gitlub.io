@@ -1,7 +1,7 @@
 ---
 title: "Gif barch chart"
 description: |
-  Here we will have a quick look on how to creat `Gif` or animated bar plots.
+  Here we will have a quick look on how to create `Gif` or animated bar plots.
 author:
   - name: Mihiretu Kebede
     url: http://www.mihiretukebede.com/ 
