@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
   <meta name="generator" content="distill" />
-  <link rel="alternate" type="application/rss+xml" href="http://www.mihiretukebede.com/index.xml" />
 
   <style type="text/css">
   /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
@@ -20,26 +19,26 @@
  <!--/radix_placeholder_import_source-->
 
   <!--radix_placeholder_meta_tags-->
-  <title>Aspire Data Solutions: </title>
+  <title>Aspire Data Solutions: Publications</title>
   
   
   
   
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Aspire Data Solutions: "/>
+  <meta property="og:title" content="Aspire Data Solutions: Publications"/>
   <meta property="og:type" content="article"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Aspire Data Solutions"/>
   
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Aspire Data Solutions: "/>
+  <meta property="twitter:title" content="Aspire Data Solutions: Publications"/>
   
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","site","listing"]}},"value":[{"type":"character","attributes":{},"value":[""]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"character","attributes":{},"value":["posts"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["Publications"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -1282,12 +1281,12 @@
 
 </head>
 
-<body class="layout-listing">
+<body>
 
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"","authors":[]}
+{"title":"Publications","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1329,380 +1328,26 @@
 <!--/radix_placeholder_navigation_before_body-->
 <!--radix_placeholder_site_before_body-->
 <!--/radix_placeholder_site_before_body-->
-<!--radix_placeholder_article_listing-->
-
-<style type="text/css">
-
-/* Styles for listing layout (hide title) */
-.layout-listing d-title, .layout-listing .d-title {
-  display: none;
-}
-
-/* Styles for posts lists (not auto-injected) */
-
-
-.posts-with-sidebar {
-  padding-left: 45px;
-  padding-right: 45px;
-}
-
-.posts-list .description h2,
-.posts-list .description p {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-}
-
-.posts-list .description h2 {
-  font-weight: 700;
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-.posts-list h2.post-tag {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  padding-bottom: 12px;
-}
-.posts-list {
-  margin-top: 60px;
-  margin-bottom: 24px;
-}
-
-.posts-list .post-preview {
-  text-decoration: none;
-  overflow: hidden;
-  display: block;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 24px 0;
-}
-
-.post-preview-last {
-  border-bottom: none !important;
-}
-
-.posts-list .posts-list-caption {
-  grid-column: screen;
-  font-weight: 400;
-}
-
-.posts-list .post-preview h2 {
-  margin: 0 0 6px 0;
-  line-height: 1.2em;
-  font-style: normal;
-  font-size: 24px;
-}
-
-.posts-list .post-preview p {
-  margin: 0 0 12px 0;
-  line-height: 1.4em;
-  font-size: 16px;
-}
-
-.posts-list .post-preview .thumbnail {
-  box-sizing: border-box;
-  margin-bottom: 24px;
-  position: relative;
-  max-width: 500px;
-}
-.posts-list .post-preview img {
-  width: 100%;
-  display: block;
-}
-
-.posts-list .metadata {
-  font-size: 12px;
-  line-height: 1.4em;
-  margin-bottom: 18px;
-}
-
-.posts-list .metadata > * {
-  display: inline-block;
-}
-
-.posts-list .metadata .publishedDate {
-  margin-right: 1em;
-}
-
-.posts-list .metadata .tags {
-  margin-top: 1em;
-}
-
-.posts-list .tags .tag {
-  color: rgba(0,0,0,0.67);
-  padding: 0.3em 0.5em;
-  margin: 0;
-  font-size: 80%;
-  border: 1px solid rgba(0,0,0,0.4);
-  border-radius: 3px;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-
-.posts-list img {
-  opacity: 1;
-}
-
-.posts-list img[data-src] {
-  opacity: 0;
-}
-
-.posts-more {
-  clear: both;
-}
-
-
-.posts-sidebar {
-  font-size: 16px;
-}
-
-.posts-sidebar h3 {
-  font-size: 16px;
-  margin-top: 0;
-  margin-bottom: 0.5em;
-  font-weight: 400;
-  text-transform: uppercase;
-}
-
-.sidebar-section {
-  margin-bottom: 30px;
-}
-
-.categories ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.categories li {
-  color: rgba(0, 0, 0, 0.8);
-  margin-bottom: 0;
-}
-
-.categories li>a {
-  border-bottom: none;
-}
-
-.categories li>a:hover {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-}
-
-.categories .active {
-  font-weight: 600;
-}
-
-.categories .category-count {
-  color: rgba(0, 0, 0, 0.4);
-}
-
-
-@media(min-width: 768px) {
-  .posts-list .post-preview h2 {
-    font-size: 26px;
-  }
-  .posts-list .post-preview .thumbnail {
-    float: right;
-    width: 35%;
-    margin-bottom: 0;
-  }
-  .posts-list .post-preview .description {
-    float: left;
-    width: 45%;
-  }
-  .posts-list .post-preview .metadata {
-    float: left;
-    width: 15%;
-    margin-top: 8px;
-  }
-  .posts-list .post-preview p {
-    margin: 0 0 12px 0;
-    line-height: 1.5em;
-    font-size: 16px;
-  }
-  .posts-with-sidebar .posts-list {
-    float: left;
-    width: 72%;
-  }
-  .posts-with-sidebar .posts-sidebar {
-    float: right;
-    width: 20%;
-    margin-top: 60px;
-    padding-top: 24px;
-    padding-bottom: 24px;
-  }
-}
-
-.downlevel .posts-list .post-preview {
-  color: inherit;
-}
-
-</style>
-
-<script type="application/javascript">
-
-function init_posts_list() {
-
-  function load_image(img) {
-    var src = $(img).attr('data-src');
-    if (src) {
-      $(img).attr('src', src);
-      $(img).load(function() {
-        img.removeAttribute('data-src');
-      });
-    }
-  }
-
-  function set_posts_visible(posts, visible) {
-    if (visible) {
-
-      // show bottom border by default
-      $(posts).removeClass('post-preview-last');
-
-      // apply limits if need be
-      var max_posts = 25;
-      var apply_limits = $('.posts-container').hasClass('posts-apply-limit');
-      if (apply_limits && posts.length > max_posts) {
-        posts = $(posts).slice(0, max_posts);
-      } else {
-        $('.posts-more a').addClass('hidden');
-      }
-
-      // apply last style
-      $(posts.slice(-1)[0]).addClass('post-preview-last');
-
-      $(posts).removeClass('hidden');
-      $(posts).find('img[data-src]').each(function(i, img) {
-        load_image(img);
-      });
-    } else {
-      $(posts).addClass('hidden');
-    }
-  }
-
-  function apply_hash_filter() {
-
-    // clear active state
-    $('.categories .active').removeClass('active');
-
-    // mark all posts invisible to start
-    set_posts_visible($('.posts-list').children('a'), false);
-
-    // if we have a hash filter
-    if (window.location.hash) {
-
-      // mark posts that match the category visible
-      var page_category = window.location.hash.replace("#", "");
-      var posts = $('.post-metadata').map(function(idx, script) {
-        var metadata = $.parseJSON($(script).html());
-        var post = null;
-        $.each(metadata.categories, function(idx, category) {
-          category = category.replace(/ /g,"_");
-          if (category == page_category) {
-            post = $(script).parent().get();
-            return false;
-          }
-        });
-        return post;
-      });
-      set_posts_visible(posts, true);
-
-      // mark the hash active
-      $('.categories li>a[href="' + window.location.hash + '"]').addClass('active');
-
-    } else {
-
-      // no hash filter, make all posts visible (subject to max display)
-      set_posts_visible($('.posts-list').children(), true);
-
-    }
-  }
-
-  // more articles
-  function apply_post_limits(apply) {
-    if (apply) {
-      $('.posts-container').addClass('posts-apply-limit');
-      $('.posts-more a').removeClass('hidden');
-    } else {
-      $('.posts-container').removeClass('posts-apply-limit');
-      $('.posts-more a').addClass('hidden');
-    }
-  }
-
-  // hash filter handling
-  apply_hash_filter();
-  $(window).on('hashchange',function() {
-    apply_post_limits(true);
-    apply_hash_filter();
-  });
-
-  // more articles link
-  $('.posts-more a').click(function(e) {
-    e.preventDefault();
-    apply_post_limits(false);
-    apply_hash_filter();
-    return false;
-  });
-
-}
-
-</script>
-
-
-
-<div class="posts-container posts-apply-limit l-page">
-<div class="posts-list">
-<h1 class="posts-list-caption"></h1>
-<a href="posts/2020-07-22-gif-barch-chart/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">July 23, 2020</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Gif barch chart</h2>
-<p>Here we will have a quick look on how to creat `Gif`or animated bar plots.</p>
-</div>
-</a>
-<a href="posts/2020-07-19-animating-scatter-plots/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">July 21, 2020</div>
-</div>
-<div class="thumbnail">
-<img data-src="posts/2020-07-19-animating-scatter-plots/07-19-2020-animating-scatter-plots_files/figure-html5/setup-1.png"/>
-</div>
-<div class="description">
-<h2>Animating scatter plots</h2>
-<p>Creating `Gif` for scatter plots</p>
-</div>
-</a>
-<a href="posts/2020-07-13-Animating-bar-graphs_files/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">July 13, 2020</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Animating bar graphs</h2>
-<p>Here we will have a quick look on how to creat `Gif`or animated bar plots</p>
-</div>
-</a>
-</div>
-<div class="posts-more">
-<a href="#">More articles &raquo;</a>
-</div>
-</div>
-<!--/radix_placeholder_article_listing-->
 
 <div class="d-title">
-<h1>index.utf8</h1>
+<h1>Publications</h1>
 
 </div>
 
 
 <div class="d-article">
-
+<ol type="1">
+<li><p><strong>Mihiretu M. Kebede</strong>, Hajo Zeeb, Manuela Peters, Thomas L. Heise, and Claudia R. Pischke. Effectiveness of Digital Interventions for Improving Glycemic Control in Persons with Poorly Controlled Type 2 Diabetes: A Systematic Review, Meta-analysis, and Meta-regression Analysis. Diabetes Technol Therapeutics. 2018 Nov;20(11):767-782. <a href="https://doi.org/10.1089/dia.2018.0216" class="uri">https://doi.org/10.1089/dia.2018.0216</a>. Epub 2018 Sep 26.</p></li>
+<li><p><strong>Mihiretu Kebede</strong>, Hajo Zeeb, Manuela Peters, Thomas H. Heisse,Claudia Pischke, Comparison of Three Meta-analytic Methods Using Data From Digital Interventions on Type 2 Diabetes, In press at Diabetes, Metabolic Syndrome and Obesity: Targets and Therapy, 2018 Dec 19;12:59-73. doi: <a href="https://doi.org/10.2147/DMSO.S180106" class="uri">https://doi.org/10.2147/DMSO.S180106</a>.</p></li>
+<li><p><strong>Mihiretu M Kebede</strong>, Claudia R Pischke, Popular diabetes apps and the impact of diabetes app use on self-care behaviour: A survey among the digital community of persons with diabetes on Social Media, Frontiers in Endocrinology 2019, 10(135) 10.3389/fendo.2019.00135, <a href="https://doi.org/10.3389/fendo.2019.00135" class="uri">https://doi.org/10.3389/fendo.2019.00135</a>.</p></li>
+<li><p><strong>Kebede M.M</strong>., Schuett C, Pischke C.R., The Role of Continuous Glucose Monitoring, Diabetes Smartphone Applications, and Self-Care Behavior in Glycemic Control: Results of a Multi-National Online Survey. J. Clinical Medicine, 2019, 8(109), <a href="https://doi.org/10.3390/jcm8010109" class="uri">https://doi.org/10.3390/jcm8010109</a>.</p></li>
+<li><p><strong>Kebede MM</strong>, Liedtke TP, Möllers T, Pischke CR: Characterizing Active Ingredients of eHealth Interventions Targeting Persons With Poorly Controlled Type 2 Diabetes Mellitus Using the Behavior Change Techniques Taxonomy: Scoping Review. Journal of medical Internet research 2017, 19(10):e348-e348, <a href="https://www.jmir.org/2017/10/e348/" class="uri">https://www.jmir.org/2017/10/e348/</a> .</p></li>
+<li><p><strong>Kebede M</strong>, Zegeye DT, Zeleke BM: Predicting CD4 count changes among patients on antiretroviral treatment: Application of data mining techniques. Computer methods and programs in biomedicine 2017, 152:149-157, doi: <a href="https://doi.org/10.1016/j.cmpb.2017.09.017" class="uri">https://doi.org/10.1016/j.cmpb.2017.09.017</a>.</p></li>
+<li><p>Astatikie G, Limenih MA, Kebede M: Maternal and fetal outcomes of uterine rupture and factors associated with maternal death secondary to uterine rupture. BMC pregnancy and childbirth 2017, 17(1):117, <a href="https://doi.org/10.1186/s12884-017-1302-z" class="uri">https://doi.org/10.1186/s12884-017-1302-z</a>.</p></li>
+<li><p><strong>Kebede M</strong>, Zeleke A, Asemahagn M, Fritz F: Willingness to receive text message medication reminders among patients on antiretroviral treatment in North West Ethiopia: A cross-sectional study. BMC medical informatics and decision making 2015, 15(1):65, <a href="https://doi.org/10.1186/s12911-015-0193-z" class="uri">https://doi.org/10.1186/s12911-015-0193-z</a>.</p></li>
+<li><p><em>GBD 2017 HIV collaborators</em>, Global, regional, and national incidence, prevalence, and mortality of HIV, 1980–2017, and forecasts to 2030, for 195 countries and territories: a systematic analysis for the Global Burden of Diseases, Injuries, and Risk Factors Study 2017, the Lancet HIV, August 2019, <a href="https://doi.org/10.1016/S2352-3018(19)30196-1" class="uri">https://doi.org/10.1016/S2352-3018(19)30196-1</a>.</p></li>
+</ol>
+<h2 id="more-publications-from-my-orcid-records.">More publications from my <a href="https://orcid.org/0000-0002-5599-2823">ORCID records</a>.</h2>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
