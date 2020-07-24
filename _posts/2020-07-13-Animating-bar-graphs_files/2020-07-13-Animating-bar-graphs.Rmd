@@ -9,8 +9,6 @@ date: "2020-07-13"
 description: |
   Here we will have a quick look on how to create `Gif` or animated bar plots
   
-preview: F:/github/githubwebsite/bar.png 
-
 collections:
   posts:
       share: [twitter, linkedin, facebook, google-plus, pinterest]
@@ -42,6 +40,15 @@ theme_set(theme_bw())
 mystepcount$September <- as.character(mystepcount$September)
 
 ```
+
+```{r, layout="l-body-outset", preview=TRUE}
+
+#Plot step counts on the y-axis and days of September on the x-axis
+ggplot(mystepcount, aes(x=September,y=Steps)) + 
+  geom_bar(fill="#004C99", stat="identity", width=1, position=position_dodge()) + 
+    geom_hline(yintercept = 10000, col="black", size=1)
+```
+
 
 ```{r, echo=TRUE, include=TRUE}
 animate(
