@@ -4,7 +4,7 @@ title: "CURRICULUM VITAE"
   
 <link rel="stylesheet" href="styles.css" type="text/css">
 
-Dr Mihiretu M. Kebede, Husarensttasse 3 | DE-69121 Heidelberg | +49 (0)176 87170349 | mihiretaabush@gmail.com
+Dr Mihiretu M. Kebede, Husarenstrasse 3 | DE-69121 Heidelberg | +49 (0)176 87170349 | mihiretaabush@gmail.com
 
 # PERSONAL DETAILS
 - Nationality:	Ethiopian 
@@ -21,6 +21,7 @@ Passionate “early-career” researcher with more than 10 years of experience i
 # EDUCATION		
 - Apr 2016 – Jun 2019,	**PhD in Public Health**: University of Bremen, Germany
   - Dissertation title: [*“Augmenting Diabetes care and Self-management: What can digital health offer?”*](https://media.suub.uni-bremen.de/handle/elib/4307)
+  (Grade: _**Magna Cum Laude**_)
 - Mar - Jun 2015,	**Advanced  Diploma  in  Health  Care  and  Management  in  Tropical	Countries**: University of Basel, Switzerland (Grade 82.5/100)
 - Oct 2010 - Jul 2012,	**Master  of  Public  Health in Health Informatics**:  University  of  Gondar,  Ethiopia  (Grade 3.91/4.0)	
   - Thesis  title: *“Predictors  of  CD4  count  change  among  patients  on* 
