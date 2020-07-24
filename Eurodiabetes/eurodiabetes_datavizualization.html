@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+  <!--radix_placeholder_meta_tags-->
+  <title>Vizualizing the prevalence of diabetes in five European countries</title>
+  
+  <meta property="description" itemprop="description" content="This is a quick demonstration of diabetes prevalence in five European countries. Tha data are from the IHME."/>
+  
+  
+  <!--  https://schema.org/Article -->
+  <meta property="article:published" itemprop="datePublished" content="2020-07-24"/>
+  <meta property="article:created" itemprop="dateCreated" content="2020-07-24"/>
+  <meta name="article:author" content="Mihiretu Kebede (PhD)"/>
+  
+  <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+  <meta property="og:title" content="Vizualizing the prevalence of diabetes in five European countries"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:description" content="This is a quick demonstration of diabetes prevalence in five European countries. Tha data are from the IHME."/>
+  <meta property="og:locale" content="en_US"/>
+  
+  <!--  https://dev.twitter.com/cards/types/summary -->
+  <meta property="twitter:card" content="summary"/>
+  <meta property="twitter:title" content="Vizualizing the prevalence of diabetes in five European countries"/>
+  <meta property="twitter:description" content="This is a quick demonstration of diabetes prevalence in five European countries. Tha data are from the IHME."/>
+  
+  <!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-rmarkdown-metadata">
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","output_dir","title","author","url","google_analytics","date","description","collections","output"]}},"value":[{"type":"character","attributes":{},"value":["Aspire Data Solutions"]},{"type":"character","attributes":{},"value":["."]},{"type":"character","attributes":{},"value":["Vizualizing the prevalence of diabetes in five European countries"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Mihiretu Kebede (PhD)"]}]}]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/"]},{"type":"character","attributes":{},"value":["UA-173027539-1"]},{"type":"character","attributes":{},"value":["2020-07-24"]},{"type":"character","attributes":{},"value":["This is a quick demonstration of diabetes prevalence in five European countries. Tha data are from the IHME. \n"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["posts"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["share"]}},"value":[{"type":"character","attributes":{},"value":["twitter","linkedin","facebook","google-plus","pinterest"]}]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  </script>
+  <!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["Eurodiabetes.csv","eurodiabetes_datavizualization_files/bowser-1.9.3/bowser.min.js","eurodiabetes_datavizualization_files/distill-2.2.21/template.v2.js","eurodiabetes_datavizualization_files/figure-html5/unnamed-chunk-5-1.png","eurodiabetes_datavizualization_files/figure-html5/unnamed-chunk-7-1.gif","eurodiabetes_datavizualization_files/figure-html5/unnamed-chunk-8-1.gif","eurodiabetes_datavizualization_files/figure-html5/unnamed-chunk-9-1.gif","eurodiabetes_datavizualization_files/jquery-1.11.3/jquery.min.js","eurodiabetes_datavizualization_files/webcomponents-2.0.0/webcomponents.js"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+  <!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+  
+  <style type="text/css">
+  
+  body {
+    background-color: white;
+  }
+  
+  .pandoc-table {
+    width: 100%;
+  }
+  
+  .pandoc-table>caption {
+    margin-bottom: 10px;
+  }
+  
+  .pandoc-table th:not([align]) {
+    text-align: left;
+  }
+  
+  .pagedtable-footer {
+    font-size: 15px;
+  }
+  
+  .html-widget {
+    margin-bottom: 2.0em;
+  }
+  
+  .l-screen-inset {
+    padding-right: 16px;
+  }
+  
+  .l-screen .caption {
+    margin-left: 10px;
+  }
+  
+  .shaded {
+    background: rgb(247, 247, 247);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .shaded .html-widget {
+    margin-bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .shaded .shaded-content {
+    background: white;
+  }
+  
+  .text-output {
+    margin-top: 0;
+    line-height: 1.5em;
+  }
+  
+  .hidden {
+    display: none !important;
+  }
+  
+  d-article {
+    padding-bottom: 30px;
+  }
+  
+  d-appendix {
+    padding-top: 30px;
+  }
+  
+  d-article>p>img {
+    width: 100%;
+  }
+  
+  d-article iframe {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.0em;
+    width: 100%;
+  }
+  
+  figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+  
+  /* CSS for table of contents */
+  
+  .d-toc {
+    color: rgba(0,0,0,0.8);
+    font-size: 0.8em;
+    line-height: 1em;
+  }
+  
+  .d-toc-header {
+    font-size: 0.6rem;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 1.3em;
+  }
+  
+  .d-toc a {
+    border-bottom: none;
+  }
+  
+  .d-toc ul {
+    padding-left: 0;
+  }
+  
+  .d-toc li>ul {
+    padding-top: 0.8em;
+    padding-left: 16px;
+    margin-bottom: 0.6em;
+  }
+  
+  .d-toc ul,
+  .d-toc li {
+    list-style-type: none;
+  }
+  
+  .d-toc li {
+    margin-bottom: 0.9em;
+  }
+  
+  .d-toc-separator {
+    margin-top: 20px;
+    margin-bottom: 2em;
+  }
+  
+  .d-article-with-toc {
+    border-top: none;
+    padding-top: 0;
+  }
+  
+  
+  
+  /* Tweak code blocks (note that this CSS is repeated above in an injection
+     into the d-code shadow dom) */
+  
+  d-code {
+    overflow-x: auto !important;
+  }
+  
+  pre.d-code code.d-code {
+    padding-left: 10px;
+    font-size: 12px;
+    border-left: 2px solid rgba(0,0,0,0.1);
+  }
+  
+  pre.text-output {
+  
+    font-size: 12px;
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+  
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+  
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+  
+  @media(min-width: 768px) {
+  
+  d-code {
+    overflow-x: visible !important;
+  }
+  
+  pre.d-code code.d-code  {
+      padding-left: 18px;
+      font-size: 14px;
+  }
+  pre.text-output {
+    font-size: 14px;
+  }
+  }
+  
+  /* Figure */
+  
+  .figure {
+    position: relative;
+    margin-bottom: 2.5em;
+    margin-top: 1.5em;
+  }
+  
+  .figure img {
+    width: 100%;
+  }
+  
+  .figure .caption {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 12px;
+    line-height: 1.5em;
+  }
+  
+  .figure img.external {
+    background: white;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+    padding: 18px;
+    box-sizing: border-box;
+  }
+  
+  .figure .caption a {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .figure .caption b,
+  .figure .caption strong, {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 1.0);
+  }
+  
+  
+  
+  /* Tweak 1000px media break to show more text */
+  
+  @media(min-width: 1000px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 16px;
+    }
+  
+    .grid {
+      grid-column-gap: 16px;
+    }
+  
+    d-article {
+      font-size: 1.06rem;
+      line-height: 1.7em;
+    }
+    figure .caption, .figure .caption, figure figcaption {
+      font-size: 13px;
+    }
+  }
+  
+  @media(min-width: 1180px) {
+    .base-grid,
+    distill-header,
+    d-title,
+    d-abstract,
+    d-article,
+    d-appendix,
+    distill-appendix,
+    d-byline,
+    d-footnote-list,
+    d-citation-list,
+    distill-footer {
+      grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+      grid-column-gap: 32px;
+    }
+  
+    .grid {
+      grid-column-gap: 32px;
+    }
+  }
+  
+  
+  /* Get the citation styles for the appendix (not auto-injected on render since
+     we do our own rendering of the citation appendix) */
+  
+  d-appendix .citation-appendix,
+  .d-appendix .citation-appendix {
+    font-size: 11px;
+    line-height: 15px;
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    padding-left: 18px;
+    border: 1px solid rgba(0,0,0,0.1);
+    background: rgba(0, 0, 0, 0.02);
+    padding: 10px 18px;
+    border-radius: 3px;
+    color: rgba(150, 150, 150, 1);
+    overflow: hidden;
+    margin-top: -12px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+  
+  
+  /* Social footer */
+  
+  .social_footer {
+    margin-top: 30px;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.67);
+  }
+  
+  .disqus-comments {
+    margin-right: 30px;
+  }
+  
+  .disqus-comment-count {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+  
+  #disqus_thread {
+    margin-top: 30px;
+  }
+  
+  .article-sharing a {
+    border-bottom: none;
+    margin-right: 8px;
+  }
+  
+  .article-sharing a:hover {
+    border-bottom: none;
+  }
+  
+  .sidebar-section.subscribe {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+  
+  .subscribe p {
+    margin-bottom: 0.5em;
+  }
+  
+  
+  .article-footer .subscribe {
+    font-size: 15px;
+    margin-top: 45px;
+  }
+  
+  
+  .sidebar-section.custom {
+    font-size: 12px;
+    line-height: 1.6em;
+  }
+  
+  .custom p {
+    margin-bottom: 0.5em;
+  }
+  
+  
+  /* Improve display for browsers without grid (IE/Edge <= 15) */
+  
+  .downlevel {
+    line-height: 1.6em;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+  }
+  
+  .downlevel .d-title {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  .downlevel .d-title h1 {
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.1em;
+    margin: 0 0 0.5rem;
+  }
+  
+  .downlevel .d-title p {
+    font-weight: 300;
+    font-size: 1.2rem;
+    line-height: 1.55em;
+    margin-top: 0;
+  }
+  
+  .downlevel .d-byline {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    font-size: 0.8rem;
+    line-height: 1.8em;
+  }
+  
+  .downlevel .section-separator {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .downlevel .d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+  }
+  
+  
+  .downlevel .d-appendix {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+    font-size: 0.8em;
+    line-height: 1.7em;
+    margin-bottom: 0;
+    color: rgba(0,0,0,0.5);
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+  
+  .downlevel .footnotes ol {
+    padding-left: 13px;
+  }
+  
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
+  @media(min-width: 768px) {
+    .downlevel .base-grid,
+    .downlevel .distill-header,
+    .downlevel .d-title,
+    .downlevel .d-abstract,
+    .downlevel .d-article,
+    .downlevel .d-appendix,
+    .downlevel .distill-appendix,
+    .downlevel .d-byline,
+    .downlevel .d-footnote-list,
+    .downlevel .d-citation-list,
+    .downlevel .distill-footer,
+    .downlevel .appendix-bottom,
+    .downlevel .posts-container {
+    padding-left: 150px;
+    padding-right: 150px;
+    max-width: 900px;
+  }
+  }
+  
+  .downlevel pre code {
+    display: block;
+    border-left: 2px solid rgba(0, 0, 0, .1);
+    padding: 0 0 0 20px;
+    font-size: 14px;
+  }
+  
+  .downlevel code, .downlevel pre {
+    color: black;
+    background: none;
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+  
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+  
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+  
+  </style>
+  
+  <script type="application/javascript">
+  
+  function is_downlevel_browser() {
+    if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                   window.navigator.userAgent)) {
+      return true;
+    } else {
+      return window.load_distill_framework === undefined;
+    }
+  }
+  
+  // show body when load is complete
+  function on_load_complete() {
+  
+    // set body to visible
+    document.body.style.visibility = 'visible';
+  
+    // force redraw for leaflet widgets
+    if (window.HTMLWidgets) {
+      var maps = window.HTMLWidgets.findAll(".leaflet");
+      $.each(maps, function(i, el) {
+        var map = this.getMap();
+        map.invalidateSize();
+        map.eachLayer(function(layer) {
+          if (layer instanceof L.TileLayer)
+            layer.redraw();
+        });
+      });
+    }
+  
+    // trigger 'shown' so htmlwidgets resize
+    $('d-article').trigger('shown');
+  }
+  
+  function init_distill() {
+  
+    init_common();
+  
+    // create front matter
+    var front_matter = $('<d-front-matter></d-front-matter>');
+    $('#distill-front-matter').wrap(front_matter);
+  
+    // create d-title
+    $('.d-title').changeElementType('d-title');
+  
+    // create d-byline
+    var byline = $('<d-byline></d-byline>');
+    $('.d-byline').replaceWith(byline);
+  
+    // create d-article
+    var article = $('<d-article></d-article>');
+    $('.d-article').wrap(article).children().unwrap();
+  
+    // move posts container into article
+    $('.posts-container').appendTo($('d-article'));
+  
+    // create d-appendix
+    $('.d-appendix').changeElementType('d-appendix');
+  
+    // create d-bibliography
+    var bibliography = $('<d-bibliography></d-bibliography>');
+    $('#distill-bibliography').wrap(bibliography);
+  
+    // flag indicating that we have appendix items
+    var appendix = $('.appendix-bottom').children('h3').length > 0;
+  
+    // replace citations with <d-cite>
+    $('.citation').each(function(i, val) {
+      appendix = true;
+      var cites = $(this).attr('data-cites').split(" ");
+      var dt_cite = $('<d-cite></d-cite>');
+      dt_cite.attr('key', cites.join());
+      $(this).replaceWith(dt_cite);
+    });
+    // remove refs
+    $('#refs').remove();
+  
+    // replace footnotes with <d-footnote>
+    $('.footnote-ref').each(function(i, val) {
+      appendix = true;
+      var href = $(this).attr('href');
+      var id = href.replace('#', '');
+      var fn = $('#' + id);
+      var fn_p = $('#' + id + '>p');
+      fn_p.find('.footnote-back').remove();
+      var text = fn_p.html();
+      var dtfn = $('<d-footnote></d-footnote>');
+      dtfn.html(text);
+      $(this).replaceWith(dtfn);
+    });
+    // remove footnotes
+    $('.footnotes').remove();
+  
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      var id = $(this).attr('id');
+      $('.d-toc a[href="#' + id + '"]').parent().remove();
+      appendix = true;
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+    });
+  
+    // show d-appendix if we have appendix content
+    $("d-appendix").css('display', appendix ? 'grid' : 'none');
+  
+    // replace code blocks with d-code
+    $('pre>code').each(function(i, val) {
+      var code = $(this);
+      var pre = code.parent();
+      var clz = "";
+      var language = pre.attr('class');
+      if (language) {
+        // map unknown languages to "clike" (without this they just dissapear)
+        if ($.inArray(language, ["bash", "clike", "css", "go", "html",
+                                 "javascript", "js", "julia", "lua", "markdown",
+                                 "markup", "mathml", "python", "svg", "xml"]) == -1)
+          language = "clike";
+        language = ' language="' + language + '"';
+        var dt_code = $('<d-code block' + language + clz + '></d-code>');
+        dt_code.text(code.text());
+        pre.replaceWith(dt_code);
+      } else {
+        code.addClass('text-output').unwrap().changeElementType('pre');
+      }
+    });
+  
+    // localize layout chunks to just output
+    $('.layout-chunk').each(function(i, val) {
+  
+      // capture layout
+      var layout = $(this).attr('data-layout');
+  
+      // apply layout to markdown level block elements
+      var elements = $(this).children().not('d-code, pre.text-output, script');
+      elements.each(function(i, el) {
+        var layout_div = $('<div class="' + layout + '"></div>');
+        if (layout_div.hasClass('shaded')) {
+          var shaded_content = $('<div class="shaded-content"></div>');
+          $(this).wrap(shaded_content);
+          $(this).parent().wrap(layout_div);
+        } else {
+          $(this).wrap(layout_div);
+        }
+      });
+  
+  
+      // unwrap the layout-chunk div
+      $(this).children().unwrap();
+    });
+  
+    // load distill framework
+    load_distill_framework();
+  
+    // wait for window.distillRunlevel == 4 to do post processing
+    function distill_post_process() {
+  
+      if (!window.distillRunlevel || window.distillRunlevel < 4)
+        return;
+  
+      // hide author/affiliations entirely if we have no authors
+      var front_matter = JSON.parse($("#distill-front-matter").html());
+      var have_authors = front_matter.authors && front_matter.authors.length > 0;
+      if (!have_authors)
+        $('d-byline').addClass('hidden');
+  
+      // table of contents
+      if (have_authors) // adjust border if we are in authors
+        $('.d-toc').parent().addClass('d-article-with-toc');
+  
+      // strip links that point to #
+      $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+  
+      // hide elements of author/affiliations grid that have no value
+      function hide_byline_column(caption) {
+        $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+      }
+  
+      // affiliations
+      var have_affiliations = false;
+      for (var i = 0; i<front_matter.authors.length; ++i) {
+        var author = front_matter.authors[i];
+        if (author.affiliation !== "&nbsp;") {
+          have_affiliations = true;
+          break;
+        }
+      }
+      if (!have_affiliations)
+        $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+  
+      // published date
+      if (!front_matter.publishedDate)
+        hide_byline_column("Published");
+  
+      // document object identifier
+      var doi = $('d-byline').find('h3:contains("DOI")');
+      var doi_p = doi.next().empty();
+      if (!front_matter.doi) {
+        // if we have a citation and valid citationText then link to that
+        if ($('#citation').length > 0 && front_matter.citationText) {
+          doi.html('Citation');
+          $('<a href="#citation"></a>')
+            .text(front_matter.citationText)
+            .appendTo(doi_p);
+        } else {
+          hide_byline_column("DOI");
+        }
+      } else {
+        $('<a></a>')
+           .attr('href', "https://doi.org/" + front_matter.doi)
+           .html(front_matter.doi)
+           .appendTo(doi_p);
+      }
+  
+       // change plural form of authors/affiliations
+      if (front_matter.authors.length === 1) {
+        var grid = $('.authors-affiliations');
+        grid.children('h3:contains("Authors")').text('Author');
+        grid.children('h3:contains("Affiliations")').text('Affiliation');
+      }
+  
+      // inject pre code styles (can't do this with a global stylesheet b/c a shadow root is used)
+      $('d-code').each(function(i, val) {
+        var style = document.createElement('style');
+        style.innerHTML = 'pre code { padding-left: 10px; font-size: 12px; border-left: 2px solid rgba(0,0,0,0.1); } ' +
+                          '@media(min-width: 768px) { pre code { padding-left: 18px; font-size: 14px; } }';
+        if (this.shadowRoot)
+          this.shadowRoot.appendChild(style);
+      });
+  
+      // move appendix-bottom entries to the bottom
+      $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+      $('.appendix-bottom').remove();
+  
+      // clear polling timer
+      clearInterval(tid);
+  
+      // show body now that everything is ready
+      on_load_complete();
+    }
+  
+    var tid = setInterval(distill_post_process, 50);
+    distill_post_process();
+  
+  }
+  
+  function init_downlevel() {
+  
+    init_common();
+  
+     // insert hr after d-title
+    $('.d-title').after($('<hr class="section-separator"/>'));
+  
+    // check if we have authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+  
+    // manage byline/border
+    if (!have_authors)
+      $('.d-byline').remove();
+    $('.d-byline').after($('<hr class="section-separator"/>'));
+    $('.d-byline a').remove();
+  
+    // remove toc
+    $('.d-toc-header').remove();
+    $('.d-toc').remove();
+    $('.d-toc-separator').remove();
+  
+    // move appendix elements
+    $('h1.appendix, h2.appendix').each(function(i, val) {
+      $(this).changeElementType('h3');
+    });
+    $('h3.appendix').each(function(i, val) {
+      $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+    });
+  
+  
+    // inject headers into references and footnotes
+    var refs_header = $('<h3></h3>');
+    refs_header.text('References');
+    $('#refs').prepend(refs_header);
+  
+    var footnotes_header = $('<h3></h3');
+    footnotes_header.text('Footnotes');
+    $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+  
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+  
+    // remove appendix if it's empty
+    if ($('.d-appendix').children().length === 0)
+      $('.d-appendix').remove();
+  
+    // prepend separator above appendix
+    $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+  
+    // trim code
+    $('pre>code').each(function(i, val) {
+      $(this).html($.trim($(this).html()));
+    });
+  
+    // move posts-container right before article
+    $('.posts-container').insertBefore($('.d-article'));
+  
+    $('body').addClass('downlevel');
+  
+    on_load_complete();
+  }
+  
+  
+  function init_common() {
+  
+    // jquery plugin to change element types
+    (function($) {
+      $.fn.changeElementType = function(newType) {
+        var attrs = {};
+  
+        $.each(this[0].attributes, function(idx, attr) {
+          attrs[attr.nodeName] = attr.nodeValue;
+        });
+  
+        this.replaceWith(function() {
+          return $("<" + newType + "/>", attrs).append($(this).contents());
+        });
+      };
+    })(jQuery);
+  
+    // prevent underline for linked images
+    $('a > img').parent().css({'border-bottom' : 'none'});
+  
+    // mark non-body figures created by knitr chunks as 100% width
+    $('.layout-chunk').each(function(i, val) {
+      var figures = $(this).find('img, .html-widget');
+      if ($(this).attr('data-layout') !== "l-body") {
+        figures.css('width', '100%');
+      } else {
+        figures.css('max-width', '100%');
+        figures.filter("[width]").each(function(i, val) {
+          var fig = $(this);
+          fig.css('width', fig.attr('width') + 'px');
+        });
+  
+      }
+    });
+  
+    // auto-append index.html to post-preview links in file: protocol
+    // and in rstudio ide preview
+    $('.post-preview').each(function(i, val) {
+      if (window.location.protocol === "file:")
+        $(this).attr('href', $(this).attr('href') + "index.html");
+    });
+  
+    // get rid of index.html references in header
+    if (window.location.protocol !== "file:") {
+      $('.distill-site-header a[href]').each(function(i,val) {
+        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+      });
+    }
+  
+    // add class to pandoc style tables
+    $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+    $('.kable-table').children('table').addClass('pandoc-table');
+  
+    // add figcaption style to table captions
+    $('caption').parent('table').addClass("figcaption");
+  
+    // initialize posts list
+    if (window.init_posts_list)
+      window.init_posts_list();
+  
+    // implmement disqus comment link
+    $('.disqus-comment-count').click(function() {
+      window.headroom_prevent_pin = true;
+      $('#disqus_thread').toggleClass('hidden');
+      if (!$('#disqus_thread').hasClass('hidden')) {
+        var offset = $(this).offset();
+        $(window).resize();
+        $('html, body').animate({
+          scrollTop: offset.top - 35
+        });
+      }
+    });
+  }
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    if (is_downlevel_browser())
+      init_downlevel();
+    else
+      window.addEventListener('WebComponentsReady', init_distill);
+  });
+  
+  </script>
+  
+  <!--/radix_placeholder_distill-->
+  <script src="eurodiabetes_datavizualization_files/jquery-1.11.3/jquery.min.js"></script>
+  <script src="eurodiabetes_datavizualization_files/bowser-1.9.3/bowser.min.js"></script>
+  <script src="eurodiabetes_datavizualization_files/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="eurodiabetes_datavizualization_files/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+  <!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"Vizualizing the prevalence of diabetes in five European countries","description":"This is a quick demonstration of diabetes prevalence in five European countries. Tha data are from the IHME.","authors":[{"author":"Mihiretu Kebede (PhD)","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2020-07-24T00:00:00.000+02:00","citationText":"(PhD), 2020"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>Vizualizing the prevalence of diabetes in five European countries</h1>
+<p><p>This is a quick demonstration of diabetes prevalence in five European countries. Tha data are from the IHME.</p></p>
+</div>
+
+<div class="d-byline">
+  
+  Mihiretu Kebede (PhD)
+  
+<br/>2020-07-24
+</div>
+
+<div class="d-article">
+<p><link rel="stylesheet" href="styles.css" type="text/css"></p>
+<h1 id="a-step-by-step-guide-on-how-to-improve-a-simple-scatter-plot">A step by-step guide on how to improve a simple scatter plot</h1>
+<ul>
+<li><p>If you would like to reproduce these codes, you can download the data from my github repository.</p></li>
+<li><p>The file name is Eurodiabetes.csv or simply click <a href="https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/tree/master/Eurodiabetes">here</a>. If you want to access the codes, click <a href="https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/Eurodiabetes/Europediabetesanimation.R">this</a>.</p></li>
+<li><p>Once you download the data, don’t forget to set your working directory!</p></li>
+</ul>
+<h1 id="my-r-version">My R version</h1>
+<ul>
+<li>I used the following R version to produce this result.</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+version</code></pre>
+<pre><code>
+               _                           
+platform       x86_64-w64-mingw32          
+arch           x86_64                      
+os             mingw32                     
+system         x86_64, mingw32             
+status                                     
+major          3                           
+minor          6.3                         
+year           2020                        
+month          02                          
+day            29                          
+svn rev        77875                       
+language       R                           
+version.string R version 3.6.3 (2020-02-29)
+nickname       Holding the Windsock        </code></pre>
+</div>
+<h1 id="required-packages">Required packages</h1>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(readr) #to read csv file
+library(dplyr) #for data manipulaion 
+library(ggplot2) # for awesome plotting
+library(gganimate) #for animating ggplot objects
+library(scales) # or customizing axis 
+library(lattice) #for enhancing graphics
+library(directlabels) #for directly labeling!</code></pre>
+</div>
+<h2 id="lets-load-the-data-and-have-a-closer-look-at-it.">Let’s load the data and have a closer look at it.</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# The data is for all countries included in GBD studies
+diabetes &lt;- read_csv(&quot;Eurodiabetes.csv&quot;) 
+dim(diabetes) #980 observations and 9 variables. </code></pre>
+<pre><code>
+[1] 980   9</code></pre>
+<pre class="r"><code>
+str(diabetes) </code></pre>
+<pre><code>
+tibble [980 x 9] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ Location                : chr [1:980] &quot;Australia&quot; &quot;Australia&quot; &quot;Australia&quot; &quot;Australia&quot; ...
+ $ Year                    : num [1:980] 1990 1991 1992 1993 1994 ...
+ $ Age                     : chr [1:980] &quot;All ages&quot; &quot;All ages&quot; &quot;All ages&quot; &quot;All ages&quot; ...
+ $ Sex                     : chr [1:980] &quot;Both&quot; &quot;Both&quot; &quot;Both&quot; &quot;Both&quot; ...
+ $ Cause of death or injury: chr [1:980] &quot;Diabetes mellitus&quot; &quot;Diabetes mellitus&quot; &quot;Diabetes mellitus&quot; &quot;Diabetes mellitus&quot; ...
+ $ Measure                 : chr [1:980] &quot;Percent of total prevalent cases&quot; &quot;Percent of total prevalent cases&quot; &quot;Percent of total prevalent cases&quot; &quot;Percent of total prevalent cases&quot; ...
+ $ Value                   : num [1:980] 0.0503 0.0497 0.0492 0.0488 0.0486 ...
+ $ Lower bound             : num [1:980] 0.0546 0.054 0.0532 0.0528 0.0526 ...
+ $ Upper bound             : num [1:980] 0.0462 0.0459 0.0456 0.0453 0.045 ...
+ - attr(*, &quot;spec&quot;)=
+  .. cols(
+  ..   Location = col_character(),
+  ..   Year = col_double(),
+  ..   Age = col_character(),
+  ..   Sex = col_character(),
+  ..   `Cause of death or injury` = col_character(),
+  ..   Measure = col_character(),
+  ..   Value = col_double(),
+  ..   `Lower bound` = col_double(),
+  ..   `Upper bound` = col_double()
+  .. )</code></pre>
+</div>
+<h2 id="lets-choose-only-5-european-countries-with-high-diabetes-prevalence">Let’s choose only 5 European countries with high diabetes prevalence</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+ger_au_ch &lt;- diabetes %&gt;% 
+  filter(Location %in% c(&quot;Austria&quot;, &quot;Germany&quot;, &quot;Switzerland&quot;, &quot;Denmark&quot;, &quot;Portugal&quot;, &quot;Finland&quot;)) 
+ger_au_ch &lt;- na.omit(ger_au_ch) #Remove missing values
+ger_au_ch$Prev &lt;- ger_au_ch$Value*100 #Prevalence in percent. 
+str(ger_au_ch) #structure of the data, variable types</code></pre>
+<pre><code>
+tibble [168 x 10] (S3: tbl_df/tbl/data.frame)
+ $ Location                : chr [1:168] &quot;Austria&quot; &quot;Austria&quot; &quot;Austria&quot; &quot;Austria&quot; ...
+ $ Year                    : num [1:168] 1990 1991 1992 1993 1994 ...
+ $ Age                     : chr [1:168] &quot;All ages&quot; &quot;All ages&quot; &quot;All ages&quot; &quot;All ages&quot; ...
+ $ Sex                     : chr [1:168] &quot;Both&quot; &quot;Both&quot; &quot;Both&quot; &quot;Both&quot; ...
+ $ Cause of death or injury: chr [1:168] &quot;Diabetes mellitus&quot; &quot;Diabetes mellitus&quot; &quot;Diabetes mellitus&quot; &quot;Diabetes mellitus&quot; ...
+ $ Measure                 : chr [1:168] &quot;Percent of total prevalent cases&quot; &quot;Percent of total prevalent cases&quot; &quot;Percent of total prevalent cases&quot; &quot;Percent of total prevalent cases&quot; ...
+ $ Value                   : num [1:168] 0.0562 0.0579 0.0597 0.0614 0.0631 ...
+ $ Lower bound             : num [1:168] 0.061 0.0627 0.0646 0.0664 0.0683 ...
+ $ Upper bound             : num [1:168] 0.0519 0.0538 0.0555 0.0572 0.0588 ...
+ $ Prev                    : num [1:168] 5.62 5.79 5.97 6.14 6.31 ...</code></pre>
+<pre class="r"><code>
+dim(ger_au_ch) #168 rows, 10 columns </code></pre>
+<pre><code>
+[1] 168  10</code></pre>
+<pre class="r"><code>
+is.factor(ger_au_ch$Year) #check if Year is saved as factor variable</code></pre>
+<pre><code>
+[1] FALSE</code></pre>
+<pre class="r"><code>
+ger_au_ch$yearfactor &lt;- factor(ger_au_ch$Year) #convert it to factor and save it as Yearfactor
+
+ger_au_ch$Yearnumeric &lt;- as.numeric(ger_au_ch$Year) #change it to numeric and save it as Year Numeric</code></pre>
+</div>
+<h1 id="plot">Plot</h1>
+<p>Since we already have everything we need for plotting, we can start using ggplot2</p>
+<div class="layout-chunk" data-layout="l-body-outset">
+<pre class="r"><code>
+plot &lt;- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
+  geom_line()
+plot</code></pre>
+<p><img src="eurodiabetes_datavizualization_files/figure-html5/unnamed-chunk-5-1.png" width="624" data-distill-preview=1 /></p>
+</div>
+<h3 id="now-we-can-start-making-it-more-advanced">Now we can start making it more advanced</h3>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+euro_anim &lt;- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
+  geom_point(size=6) + transition_time(Yearnumeric)  +
+  shadow_mark()  +  
+  scale_x_continuous(name =&quot;Year&quot;,
+                     breaks= c(1990,1995,2000,2005, 
+                               2010, 2015, 2020)) +
+  
+  xlab(&quot;Year&quot;) +
+  ylab(&quot;Prevalence of diabetes in %&quot;) +
+  labs(col=&quot;Country&quot;) + 
+  ggtitle(&quot;Prevalence of diabetes cases in five European countries&quot;) +
+  
+  theme(
+    axis.title.x = element_text(color = &quot;Blue&quot;, size=15),
+    axis.title.y = element_text(color = &quot;Blue&quot;, size=15),
+    axis.text.x = element_text(size = 15),
+    axis.text.y = element_text(size = 15),
+    
+    plot.title = element_text(size=20),
+    
+    legend.title = element_text(size = 10),
+    legend.text = element_text(size = 10),
+    legend.position = &quot;None&quot;,
+    
+    text = element_text(family = &quot;Comics Sans MS&quot;)
+  ) + ease_aes(&#39;cubic-in-out&#39;) +
+  geom_dl(aes(label=Location),
+          method=list(&quot;last.points&quot;,rot=40)) </code></pre>
+</div>
+<h2 id="now-we-can-use-gifski_renderer-to-loop-or-stop-looping-the-gif">Now we can use gifski_renderer to loop or stop looping the gif</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+animate(euro_anim, renderer = gifski_renderer(loop = F), width = 700, height = 700, duration = 15) # when you assign loop=TRUE, the gif starts playing again </code></pre>
+<p><img src="eurodiabetes_datavizualization_files/figure-html5/unnamed-chunk-7-1.gif" /><!-- --></p>
+</div>
+<h1 id="lets-tweak-few-things-and-see-what-happens">Let’s tweak few things and see what happens</h1>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+euro_anim &lt;- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
+  geom_point(size=6) + transition_time(Yearnumeric)  +
+  shadow_mark()  +  
+  scale_x_continuous(name =&quot;Year&quot;,
+                     breaks= c(1990,1995,2000,2005, 
+                               2010, 2015, 2020)) +
+  
+  xlab(&quot;Year&quot;) +
+  ylab(&quot;Prevalence of diabetes in %&quot;) +
+  labs(col=&quot;Country&quot;) + 
+  ggtitle(&quot;Prevalence of diabetes cases in Austria, Germany and Switzerland&quot;) +
+  shadow_wake(wake_length = 0.1, alpha = FALSE) +
+  theme(
+    axis.title.x = element_text(color = &quot;Blue&quot;, size=15),
+    axis.title.y = element_text(color = &quot;Blue&quot;, size=15),
+    axis.text.x = element_text(size = 15),
+    axis.text.y = element_text(size = 15),
+    
+    plot.title = element_text(size=20),
+    
+    legend.title = element_text(size = 10),
+    legend.text = element_text(size = 10),
+    legend.position = &quot;None&quot;,
+    
+    text = element_text(family = &quot;Comics Sans MS&quot;)
+  ) + ease_aes(&#39;cubic-in-out&#39;) +
+  geom_dl(aes(label=Location),
+          method=list(&quot;last.points&quot;,rot=40)) 
+
+animate(euro_anim, renderer = gifski_renderer(loop = F), width = 700, height = 700, duration = 15)</code></pre>
+<p><img src="eurodiabetes_datavizualization_files/figure-html5/unnamed-chunk-8-1.gif" /><!-- --></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+euro_anim3 &lt;- ger_au_ch %&gt;% 
+  ggplot( aes(x=Yearnumeric, y=Prev, col=Location)) + geom_line() + geom_line() +
+  geom_point() +
+    transition_reveal(Yearnumeric) + 
+  shadow_mark()  +  
+  scale_x_continuous(name =&quot;Year&quot;,
+                     breaks= c(1990,1995,2000,2005, 
+                               2010, 2015, 2020)) +
+  xlab(&quot;Year&quot;) +
+  ylab(&quot;Prevalence of diabetes in %&quot;) +
+  labs(col=&quot;Country&quot;) + 
+  ggtitle(&quot;Prevalence of diabetes cases in five European countries&quot;) +
+  shadow_wake(wake_length = 0.1, alpha = FALSE) +
+  theme(
+    axis.title.x = element_text(color = &quot;Blue&quot;, size=15),
+    axis.title.y = element_text(color = &quot;Blue&quot;, size=15),
+    axis.text.x = element_text(size = 15),
+    axis.text.y = element_text(size = 15),
+    
+    plot.title = element_text(size=20),
+    
+    legend.title = element_text(size = 10),
+    legend.text = element_text(size = 10),
+    legend.position = &quot;None&quot;,
+    
+    text = element_text(family = &quot;Comics Sans MS&quot;)
+  ) + ease_aes(&#39;cubic-in-out&#39;) +
+  geom_dl(aes(label=Location),
+          method=list(&quot;last.points&quot;,rot=40))
+
+euro_anim3  </code></pre>
+<p><img src="eurodiabetes_datavizualization_files/figure-html5/unnamed-chunk-9-1.gif" /><!-- --></p>
+</div>
+<p>That is it. I hope, you like it. See you in my next post.</p>
+<h2 id="contact">Contact</h2>
+<p>Please mention <a href="https://www.https://twitter.com/MihiretuKebede1">MihiretuKebede1</a> if you tweet this post.</p>
+<!--radix_placeholder_article_footer-->
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom"></div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
