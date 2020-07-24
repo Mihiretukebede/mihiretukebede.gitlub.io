@@ -110,7 +110,7 @@ Conferences (oral and poster presentations)
 # CURRENT COLLABORATIVE WORKS
 
 -	Institute of Health Metrics and Evaluation: Global Burden of Diseases study collaborator on “Local burden of disease project”, “Air pollution and type 2 diabetes” and “GBD HIV 2017”.  
--	Africa University Clinical Research Centre in Zimbabwe: to provide systematic reviews and meta-analysis course and to work on developing a community-based digital intervention.
+-	Africa University Clinical Research Center in Zimbabwe: to provide systematic reviews and meta-analysis course and to work on developing a community-based digital intervention.
 -	Digital health innovation for NCD in Zimbabwe- NIH project. 
 
 # REFERENCES
