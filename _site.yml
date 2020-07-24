@@ -31,7 +31,7 @@ navbar:
       href: https://www.linkedin.com/in/mihiretu-m-kebede-18831b70/
     - text: "ORCID"
       href: https://orcid.org/0000-0002-5599-2823
-    - icon: fa-google scholar fa-lg
+    - text: "Google Scholar" 
       href: https://scholar.google.de/citations?user=O93Icv4AAAAJ&hl=en
     - icon: fa fa-rss
       href: index.xml
