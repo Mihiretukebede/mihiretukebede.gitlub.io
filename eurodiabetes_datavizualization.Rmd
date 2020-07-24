@@ -1,13 +1,13 @@
 ---
 name: "Aspire Data Solutions"
 output_dir: "."
-title: "Vizualizing the prevalence of diabetes in five European countries"
+title: "Vizualizing the prevalence of diabetes in six European countries"
 author: Mihiretu Kebede (PhD)
 url: http://www.mihiretukebede.com/ 
 google_analytics: "UA-173027539-1"
 date: "`r Sys.Date()`"
 description: |
-  This is a quick demonstration of diabetes prevalence in five European countries. Tha data are from the IHME. 
+  This is a quick demonstration of diabetes prevalence in six European countries. Tha data are from the IHME. 
   
 collections:
   posts:
@@ -48,7 +48,7 @@ library(directlabels) #for directly labeling!
 
 ## Let's load the data and have a closer look at it. 
 
-```{r, include=T, echo=TRUE}
+```{r, include=T, echo=FALSE}
 # The data is for all countries included in GBD studies
 diabetes <- read_csv("Eurodiabetes.csv") 
 dim(diabetes) #980 observations and 9 variables. 
@@ -57,7 +57,7 @@ str(diabetes)
 
 ## Let's choose only 5 European countries with high diabetes prevalence
 
-```{r, include=TRUE, echo=TRUE}
+```{r, include=TRUE, echo=FALSE}
 ger_au_ch <- diabetes %>% 
   filter(Location %in% c("Austria", "Germany", "Switzerland", "Denmark", "Portugal", "Finland")) 
 ger_au_ch <- na.omit(ger_au_ch) #Remove missing values
@@ -73,7 +73,7 @@ ger_au_ch$Yearnumeric <- as.numeric(ger_au_ch$Year) #change it to numeric and sa
 # Plot
 Since we already have everything we need for plotting, we can start using ggplot2
 
-```{r, layout="l-body-outset", preview=TRUE, include=TRUE, echo=TRUE}
+```{r, layout="l-body-outset", preview=TRUE, include=TRUE, echo=FALSE}
 plot <- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
   geom_line()
 plot
@@ -92,7 +92,7 @@ euro_anim <- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) +
   xlab("Year") +
   ylab("Prevalence of diabetes in %") +
   labs(col="Country") + 
-  ggtitle("Prevalence of diabetes cases in five European countries") +
+  ggtitle("Prevalence of diabetes cases in six European countries") +
   
   theme(
     axis.title.x = element_text(color = "Blue", size=15),
@@ -121,7 +121,7 @@ animate(euro_anim, renderer = gifski_renderer(loop = F), width = 700, height = 7
 
 
 # Let's tweak few things and see what happens
-```{r, echo=TRUE, include=TRUE}
+```{r, echo=FALSE, include=TRUE}
 
 euro_anim <- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
   geom_point(size=6) + transition_time(Yearnumeric)  +
@@ -156,7 +156,7 @@ animate(euro_anim, renderer = gifski_renderer(loop = F), width = 700, height = 7
 
 ```
 
-```{r, include=TRUE, echo=TRUE}
+```{r, include=TRUE, echo=FALSE}
 euro_anim3 <- ger_au_ch %>% 
   ggplot( aes(x=Yearnumeric, y=Prev, col=Location)) + geom_line() + geom_line() +
   geom_point() +
@@ -168,7 +168,7 @@ euro_anim3 <- ger_au_ch %>%
   xlab("Year") +
   ylab("Prevalence of diabetes in %") +
   labs(col="Country") + 
-  ggtitle("Prevalence of diabetes cases in five European countries") +
+  ggtitle("Prevalence of diabetes cases in six European countries") +
   shadow_wake(wake_length = 0.1, alpha = FALSE) +
   theme(
     axis.title.x = element_text(color = "Blue", size=15),
