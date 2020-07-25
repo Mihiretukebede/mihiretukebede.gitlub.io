@@ -65,7 +65,7 @@
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["2020-07-25-diabetesprevalenceeurope_files/bowser-1.9.3/bowser.min.js","2020-07-25-diabetesprevalenceeurope_files/distill-2.2.21/template.v2.js","2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-5-1.png","2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-7-1.gif","2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-8-1.gif","2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-9-1.gif","2020-07-25-diabetesprevalenceeurope_files/jquery-1.11.3/jquery.min.js","2020-07-25-diabetesprevalenceeurope_files/webcomponents-2.0.0/webcomponents.js","Eurodiabetes.csv"]}
+  {"type":"character","attributes":{},"value":["2020-07-25-diabetesprevalenceeurope_files/bowser-1.9.3/bowser.min.js","2020-07-25-diabetesprevalenceeurope_files/distill-2.2.21/template.v2.js","2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-10-1.gif","2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-5-1.png","2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-7-1.gif","2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-8-1.gif","2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-9-1.gif","2020-07-25-diabetesprevalenceeurope_files/jquery-1.11.3/jquery.min.js","2020-07-25-diabetesprevalenceeurope_files/webcomponents-2.0.0/webcomponents.js","Eurodiabetes.csv"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 
@@ -1368,13 +1368,13 @@ gtag('config', 'UA-173027539-1');
 <h1 id="a-step-by-step-guide-on-how-to-improve-a-simple-scatter-plot">A step by-step guide on how to improve a simple scatter plot</h1>
 <ul>
 <li><p>If you would like to reproduce these codes, you can download the data from my folder.</p></li>
-<li><p>The file name is Eurodiabetes.csv or simply click <a href="https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/_posts/2020-07-25-2020-07-25-diabetesprevalenceeurope/Eurodiabetes.csv">here</a>.</p></li>
-<li><p>Do you want the codes? Click [here](<a href="https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/_posts/2020-07-25-2020-07-25-diabetesprevalenceeurope/2020-07-25-diabetesprevalenceeurope.Rmd" class="uri">https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/_posts/2020-07-25-2020-07-25-diabetesprevalenceeurope/2020-07-25-diabetesprevalenceeurope.Rmd</a>.</p></li>
+<li><p>The file name is <strong><code>Eurodiabetes.csv</code></strong> or simply click <a href="https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/_posts/2020-07-25-2020-07-25-diabetesprevalenceeurope/Eurodiabetes.csv"><em>here</em></a>.</p></li>
+<li><p>Click <a href="https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/_posts/2020-07-25-2020-07-25-diabetesprevalenceeurope/2020-07-25-diabetesprevalenceeurope.Rmd"><em>here</em></a> for the codes.</p></li>
 <li><p>Once you download the data, don’t forget to set your working directory!</p></li>
 </ul>
 <h1 id="my-r-version">My R version</h1>
 <ul>
-<li>I used the following R version to produce this result.</li>
+<li>See below</li>
 </ul>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
@@ -1407,7 +1407,7 @@ library(scales) # or customizing axis
 library(lattice) #for enhancing graphics
 library(directlabels) #for directly labeling!</code></pre>
 </div>
-<h2 id="lets-load-the-data-and-have-a-closer-look-at-it.">Let’s load the data and have a closer look at it.</h2>
+<h1 id="load-the-data-and-have-a-closer-look">Load the data and have a closer look</h1>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 # The data is for all countries included in GBD studies
@@ -1477,9 +1477,14 @@ ger_au_ch$Yearnumeric &lt;- as.numeric(ger_au_ch$Year) #change it to numeric and
 <h1 id="basic-plot">Basic plot</h1>
 <p>Since we already have everything we need for plotting, we can start using ggplot2</p>
 <div class="layout-chunk" data-layout="l-body-outset">
+<pre class="r"><code>
+plot &lt;- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
+  geom_line() + xlab(&quot;Year&quot;) +
+  ylab(&quot;Prevalence of diabetes in %&quot;) 
+plot</code></pre>
 <p><img src="2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-5-1.png" width="624" data-distill-preview=1 /></p>
 </div>
-<h3 id="now-we-can-start-making-it-more-advanced">Now we can start making it more advanced</h3>
+<p>#The fun part</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 euro_anim &lt;- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
@@ -1492,7 +1497,7 @@ euro_anim &lt;- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) +
   xlab(&quot;Year&quot;) +
   ylab(&quot;Prevalence of diabetes in %&quot;) +
   labs(col=&quot;Country&quot;) + 
-  ggtitle(&quot;Prevalence of diabetes cases in six European countries&quot;) +
+  
   
   theme(
     axis.title.x = element_text(color = &quot;Blue&quot;, size=15),
@@ -1511,11 +1516,18 @@ euro_anim &lt;- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) +
   geom_dl(aes(label=Location),
           method=list(&quot;last.points&quot;,rot=40)) </code></pre>
 </div>
+<h1 id="use-gifski_renderer-to-loop-or-no-to-looping-the-gif">use gifski_renderer to loop or no to looping the gif</h1>
 <ul>
-<li>Now we can use gifski_renderer to loop or stop looping the gif</li>
+<li>With loop asigned as F</li>
 </ul>
 <div class="layout-chunk" data-layout="l-body">
 <p><img src="2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-7-1.gif" /><!-- --></p>
+</div>
+<ul>
+<li>Assign loop to False or just F
+<div class="layout-chunk" data-layout="l-body">
+<img src="2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-8-1.gif" /><!-- --></li>
+</ul>
 </div>
 <h1 id="lets-tweak-few-things-and-see-what-happens">Let’s tweak few things and see what happens</h1>
 <div class="layout-chunk" data-layout="l-body">
@@ -1530,7 +1542,7 @@ euro_anim &lt;- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) +
   xlab(&quot;Year&quot;) +
   ylab(&quot;Prevalence of diabetes in %&quot;) +
   labs(col=&quot;Country&quot;) + 
-  ggtitle(&quot;Prevalence of diabetes cases in Austria, Germany and Switzerland&quot;) +
+
   shadow_wake(wake_length = 0.1, alpha = FALSE) +
   theme(
     axis.title.x = element_text(color = &quot;Blue&quot;, size=15),
@@ -1550,7 +1562,7 @@ euro_anim &lt;- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) +
           method=list(&quot;last.points&quot;,rot=40)) 
 
 animate(euro_anim, renderer = gifski_renderer(loop = F), width = 700, height = 700, duration = 15)</code></pre>
-<p><img src="2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-8-1.gif" /><!-- --></p>
+<p><img src="2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-9-1.gif" /><!-- --></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
@@ -1565,7 +1577,6 @@ euro_anim3 &lt;- ger_au_ch %&gt;%
   xlab(&quot;Year&quot;) +
   ylab(&quot;Prevalence of diabetes in %&quot;) +
   labs(col=&quot;Country&quot;) + 
-  ggtitle(&quot;Prevalence of diabetes cases in six European countries&quot;) +
   shadow_wake(wake_length = 0.1, alpha = FALSE) +
   theme(
     axis.title.x = element_text(color = &quot;Blue&quot;, size=15),
@@ -1585,10 +1596,10 @@ euro_anim3 &lt;- ger_au_ch %&gt;%
           method=list(&quot;last.points&quot;,rot=40))
 
 euro_anim3  </code></pre>
-<p><img src="2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-9-1.gif" /><!-- --></p>
+<p><img src="2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-10-1.gif" /><!-- --></p>
 </div>
 <p>That is it. I hope, you like it. See you in my next post.</p>
-<h2 id="contact">Contact</h2>
+<h1 id="contact">Contact</h1>
 <p>Please mention <a href="https://www.https://twitter.com/MihiretuKebede1">MihiretuKebede1</a> if you tweet this post.</p>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
