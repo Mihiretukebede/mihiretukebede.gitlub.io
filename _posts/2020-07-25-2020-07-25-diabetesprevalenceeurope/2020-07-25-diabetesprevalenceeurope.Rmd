@@ -5,7 +5,6 @@ author: Mihiretu Kebede(PhD)
 url: http://www.mihiretukebede.com/ 
 google_analytics: "UA-173027539-1"
 date: "2020-07-25`"
-preview: F:/github/githubwebsite/plot.png
 description: |
   This is a quick demonstration of diabetes prevalence in six European countries. The data are from the the Institute of Health Metrics and Evaluation (IHME).  
 
@@ -66,14 +65,22 @@ ger_au_ch$yearfactor <- factor(ger_au_ch$Year) #convert it to factor and save it
 
 ger_au_ch$Yearnumeric <- as.numeric(ger_au_ch$Year) #change it to numeric and save it as Year Numeric
 ```
-#  Basic plot
+#  Basic plots
 Since we already have everything we need for plotting, we can start using ggplot2
 
-```{r, include=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
-plot <- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
-  geom_line() + xlab("Year") +
+```{r, layout="l-body-outset", preview=TRUE, include=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
+plot1 <- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
+  geom_line() + geom_point() + xlab("Year") +
   ylab("Prevalence of diabetes in %") 
-plot
+plot1
+```
+
+
+```{r, include=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
+plot2 <- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
+  geom_line() + geom_point() + xlab("Year") +
+  ylab("Prevalence of diabetes in %") 
+plot2
 ```
 
 # The fun part
@@ -191,6 +198,22 @@ euro_anim3 <- ger_au_ch %>%
 euro_anim3  
 ```
 
+```{r, include=TRUE, echo=TRUE, warning=FALSE, message=FALSE}
+# Shorter code
+ ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + geom_line() + geom_line() +
+  geom_point() +
+    transition_reveal(Yearnumeric) + 
+  shadow_mark()  +  
+  scale_x_continuous(name ="Year",
+                     breaks= c(1990,1995,2000,2005, 
+                               2010, 2015, 2020)) +
+  xlab("Year") +
+  ylab("Prevalence of diabetes in %") +
+  labs(col="Country") + ease_aes('cubic-in-out') +
+  geom_dl(aes(label=Location),
+          method=list("last.points",rot=40))
+```
+ 
 - If you would like to reproduce these codes, you can download the data from my folder. 
 - The file name is **`Eurodiabetes.csv`** or simply click  [*here*](https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/_posts/2020-07-25-2020-07-25-diabetesprevalenceeurope/Eurodiabetes.csv). 
 - Click [*here*](https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/_posts/2020-07-25-2020-07-25-diabetesprevalenceeurope/2020-07-25-diabetesprevalenceeurope.Rmd) for the codes. 
