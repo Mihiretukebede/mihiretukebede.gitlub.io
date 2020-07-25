@@ -44,7 +44,7 @@
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","title","author","url","google_analytics","date","description","collections","output"]}},"value":[{"type":"character","attributes":{},"value":["Aspire Data Solutions"]},{"type":"character","attributes":{},"value":["Visualizing the prevalence of diabetes in six European countries, 1990-2017"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Mihiretu Kebede(PhD)"]}]}]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/"]},{"type":"character","attributes":{},"value":["UA-173027539-1"]},{"type":"character","attributes":{},"value":["2020-07-25`"]},{"type":"character","attributes":{},"value":["This is a quick demonstration of diabetes prevalence in six European countries. The data are from the the Institute of Health Metrics and Evaluation (IHME).  \n"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["posts"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["share"]}},"value":[{"type":"character","attributes":{},"value":["twitter","linkedin","facebook","google-plus","pinterest"]}]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","title","author","url","google_analytics","date","preview","description","collections","output"]}},"value":[{"type":"character","attributes":{},"value":["Aspire Data Solutions"]},{"type":"character","attributes":{},"value":["Visualizing the prevalence of diabetes in six European countries, 1990-2017"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Mihiretu Kebede(PhD)"]}]}]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/"]},{"type":"character","attributes":{},"value":["UA-173027539-1"]},{"type":"character","attributes":{},"value":["2020-07-25`"]},{"type":"character","attributes":{},"value":["F:/github/githubwebsite/plot.png"]},{"type":"character","attributes":{},"value":["This is a quick demonstration of diabetes prevalence in six European countries. The data are from the the Institute of Health Metrics and Evaluation (IHME).  \n"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["posts"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["share"]}},"value":[{"type":"character","attributes":{},"value":["twitter","linkedin","facebook","google-plus","pinterest"]}]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1082,13 +1082,13 @@ ger_au_ch$Yearnumeric &lt;- as.numeric(ger_au_ch$Year) #change it to numeric and
 </div>
 <h1 id="basic-plot">Basic plot</h1>
 <p>Since we already have everything we need for plotting, we can start using ggplot2</p>
-<div class="layout-chunk" data-layout="l-body-outset">
+<div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 plot &lt;- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
   geom_line() + xlab(&quot;Year&quot;) +
   ylab(&quot;Prevalence of diabetes in %&quot;) 
 plot</code></pre>
-<p><img src="2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-5-1.png" width="624" data-distill-preview=1 /></p>
+<p><img src="2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-5-1.png" width="624" /></p>
 </div>
 <h1 id="the-fun-part">The fun part</h1>
 <div class="layout-chunk" data-layout="l-body">
