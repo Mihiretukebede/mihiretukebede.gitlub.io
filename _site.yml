@@ -33,6 +33,8 @@ navbar:
       href: https://orcid.org/0000-0002-5599-2823
     - text: "Google Scholar" 
       href: https://scholar.google.de/citations?user=O93Icv4AAAAJ&hl=en
+    - text: ResearchGate
+      href: https://www.researchgate.net/profile/Mihiretu_Kebede2 
     - icon: fa fa-rss
       href: index.xml
 
