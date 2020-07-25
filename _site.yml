@@ -17,8 +17,6 @@ navbar:
       href: home.html
     - text: "About"
       href: about.html
-    - text: "CV"
-      href: cv.html
 
   right:
     - icon: fa-envelope fa-lg
