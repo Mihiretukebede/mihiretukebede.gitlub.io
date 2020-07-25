@@ -1,0 +1,198 @@
+---
+name: "Aspire Data Solutions"
+output_dir: "."
+title: "Vizualizing the prevalence of diabetes in six European countries"
+author: Mihiretu Kebede (PhD)
+url: http://www.mihiretukebede.com/ 
+google_analytics: "UA-173027539-1"
+date: "2020-07-25`"
+description: |
+  This is a quick demonstration of diabetes prevalence in six European countries. The data are from the IHME. 
+  
+collections:
+  posts:
+      share: [twitter, linkedin, facebook, google-plus, pinterest]
+      
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+
+<link rel="stylesheet" href="styles.css" type="text/css">
+
+# A step by-step guide on how to improve a simple scatter plot 
+
+- If you would like to reproduce these codes, you can download the data from my github repository. 
+- The file name is Eurodiabetes.csv or simply click  [here](https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/tree/master/Eurodiabetes). If you want to access the codes, click [this](https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/Eurodiabetes/Europediabetesanimation.R). 
+
+- Once you download the data, don't forget to set your working directory! 
+
+# My R version
+- I used the following R version to produce this result. 
+
+```{r, include=T, echo=TRUE}
+version
+```
+
+# Required packages
+```{r, include=T, echo=FALSE}
+library(readr) #to read csv file
+library(dplyr) #for data manipulaion 
+library(ggplot2) # for awesome plotting
+library(gganimate) #for animating ggplot objects
+library(scales) # or customizing axis 
+library(lattice) #for enhancing graphics
+library(directlabels) #for directly labeling!
+```
+
+## Let's load the data and have a closer look at it. 
+
+```{r, include=T, echo=FALSE}
+# The data is for all countries included in GBD studies
+diabetes <- read_csv("Eurodiabetes.csv") 
+dim(diabetes) #980 observations and 9 variables. 
+str(diabetes) 
+```
+
+## Let's choose only 5 European countries with high diabetes prevalence
+
+```{r, include=TRUE, echo=FALSE}
+ger_au_ch <- diabetes %>% 
+  filter(Location %in% c("Austria", "Germany", "Switzerland", "Denmark", "Portugal", "Finland")) 
+ger_au_ch <- na.omit(ger_au_ch) #Remove missing values
+ger_au_ch$Prev <- ger_au_ch$Value*100 #Prevalence in percent. 
+str(ger_au_ch) #structure of the data, variable types
+dim(ger_au_ch) #168 rows, 10 columns 
+
+is.factor(ger_au_ch$Year) #check if Year is saved as factor variable
+ger_au_ch$yearfactor <- factor(ger_au_ch$Year) #convert it to factor and save it as Yearfactor
+
+ger_au_ch$Yearnumeric <- as.numeric(ger_au_ch$Year) #change it to numeric and save it as Year Numeric
+```
+# Plot
+Since we already have everything we need for plotting, we can start using ggplot2
+
+```{r, layout="l-body-outset", preview=TRUE, include=TRUE, echo=FALSE}
+plot <- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
+  geom_line()
+plot
+```
+
+### Now we can start making it more advanced
+
+```{r, include=TRUE, echo=FALSE}
+euro_anim <- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
+  geom_point(size=6) + transition_time(Yearnumeric)  +
+  shadow_mark()  +  
+  scale_x_continuous(name ="Year",
+                     breaks= c(1990,1995,2000,2005, 
+                               2010, 2015, 2020)) +
+  
+  xlab("Year") +
+  ylab("Prevalence of diabetes in %") +
+  labs(col="Country") + 
+  ggtitle("Prevalence of diabetes cases in six European countries") +
+  
+  theme(
+    axis.title.x = element_text(color = "Blue", size=15),
+    axis.title.y = element_text(color = "Blue", size=15),
+    axis.text.x = element_text(size = 15),
+    axis.text.y = element_text(size = 15),
+    
+    plot.title = element_text(size=20),
+    
+    legend.title = element_text(size = 10),
+    legend.text = element_text(size = 10),
+    legend.position = "None",
+    
+    text = element_text(family = "Comics Sans MS")
+  ) + ease_aes('cubic-in-out') +
+  geom_dl(aes(label=Location),
+          method=list("last.points",rot=40)) 
+
+```
+
+## Now we can use gifski_renderer to loop or stop looping the gif 
+
+```{r, echo=FALSE, include=TRUE}
+animate(euro_anim, renderer = gifski_renderer(loop = F), width = 700, height = 700, duration = 15) # when you assign loop=TRUE, the gif starts playing again 
+```
+
+
+# Let's tweak few things and see what happens
+```{r, echo=FALSE, include=TRUE}
+
+euro_anim <- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
+  geom_point(size=6) + transition_time(Yearnumeric)  +
+  shadow_mark()  +  
+  scale_x_continuous(name ="Year",
+                     breaks= c(1990,1995,2000,2005, 
+                               2010, 2015, 2020)) +
+  
+  xlab("Year") +
+  ylab("Prevalence of diabetes in %") +
+  labs(col="Country") + 
+  ggtitle("Prevalence of diabetes cases in Austria, Germany and Switzerland") +
+  shadow_wake(wake_length = 0.1, alpha = FALSE) +
+  theme(
+    axis.title.x = element_text(color = "Blue", size=15),
+    axis.title.y = element_text(color = "Blue", size=15),
+    axis.text.x = element_text(size = 15),
+    axis.text.y = element_text(size = 15),
+    
+    plot.title = element_text(size=20),
+    
+    legend.title = element_text(size = 10),
+    legend.text = element_text(size = 10),
+    legend.position = "None",
+    
+    text = element_text(family = "Comics Sans MS")
+  ) + ease_aes('cubic-in-out') +
+  geom_dl(aes(label=Location),
+          method=list("last.points",rot=40)) 
+
+animate(euro_anim, renderer = gifski_renderer(loop = F), width = 700, height = 700, duration = 15)
+
+```
+
+```{r, include=TRUE, echo=FALSE}
+euro_anim3 <- ger_au_ch %>% 
+  ggplot( aes(x=Yearnumeric, y=Prev, col=Location)) + geom_line() + geom_line() +
+  geom_point() +
+    transition_reveal(Yearnumeric) + 
+  shadow_mark()  +  
+  scale_x_continuous(name ="Year",
+                     breaks= c(1990,1995,2000,2005, 
+                               2010, 2015, 2020)) +
+  xlab("Year") +
+  ylab("Prevalence of diabetes in %") +
+  labs(col="Country") + 
+  ggtitle("Prevalence of diabetes cases in six European countries") +
+  shadow_wake(wake_length = 0.1, alpha = FALSE) +
+  theme(
+    axis.title.x = element_text(color = "Blue", size=15),
+    axis.title.y = element_text(color = "Blue", size=15),
+    axis.text.x = element_text(size = 15),
+    axis.text.y = element_text(size = 15),
+    
+    plot.title = element_text(size=20),
+    
+    legend.title = element_text(size = 10),
+    legend.text = element_text(size = 10),
+    legend.position = "None",
+    
+    text = element_text(family = "Comics Sans MS")
+  ) + ease_aes('cubic-in-out') +
+  geom_dl(aes(label=Location),
+          method=list("last.points",rot=40))
+
+euro_anim3  
+```
+
+
+That is it. I hope, you like it. See you in my next post.
+
+## Contact 
+Please mention [MihiretuKebede1](https://www.https://twitter.com/MihiretuKebede1) if you tweet this post. 
+

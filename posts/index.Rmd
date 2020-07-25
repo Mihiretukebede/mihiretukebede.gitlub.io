@@ -1,5 +1,0 @@
----
-title: "Vizualizing the prevalence of diabetes in six European countries"
-site: distill::distill_website
-listing: posts
----
