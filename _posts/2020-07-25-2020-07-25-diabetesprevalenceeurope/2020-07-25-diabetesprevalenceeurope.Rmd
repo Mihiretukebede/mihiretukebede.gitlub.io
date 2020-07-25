@@ -1,7 +1,7 @@
 ---
 name: "Aspire Data Solutions"
 title: "Vizualizing the prevalence of diabetes in six European countries"
-author: Mihiretu Kebede (PhD)
+author: Mihiretu Kebede
 url: http://www.mihiretukebede.com/ 
 google_analytics: "UA-173027539-1"
 date: "2020-07-25`"
@@ -21,20 +21,21 @@ output:
 
 # A step by-step guide on how to improve a simple scatter plot 
 
-- If you would like to reproduce these codes, you can download the data from my github repository. 
-- The file name is Eurodiabetes.csv or simply click  [here](https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/tree/master/Eurodiabetes). If you want to access the codes, click [this](https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/Eurodiabetes/Europediabetesanimation.R). 
+- If you would like to reproduce these codes, you can download the data from my folder. 
+- The file name is Eurodiabetes.csv or simply click  [here](https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/_posts/2020-07-25-2020-07-25-diabetesprevalenceeurope/Eurodiabetes.csv). 
+- Do you want the codes? Click [here](https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/_posts/2020-07-25-2020-07-25-diabetesprevalenceeurope/2020-07-25-diabetesprevalenceeurope.Rmd. 
 
 - Once you download the data, don't forget to set your working directory! 
 
 # My R version
 - I used the following R version to produce this result. 
 
-```{r, include=T, echo=TRUE}
+```{r, include=T, echo=TRUE, warning=FALSE, message=FALSE}
 version
 ```
 
 # Required packages
-```{r, include=T, echo=FALSE}
+```{r, include=T, echo=TRUE, warning=FALSE, message=FALSE}
 library(readr) #to read csv file
 library(dplyr) #for data manipulaion 
 library(ggplot2) # for awesome plotting
@@ -46,7 +47,7 @@ library(directlabels) #for directly labeling!
 
 ## Let's load the data and have a closer look at it. 
 
-```{r, include=T, echo=FALSE}
+```{r, include=T, echo=TRUE, warning=FALSE, message=FALSE}
 # The data is for all countries included in GBD studies
 diabetes <- read_csv("Eurodiabetes.csv") 
 dim(diabetes) #980 observations and 9 variables. 
@@ -55,7 +56,7 @@ str(diabetes)
 
 ## Let's choose only 5 European countries with high diabetes prevalence
 
-```{r, include=TRUE, echo=FALSE}
+```{r, include=TRUE, echo=TRUE, warning=FALSE, message=FALSE}
 ger_au_ch <- diabetes %>% 
   filter(Location %in% c("Austria", "Germany", "Switzerland", "Denmark", "Portugal", "Finland")) 
 ger_au_ch <- na.omit(ger_au_ch) #Remove missing values
@@ -68,7 +69,7 @@ ger_au_ch$yearfactor <- factor(ger_au_ch$Year) #convert it to factor and save it
 
 ger_au_ch$Yearnumeric <- as.numeric(ger_au_ch$Year) #change it to numeric and save it as Year Numeric
 ```
-# Plot
+#  Basic plot
 Since we already have everything we need for plotting, we can start using ggplot2
 
 ```{r, layout="l-body-outset", preview=TRUE, include=TRUE, echo=FALSE}
@@ -79,7 +80,7 @@ plot
 
 ### Now we can start making it more advanced
 
-```{r, include=TRUE, echo=FALSE}
+```{r, include=TRUE, echo=TRUE, warning=FALSE, message=FALSE}
 euro_anim <- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
   geom_point(size=6) + transition_time(Yearnumeric)  +
   shadow_mark()  +  
@@ -111,7 +112,7 @@ euro_anim <- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) +
 
 ```
 
-## Now we can use gifski_renderer to loop or stop looping the gif 
+- Now we can use gifski_renderer to loop or stop looping the gif 
 
 ```{r, echo=FALSE, include=TRUE}
 animate(euro_anim, renderer = gifski_renderer(loop = F), width = 700, height = 700, duration = 15) # when you assign loop=TRUE, the gif starts playing again 
@@ -119,7 +120,7 @@ animate(euro_anim, renderer = gifski_renderer(loop = F), width = 700, height = 7
 
 
 # Let's tweak few things and see what happens
-```{r, echo=FALSE, include=TRUE}
+```{r, echo=TRUE, warning=FALSE, message=FALSE, include=TRUE}
 
 euro_anim <- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
   geom_point(size=6) + transition_time(Yearnumeric)  +
@@ -154,7 +155,7 @@ animate(euro_anim, renderer = gifski_renderer(loop = F), width = 700, height = 7
 
 ```
 
-```{r, include=TRUE, echo=FALSE}
+```{r, include=TRUE, echo=TRUE, warning=FALSE, message=FALSE}
 euro_anim3 <- ger_au_ch %>% 
   ggplot( aes(x=Yearnumeric, y=Prev, col=Location)) + geom_line() + geom_line() +
   geom_point() +
