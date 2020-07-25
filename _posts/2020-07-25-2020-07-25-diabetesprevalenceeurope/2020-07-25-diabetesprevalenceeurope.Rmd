@@ -1,9 +1,17 @@
 ---
+name: "Aspire Data Solutions"
 title: "Vizualizing the prevalence of diabetes in six European countries"
-description: |
-  A short description of the post.
 author: Mihiretu Kebede (PhD)
-date: 07-25-2020
+url: http://www.mihiretukebede.com/ 
+google_analytics: "UA-173027539-1"
+date: "2020-07-25`"
+description: |
+  This is a quick demonstration of diabetes prevalence in six European countries. The data are from the IHME. 
+
+collections:
+  posts:
+      share: [twitter, linkedin, facebook, google-plus, pinterest]
+      
 output:
   distill::distill_article:
     self_contained: false
