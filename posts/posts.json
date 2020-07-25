@@ -1,8 +1,8 @@
 [
   {
     "path": "posts/2020-07-25-2020-07-25-diabetesprevalenceeurope/",
-    "title": "Vizualizing the prevalence of diabetes in six European countries",
-    "description": "This is a quick demonstration of diabetes prevalence in six European countries. The data are from the IHME.",
+    "title": "Visualizing the prevalence of diabetes in six European countries",
+    "description": "This is a quick demonstration of diabetes prevalence in six European countries. The data are from the [IHME](http://www.healthdata.org/results/data-visualizations).",
     "author": [
       {
         "name": "Mihiretu Kebede",
@@ -12,7 +12,7 @@
     "date": "2020-07-25",
     "categories": [],
     "preview": "posts/2020-07-25-2020-07-25-diabetesprevalenceeurope/2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-5-1.png",
-    "last_modified": "2020-07-25T16:40:05+02:00",
+    "last_modified": "2020-07-25T19:41:50+02:00",
     "input_file": "2020-07-25-diabetesprevalenceeurope.utf8.md",
     "preview_width": 1248,
     "preview_height": 768

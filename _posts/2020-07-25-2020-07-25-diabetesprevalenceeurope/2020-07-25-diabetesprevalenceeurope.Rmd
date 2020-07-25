@@ -1,12 +1,12 @@
 ---
 name: "Aspire Data Solutions"
-title: "Vizualizing the prevalence of diabetes in six European countries"
+title: "Visualizing the prevalence of diabetes in six European countries"
 author: Mihiretu Kebede
 url: http://www.mihiretukebede.com/ 
 google_analytics: "UA-173027539-1"
 date: "2020-07-25`"
 description: |
-  This is a quick demonstration of diabetes prevalence in six European countries. The data are from the IHME. 
+  This is a quick demonstration of diabetes prevalence in six European countries. The data are from the [IHME](http://www.healthdata.org/results/data-visualizations).  
 
 collections:
   posts:
@@ -21,13 +21,7 @@ output:
 
 # A step by-step guide on how to improve a simple scatter plot 
 
-- If you would like to reproduce these codes, you can download the data from my folder. 
-- The file name is **`Eurodiabetes.csv`** or simply click  [*here*](https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/_posts/2020-07-25-2020-07-25-diabetesprevalenceeurope/Eurodiabetes.csv). 
-- Click [*here*](https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/_posts/2020-07-25-2020-07-25-diabetesprevalenceeurope/2020-07-25-diabetesprevalenceeurope.Rmd) for the codes. 
-
-- Once you download the data, don't forget to set your working directory! 
-
-# My R version
+## My R version
 - See below 
 
 ```{r, include=T, echo=TRUE, warning=FALSE, message=FALSE}
@@ -36,13 +30,15 @@ version
 
 # Required packages
 ```{r, include=T, echo=TRUE, warning=FALSE, message=FALSE}
+#If you don't have any of these packages install them using install.packages("pakage)
 library(readr) #to read csv file
 library(dplyr) #for data manipulaion 
 library(ggplot2) # for awesome plotting
 library(gganimate) #for animating ggplot objects
-library(scales) # or customizing axis 
+library(scales) # for customizing axis 
 library(lattice) #for enhancing graphics
 library(directlabels) #for directly labeling!
+library(transformr)
 ```
 
 # Load the data and have a closer look 
@@ -93,7 +89,6 @@ euro_anim <- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) +
   ylab("Prevalence of diabetes in %") +
   labs(col="Country") + 
   
-  
   theme(
     axis.title.x = element_text(color = "Blue", size=15),
     axis.title.y = element_text(color = "Blue", size=15),
@@ -113,8 +108,8 @@ euro_anim <- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) +
 
 ```
 
-# use gifski_renderer to loop or no to looping the gif 
-- With loop asigned to TRUE or just T in short
+# Use gifski_renderer to loop or no to loop the gif 
+- Let's see, how it looks if we assign RUE or just T in short for loop.
 
 ```{r, echo=TRUE, include=TRUE}
 animate(euro_anim, renderer = gifski_renderer(loop = T), width = 700, height = 700, duration = 15) # when you assign loop=TRUE or just T, the gif starts playing again 
@@ -124,7 +119,6 @@ animate(euro_anim, renderer = gifski_renderer(loop = T), width = 700, height = 7
 ```{r, echo=TRUE, include=TRUE}
 animate(euro_anim, renderer = gifski_renderer(loop = F), width = 700, height = 700, duration = 15) # when you assign loop=TRUE or just F, the gif stops looping. It only plays once. Refresh if you want to see again  
 ```
-
 
 # Let's tweak few things and see what happens
 ```{r, echo=TRUE, warning=FALSE, message=FALSE, include=TRUE}
@@ -196,8 +190,13 @@ euro_anim3 <- ger_au_ch %>%
 euro_anim3  
 ```
 
+- If you would like to reproduce these codes, you can download the data from my folder. 
+- The file name is **`Eurodiabetes.csv`** or simply click  [*here*](https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/_posts/2020-07-25-2020-07-25-diabetesprevalenceeurope/Eurodiabetes.csv). 
+- Click [*here*](https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/_posts/2020-07-25-2020-07-25-diabetesprevalenceeurope/2020-07-25-diabetesprevalenceeurope.Rmd) for the codes. 
 
-That is it. I hope, you like it. See you in my next post.
+- Once you download the data, don't forget to set your working directory!
+
+That is it all for today. I hope, you like it. See you in my next post.
 
 # Contact 
 Please mention [MihiretuKebede1](https://www.https://twitter.com/MihiretuKebede1) if you tweet this post. 
