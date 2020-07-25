@@ -1,4 +1,15 @@
 ---
+title: "Welcome to Vizualizing the prevalence of diabetes in six European countries"
+description: |
+  Welcome to our new blog, Vizualizing the prevalence of diabetes in six European countries. We hope you enjoy 
+  reading what we have to say!
+author:
+  - name: Nora Jones 
+    url: https://example.com/norajones
+    affiliation: Spacely Sprockets
+    affiliation_url: https://example.com/spacelysprokets
+date: 07-25-2020
+output:---
 name: "Aspire Data Solutions"
 output_dir: "."
 title: "Vizualizing the prevalence of diabetes in six European countries"
@@ -195,4 +206,19 @@ That is it. I hope, you like it. See you in my next post.
 
 ## Contact 
 Please mention [MihiretuKebede1](https://www.https://twitter.com/MihiretuKebede1) if you tweet this post. 
+
+
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Learn more about creating blogs with Distill at:
+# https://rstudio.github.io/distill/blog.html
+
+```
+
+
 
