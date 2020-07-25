@@ -72,14 +72,14 @@ ger_au_ch$Yearnumeric <- as.numeric(ger_au_ch$Year) #change it to numeric and sa
 #  Basic plot
 Since we already have everything we need for plotting, we can start using ggplot2
 
-```{r, layout="l-body-outset", preview=TRUE, include=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
+```{r, layout= "l-body-outset", preview=TRUE, include=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
 plot <- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
   geom_line() + xlab("Year") +
   ylab("Prevalence of diabetes in %") 
 plot
 ```
 
-#The fun part
+# The fun part
 
 ```{r, include=TRUE, echo=TRUE, warning=FALSE, message=FALSE}
 euro_anim <- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
@@ -114,7 +114,7 @@ euro_anim <- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) +
 ```
 
 # use gifski_renderer to loop or no to looping the gif 
-- With loop asigned as F
+- With loop asigned to TRUE or just T in short
 
 ```{r, echo=FALSE, include=TRUE}
 animate(euro_anim, renderer = gifski_renderer(loop = T), width = 700, height = 700, duration = 15) # when you assign loop=TRUE or just T, the gif starts playing again 
@@ -162,6 +162,7 @@ animate(euro_anim, renderer = gifski_renderer(loop = F), width = 700, height = 7
 
 ```
 
+- And again 
 ```{r, include=TRUE, echo=TRUE, warning=FALSE, message=FALSE}
 euro_anim3 <- ger_au_ch %>% 
   ggplot( aes(x=Yearnumeric, y=Prev, col=Location)) + geom_line() + geom_line() +
