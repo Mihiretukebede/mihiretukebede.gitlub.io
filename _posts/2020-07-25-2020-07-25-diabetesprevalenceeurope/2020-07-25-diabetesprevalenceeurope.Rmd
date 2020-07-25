@@ -6,7 +6,7 @@ url: http://www.mihiretukebede.com/
 google_analytics: "UA-173027539-1"
 date: "2020-07-25`"
 description: |
-  This is a quick demonstration of diabetes prevalence in six European countries. The data are from the [IHME](http://www.healthdata.org/results/data-visualizations).  
+  This is a quick demonstration of diabetes prevalence in six European countries. The data are from the the Institute of Health Metrics and Evaluation (IHME).  
 
 collections:
   posts:
