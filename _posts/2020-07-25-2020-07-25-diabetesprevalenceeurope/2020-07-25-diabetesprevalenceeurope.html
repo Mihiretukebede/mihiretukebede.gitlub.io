@@ -1131,13 +1131,18 @@ euro_anim &lt;- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) +
 <li>With loop asigned to TRUE or just T in short</li>
 </ul>
 <div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+animate(euro_anim, renderer = gifski_renderer(loop = T), width = 700, height = 700, duration = 15) # when you assign loop=TRUE or just T, the gif starts playing again </code></pre>
 <p><img src="2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-7-1.gif" /><!-- --></p>
 </div>
 <ul>
 <li>Assign loop to False or just F
 <div class="layout-chunk" data-layout="l-body">
-<img src="2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-8-1.gif" /><!-- --></li>
+</li>
 </ul>
+<pre class="r"><code>
+animate(euro_anim, renderer = gifski_renderer(loop = F), width = 700, height = 700, duration = 15) # when you assign loop=TRUE or just F, the gif stops looping. It only plays once. Refresh if you want to see again  </code></pre>
+<p><img src="2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-8-1.gif" /><!-- --></p>
 </div>
 <h1 id="lets-tweak-few-things-and-see-what-happens">Let’s tweak few things and see what happens</h1>
 <div class="layout-chunk" data-layout="l-body">

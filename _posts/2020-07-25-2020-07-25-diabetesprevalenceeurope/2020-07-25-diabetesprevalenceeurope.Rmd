@@ -116,12 +116,12 @@ euro_anim <- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) +
 # use gifski_renderer to loop or no to looping the gif 
 - With loop asigned to TRUE or just T in short
 
-```{r, echo=FALSE, include=TRUE}
+```{r, echo=TRUE, include=TRUE}
 animate(euro_anim, renderer = gifski_renderer(loop = T), width = 700, height = 700, duration = 15) # when you assign loop=TRUE or just T, the gif starts playing again 
 ```
 
 - Assign loop to False or just F
-```{r, echo=FALSE, include=TRUE}
+```{r, echo=TRUE, include=TRUE}
 animate(euro_anim, renderer = gifski_renderer(loop = F), width = 700, height = 700, duration = 15) # when you assign loop=TRUE or just F, the gif stops looping. It only plays once. Refresh if you want to see again  
 ```
 
