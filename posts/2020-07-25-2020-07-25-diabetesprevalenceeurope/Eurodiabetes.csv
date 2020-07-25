@@ -1,0 +1,981 @@
+Location,Year,Age,Sex,Cause of death or injury,Measure,Value,Lower bound,Upper bound
+Australia,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0502966486169,0.0546351246521,0.0462465912598
+Australia,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0497236357763,0.0539744929586,0.0458944826238
+Australia,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0492314342438,0.0532236164682,0.0455815827339
+Australia,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0488451613575,0.0527965402771,0.0453039513398
+Australia,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0486250713632,0.0526431185262,0.0450231547251
+Australia,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0486052594538,0.0528291287079,0.045021571368
+Australia,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0488025592498,0.0527870293411,0.0453473564943
+Australia,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0490834722938,0.0528814608739,0.0457591023396
+Australia,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.049410123017,0.053153116768,0.0461935833791
+Australia,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0498078060481,0.0536587918657,0.0465689101397
+Australia,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0502439364559,0.0541311465531,0.0467639239133
+Australia,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0509067036222,0.0547546462774,0.0474905647883
+Australia,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0518181546569,0.0558101406138,0.048262699902
+Australia,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.052789956303,0.0568512156739,0.0488642545954
+Australia,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0537150430614,0.0579440605278,0.0494916344239
+Australia,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0544217838581,0.0590727365361,0.0498921220184
+Australia,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0552472014191,0.0596845483552,0.0508334833274
+Australia,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0564057671873,0.0607692731431,0.0522197624029
+Australia,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0575937621425,0.0620362263615,0.0533912356015
+Australia,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0586284853002,0.0632554524386,0.0539968648928
+Australia,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0592582788088,0.064466231752,0.0542480639401
+Australia,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0596300805019,0.0645881919192,0.0550291041785
+Australia,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0600327073617,0.0648292795603,0.055442985059
+Australia,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0604033073278,0.0652758787934,0.0558780488052
+Australia,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0607683705848,0.0659507865706,0.0560367146205
+Australia,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0611081163432,0.0665609297042,0.0560183038338
+Australia,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0614568386699,0.067337151925,0.0560229065442
+Australia,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0617992552745,0.0681542785016,0.0560292465689
+Austria,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0561784193182,0.0609851547437,0.0518942531006
+Austria,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0579420808084,0.0626851979466,0.0538069160734
+Austria,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0597098161952,0.0646412594254,0.0554738860466
+Austria,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0613915364212,0.0663808698193,0.0571759279773
+Austria,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0631315969975,0.0682895202998,0.0587891516963
+Austria,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0649805471681,0.0704476221353,0.0603122444268
+Austria,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0666859567141,0.0722713770342,0.0620417545889
+Austria,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.068546637376,0.0742688605963,0.0637436289633
+Austria,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0703311201487,0.0763582682489,0.0654709530307
+Austria,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0721260466398,0.0786585250172,0.066984117651
+Austria,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0738748293687,0.0811171442295,0.0684196535894
+Austria,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0752671340787,0.0823805546579,0.0699314691939
+Austria,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0767212057225,0.0835610065549,0.0712966481409
+Austria,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.078069074513,0.0848231069954,0.0722688989777
+Austria,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0795444862224,0.0862234052842,0.0732135760347
+Austria,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0812142253824,0.0883191565778,0.073832258158
+Austria,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0832126039655,0.0898654872038,0.0764247166062
+Austria,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0858786619353,0.0927946664276,0.0793829443321
+Austria,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0885853016053,0.0958271718533,0.0819309221663
+Austria,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0910174525836,0.0988232515904,0.084137438315
+Austria,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0927122395284,0.101477111636,0.08520990702
+Austria,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0936840616537,0.102147330116,0.0864462270974
+Austria,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0945892197558,0.103341096396,0.0874896676116
+Austria,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.095211573173,0.103985687067,0.0879286920733
+Austria,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0955527019424,0.104447327396,0.0880441271908
+Austria,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0955301640318,0.104484415546,0.0877678711475
+Austria,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0949854026088,0.104107152776,0.0869135296776
+Austria,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.094167888709,0.103995722858,0.0857518185375
+Belgium,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.076038357457,0.0832758445182,0.0697634586746
+Belgium,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0770306109784,0.0840774368216,0.0710722612765
+Belgium,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0780465429921,0.0846400579553,0.0720809581161
+Belgium,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0790893927567,0.0858547968391,0.0729871778153
+Belgium,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.080206505606,0.08722246095,0.0737341389488
+Belgium,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0813985127128,0.0889420379751,0.0745058403943
+Belgium,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0827049855158,0.0897339633812,0.0758503325415
+Belgium,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0841864794316,0.0908596533927,0.0775020171117
+Belgium,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0857132959083,0.0926673846064,0.078963704188
+Belgium,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0871647369089,0.0946825952846,0.0803479959569
+Belgium,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0883730985004,0.096141301712,0.0812617358159
+Belgium,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0894593355028,0.0972614525688,0.0823080554818
+Belgium,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0906527304895,0.0983561378428,0.0836067928968
+Belgium,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0918688148965,0.0997060214278,0.084707017425
+Belgium,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0930792714407,0.101130321971,0.0854478849335
+Belgium,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0941864494881,0.102851858939,0.0863941819644
+Belgium,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0952979947539,0.103725462456,0.087837666625
+Belgium,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0965691754623,0.104792145315,0.0893543169869
+Belgium,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0978658847676,0.106031280543,0.0907711924177
+Belgium,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0991162490235,0.10747209143,0.0914842536291
+Belgium,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.10022699719,0.108811394756,0.0919275020047
+Belgium,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.101190380167,0.109662607088,0.0933695531241
+Belgium,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.102120023031,0.110660926477,0.0944301724802
+Belgium,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.103031861455,0.111592429063,0.0953032943567
+Belgium,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.103957156185,0.112630331065,0.0960910346571
+Belgium,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.104842632685,0.114131093787,0.0965472216175
+Belgium,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.105612759332,0.115940969752,0.0967077320848
+Belgium,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.106330125006,0.117448767016,0.0967217217392
+Canada,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0669921591179,0.0725794378308,0.0612705099401
+Canada,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0672093400867,0.0723649069812,0.0619434292006
+Canada,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0675129408132,0.0722697226525,0.0626123838246
+Canada,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0679086802243,0.0724836469545,0.0632134330001
+Canada,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0683928456411,0.0728905072714,0.0637690455198
+Canada,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0690189239409,0.0739097319643,0.0643871141959
+Canada,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0698547838503,0.0744702215259,0.0653406223899
+Canada,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0709077001118,0.0756705460353,0.0663264199438
+Canada,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.07206271908,0.0770532664305,0.0672932710809
+Canada,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0731771625761,0.0785003305908,0.0679778883354
+Canada,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0741547767476,0.0798457120124,0.0686170295859
+Canada,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0745321475404,0.0800363819799,0.0689177884542
+Canada,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0742088782918,0.0795853134113,0.0686757649613
+Canada,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0735699246172,0.0793555136331,0.068127567622
+Canada,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0730532381892,0.0791183966987,0.0673862661284
+Canada,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0731630236262,0.0795418978907,0.0671843231596
+Canada,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0738083346747,0.0797825769475,0.067920135509
+Canada,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.07456040105,0.0799838545943,0.0690571635711
+Canada,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0753458126386,0.0810486837379,0.0698287892871
+Canada,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0761406824645,0.082095629719,0.0704244193874
+Canada,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0769448636485,0.0834831980703,0.0707269094633
+Canada,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0777370209386,0.083938192165,0.0719333202288
+Canada,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0785521668214,0.0849118081988,0.0728127822035
+Canada,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0793553410662,0.0859103304214,0.0735619015403
+Canada,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0801259045296,0.0870079288037,0.0740636084685
+Canada,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0808617632139,0.0882848488265,0.074349866029
+Canada,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0815455720992,0.0897135650958,0.074487128889
+Canada,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0821989746608,0.0912315039292,0.0745615114346
+Chile,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0482132712983,0.0525303497588,0.0443981881969
+Chile,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0484906954566,0.0526709581037,0.0448510324686
+Chile,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0489820289557,0.0530553950547,0.045387755186
+Chile,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0496424763953,0.0538670776349,0.0459808892347
+Chile,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0504362265589,0.0548273814355,0.0466050193928
+Chile,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0513542236612,0.0559595301024,0.0474164405847
+Chile,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0526450870738,0.0571177347831,0.0485977125321
+Chile,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0543805204402,0.0589428932695,0.0502629267991
+Chile,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0563280156913,0.0609700760201,0.0520951679202
+Chile,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0582337855673,0.0631248020328,0.0536976290584
+Chile,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0598562561528,0.0651124533819,0.0548683234553
+Chile,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0612089533589,0.0662590043793,0.0565920876005
+Chile,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.062475817734,0.0671940199375,0.0578219167482
+Chile,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0637189183616,0.0685584572405,0.0590325923426
+Chile,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0649768587816,0.0701334072898,0.060108449538
+Chile,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0663350618034,0.0718760633417,0.0608583517696
+Chile,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0680009345864,0.0733694388786,0.06281607575
+Chile,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0699336478878,0.0752606438515,0.0648342454437
+Chile,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0719619458867,0.0774542755723,0.0667998238951
+Chile,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0738597634846,0.0796688237656,0.0682992384712
+Chile,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0754190644513,0.0818841697088,0.0692956520251
+Chile,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0767805840964,0.0830271112082,0.0707938043241
+Chile,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0781224260216,0.0845433875031,0.0721323922471
+Chile,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.079437925526,0.0858219320203,0.0731937168755
+Chile,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.080695165097,0.0875855004895,0.0742022670229
+Chile,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.081919508213,0.0892029741668,0.0750441345978
+Chile,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0830929066313,0.0912611669889,0.0756259231224
+Chile,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0841411498619,0.0932900454927,0.0759820597096
+Czech Republic,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0716944104277,0.0783801718727,0.0652729875174
+Czech Republic,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0725902915208,0.0789540711448,0.0665055718702
+Czech Republic,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.073568719959,0.0796706825471,0.0676452613502
+Czech Republic,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0745845427572,0.0809570318996,0.0689219187399
+Czech Republic,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.075616059132,0.0822297694732,0.0700177191598
+Czech Republic,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0766294320074,0.0837470888847,0.0708785545859
+Czech Republic,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.077780438989,0.0843307219706,0.0719475325715
+Czech Republic,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.079118125139,0.0855656834851,0.0729370890526
+Czech Republic,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0805221453503,0.0869510665153,0.0741262368397
+Czech Republic,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0818788878408,0.0886810846345,0.0750021846967
+Czech Republic,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0830595608427,0.0901254870485,0.0755703444493
+Czech Republic,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0838893592999,0.0908731849108,0.0770732834482
+Czech Republic,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0843505235015,0.0915633880299,0.0778342953754
+Czech Republic,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0846767320851,0.0921765169686,0.0782872457284
+Czech Republic,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0851155971975,0.0927110660151,0.0788699030731
+Czech Republic,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0859329849946,0.0936792397157,0.0791908908982
+Czech Republic,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0874689352194,0.0949713790076,0.0809331683416
+Czech Republic,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.089654291688,0.0970884983441,0.0832199344312
+Czech Republic,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0922647882727,0.0999347471398,0.0857589227943
+Czech Republic,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0950764747717,0.102885335274,0.0881230611152
+Czech Republic,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0979049556588,0.106034006378,0.0905684491962
+Czech Republic,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.100901302099,0.108976662,0.0935672138848
+Czech Republic,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.104233957158,0.112518357127,0.0968914015979
+Czech Republic,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.107885684595,0.116618934929,0.100368468106
+Czech Republic,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.111808667646,0.121201953328,0.103755489311
+Czech Republic,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.11594481689,0.125924433494,0.107035779212
+Czech Republic,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.120344057917,0.131315147713,0.110341415292
+Czech Republic,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.125019884156,0.137869088986,0.113808710918
+Denmark,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.103005547945,0.112210292349,0.0948375234832
+Denmark,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.104852323552,0.114040326979,0.0967499425625
+Denmark,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.106718189743,0.115988856388,0.0987375980208
+Denmark,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.108540786702,0.118111566712,0.100142934081
+Denmark,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.110315333307,0.120338374076,0.101405873065
+Denmark,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.11206792668,0.12257677761,0.102699294973
+Denmark,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.11393851568,0.123688764985,0.104935196211
+Denmark,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.115936936489,0.125395849943,0.106966476674
+Denmark,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.118097315662,0.127551224294,0.109118406575
+Denmark,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.120375358949,0.130367466374,0.111186843373
+Denmark,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.122754713724,0.133491839046,0.113068048979
+Denmark,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.125580339132,0.13596776253,0.115937688849
+Denmark,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.128771932428,0.139766773224,0.119258193586
+Denmark,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.132120262926,0.143779918241,0.122301205303
+Denmark,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.135381771374,0.147964556763,0.12496546849
+Denmark,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.138264478585,0.151594042806,0.126854821343
+Denmark,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.141031180075,0.153773103681,0.130734153957
+Denmark,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.143813381616,0.156101935379,0.133994448002
+Denmark,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.146441023421,0.158233253521,0.136230459817
+Denmark,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.148691431669,0.161183303362,0.137577077072
+Denmark,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.150328090513,0.163749490197,0.137922057912
+Denmark,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.151736130147,0.164659910212,0.140028749484
+Denmark,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.153179363273,0.165532498736,0.141682688245
+Denmark,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.154574041028,0.166765585483,0.143157673339
+Denmark,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.155833527051,0.168698516954,0.144589759095
+Denmark,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.156897109892,0.170719872236,0.145101018273
+Denmark,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.157799006834,0.172524509713,0.145042376713
+Denmark,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.158433965508,0.17420946476,0.144414452503
+Estonia,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0695857185833,0.0764850775922,0.0635452024148
+Estonia,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0703512413886,0.0768827928229,0.0645163704605
+Estonia,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0715805064333,0.0779629956721,0.0658268630427
+Estonia,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0731080128138,0.079458473105,0.0672243979052
+Estonia,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0746567802641,0.0813647589503,0.0684861739242
+Estonia,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0761948347925,0.0836309290106,0.0694612478252
+Estonia,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0781933062142,0.0856207615821,0.0715653361254
+Estonia,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0809447175726,0.0884572182984,0.0743678069683
+Estonia,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0838952748453,0.091541301636,0.077162122592
+Estonia,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0866552904181,0.0949149553447,0.0796649161674
+Estonia,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0889036113608,0.0978124815375,0.0813244202804
+Estonia,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0907814562557,0.0989600888495,0.0831793312302
+Estonia,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0928017644235,0.100974003486,0.0854292522456
+Estonia,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0947463466098,0.102755612933,0.0873520436467
+Estonia,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0964917491158,0.105156557513,0.0887126761362
+Estonia,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0979978105143,0.107345563168,0.0897635817171
+Estonia,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0995668338469,0.108339793276,0.0917170592726
+Estonia,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.101501632288,0.110126636052,0.0937279709218
+Estonia,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.103420843084,0.112323274371,0.0955774874922
+Estonia,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.105063002264,0.113709279969,0.096828523537
+Estonia,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.106219684966,0.115312696929,0.0976691875685
+Estonia,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.107026418845,0.116187715464,0.0985805641628
+Estonia,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.107831467227,0.117180828296,0.0992219004506
+Estonia,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.108494813599,0.117873610586,0.0997485821291
+Estonia,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.108945809672,0.118792018819,0.100045352475
+Estonia,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.109164165864,0.119567256824,0.0998488107284
+Estonia,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.109115338588,0.120305507876,0.0995921049593
+Estonia,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.108915411758,0.120886854726,0.0986984376317
+Finland,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0820640231331,0.0887799179431,0.0760195312151
+Finland,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0829161966347,0.0895706949176,0.0769581449994
+Finland,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0838033153045,0.0906866848158,0.0775688003002
+Finland,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0848337363877,0.0920000770229,0.0780676479197
+Finland,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0859911447178,0.0939289744316,0.0787892731042
+Finland,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.087359023149,0.0959603939969,0.079307581746
+Finland,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0895019006482,0.0980744663705,0.0815530161443
+Finland,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0924428992828,0.100871809777,0.0846587075897
+Finland,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0958705606142,0.104285340437,0.0879143302033
+Finland,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0991613399535,0.107921112279,0.0909110207921
+Finland,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.101853684318,0.111160649636,0.0928878845809
+Finland,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.104045133082,0.112974249739,0.0955289134296
+Finland,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.105881177211,0.114704553762,0.09763039747
+Finland,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.107685162613,0.116611753748,0.0993886823647
+Finland,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.109459380608,0.118804521455,0.101274157266
+Finland,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.111356217916,0.121473458692,0.102772460004
+Finland,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.113465165483,0.123283152595,0.105076702868
+Finland,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.115441120673,0.125084317835,0.106926987264
+Finland,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.117424894934,0.127625219522,0.108641520218
+Finland,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.119367747359,0.130468461118,0.110043268186
+Finland,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.121242587846,0.132785626596,0.110919054661
+Finland,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.123156602116,0.134505683781,0.112954009435
+Finland,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.124971914854,0.136316583503,0.114880989328
+Finland,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.126792854199,0.138396634054,0.116807906218
+Finland,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.128658344243,0.14095617388,0.118389958041
+Finland,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.130534464598,0.142684538242,0.120331043459
+Finland,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.132536057021,0.145505972342,0.121626890362
+Finland,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.134344513027,0.148124473983,0.122486145857
+France,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0441479297399,0.0476268162535,0.040667953174
+France,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0449429618553,0.0484454006952,0.0417280839236
+France,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0458200580847,0.0492516993189,0.0426036715789
+France,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0467628813254,0.0503373269848,0.0432773395915
+France,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0477338918918,0.0514243048562,0.0439736855598
+France,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0487004548095,0.0527321507597,0.0445042042238
+France,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0498443072642,0.0538923735277,0.045740608999
+France,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0512462778268,0.0554081581153,0.0474320136227
+France,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0527391783729,0.0569851645191,0.0487782104506
+France,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0541425873802,0.0588190334869,0.0498811375024
+France,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0553086719262,0.0603694752906,0.0506583393896
+France,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0562770044211,0.0609580603461,0.0519790211218
+France,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0571948249374,0.0620082284255,0.0530781213003
+France,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0581173750178,0.0628434838561,0.0540117360537
+France,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0591268941055,0.0640652186865,0.0549001039109
+France,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0602913764926,0.0655191573556,0.0558491126623
+France,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.061725336874,0.0666330406349,0.0572131016378
+France,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0634255308053,0.0683571009071,0.0589883596258
+France,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0652343546019,0.0702725551595,0.0604999079534
+France,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0669770653198,0.0721330392207,0.0617716801371
+France,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0684909736882,0.0742624391557,0.062611863113
+France,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0698288302386,0.075428223208,0.0641640934871
+France,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0711431023341,0.0766572383071,0.0656110095835
+France,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0724294603539,0.0780630851636,0.0670227606928
+France,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0736890304455,0.0797130866388,0.0680187084211
+France,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0748959411599,0.0813365644847,0.0686917917747
+France,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0760387260824,0.0833008619075,0.0692447413262
+France,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0771157341999,0.0852498735504,0.0695993606235
+Germany,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0659993129797,0.0712566159768,0.0602024380354
+Germany,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.066726862566,0.0714550249805,0.0616992906669
+Germany,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0673075798628,0.0718418112526,0.0628603088488
+Germany,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0678954329905,0.0723624965865,0.06381355866
+Germany,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.068675465682,0.0730625233612,0.0645089602319
+Germany,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0694793266384,0.0739579659769,0.0648492912421
+Germany,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.070143199115,0.0745846695534,0.0656049206989
+Germany,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0705746861301,0.074791444957,0.0658409116771
+Germany,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0709871100045,0.0754552883537,0.0659496446126
+Germany,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0715927071688,0.0763398019431,0.0663134286545
+Germany,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0723044063588,0.0774416563418,0.0666182247816
+Germany,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0731047411227,0.077944658743,0.0677437479701
+Germany,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0738848518893,0.0786836068502,0.0688550322418
+Germany,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0747589410293,0.0793986993564,0.0699223255093
+Germany,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0758379014432,0.0806954799539,0.0710396273319
+Germany,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0769804205267,0.0822020672263,0.071913433004
+Germany,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0786535439977,0.0836449593043,0.073766098446
+Germany,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0810307175688,0.0862855950789,0.0760355207148
+Germany,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0837730820709,0.0892733896125,0.0784277748245
+Germany,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0865271137867,0.0925472615566,0.0805758094646
+Germany,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.088726005736,0.0954309653254,0.0824180908708
+Germany,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0904922555888,0.0968637003054,0.0840505526417
+Germany,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.092151507406,0.0990215037596,0.0854934540819
+Germany,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0938301660279,0.100913966403,0.0870213063246
+Germany,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0956013948953,0.103410659341,0.0885152111168
+Germany,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0972567831718,0.106005373146,0.0898820518331
+Germany,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0983783726724,0.107953152929,0.090425874562
+Germany,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.100266034723,0.11119105644,0.0913764017049
+Greece,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0613564370343,0.0668226788682,0.0559288867024
+Greece,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0616381257658,0.0665094340198,0.0567772878029
+Greece,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0616160628381,0.066412475402,0.0569909823272
+Greece,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0617755386656,0.0666773642435,0.0570975893919
+Greece,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0621113484231,0.0675090830467,0.057086653777
+Greece,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0626549647748,0.0686189602317,0.0573208153661
+Greece,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0633490814588,0.0689678956456,0.0579856873979
+Greece,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0641557554522,0.0698225891029,0.0588447258645
+Greece,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0649781139167,0.0709848657084,0.059560095495
+Greece,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0659474407036,0.0724552740351,0.060018523892
+Greece,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0671080726843,0.0742915710021,0.0605366566153
+Greece,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0684825945572,0.0754948811594,0.0620230883253
+Greece,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0702246315561,0.0773472322063,0.0638388713865
+Greece,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0722480071091,0.0791630056573,0.0658331750716
+Greece,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0743940489499,0.0813576040003,0.0677010996777
+Greece,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0765166885017,0.0842371046388,0.0693177381422
+Greece,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0788469503957,0.0862870054686,0.0717090313175
+Greece,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0814438371532,0.0891076745652,0.0742346036202
+Greece,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0840666942799,0.0917435490523,0.0765476997151
+Greece,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0865818014193,0.0946000170137,0.0789411226377
+Greece,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.088824644424,0.0971165848862,0.0809561882795
+Greece,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0909280228376,0.099253869897,0.0830720450773
+Greece,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0930593165204,0.101453971393,0.0854629171526
+Greece,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0952777606614,0.104017363042,0.0873018523761
+Greece,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0974505497924,0.106718291644,0.0891485907764
+Greece,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0995385731876,0.109158589914,0.0909917287352
+Greece,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.101533232347,0.111789700915,0.092501903281
+Greece,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.103047406057,0.114253627462,0.093354946303
+Hungary,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0904262990261,0.0991383941081,0.0831795304076
+Hungary,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0902261700883,0.0986947343015,0.0833409612426
+Hungary,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0901149676206,0.0982541943288,0.083201457279
+Hungary,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0902660210164,0.0981267581808,0.0835640036023
+Hungary,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0907207617873,0.0983973400332,0.0835993447904
+Hungary,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0915154132087,0.100152892023,0.0840292365453
+Hungary,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0928679697811,0.101123138002,0.0855344957523
+Hungary,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0947922886407,0.102920549022,0.0876798705185
+Hungary,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.097079040819,0.105115998782,0.0898625593991
+Hungary,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.099380398818,0.107576069782,0.0918648990782
+Hungary,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.101410238107,0.109675329027,0.0930766029472
+Hungary,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.103189438453,0.111339901076,0.094971537366
+Hungary,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.104878249681,0.113165093934,0.0968377305108
+Hungary,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.10654626834,0.114800290512,0.098671680113
+Hungary,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.108163845705,0.116392985764,0.0999531644171
+Hungary,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.109650947049,0.11855078437,0.1009715924
+Hungary,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.111029162375,0.119772308617,0.102540775143
+Hungary,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.112389096277,0.121294070265,0.103867979827
+Hungary,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.11379864073,0.122918093489,0.10525964788
+Hungary,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.115192126114,0.125273322384,0.105919869659
+Hungary,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.116442528805,0.127202525793,0.106868769574
+Hungary,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.11745833399,0.127927969917,0.107984352433
+Hungary,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.11826483449,0.128594053254,0.109255963957
+Hungary,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.118982121969,0.129820837277,0.109793937995
+Hungary,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.119651779855,0.131058279341,0.110406214904
+Hungary,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.120188690768,0.13219023319,0.110385525425
+Hungary,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.120499133167,0.133273793196,0.110086059604
+Hungary,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.120628353018,0.134161507081,0.109588870269
+Iceland,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0567885504588,0.0622580984165,0.0515671402078
+Iceland,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0577506666573,0.0630107038298,0.0526587957294
+Iceland,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0587706030063,0.0641218713102,0.0537596022673
+Iceland,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0598473697522,0.0652693196696,0.0548592130582
+Iceland,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0609616619784,0.0665872076122,0.0558832249147
+Iceland,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0621005965319,0.067885983143,0.0570183170774
+Iceland,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0633440263304,0.0692339249551,0.0582588346718
+Iceland,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0646620359476,0.070706724413,0.0595640456298
+Iceland,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0660183383449,0.0722784637672,0.0604847112218
+Iceland,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0673982561405,0.0738740499714,0.0615275542305
+Iceland,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0687832266117,0.0755160854647,0.0624177115686
+Iceland,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0702847591329,0.0772706710446,0.0642295116515
+Iceland,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0719055209539,0.0791341276793,0.065764554714
+Iceland,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0736877733559,0.0812094093645,0.067451817937
+Iceland,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0755439399525,0.0834560021927,0.0691390576285
+Iceland,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0773718711072,0.0857898440772,0.0703020541434
+Iceland,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.079254835523,0.0876308155807,0.0724465061013
+Iceland,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0811401888176,0.0893720411854,0.0743842276048
+Iceland,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0831129223899,0.0912393511242,0.0762120324878
+Iceland,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0852242399482,0.0938365794148,0.0780172336007
+Iceland,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0874565951829,0.0962897371787,0.0798415013503
+Iceland,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.089815620844,0.0988671359218,0.0821535833828
+Iceland,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0921213050899,0.10154324271,0.0841957498262
+Iceland,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0944117821314,0.104134570058,0.0862885102956
+Iceland,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0966310473874,0.106675055907,0.0882406846758
+Iceland,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.098804495878,0.109208557097,0.0899239294306
+Iceland,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.100971866455,0.11185994706,0.0916114253453
+Iceland,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.103096323396,0.114326174852,0.0933359491962
+Ireland,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0690661280201,0.0751499235818,0.063197145249
+Ireland,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0707067938489,0.0766612430634,0.0649153562471
+Ireland,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0722906138457,0.078213255217,0.0665651762539
+Ireland,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0738082346147,0.0800618314437,0.0678687162284
+Ireland,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0753037777097,0.0819937549205,0.0690933053535
+Ireland,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0767945784814,0.0840458352361,0.0704421877439
+Ireland,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0783557821722,0.0854810234924,0.0720920310883
+Ireland,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.080038007491,0.0873208232699,0.0740229738516
+Ireland,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0816888545181,0.089231367306,0.0754379135375
+Ireland,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0831296638168,0.0907054350168,0.0762709593251
+Ireland,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0842230119181,0.0921194733526,0.0768638431966
+Ireland,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0849434196986,0.0927124860567,0.07773995645
+Ireland,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.085457325535,0.0932456758832,0.0785296609244
+Ireland,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.085914098122,0.0938759278249,0.0788492817707
+Ireland,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0864214718017,0.094760778268,0.0793876401886
+Ireland,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0871601135929,0.0957056912948,0.0798825639977
+Ireland,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.088182057281,0.0967563496004,0.0809534612343
+Ireland,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0894086067652,0.0976634097957,0.0823817789625
+Ireland,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0908123251376,0.0990583096957,0.0832862391432
+Ireland,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0922910253475,0.101048993787,0.0844271207449
+Ireland,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0939159418132,0.102781378493,0.0854907962391
+Ireland,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0957413130364,0.104576686105,0.0873667698196
+Ireland,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0977876910848,0.106858672344,0.0894087190247
+Ireland,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.100106149535,0.109309552562,0.0916553289074
+Ireland,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.102669636377,0.112406873829,0.0940573344194
+Ireland,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.105485179839,0.116062914848,0.0965863657433
+Ireland,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.108480825533,0.119922023258,0.0988350598937
+Ireland,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.111576250209,0.123927328946,0.101085109013
+Israel,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0527520057929,0.0573335349294,0.0484382156259
+Israel,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0555474366828,0.0603048914748,0.0512708923829
+Israel,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0581418334542,0.0630118325353,0.0537665647273
+Israel,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0604783388571,0.0656901932112,0.0559432636549
+Israel,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0625342025395,0.0681719780937,0.0578041583799
+Israel,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0643383634466,0.0703505076828,0.0592604848853
+Israel,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.065933765545,0.0717811463589,0.0612128103282
+Israel,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.067497951611,0.0732191058859,0.0629709235488
+Israel,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0688242537596,0.0744133223076,0.0641755035075
+Israel,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0698450081112,0.0754746345458,0.0650391994436
+Israel,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0706129799705,0.0765162166607,0.0653231477475
+Israel,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0710868404777,0.0770190645639,0.0659345270796
+Israel,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0714453974043,0.0773254425724,0.0662447241916
+Israel,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0716654790006,0.0777120474582,0.0665794299225
+Israel,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0719096475134,0.0779388020966,0.0667308007587
+Israel,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0724322528771,0.0786186861249,0.0670947203619
+Israel,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0730604126978,0.0791658676521,0.0678530402288
+Israel,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0736740046364,0.0797187372155,0.0684773603551
+Israel,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0741755796522,0.0805079842385,0.0690077558528
+Israel,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0746661697891,0.0811852501513,0.0692859159354
+Israel,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0752966093332,0.0822955306377,0.0694029196723
+Israel,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0759700466554,0.0826055788073,0.0703060939417
+Israel,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0767181079499,0.083220059214,0.0712934301603
+Israel,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0774636643655,0.0838382156963,0.0719694742287
+Israel,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0782405869041,0.0847135149914,0.0725625918603
+Israel,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0791307336983,0.0858666256473,0.0729206054846
+Israel,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.080034246892,0.0872628929732,0.0733141742314
+Israel,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0809582058521,0.088659217948,0.0735627696414
+Italy,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0678311409651,0.0740902517045,0.0616108433614
+Italy,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0693568398646,0.0752204137141,0.0634674013346
+Italy,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0708464155294,0.0766982204912,0.0649976143943
+Italy,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0723564057864,0.0786161265308,0.0663877624726
+Italy,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0738799000803,0.0808653243251,0.0677199519407
+Italy,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0754182320935,0.0834355095026,0.068655891844
+Italy,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.077142200117,0.0850111206274,0.0707913105275
+Italy,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0790253892485,0.0870312405722,0.073022490746
+Italy,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0809540493391,0.0889833361232,0.0750746163495
+Italy,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0828263481828,0.0908685392665,0.0767776509188
+Italy,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0845153993123,0.092834944212,0.0780425885606
+Italy,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0855223630183,0.093290084447,0.0795596353303
+Italy,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0856038222901,0.0928176081472,0.0800632786429
+Italy,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0851896906723,0.0919708726575,0.0797341492635
+Italy,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0848179266627,0.0917071102299,0.0793408657696
+Italy,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0850067103408,0.091753167453,0.0795129060391
+Italy,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0857162228621,0.0919531820472,0.0806144143768
+Italy,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.086549159434,0.0920851221827,0.0814433991841
+Italy,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0874641908384,0.0930906874085,0.0819437889422
+Italy,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0885544677006,0.0944573640683,0.082573726102
+Italy,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0898722830301,0.0964057218668,0.0831133623946
+Italy,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0915085885356,0.0981582595608,0.0849868372386
+Italy,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0935272056575,0.10044033911,0.0872449425974
+Italy,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0959174409307,0.103296458127,0.0894801076471
+Italy,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0987006261632,0.10673000521,0.0918217009524
+Italy,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.10179922021,0.110878868902,0.0943475072697
+Italy,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.105167995616,0.115076700833,0.0970057929334
+Italy,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.108854013831,0.119936724213,0.0994148011743
+Japan,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0530098695043,0.0580479479507,0.048539549957
+Japan,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0530268942175,0.0580067616955,0.0485370862806
+Japan,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0531587424264,0.0581642246136,0.0487406625917
+Japan,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0533298855752,0.0583623554031,0.0488383289397
+Japan,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0535590680295,0.058544975513,0.0489620391546
+Japan,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0538921447015,0.058992846558,0.0492733314329
+Japan,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0543061784902,0.0593521394527,0.0495563919181
+Japan,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0548577956415,0.0599638277885,0.0500711053203
+Japan,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.055376318561,0.060571272242,0.0506792346276
+Japan,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0558047094359,0.061145024864,0.051076749448
+Japan,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0561349695381,0.0614336914312,0.0512372110927
+Japan,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0561372689753,0.0614876851356,0.0512363158701
+Japan,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0559152244676,0.0611718691054,0.0510702034396
+Japan,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0556116144675,0.0607951605778,0.050838944258
+Japan,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0555030954891,0.0606017300196,0.0506845329684
+Japan,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0558928685428,0.0610101533774,0.0510718189901
+Japan,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0572681087602,0.0625773159012,0.0523502374426
+Japan,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0597168822608,0.0653141122183,0.054655467211
+Japan,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.062595661472,0.0684859242684,0.0571955720358
+Japan,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0653295493153,0.0715791858308,0.0595937575912
+Japan,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0672856243584,0.0739258190186,0.0613127795236
+Japan,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0685783730185,0.0753032468064,0.0625016348206
+Japan,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0699524842439,0.0768918886377,0.0637199000332
+Japan,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0712738766664,0.0784947072562,0.0647984577645
+Japan,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0725059461284,0.0801468813244,0.065728882183
+Japan,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0736007333602,0.0818166289356,0.0663545046133
+Japan,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0745089097515,0.0836005124014,0.0668275103072
+Japan,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0754171024766,0.0850196554023,0.0672641830708
+Latvia,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0640361025478,0.0696567290781,0.0585901077828
+Latvia,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0646835684321,0.0703561749713,0.0594474890109
+Latvia,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0655155941266,0.0711845886474,0.060435911415
+Latvia,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0664606583908,0.072028375698,0.0612929120706
+Latvia,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0674109603151,0.0733103192637,0.0619786983811
+Latvia,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0684085871721,0.0747746599735,0.0627129866847
+Latvia,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0697175235437,0.075875571491,0.064155620002
+Latvia,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0714512068756,0.0776305215856,0.0659759236383
+Latvia,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0733900610711,0.0795506877712,0.0678157370957
+Latvia,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0753569373262,0.0818314962207,0.0691811387458
+Latvia,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0772681901695,0.0838650301941,0.0706561864361
+Latvia,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0792078812402,0.0854387326966,0.0727831072168
+Latvia,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0813669124869,0.0876077801383,0.0751872424597
+Latvia,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0836107313812,0.0900389968512,0.077200929347
+Latvia,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.085731386027,0.0924374898424,0.0791026733184
+Latvia,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.087554025771,0.0947596432231,0.0803987761851
+Latvia,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0891869468194,0.0959516128392,0.0821678480153
+Latvia,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0909817451767,0.0979929800032,0.08393059942
+Latvia,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0929026820372,0.100235396287,0.0857693651034
+Latvia,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0947960904121,0.102723386855,0.0874387094996
+Latvia,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.09651608808,0.105323955659,0.0886354077078
+Latvia,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0980769898416,0.107083365462,0.0902673172706
+Latvia,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0996839496242,0.108831365653,0.0919159737385
+Latvia,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.101241776114,0.110499483491,0.0933583439663
+Latvia,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.102699294365,0.112320079258,0.0945774070164
+Latvia,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.104098940492,0.114327687119,0.0953664071503
+Latvia,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.105375298505,0.116143908285,0.0960920081376
+Latvia,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.106607327529,0.118162792037,0.0966208669545
+Luxembourg,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0911748418965,0.0994262214627,0.0832345653646
+Luxembourg,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0923770936172,0.100463157436,0.084521390689
+Luxembourg,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0935208032062,0.101591209647,0.0856459436818
+Luxembourg,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.09453287204,0.102901891614,0.0868271386895
+Luxembourg,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0955033665984,0.104160643088,0.0876006879072
+Luxembourg,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0964648802159,0.105374263064,0.088329901169
+Luxembourg,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0973600292602,0.106167349181,0.0894309597627
+Luxembourg,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0983605540641,0.106958492404,0.0906750909051
+Luxembourg,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0993778562902,0.107791585141,0.091678300608
+Luxembourg,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.100411250253,0.109042544928,0.092568317772
+Luxembourg,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.101402964211,0.110613175041,0.0933803543119
+Luxembourg,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.102260346677,0.111515857083,0.0941770273471
+Luxembourg,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.103196931421,0.1124215677,0.0951040485889
+Luxembourg,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.104165984522,0.1136112538,0.095956164256
+Luxembourg,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.105099349269,0.115288202231,0.0965846983898
+Luxembourg,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.106174458058,0.11710105154,0.0971001858783
+Luxembourg,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.107421315951,0.118094235351,0.0983305898241
+Luxembourg,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.109088130435,0.119374686549,0.0998328356008
+Luxembourg,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.11099098332,0.121461707499,0.101546390265
+Luxembourg,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.113027161932,0.123827178609,0.103356293241
+Luxembourg,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.115079914705,0.12662181757,0.105064925625
+Luxembourg,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.116966657206,0.1284354004,0.106950176982
+Luxembourg,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.118819606199,0.130401837481,0.108886762854
+Luxembourg,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.120841699529,0.132889859046,0.110820128601
+Luxembourg,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.123091733998,0.135201585243,0.112561170031
+Luxembourg,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.125460474177,0.138038238519,0.114618814851
+Luxembourg,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.12774688142,0.140794147574,0.116273952024
+Luxembourg,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.13008777442,0.143953958511,0.117619506971
+Mexico,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0619153208793,0.0669292623961,0.0570601915543
+Mexico,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0635130128617,0.068600231362,0.0585283374336
+Mexico,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0650368149189,0.0702091604253,0.0599720234513
+Mexico,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.066458529135,0.071714358533,0.061345662974
+Mexico,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0677593962505,0.0729942228989,0.0625998479202
+Mexico,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0688824712617,0.0742472604121,0.0635892866433
+Mexico,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0698862174589,0.0753109520432,0.0645302934148
+Mexico,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0707501695971,0.0762410404248,0.0652900644914
+Mexico,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0715361085512,0.0770571174189,0.0661284706329
+Mexico,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0723238824135,0.0778520727411,0.0670307932553
+Mexico,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0731866479147,0.0787976899128,0.0678286027165
+Mexico,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0740732348403,0.079788143852,0.0687033651854
+Mexico,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0748149004031,0.0806699028575,0.069455890286
+Mexico,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0755397790938,0.0814471936008,0.0700644481397
+Mexico,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0764065222961,0.0823804522376,0.0707964270307
+Mexico,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.077568364983,0.0836409699896,0.0719280656559
+Mexico,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0794652479623,0.0857994880296,0.0736627623586
+Mexico,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0820786793084,0.0885310206766,0.076099608977
+Mexico,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0850066816315,0.0916822025266,0.0786701627549
+Mexico,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0878321402172,0.0948489459056,0.0811638705506
+Mexico,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0901339866787,0.0972866659392,0.0832519690377
+Mexico,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0922443133568,0.0994262239179,0.0853059454913
+Mexico,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0946888667144,0.102105643414,0.0876537225194
+Mexico,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0974092255072,0.105435435162,0.0900498268168
+Mexico,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.100351039102,0.109146893602,0.0925976917017
+Mexico,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.103472169016,0.112702618441,0.0954504658619
+Mexico,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.106734559718,0.116795829897,0.098045993513
+Mexico,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.110059701282,0.120925647598,0.100682958913
+Netherlands,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0839553455194,0.0912342883148,0.077005268848
+Netherlands,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0856116296846,0.0925137456799,0.0788206011315
+Netherlands,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0872544629391,0.0939725255325,0.0801935844055
+Netherlands,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0887920508775,0.0954283056628,0.0817893677492
+Netherlands,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0902283139316,0.0970681149308,0.0831194515506
+Netherlands,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0915796455657,0.0987528033029,0.0839468264399
+Netherlands,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.092892953146,0.0997753138512,0.0855661050336
+Netherlands,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0943476788871,0.101055221334,0.0875575415203
+Netherlands,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0957644502598,0.102550474094,0.0888137941426
+Netherlands,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0970910405817,0.103967937472,0.0899832753493
+Netherlands,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0982771361968,0.105733427361,0.0908372555138
+Netherlands,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0993950681338,0.106744848696,0.0920261520441
+Netherlands,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.100714355186,0.108512188079,0.0935171421188
+Netherlands,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.102069323421,0.110422006269,0.0946519172557
+Netherlands,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.103542289733,0.112483312223,0.0959047742344
+Netherlands,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.1051546716,0.115127400604,0.0969085718818
+Netherlands,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.107172502505,0.116607197551,0.0990443827271
+Netherlands,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.109919325227,0.118991222,0.101423319803
+Netherlands,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.112800434193,0.122451955863,0.103765890739
+Netherlands,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.115438866383,0.125422534526,0.105823094514
+Netherlands,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.117501113691,0.128243023946,0.107247333062
+Netherlands,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.11904270557,0.129403349745,0.108939271078
+Netherlands,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.120589714009,0.131244162163,0.110577536337
+Netherlands,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.121944740668,0.132522131091,0.112066079293
+Netherlands,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.123070845161,0.13372843475,0.113011807593
+Netherlands,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.123931610117,0.135300812252,0.113486591093
+Netherlands,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.124394768746,0.136464575609,0.113465341844
+Netherlands,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.124567059352,0.137749327685,0.113164477131
+New Zealand,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.046773009593,0.0512655271933,0.0426125680082
+New Zealand,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0478253986213,0.0521254672656,0.0437378866018
+New Zealand,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0487360590324,0.0530996599037,0.0447778753991
+New Zealand,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0494649499561,0.0538318221014,0.0454267467234
+New Zealand,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0500711687034,0.0546473960367,0.0458633064293
+New Zealand,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0505741314699,0.0553315249101,0.0460704769825
+New Zealand,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0509725288814,0.0554585633282,0.0466677278833
+New Zealand,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0512654295775,0.0556403883447,0.046943186098
+New Zealand,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0514114264084,0.0556792078508,0.0470085003682
+New Zealand,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0514189470547,0.0558947003252,0.0469545164804
+New Zealand,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0513169967158,0.0559110703696,0.046712011847
+New Zealand,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0504900665712,0.0546691274178,0.046171490399
+New Zealand,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0486667999485,0.0523942825065,0.0446014835887
+New Zealand,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0465150328999,0.0499632280334,0.0427130665598
+New Zealand,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0447980312062,0.0481941246852,0.0411216365833
+New Zealand,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0442859896473,0.0477149700545,0.0406885070527
+New Zealand,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0448239425832,0.0481171107318,0.0414852545964
+New Zealand,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0456753624666,0.0489519010435,0.0424322605285
+New Zealand,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.046715972709,0.0498959079603,0.0435048244057
+New Zealand,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0478971345707,0.0511799698537,0.0446814560313
+New Zealand,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0491492001575,0.0526438394683,0.0458736939913
+New Zealand,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0505649646315,0.0541472129097,0.0472214888416
+New Zealand,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0522630481789,0.0560332426438,0.0487113794129
+New Zealand,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0541927747307,0.0583049131097,0.0504598607229
+New Zealand,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0563353883907,0.0607980173067,0.0521881418209
+New Zealand,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.058675859029,0.0635325286402,0.0542423612382
+New Zealand,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0612254952948,0.0666877772227,0.0563901502854
+New Zealand,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0639710818519,0.0701676171837,0.0583425461198
+Norway,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0896342681471,0.0974124897427,0.0823281207048
+Norway,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0906314188822,0.0983945092949,0.0832480168133
+Norway,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0914793056834,0.0991629525231,0.0839932648809
+Norway,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.092173035933,0.0998600029432,0.0847923183177
+Norway,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0926888891605,0.10044978725,0.0852659324783
+Norway,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0930336910131,0.100845489666,0.0856041318252
+Norway,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0932090142236,0.101022947322,0.0857401423701
+Norway,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0932478809145,0.101055489226,0.0857140507665
+Norway,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0932719928487,0.101100503596,0.085701107982
+Norway,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0933758588566,0.101271861407,0.0856796120056
+Norway,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0937056059015,0.101727310944,0.0859334641469
+Norway,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0946869250576,0.102700688231,0.0868699192271
+Norway,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0963556482498,0.104570276383,0.0885011857905
+Norway,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0983782160159,0.106685200639,0.0902625407214
+Norway,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.100383437339,0.108847483732,0.0921754484841
+Norway,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.101977888815,0.110524818453,0.0936143511977
+Norway,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.103239731784,0.111989702289,0.0948675766498
+Norway,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.10445032361,0.113688580116,0.0960271941921
+Norway,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.105488123579,0.115081765265,0.0969453935942
+Norway,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.106278995281,0.116069490475,0.0977079360363
+Norway,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.106775301778,0.116891946234,0.0980917452779
+Norway,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.107002415122,0.117551981841,0.0982286249469
+Norway,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.107171539768,0.117628938407,0.0982798218095
+Norway,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.107290569072,0.117897427869,0.0981857903807
+Norway,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.107333057664,0.118262902066,0.0982061531455
+Norway,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.107346046365,0.118416939046,0.09785376256
+Norway,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.107242843778,0.118629343381,0.0974098683459
+Norway,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.106992866058,0.118939216041,0.0969089074737
+Poland,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0616536940995,0.0681128242772,0.0567533380773
+Poland,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0618104142623,0.0676239574325,0.0571534977897
+Poland,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0620886201771,0.0677309545433,0.0576614820964
+Poland,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0625322149083,0.0681668699663,0.0580506045965
+Poland,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0631537164266,0.0688400101358,0.0585646407409
+Poland,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0639626896878,0.0698401610368,0.0590034707228
+Poland,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0651213917821,0.0707179129758,0.060051080247
+Poland,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0666565065425,0.0721911705897,0.0615033010769
+Poland,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0684049331424,0.0740177080157,0.063005308218
+Poland,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0701887666733,0.0761356681367,0.0644931131561
+Poland,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0718372494476,0.0781203540776,0.0654986946818
+Poland,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0735065056984,0.0797450658215,0.067550744476
+Poland,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0753505424819,0.0816292223718,0.0692957729234
+Poland,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0772194402352,0.0836476596523,0.0709916585117
+Poland,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0789488013617,0.0859574123082,0.0723174801312
+Poland,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0803851677809,0.0880772323129,0.0732767180544
+Poland,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0813757291663,0.0885773627462,0.0745814160618
+Poland,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0819790956854,0.0890868661139,0.0755246581367
+Poland,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0824160848877,0.0891601995683,0.0757776673968
+Poland,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0829395782274,0.0899182660131,0.0762170073708
+Poland,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0838491080051,0.0911573389009,0.0766430619139
+Poland,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0852868095185,0.0924361047419,0.0782521806571
+Poland,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0871354292388,0.0945076306088,0.0804727085879
+Poland,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0893779953925,0.0969975248974,0.082629354514
+Poland,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0920088783012,0.100127759894,0.0848124293294
+Poland,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0949866071778,0.104118403008,0.0870405686333
+Poland,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.098310500981,0.108340735647,0.0894802365439
+Poland,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.101988743077,0.112986912526,0.0920292131043
+Portugal,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0960084087896,0.104065367746,0.0880682973414
+Portugal,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.099649815796,0.107568980315,0.0920197670014
+Portugal,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.103075313679,0.110937227399,0.0953309928544
+Portugal,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.106284267174,0.114399284732,0.0979998963916
+Portugal,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.109277676626,0.118080073377,0.100495161331
+Portugal,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.111985906612,0.121457355576,0.102692482752
+Portugal,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.114528956886,0.123831284878,0.105478123461
+Portugal,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.11686163232,0.126448118124,0.107769590628
+Portugal,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.11911176896,0.129238130922,0.109657109217
+Portugal,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.121249299244,0.132136631527,0.111379297984
+Portugal,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.123266352035,0.134755308368,0.11288708262
+Portugal,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.125235430381,0.137138219615,0.114928271123
+Portugal,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.12698536071,0.138590405646,0.116628865695
+Portugal,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.128773976394,0.140680686918,0.118145531212
+Portugal,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.130755590662,0.143534346621,0.11987158364
+Portugal,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.133012045861,0.14693872776,0.121266842101
+Portugal,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.13586932057,0.148938767018,0.12478754308
+Portugal,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.139102891183,0.151408320629,0.12798796539
+Portugal,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.142559955436,0.153852840838,0.130948941253
+Portugal,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.145867525854,0.158023271401,0.134019401202
+Portugal,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.148636542206,0.161922634901,0.136013481376
+Portugal,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.151105396172,0.163870871129,0.139053969727
+Portugal,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.15348536124,0.16583794519,0.141994358101
+Portugal,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.155945964583,0.168612214213,0.1443764388
+Portugal,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.15838197815,0.172230702475,0.146234058934
+Portugal,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.160745646673,0.175447296403,0.147959411055
+Portugal,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.163018000571,0.178730422053,0.149278511396
+Portugal,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.164995686382,0.181716717465,0.14995262947
+Slovakia,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0553792119759,0.0601255993793,0.0503311393298
+Slovakia,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0556799471927,0.0603176388896,0.0508360572128
+Slovakia,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0560793088598,0.0606757837699,0.0512889989087
+Slovakia,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0565547192657,0.0613412610282,0.0518182444235
+Slovakia,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0571071583387,0.0620617639291,0.0524123044414
+Slovakia,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0577229553627,0.0630274276101,0.052948524896
+Slovakia,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0585606790392,0.0636508612344,0.0538933650229
+Slovakia,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0596957528052,0.0647575404022,0.0549328635051
+Slovakia,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0609503342455,0.0662114227484,0.0560112733939
+Slovakia,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0621900357226,0.067745585188,0.0570112385946
+Slovakia,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0632652853245,0.0691559312002,0.0577220977277
+Slovakia,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0642212099026,0.0699564975224,0.059053329415
+Slovakia,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0652215379714,0.0709494068577,0.0602586407331
+Slovakia,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0662435536343,0.0719237227853,0.0613036945177
+Slovakia,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0672574684375,0.0731430460968,0.0620229269089
+Slovakia,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0682435410744,0.0746753606561,0.0624211606823
+Slovakia,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0692604290733,0.0753802312381,0.0638913695844
+Slovakia,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0703640804404,0.0762182642887,0.0649317426258
+Slovakia,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0715168987475,0.0775245452504,0.0655662870011
+Slovakia,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0726805771146,0.078927786678,0.0662395996418
+Slovakia,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0738390878297,0.0807572543084,0.0665934407459
+Slovakia,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0750156629439,0.081769730035,0.067911428399
+Slovakia,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0762470389915,0.0832658417073,0.0695029648058
+Slovakia,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0775384662182,0.0848975307693,0.0708979673903
+Slovakia,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0788731701049,0.0865801904659,0.0723358666889
+Slovakia,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0802153130908,0.0883620452528,0.0734235023009
+Slovakia,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0815617611271,0.0906907550535,0.0743618632141
+Slovakia,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0829273789282,0.093117154911,0.0750341178941
+Slovenia,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0602208554323,0.0661022317464,0.0550588879075
+Slovenia,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0617632203949,0.067728658949,0.0565366808288
+Slovenia,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0634193667493,0.0693543312549,0.0583778730521
+Slovenia,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0651801725286,0.071029010151,0.0600220415853
+Slovenia,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0670164141316,0.0727463786571,0.0615726582938
+Slovenia,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0689582479082,0.0748855799575,0.0631036450024
+Slovenia,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.071196461517,0.0770261103634,0.0652701374609
+Slovenia,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0737941558074,0.0800120567274,0.0679929912382
+Slovenia,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0764375796894,0.0829465826649,0.0704580431277
+Slovenia,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0788102185999,0.0859030833857,0.0724125725471
+Slovenia,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0806003150688,0.0883129619675,0.0739356011215
+Slovenia,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0818648771619,0.0893316511933,0.075167960365
+Slovenia,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.082998256479,0.0902435717192,0.0762762167469
+Slovenia,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0840148022818,0.0915231677228,0.0771742823849
+Slovenia,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0849835426945,0.0927428917165,0.0780374208576
+Slovenia,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0860187652494,0.0940373536503,0.078656699121
+Slovenia,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0870502395056,0.094623506525,0.079828332505
+Slovenia,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0880171634568,0.095525994488,0.0808428971419
+Slovenia,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0888823987197,0.0967597423453,0.0814784356312
+Slovenia,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.089668097629,0.097788255471,0.081934217543
+Slovenia,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0904364495417,0.0988709457251,0.08223044192
+Slovenia,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.091236688358,0.0997205307049,0.083128795433
+Slovenia,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0921013046444,0.100545099127,0.0840160571653
+Slovenia,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0929600236454,0.101974310882,0.0849676092204
+Slovenia,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0938160081674,0.103415210232,0.0857948495191
+Slovenia,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.094642439653,0.104956344895,0.0863303872019
+Slovenia,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0954480996127,0.106536130079,0.08621220466
+Slovenia,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0963294111071,0.108569449294,0.086653866815
+South Korea,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0500216538371,0.0545580422195,0.0459378357216
+South Korea,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0506133039512,0.0549843215953,0.0467478789603
+South Korea,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0514054115755,0.0555715109875,0.0477432966934
+South Korea,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0522117111637,0.0562121688121,0.048509497851
+South Korea,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0531418203548,0.0571425779568,0.049404363629
+South Korea,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0542081645972,0.0582224352171,0.0502473941011
+South Korea,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0553428418999,0.0591612387368,0.0516058877543
+South Korea,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0566044956233,0.0604409768014,0.0528797569471
+South Korea,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0577842737817,0.0617146848391,0.0540285524927
+South Korea,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0590114705082,0.0629048081992,0.0551510591651
+South Korea,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0602877883977,0.0644564633019,0.0563475435927
+South Korea,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0616765917373,0.0661819382029,0.0573289234236
+South Korea,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0634027331292,0.0679675809683,0.0587804237757
+South Korea,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0652252755976,0.0699042823808,0.0605291378421
+South Korea,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.067227120679,0.0717972480922,0.0626214914754
+South Korea,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0693685879496,0.074111895416,0.0644962636968
+South Korea,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0719143576138,0.0763954982139,0.0675346134194
+South Korea,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0751551619093,0.0799124474815,0.0707152875165
+South Korea,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0785371235769,0.0836890135872,0.073858737489
+South Korea,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0818185834367,0.0875230587436,0.0766838812512
+South Korea,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0845795195621,0.0912608751879,0.0786592257049
+South Korea,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0867747891737,0.0933822253186,0.0807776640262
+South Korea,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0889958562596,0.0957321522662,0.083005126319
+South Korea,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0909997233468,0.0979677093362,0.0849001270088
+South Korea,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0928944486747,0.0997504640398,0.0864028779979
+South Korea,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0946441585372,0.10268705498,0.0877431656165
+South Korea,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0960834893349,0.10503880189,0.0885984069555
+South Korea,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0973954217979,0.107785635972,0.0888905608387
+Spain,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0632364950154,0.0687465598147,0.058301814579
+Spain,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0654495980533,0.0707711102305,0.0608565949828
+Spain,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0676852652529,0.0726880720897,0.0634087356569
+Spain,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0699804343354,0.0748199126413,0.0658620272543
+Spain,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0722782401843,0.0773706409752,0.068020815741
+Spain,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0744452325894,0.0797864174301,0.0700673469678
+Spain,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.077008230259,0.0819939713511,0.0726528152554
+Spain,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0797613560007,0.0846901262722,0.0754066334451
+Spain,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0824271296988,0.0873981881661,0.0777804003486
+Spain,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0845940542281,0.0900802172301,0.0795008041872
+Spain,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0857395486106,0.0916483218713,0.0801791203072
+Spain,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.085779477429,0.0913339547847,0.0801735208314
+Spain,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0846067318859,0.0904279839113,0.0789272626835
+Spain,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0830534368299,0.0890365244737,0.0770864774049
+Spain,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0818306184442,0.0882613140752,0.0753863741823
+Spain,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0814448364485,0.08819556207,0.0748339067405
+Spain,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0820264110021,0.0883683979189,0.0760647579371
+Spain,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0827491113236,0.0888731028685,0.0770676950699
+Spain,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0836699287619,0.0897335449357,0.0778754379634
+Spain,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0847904905636,0.0910352420597,0.0787355855485
+Spain,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0859354817765,0.0929351682047,0.0792084130565
+Spain,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0872784940215,0.0941231581708,0.0808460146314
+Spain,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0886933444487,0.0956511732324,0.0824053728674
+Spain,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0903044289456,0.0975331036854,0.0839745668908
+Spain,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0920274977143,0.0995858704632,0.0852964718436
+Spain,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0936895064248,0.101816656857,0.0863506706833
+Spain,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0954876060877,0.104483379004,0.0873004993592
+Spain,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0972440563692,0.107343033342,0.0882889044193
+Sweden,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0808357873321,0.0875233991147,0.0745227758009
+Sweden,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0818828826827,0.0886956985733,0.0756198062859
+Sweden,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0829316640782,0.0897071106445,0.0767285883421
+Sweden,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0839950484111,0.0910071324037,0.0778318459008
+Sweden,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0850996427759,0.092335467692,0.0786157361234
+Sweden,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0863024364036,0.0939071585039,0.0793326692163
+Sweden,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0876248063838,0.0951748521079,0.0805587261178
+Sweden,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0891634352979,0.0966681783037,0.0817327203672
+Sweden,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0907837848566,0.098532570291,0.0831321598234
+Sweden,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0923146069402,0.0999513935396,0.0843607437961
+Sweden,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0936742126286,0.101699664288,0.0854098168651
+Sweden,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0948660553412,0.102821376795,0.086868119607
+Sweden,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0960689065112,0.104094540762,0.0882789371585
+Sweden,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0972667531182,0.105482295777,0.0895170394896
+Sweden,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0984073328347,0.106724906957,0.0907384766105
+Sweden,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.099476578754,0.108292548583,0.0916430077751
+Sweden,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.100513479828,0.108957342572,0.0927113378296
+Sweden,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.101613158378,0.110114615892,0.0936640104868
+Sweden,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.102778252983,0.111731904094,0.0945369613554
+Sweden,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.103984303587,0.113254343408,0.0952823248438
+Sweden,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.105203290701,0.115122472719,0.0957468941211
+Sweden,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.10644517219,0.116611749255,0.0971938393093
+Sweden,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.10777417106,0.118224402057,0.0985818849527
+Sweden,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.10917339844,0.120136707993,0.0997831212602
+Sweden,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.110621202731,0.121727801047,0.100846298196
+Sweden,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.112080607829,0.123724046454,0.101581488857
+Sweden,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.113578087903,0.126142984314,0.102707166767
+Sweden,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.115166210808,0.128795586741,0.103167551255
+Switzerland,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0806646181164,0.0882408151284,0.0742179295909
+Switzerland,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0817848476261,0.0890364296045,0.0757936356606
+Switzerland,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0828400526419,0.0900093233915,0.0769105223778
+Switzerland,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0838491043003,0.0907187109172,0.0774381954353
+Switzerland,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0847885345353,0.0919034609372,0.0779529878254
+Switzerland,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0856230869729,0.0929736652426,0.0782327958232
+Switzerland,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0863473000996,0.0935472460693,0.079413050228
+Switzerland,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0869895183712,0.0941437763483,0.0802218238125
+Switzerland,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0875949656206,0.094608515647,0.0806385699923
+Switzerland,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0882200909955,0.0953137442133,0.0810584139525
+Switzerland,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0889174540946,0.0964280395196,0.0813223342633
+Switzerland,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0896746250054,0.0968425134611,0.0821979607309
+Switzerland,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0904725341907,0.0973192635989,0.0833222386507
+Switzerland,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0913134452256,0.0980187294182,0.084059779929
+Switzerland,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0922345740595,0.0990667058744,0.0847638938161
+Switzerland,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0932808209567,0.100440588819,0.085397989154
+Switzerland,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0946129130866,0.101925523733,0.0872254707911
+Switzerland,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0962896076429,0.104224736611,0.0888887217316
+Switzerland,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0981286421443,0.106523484713,0.0903366416144
+Switzerland,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0999101274443,0.109181979552,0.0918139043393
+Switzerland,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.101435434429,0.11177716278,0.0925636878625
+Switzerland,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.102766418945,0.112882036053,0.0941719365557
+Switzerland,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.104091428468,0.11426759563,0.095591671725
+Switzerland,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.105392441564,0.115689538209,0.0967808946754
+Switzerland,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.106695369255,0.11718087335,0.0980913659362
+Switzerland,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.107982885264,0.118646636404,0.0991466321814
+Switzerland,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.109288125062,0.120215282266,0.100092455156
+Switzerland,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.110618369837,0.122251286097,0.100843593934
+Turkey,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0416543906014,0.0458182836599,0.0379802943985
+Turkey,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0414119784129,0.0453343608858,0.0378864001246
+Turkey,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.041292294502,0.0450828193805,0.0378593584869
+Turkey,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.041332087465,0.0449416919113,0.0379778795464
+Turkey,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0415987260653,0.0452028666227,0.0383084464212
+Turkey,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0420626044101,0.0458206185189,0.0388391286519
+Turkey,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0427720285311,0.0465357104036,0.0394901568014
+Turkey,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0436758511091,0.0476125441159,0.040288485781
+Turkey,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0446946918291,0.0488386776197,0.0410030095893
+Turkey,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0457880138168,0.0500075890119,0.0419396911025
+Turkey,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0468065560808,0.0513229677896,0.0427234096075
+Turkey,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0478588328725,0.052519125964,0.0435779334729
+Turkey,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.04906455594,0.0536702528817,0.044725470673
+Turkey,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0503399105988,0.0548286183065,0.0459816663595
+Turkey,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0516450926074,0.0559506336821,0.0475114945291
+Turkey,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0528005359503,0.0572806566765,0.0485606638143
+Turkey,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0537158470601,0.0577679750644,0.0499399059928
+Turkey,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0544942011378,0.0582981297439,0.0509965844635
+Turkey,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.055253051328,0.058991234982,0.0518991539628
+Turkey,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0561729820548,0.0599544565489,0.0528906663825
+Turkey,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.057269690284,0.0612722603354,0.0538477776177
+Turkey,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0585204790424,0.0624819810004,0.0551871305175
+Turkey,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0599448721705,0.0641824642438,0.056492510221
+Turkey,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0615835847909,0.0662352681602,0.0578281718128
+Turkey,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0635135860869,0.0685891124248,0.0593334705739
+Turkey,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0656422952923,0.0712159941504,0.0608863587407
+Turkey,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0678850814105,0.0741865397756,0.0623311488863
+Turkey,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.070248104347,0.0775006984167,0.0636076490196
+United Kingdom,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0533742722744,0.058097992474,0.0491572866324
+United Kingdom,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0538894408609,0.0586907572942,0.0496764989949
+United Kingdom,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0544643386322,0.0593779392583,0.0501792870408
+United Kingdom,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0550570938391,0.0600338413891,0.0507251883984
+United Kingdom,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0556522882921,0.0607082515386,0.0512738846731
+United Kingdom,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0562497328951,0.0614073121113,0.0518221397717
+United Kingdom,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0574462733796,0.062557840225,0.0530216723398
+United Kingdom,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0596013243083,0.0648443737585,0.0550225895368
+United Kingdom,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0621104050429,0.0676111442509,0.0573041268512
+United Kingdom,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0643867458477,0.0698568784652,0.0594270060616
+United Kingdom,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0658870019328,0.0715980212787,0.0607247340743
+United Kingdom,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0666481014801,0.0722059846736,0.0616788283277
+United Kingdom,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0673091097889,0.0727992453684,0.0624014698307
+United Kingdom,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0679255521667,0.0733979030398,0.0630194390585
+United Kingdom,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0686119935556,0.0741912519614,0.0637025713753
+United Kingdom,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.069520834198,0.0751841369139,0.0645524152858
+United Kingdom,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0707250881431,0.0764540580453,0.0656743094892
+United Kingdom,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.07230984346,0.07807422273,0.0671579383758
+United Kingdom,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0740888131753,0.0801135219215,0.068819358692
+United Kingdom,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0759211412023,0.0820698258599,0.070457211389
+United Kingdom,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0776981544674,0.0840311005776,0.0720405913846
+United Kingdom,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0795355613989,0.0862278482578,0.073807180655
+United Kingdom,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0817356020119,0.0886094152989,0.0757118530644
+United Kingdom,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0842265496969,0.0916320920426,0.0778468998337
+United Kingdom,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0869765439956,0.0949135177963,0.0802247686789
+United Kingdom,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0899401258374,0.0986117532953,0.0827455450543
+United Kingdom,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0930370165555,0.102378375946,0.0853668121997
+United Kingdom,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.096341779769,0.106306238657,0.0880039040914
+United States,1990,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0556257278087,0.0598895479693,0.051449879168
+United States,1991,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0541051932843,0.0580502866217,0.0501507768072
+United States,1992,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0529105723555,0.0565237074886,0.0492048381017
+United States,1993,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0521125558096,0.0556511846219,0.0486804475655
+United States,1994,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0516827953626,0.0552046508037,0.0483260258294
+United States,1995,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0518152607035,0.0553186621359,0.0485105971226
+United States,1996,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0523629146303,0.0559355177387,0.0490565177541
+United States,1997,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.053330973034,0.0568982859448,0.0499683469358
+United States,1998,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0545766766877,0.0582229193089,0.0511184471173
+United States,1999,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0559165530254,0.0596987490196,0.0523451649544
+United States,2000,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0573888646891,0.0613460870964,0.0536834715918
+United States,2001,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0591836354076,0.0630979199075,0.0554541791574
+United States,2002,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0616911349559,0.0656456714944,0.0579059170106
+United States,2003,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0646992386196,0.0686675492618,0.0608516231938
+United States,2004,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0679574409331,0.0720485122899,0.0640070103201
+United States,2005,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0714214312171,0.0756912513896,0.0672080445999
+United States,2006,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0757900139117,0.0800162293642,0.071585619899
+United States,2007,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.08149909974,0.085666365144,0.0772677060725
+United States,2008,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0874058186687,0.0917637572357,0.0831193731452
+United States,2009,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0922859577257,0.0968682910023,0.0880473781652
+United States,2010,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0951250273927,0.0998253581846,0.0908531358385
+United States,2011,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0963859139134,0.101362651338,0.0919085358841
+United States,2012,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0976604815093,0.102776939793,0.0929830948809
+United States,2013,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0988243267495,0.104192439342,0.0939655275267
+United States,2014,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.0997411009547,0.105444103476,0.0946533283707
+United States,2015,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.100485454748,0.106603592861,0.0950487877579
+United States,2016,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.100797108698,0.107482074073,0.0948206454681
+United States,2017,All ages,Both,Diabetes mellitus,Percent of total prevalent cases,0.100683633538,0.107976941069,0.0941854195518
