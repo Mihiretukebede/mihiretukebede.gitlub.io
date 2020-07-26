@@ -78,7 +78,7 @@ plot1
 
 ```{r, include=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
 plot2 <- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
-  geom_line() + geom_point() + xlab("Year") +
+  geom_line() + xlab("Year") +
   ylab("Prevalence of diabetes in %") 
 plot2
 ```
