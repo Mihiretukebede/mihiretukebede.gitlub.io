@@ -6,7 +6,7 @@ title: "About me"
 
 <img src="myphoto.jpg" style="width:25%; border:10px solid; margin-right: 20px" align="left">
 
-My name is Mihiretu M Kebede. I was born in Gondar, Ethiopia. In 2006, I completed my Bachelor of Science degree in Medical Laboratory Technology at Addis Ababa University. After working for four years as a medical laboratory technologist, I did my MPH in Health Informatics at the University of Gondar in 2012. In 2015, I received a scholarship from the Basel Kanton to do advanced diploma in International Health at the Swiss Tropical and Public Health Institute in Basel. After finishing my advanced diploma, I moved back to Gondar and continued working as a lecturer at the University of Gondar.
+My name is Mihiretu M Kebede(ምህረቱ ከበደ). I was born in Gondar, Ethiopia. In 2006, I completed my Bachelor of Science degree in Medical Laboratory Technology at Addis Ababa University. After working for four years as a medical laboratory technologist, I did my MPH in Health Informatics at the University of Gondar in 2012. In 2015, I received a scholarship from the Basel Kanton to do advanced diploma in International Health at the Swiss Tropical and Public Health Institute in Basel. After finishing my advanced diploma, I moved back to Gondar and continued working as a lecturer at the University of Gondar.
 
 In April 2016, I came back to Europe and joined the University of Bremen. I received a doctoral research fellow position from the Leibniz Institute for Prevention Research and Epidemiology (BIPS) in the department of Prevention and Evaluation headed by Professor Dr.med Hajo Zeeb. 
 
