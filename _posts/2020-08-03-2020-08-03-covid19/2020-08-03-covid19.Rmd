@@ -27,11 +27,11 @@ output:
 Search terms: (covid 19) AND (("2020/08/02"[Date - Publication] : "3000"[Date - Publication]))
 
 - Alternatively you can find the search link [here](https://pubmed.ncbi.nlm.nih.gov/?term=%28covid+19%29+AND+%28%28%222020%2F07%2F31%22%5BDate+-+Publication%5D+%3A+%223000%22%5BDate+-+Publication%5D%29%29).
-- With the above search terms, we can retreive 601 COVID-19 related records that were indexed in PubMed on August 03, 2020.
+- With the above search terms, we can retrieve 601 COVID-19 related records that were indexed in PubMed on August 03, 2020.
 
 - We can now open these records using our citation manager: EndNote, Mendeley, etc. 
 - Since the file is in RIS format, we must convert it to BibTeX so that we can benefit from **Bibliomterix** package. 
-- I will come back in the future in another blog post to show you on how to convert RIS file to BibTeX or converting from CSV/XSL reference file to EndNote-readable format. For today, let's just use the converted [COVID19 BibTeX file](https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/posts/2020-08-03-2020-08-03-covid19/covid19.bib). We can load convert our BibTex file using either *bibliometrix* and then *bib2df* package. 
+- I will come back in the future in another blog post to show you on how to convert RIS file to BibTeX or converting from CSV/XSL reference file to EndNote-readable format. For today, let's just use the converted [COVID19 BibTeX file](https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/posts/2020-08-03-2020-08-03-covid19/covid19.bib). We can load convert our BibTeX file using either *bibliometrix* and then *bib2df* package. 
 
 Let's first use *bibliometrix* and then *bib2df* package to convert our [COVID19 BibTeX file](https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/posts/2020-08-03-2020-08-03-covid19/covid19.bib) to data frame. 
 
@@ -71,10 +71,14 @@ plot(x=results, k=10, pause=FALSE) #plot the results
 
 #since all of them are indexed in August 2020, this may not be useful analysis. 
 
-#Let's see sankey plots. But, before that we must remove missing values
+# Let's see sankey plots. But, before that we must remove missing values
 threeFieldsPlot(covid19_bibanalysis, fields = c("AU", "DE", "SO"))
 
-#Look at this plot. It maps Authors with keywords and with the journals. With 61 articles indexed in PubMed in one day, a journal called, EMERGING MICROBES \\& INFECTIONS  is leading the league
+```
+
+Look at this plot. It maps Authors with keywords and with the journals. With 61 articles indexed in PubMed in one day, a journal called, EMERGING MICROBES \\& INFECTIONS  is leading the league. 
+
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 
 
 ## Now let's do some clustering
@@ -90,15 +94,21 @@ csAB <- conceptualStructure(covid19_bibanalysis, field="DE",
                           stemming=FALSE, labelsize = 10, documents=2)
 ```
 
+The cluster of keywords shows there are five main clusters.
+1. Clinical, molecular and epidemiological keywords: the biggest part of the cluster with blue text on the figure
+2. Environmental monitoring cluster
+3. Humidity studies cluster
+4. Medical education cluster
+5. Organization and administration cluster
+
 # Now, let's use bib2df 
 
-It is also possible to continue our analysis using the `covid19_bibanalysis`data. However, it is good to try another package, `bib2df`. We will use this package to convert our BibTex file to data frame and then from there we can perform text mining. It is also good to note that the data frame converted using *bibliometrix*  package may not also work properly with *dplyr*. But, that depends with your *rlang*. I have experienced some errors using *bibliometrix* package with *dplyr*.  
+It is also possible to continue our analysis using the `covid19_bibanalysis`data. However, it is good to try another package, `bib2df`. We will use this package to convert our BibTeX file to data frame and then from there we can perform text mining. It is also good to note that the data frame converted using *bibliometrix*  package may not also work properly with *dplyr*. But, that depends with your *rlang*. I have experienced some errors using *bibliometrix* package with *dplyr*.  
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 library(bib2df)
 covid19 <- bib2df("covid19.bib")
 ```
-
 
 # Inspect the data
 
@@ -131,8 +141,8 @@ sum(!is.na(covid19new$ABSTRACT)) #442 records have abstracts
    #BINGO! We excluded the studies without Abstract. Now we, can play with text mining. 
 
 ```
-# I am interested in Journal articles 
-Let's find out the type of these records: journal arrticles, books, conference abstracts, etc. We can then focus on journal articles having with abstracts included in PubMed. 
+# I am interested only in Journal articles 
+We need to find out the type of these records: journal articles, books, conference abstracts, etc. We can then focus on journal articles having with abstracts included in PubMed. 
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 table(covid19new$CATEGORY) #382 are journal articles, 60 are Miscelaneous documents
@@ -147,7 +157,7 @@ table(covid19new$CATEGORY) #382 journal articles
 # Text mining
 
 - Since we already have our 442 studies with no missing abstract, we can conduct our text mining analysis using this data frame.  
-- There are several r packages for conducting text mining. Most popular packages are *tidytextt*, *text2vec*, *quanteda*, *tm* and *stringr*. 
+- There are several r packages for conducting text mining. Most popular packages are *tidytext*, *text2vec*, *quanteda*, *tm* and *stringr*. 
 - For today, I will simply follow  *tidytext*.
 - There are some important steps in text mining such as tokenization, visualization, computing tf-idf statistics, n-grams, etc
 - Term frequency inverse document frequency (tf-idf) is a weighted numerical representation of how a certain word is important in a document. It is calculated using the following formula. 
@@ -171,7 +181,7 @@ tidy_covid_data <- data %>%
   unnest_tokens(input=ABSTRACT, output=word)
 ```
 # Remove stop words
-Stop words are words that are not very relevant to the meaning or concept of the document. For example, see this sentence. "The COVID19 pandemic is the biggest global health crisis of our time". In this sentence,  "the, is, of, our" are not relevant for the concept of this text. These words need to be removed from our analys. To remove these words, we can use the stopwords data which is available for us. If we want to add additional stop words we can customize and create our own custmized stop words. 
+Stop words are words that are not very relevant to the meaning or concept of the document. For example, see this sentence. "The COVID19 pandemic is the biggest global health crisis of our time". In this sentence,  "the, is, of, our" are not relevant for the concept of this text. These words need to be removed from our analysis. To remove these words, we can use the stopwords data which is available for us. If we want to add additional stop words we can customize and create our own customized stop words. 
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 data("stop_words")
@@ -210,8 +220,14 @@ tidy_covid_data %>%
   with(wordcloud(word, n, max.words=300, colors = pal))
 ```
 
+
 # How are words connected to each other in the records?
+
 This needs tokenizing using n-grams. This will be our next stop. 
+
+# The way forward
+Currently, I am employing text mining applications to facilitate title abstract screening, full text screening, clustering of studies and topic modelling. I found it very interesting field and it is really appealing to learn. Looking at the current pace of medical literature, the future of systematic reviews is more on utilizing automated tools, text mining and machine learning. Anyone who is interested in systematic reviews needs to consider text mining. The biggest challenge I have so far is, applying machine learning to cluster or classify abstracts is computationally expensive. 
+
 
 # Contact 
 Please mention [MihiretuKebede1](https://www.https://twitter.com/MihiretuKebede1) if you tweet this post. 
