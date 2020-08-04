@@ -1,8 +1,8 @@
 [
   {
     "path": "posts/2020-08-03-2020-08-03-covid19/",
-    "title": "Applyin Bibliometric analysis and text mining to COVID-19 publications?",
-    "description": "Let's have a quick overview of what on COVID-19 been just indexed in PubMed on August 03/2020",
+    "title": "Applying Bibliometric analysis and text mining to COVID-19 publications?",
+    "description": "Let's have a quick overview of what on COVID-19 is just indexed in PubMed only in August 03/2020.",
     "author": [
       {
         "name": "Mihiretu Kebede(PhD)",
@@ -12,7 +12,7 @@
     "date": "2020-08-04",
     "categories": [],
     "preview": "posts/2020-08-03-2020-08-03-covid19/2020-08-03-covid19_files/figure-html5/unnamed-chunk-3-1.png",
-    "last_modified": "2020-08-04T14:01:28+02:00",
+    "last_modified": "2020-08-04T14:53:38+02:00",
     "input_file": "2020-08-03-covid19.utf8.md",
     "preview_width": 1248,
     "preview_height": 768

@@ -15,14 +15,17 @@ collections:
 output:
   distill::distill_article:
     self_contained: false
+    widerscreen: true
 ---
 
 <link rel="stylesheet" href="styles.css" type="text/css">
 
 #Plan of attack
 
-## Identify source of data: copy this and search on PubMed. 
-- Let's do a quick PuBmed search: (covid 19) AND (("2020/08/02"[Date - Publication] : "3000"[Date - Publication]))
+## Identify source of data 
+- Let's do a quick PuBmed search
+copy the following and search on PubMed.
+(covid 19) AND (("2020/08/02"[Date - Publication] : "3000"[Date - Publication]))
 
 - With the above search terms, we have 601 COVID-19 related records were indexed in PubMed 
 - ALternatively you can find the search link [here](https://pubmed.ncbi.nlm.nih.gov/?term=%28covid+19%29+AND+%28%28%222020%2F07%2F31%22%5BDate+-+Publication%5D+%3A+%223000%22%5BDate+-+Publication%5D%29%29).
