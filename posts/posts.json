@@ -1,5 +1,21 @@
 [
   {
+    "path": "posts/2020-08-03-2020-08-03-covid19/",
+    "title": "What were published today in COVID-19: from Bibliometrix to Text mining applications?",
+    "description": "Let's have a quick overview of what on COVID-19 is just indexed in PubMed today (August 03,2020).",
+    "author": [
+      {
+        "name": "Mihiretu Kebede(PhD)",
+        "url": {}
+      }
+    ],
+    "date": "2020-08-03",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2020-08-03T22:12:56+02:00",
+    "input_file": "2020-08-03-covid19.utf8.md"
+  },
+  {
     "path": "posts/2020-07-25-2020-07-25-diabetesprevalenceeurope/",
     "title": "Visualizing the prevalence of diabetes in six European countries, 1990-2017",
     "description": "This is a quick demonstration of diabetes prevalence in six European countries. The data are from the the Institute of Health Metrics and Evaluation (IHME).",
