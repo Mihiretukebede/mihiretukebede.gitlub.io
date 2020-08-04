@@ -18,27 +18,25 @@ output:
     widerscreen: true
 ---
 
-<link rel="stylesheet" href="styles.css" type="text/css">
 
-#Plan of attack
-
-## Identify source of data 
-- Let's do a quick PuBmed search
+# Plan of attack
+## Source of data 
+- Let's do a quick PubMed search
 copy the following and search on PubMed.
 (covid 19) AND (("2020/08/02"[Date - Publication] : "3000"[Date - Publication]))
 
 - With the above search terms, we have 601 COVID-19 related records were indexed in PubMed 
-- ALternatively you can find the search link [here](https://pubmed.ncbi.nlm.nih.gov/?term=%28covid+19%29+AND+%28%28%222020%2F07%2F31%22%5BDate+-+Publication%5D+%3A+%223000%22%5BDate+-+Publication%5D%29%29).
+- Alternatively you can find the search link [here](https://pubmed.ncbi.nlm.nih.gov/?term=%28covid+19%29+AND+%28%28%222020%2F07%2F31%22%5BDate+-+Publication%5D+%3A+%223000%22%5BDate+-+Publication%5D%29%29).
 
 - We can now open these records using our citation manager. 
-- Since the file is in RIS format, we must convert it to BibTex so that we can be be able to benefit from **Bibliomterix** package. 
-- I will come back in the future in another blog post to show you on how to convert RIS file to BibText or from CSV/XSL to EndNote-readable format. For today, let's just use the converted [COVID19.bib](https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/posts/2020-08-03-2020-08-03-covid19/covid19.bib)
+- Since the file is in RIS format, we must convert it to BibTeX so that we can be be able to benefit from **Bibliomterix** package. 
+- I will come back in the future in another blog post to show you on how to convert RIS file to BibTeX or from CSV/XSL to EndNote-readable format. For today, let's just use the converted [COVID19.bib](https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/posts/2020-08-03-2020-08-03-covid19/covid19.bib)
 
 
-## iniatilize
+## Initialize
 Set working directory
 
-### Load necessary packages
+## Load necessary packages
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 library(bibliometrix) #for bibliometric analysis
@@ -48,28 +46,30 @@ library(tidytext) #for text mining
 library(bib2df) #for converting bib file to data frame
 ```
 
-# Load data
-In another blog post, I will come back to show you how to convert RIS reference file to BibTex of csv file to EndNote readable file formats. For now, let's first use *bibliometrix* and then *bib2df* package to convert our [covid bib file](https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/posts/2020-08-03-2020-08-03-covid19/covid19.bib) to data frame. 
+# Import the data to R
+In another blog post, I will come back to show you how to convert RIS reference file to BibTeX of csv file to EndNote readable file formats. For now, let's first use *bibliometrix* and then *bib2df* package to convert our [covid bib file](https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/posts/2020-08-03-2020-08-03-covid19/covid19.bib) to data frame. 
 
 
-# Bibliometrics analysis using the biblimotrix package
+# Covert the BibTeX file to data frame
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 covid19_bibanalysis <- convert2df("covid19.bib", dbsource = "isi", format = "bibtex")
 
 #As usual, isnpect the data
 dim(covid19_bibanalysis) #601 records, 23 variables
-glimpse(covid19_bibanalysis)
+glimpse(covid19_bibanalysis) #Inspect the structure of data, variable names, etc
 
 ```
 
 # Now bibliometrics analysis
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
-results <- biblioAnalysis(covid19_bibanalysis, sep = ",")
-options(width=100)
-s <- summary(object=results, k=10, pase=FALSE)
-plot(x=results, k=10, pause=FALSE)
+results <-  biblioAnalysis(covid19_bibanalysis, sep = ",") #create the object
+options(width=100) #to determine width of the plot
+
+s <- summary(object=results, k=10, pase=FALSE) #to present 10 most prominent authors, journals, keywords, etc
+
+plot(x=results, k=10, pause=FALSE) #plot the results
 
 #since all of them are indexed in August 2020, this may not be useful analysis. 
 
@@ -81,8 +81,9 @@ threeFieldsPlot(covid19_bibanalysis, fields = c("AU", "DE", "SO"))
 
 ## Now let's do some clustering
 cs <- conceptualStructure(covid19_bibanalysis, field="AB", 
-                          method="CA", minDegree = 4, 
-                          stemming=FALSE, labelsize = 10, documents=10)
+                          method="CA", minDegree = 4,
+                          stemming=FALSE, labelsize = 10, documents=2) 
+# is abit dense to vizualize it here
 ```
 
 # Now, let's use bib2df
@@ -128,8 +129,58 @@ sum(!is.na(covid19new$ABSTRACT)) #442 records have abstracts
 ```
 
 # Text mining
-A work in progress!
+- Since we already have our 442 studies with no missing abstract, we can conduct our text mining analysis using this data. 
+- There are several r packages for conducting text mining. Most popular packages are *tidytextt*, *text2vec*, *quanteda*, *tm* and *stringr*. 
+- For today, I will simply follow  *tidytext*.
 
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+# selct few variables from our data set
+data <- covid19new %>% 
+  select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR")
+
+```
+# Tokenization
+- Tokenization is the process of breaking a certain text into word by word columns. For example, if one abstract is written using 300 words, tokenizing the abstract will result in 300 columns for each word. This will make things easy to count words and do any further analysis.    
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+tidy_covid_data <- data %>% 
+  unnest_tokens(input=ABSTRACT, output=word)
+```
+# Remove stop words
+Stop words are words that are not very relevant to the meaning or concept of the document. For example: "The COVID19 pandemic is the biggest global health crisis of our time". In this sentence,  "the, is, of, our" are not relevant for the concept of this text. These words need to be removed from our analys.  
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+data("stop_words")
+tidy_covid_data <- tidy_covid_data %>% 
+  anti_join(stop_words)
+```
+
+# Customize stop_words
+
+- Usually, abstract contains words like "background", "introduction", "materials", "methods", "results", "conclusions", etc. Let's remove these words 
+
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+# since it is all about covid-19, we don't need covid 
+custom_stop_words <- bind_rows(tibble(word=c("covid", "cov", "background", "introduction", "materials", "methods", "results", "conclusions", "0", "1","2", "3", "4", "5", "6", "7", "8", "9", "2019", "20202"),
+                                      lexicon = c("custom")),
+                               stop_words)
+
+# count number of words and plot it
+ tidy_covid_data %>% 
+  count(word, sort=T) %>% 
+   filter(n>150) %>% 
+   mutate(word=reorder(word, n)) %>% 
+   ggplot(aes(x=word, y=n)) + 
+   geom_col() + coord_flip()
+```
+
+# Word cloud
+
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+library(wordcloud)
+pal <- brewer.pal(8, "Dark2")
+tidy_covid_data %>% 
+  count(word) %>% 
+  with(wordcloud(word, n, max.words=300, colors = pal))
+```
 
 
 # Contact 

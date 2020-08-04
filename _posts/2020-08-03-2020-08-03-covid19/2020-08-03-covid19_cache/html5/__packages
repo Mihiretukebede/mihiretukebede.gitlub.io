@@ -4,3 +4,5 @@ dplyr
 ggplot2
 tidytext
 bib2df
+RColorBrewer
+wordcloud
