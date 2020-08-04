@@ -121,6 +121,15 @@ covid19new <- covid19 %>%
   filter(!is.na(ABSTRACT)) #remove all records with missing abstracts
 sum(!is.na(covid19new$ABSTRACT)) #442 records have abstracts
    #BINGO, we excluded the studies without Abstract. Now we, can play with text mining. 
+
 ```
+
+# Text mining
+A work in progress!
+
+
+
+# Contact 
+Please mention [MihiretuKebede1](https://www.https://twitter.com/MihiretuKebede1) if you tweet this post. 
 
 
