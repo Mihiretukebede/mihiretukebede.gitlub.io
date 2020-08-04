@@ -1,12 +1,14 @@
 ---
 name: "Aspire Data Solutions"
-title: "Applying Bibliometric analysis and text mining to COVID-19 publications?"
+title: "Applying bibliometric analysis and text mining to COVID-19 publications?"
 author: Mihiretu Kebede(PhD)
 url: http://www.mihiretukebede.com/ 
 google_analytics: "UA-173027539-1"
 date: "2020-08-04`"
 description: |
-  Let's have a quick overview of what on COVID-19 is just indexed in PubMed only in August 03/2020.
+  Let's have a quick overview of what on COVID-19 related records were added in PubMed on August 03/2020.
+
+preview: pic.jpg
 
 collections:
   posts:
@@ -21,17 +23,17 @@ output:
 
 # Plan of attack
 ## Source of data 
-- Let's do a quick PubMed search
-copy the following and search on PubMed.
-(covid 19) AND (("2020/08/02"[Date - Publication] : "3000"[Date - Publication]))
+- Let's do a quick PubMed search. Copy the following search terms and search on PubMed.
+Search terms: (covid 19) AND (("2020/08/02"[Date - Publication] : "3000"[Date - Publication]))
 
-- With the above search terms, we have 601 COVID-19 related records were indexed in PubMed 
 - Alternatively you can find the search link [here](https://pubmed.ncbi.nlm.nih.gov/?term=%28covid+19%29+AND+%28%28%222020%2F07%2F31%22%5BDate+-+Publication%5D+%3A+%223000%22%5BDate+-+Publication%5D%29%29).
+- With the above search terms, we can retreive 601 COVID-19 related records that were indexed in PubMed on August 03, 2020.
 
-- We can now open these records using our citation manager. 
-- Since the file is in RIS format, we must convert it to BibTeX so that we can be be able to benefit from **Bibliomterix** package. 
-- I will come back in the future in another blog post to show you on how to convert RIS file to BibTeX or from CSV/XSL to EndNote-readable format. For today, let's just use the converted [COVID19.bib](https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/posts/2020-08-03-2020-08-03-covid19/covid19.bib)
+- We can now open these records using our citation manager: EndNote, Mendeley, etc. 
+- Since the file is in RIS format, we must convert it to BibTeX so that we can benefit from **Bibliomterix** package. 
+- I will come back in the future in another blog post to show you on how to convert RIS file to BibTeX or converting from CSV/XSL reference file to EndNote-readable format. For today, let's just use the converted [COVID19 BibTeX file](https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/posts/2020-08-03-2020-08-03-covid19/covid19.bib). We can load convert our BibTex file using either *bibliometrix* and then *bib2df* package. 
 
+Let's first use *bibliometrix* and then *bib2df* package to convert our [COVID19 BibTeX file](https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/posts/2020-08-03-2020-08-03-covid19/covid19.bib) to data frame. 
 
 ## Initialize
 Set working directory
@@ -44,13 +46,10 @@ library(dplyr) #for data management
 library(ggplot2) #for plotting
 library(tidytext) #for text mining
 library(bib2df) #for converting bib file to data frame
+library(wordcloud) #for plotting most frequent words
 ```
 
-# Import the data to R
-In another blog post, I will come back to show you how to convert RIS reference file to BibTeX of csv file to EndNote readable file formats. For now, let's first use *bibliometrix* and then *bib2df* package to convert our [covid bib file](https://github.com/Mihiretukebede/mihiretukebede.gitlub.io/blob/master/posts/2020-08-03-2020-08-03-covid19/covid19.bib) to data frame. 
-
-
-# Covert the BibTeX file to data frame
+# Import the data to R: Covert the BibTeX file to data frame
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 covid19_bibanalysis <- convert2df("covid19.bib", dbsource = "isi", format = "bibtex")
@@ -58,7 +57,6 @@ covid19_bibanalysis <- convert2df("covid19.bib", dbsource = "isi", format = "bib
 #As usual, isnpect the data
 dim(covid19_bibanalysis) #601 records, 23 variables
 glimpse(covid19_bibanalysis) #Inspect the structure of data, variable names, etc
-
 ```
 
 # Now bibliometrics analysis
@@ -80,15 +78,21 @@ threeFieldsPlot(covid19_bibanalysis, fields = c("AU", "DE", "SO"))
 
 
 ## Now let's do some clustering
-cs <- conceptualStructure(covid19_bibanalysis, field="AB", 
+# Let's just use key words
+cs <- conceptualStructure(covid19_bibanalysis, field="DE", 
                           method="CA", minDegree = 4,
                           stemming=FALSE, labelsize = 10, documents=2) 
-# is abit dense to vizualize it here
+
+# Let's now use key Abstracts
+# is abit dense to vizualize it here. It is very dense. 
+csAB <- conceptualStructure(covid19_bibanalysis, field="DE", 
+                          method="CA", minDegree = 4,
+                          stemming=FALSE, labelsize = 10, documents=2)
 ```
 
-# Now, let's use bib2df
+# Now, let's use bib2df 
 
-It is also possible to continue using the `covid19_bibanalysis`data. However, it is also good to try another package, `bib2df`. We will use this data frame for our text mining analysis. Sometimes, the data frame converted using *bibliometrix*  package may not also work properly with *dplyr*.  
+It is also possible to continue our analysis using the `covid19_bibanalysis`data. However, it is good to try another package, `bib2df`. We will use this package to convert our BibTex file to data frame and then from there we can perform text mining. It is also good to note that the data frame converted using *bibliometrix*  package may not also work properly with *dplyr*. But, that depends with your *rlang*. I have experienced some errors using *bibliometrix* package with *dplyr*.  
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 library(bib2df)
@@ -111,27 +115,47 @@ sum(is.na(covid19$ABSTRACT)) #159 studies have no abstract
 sum(is.na(covid19$TITLE)) # 0 records have missing values
 sum(is.na(covid19$DOI)) #2 studies have no doi
 sum(!is.na(covid19$ABSTRACT)) #442 records have abstracts
-
-#Let's filter the data to retreive only the records with Abstract(AB)
-
+table(covid19$CATEGORY) #452 are journal aricles, 149 are Miscelaneous(books, conference abstracst, etc. 
 ```
 
+# Let's filter out the records with no Abstract
+
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
-#Let's filter the data to retreive only the records with Abstract(AB)
+#Let's filter the data to retreive only the records with Abstract
 #As we have seen above, we have 159 records without abstracts
 #use dplyr to filter
 library(dplyr)
 covid19new <- covid19 %>%
   filter(!is.na(ABSTRACT)) #remove all records with missing abstracts
 sum(!is.na(covid19new$ABSTRACT)) #442 records have abstracts
-   #BINGO, we excluded the studies without Abstract. Now we, can play with text mining. 
+   #BINGO! We excluded the studies without Abstract. Now we, can play with text mining. 
 
+```
+# I am interested in Journal articles 
+Let's find out the type of these records: journal arrticles, books, conference abstracts, etc. We can then focus on journal articles having with abstracts included in PubMed. 
+
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+table(covid19new$CATEGORY) #382 are journal articles, 60 are Miscelaneous documents
+
+# Filter journal articles having  abstracts 
+covid19new <- covid19new %>% 
+  filter(CATEGORY=="ARTICLE") 
+#Check 
+table(covid19new$CATEGORY) #382 journal articles
 ```
 
 # Text mining
-- Since we already have our 442 studies with no missing abstract, we can conduct our text mining analysis using this data. 
+
+- Since we already have our 442 studies with no missing abstract, we can conduct our text mining analysis using this data frame.  
 - There are several r packages for conducting text mining. Most popular packages are *tidytextt*, *text2vec*, *quanteda*, *tm* and *stringr*. 
 - For today, I will simply follow  *tidytext*.
+- There are some important steps in text mining such as tokenization, visualization, computing tf-idf statistics, n-grams, etc
+- Term frequency inverse document frequency (tf-idf) is a weighted numerical representation of how a certain word is important in a document. It is calculated using the following formula. 
+
+$$tfidf( t, d, D ) = tf( t, d ) \times idf( t, D )$$
+$$idf( t, D ) = log \frac{ \text{| } D \text{ |} }{ 1 + \text{| } \{ d \in D : t \in d \} \text{ |} }$$
+
+Where `t` is the terms appearing in a document; `d` denotes each document; `D` denotes the collection of documents.
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 # selct few variables from our data set
@@ -140,13 +164,15 @@ data <- covid19new %>%
 
 ```
 # Tokenization
+
 - Tokenization is the process of breaking a certain text into word by word columns. For example, if one abstract is written using 300 words, tokenizing the abstract will result in 300 columns for each word. This will make things easy to count words and do any further analysis.    
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 tidy_covid_data <- data %>% 
   unnest_tokens(input=ABSTRACT, output=word)
 ```
 # Remove stop words
-Stop words are words that are not very relevant to the meaning or concept of the document. For example: "The COVID19 pandemic is the biggest global health crisis of our time". In this sentence,  "the, is, of, our" are not relevant for the concept of this text. These words need to be removed from our analys.  
+Stop words are words that are not very relevant to the meaning or concept of the document. For example, see this sentence. "The COVID19 pandemic is the biggest global health crisis of our time". In this sentence,  "the, is, of, our" are not relevant for the concept of this text. These words need to be removed from our analys. To remove these words, we can use the stopwords data which is available for us. If we want to add additional stop words we can customize and create our own custmized stop words. 
+
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 data("stop_words")
 tidy_covid_data <- tidy_covid_data %>% 
@@ -159,10 +185,12 @@ tidy_covid_data <- tidy_covid_data %>%
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 # since it is all about covid-19, we don't need covid 
-custom_stop_words <- bind_rows(tibble(word=c("covid", "cov", "background", "introduction", "materials", "methods", "results", "conclusions", "0", "1","2", "3", "4", "5", "6", "7", "8", "9", "2019", "20202"),
+custom_stop_words <- bind_rows(tibble(word=c("covid", "cov", "background", "introduction", "materials", "methods", "results", "conclusions", "0", "1","2", "3", "4", "5", "6", "7", "8", "9","19", "2019", "20202"),
                                       lexicon = c("custom")),
                                stop_words)
 
+tidy_covid_data <- tidy_covid_data %>% 
+  anti_join(custom_stop_words)
 # count number of words and plot it
  tidy_covid_data %>% 
   count(word, sort=T) %>% 
@@ -182,8 +210,12 @@ tidy_covid_data %>%
   with(wordcloud(word, n, max.words=300, colors = pal))
 ```
 
+# How are words connected to each other in the records?
+This needs tokenizing using n-grams. This will be our next stop. 
 
 # Contact 
 Please mention [MihiretuKebede1](https://www.https://twitter.com/MihiretuKebede1) if you tweet this post. 
+
+
 
 
