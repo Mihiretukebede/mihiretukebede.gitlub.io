@@ -87,7 +87,7 @@ cs <- conceptualStructure(covid19_bibanalysis, field="DE",
                           method="CA", minDegree = 4,
                           stemming=FALSE, labelsize = 10, documents=2) 
 
-# Let's now use key Abstracts
+# Let's now use Akey words
 # is abit dense to vizualize it here. It is very dense. 
 csAB <- conceptualStructure(covid19_bibanalysis, field="DE", 
                           method="CA", minDegree = 4,
@@ -95,11 +95,11 @@ csAB <- conceptualStructure(covid19_bibanalysis, field="DE",
 ```
 
 The cluster of keywords shows there are five main clusters.
-1. Clinical, molecular and epidemiological keywords: the biggest part of the cluster with blue text on the figure
-2. Environmental monitoring cluster
-3. Humidity studies cluster
-4. Medical education cluster
-5. Organization and administration cluster
+ 1. Clinical, molecular and epidemiological keywords: the biggest part of the  cluster with blue text on the figure
+ 2. Environmental monitoring cluster
+ 3. Humidity studies cluster
+ 4. Medical education cluster
+ 5. Organization and administration cluster
 
 # Now, let's use bib2df 
 
@@ -207,9 +207,10 @@ tidy_covid_data <- tidy_covid_data %>%
    filter(n>150) %>% 
    mutate(word=reorder(word, n)) %>% 
    ggplot(aes(x=word, y=n)) + 
-   geom_col() + coord_flip()
+   geom_col(fill="#619CFF") + coord_flip()
 ```
 
+ 
 # Word cloud
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
@@ -230,7 +231,7 @@ Currently, I am employing text mining applications to facilitate title abstract 
 
 
 # Contact 
-Please mention [MihiretuKebede1](https://www.https://twitter.com/MihiretuKebede1) if you tweet this post. 
+Please mention [MihiretuKebede1](https://twitter.com/MihiretuKebede1) if you tweet this post. 
 
 
 
