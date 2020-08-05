@@ -1,0 +1,54 @@
+---
+name: "Aspire Data Solutions"
+title: "Public reactions to Abiy Ahmed's Facebook posts"
+author: Mihiretu Kebede(PhD)
+url: http://www.mihiretukebede.com/ 
+google_analytics: "UA-173027539-1"
+date: "2020-08-04`"
+description: |
+  Let'S have some fun in visualizing Facebook reactions to Abiy Ahme's Facebook posts from July 27 to August 04.
+
+collections:
+  posts:
+      share: [twitter, linkedin, facebook, google-plus, pinterest]
+      
+output:
+  distill::distill_article:
+    self_contained: false
+    widerscreen: true
+---
+
+
+# Disclaimer
+This blog post is simply about visualizing the data. It doesn't reflect the political affiliation or opinion of the author.  
+
+# Data
+I have manually collected Prime Minister Abiy Ahmed's one month Facebook posts (From June 27 until August 24). I collected simply three variables: date Abiy Ahmed posted on Facebook, type of Facebook reaction (eg: Like, LOve, angry, sad, etc...) and number of reactions. 
+
+# Initialize
+# Required packages 
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+library(readxl) #to read the excel data
+library(ggplot2) #for awesome plotting
+library(directlabels) #for labelling directly on the plots
+```
+
+``````{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+library(readxl)
+abiy_ahmed <- read_excel("abiy_ahmed.xlsx")
+# As usual 
+dim(abiy_ahmed)
+glimpse(abiy_ahmed)
+```
+
+# Plot
+``````{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+plot <- ggplot(abiy_ahmed, aes(x=Date_posted, y=Count, col=Reaction)) + geom_point() +
+  geom_line()
+direct.label(plot, "last.qp")
+```
+
+
+# Contact 
+Please mention [MihiretuKebede1](https://twitter.com/MihiretuKebede1) if you tweet this post. 
+

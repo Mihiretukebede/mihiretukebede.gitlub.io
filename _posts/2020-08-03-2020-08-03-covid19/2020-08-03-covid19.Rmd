@@ -1,7 +1,7 @@
 ---
 name: "Aspire Data Solutions"
 title: "Applying bibliometric analysis and text mining to COVID-19 publications?"
-author: Mihiretu Kebede(PhD)
+author: Mihiretu Kebede (PhD)
 url: http://www.mihiretukebede.com/ 
 google_analytics: "UA-173027539-1"
 date: "2020-08-04`"
@@ -18,6 +18,8 @@ output:
   distill::distill_article:
     self_contained: false
     widerscreen: true
+    toc: true
+    toc_depth: 2
 ---
 
 
@@ -51,7 +53,7 @@ library(wordcloud) #for plotting most frequent words
 
 # Import the data to R: Covert the BibTeX file to data frame
 
-```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=T, eval=FALSE,error=FALSE, include=T, echo=T, message=FALSE, warning=FALSE}
 covid19_bibanalysis <- convert2df("covid19.bib", dbsource = "isi", format = "bibtex")
 
 #As usual, isnpect the data
@@ -94,12 +96,18 @@ csAB <- conceptualStructure(covid19_bibanalysis, field="DE",
                           stemming=FALSE, labelsize = 10, documents=2)
 ```
 
-The cluster of keywords shows there are five main clusters.
+```{r out.width="100%"}
+knitr::include_graphics("pic.jpg")
+```
+
+The figure above shows keywords of the articles are clustered into five main categories.
+
  1. Clinical, molecular and epidemiological keywords: the biggest part of the  cluster with blue text on the figure
  2. Environmental monitoring cluster
  3. Humidity studies cluster
  4. Medical education cluster
  5. Organization and administration cluster
+ 
 
 # Now, let's use bib2df 
 
@@ -195,7 +203,7 @@ tidy_covid_data <- tidy_covid_data %>%
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 # since it is all about covid-19, we don't need covid 
-custom_stop_words <- bind_rows(tibble(word=c("covid", "cov", "background", "introduction", "materials", "methods", "results", "conclusions", "0", "1","2", "3", "4", "5", "6", "7", "8", "9","19", "2019", "20202"),
+custom_stop_words <- bind_rows(tibble(word=c("covid", "cov", "background", "introduction", "materials", "methods", "results", "conclusions", "0", "1","2", "3", "4", "5", "6", "7", "8", "9","19", "2019", "2020", "95"),
                                       lexicon = c("custom")),
                                stop_words)
 
@@ -204,7 +212,7 @@ tidy_covid_data <- tidy_covid_data %>%
 # count number of words and plot it
  tidy_covid_data %>% 
   count(word, sort=T) %>% 
-   filter(n>150) %>% 
+   filter(n>100) %>% 
    mutate(word=reorder(word, n)) %>% 
    ggplot(aes(x=word, y=n)) + 
    geom_col(fill="#619CFF") + coord_flip()
@@ -213,7 +221,7 @@ tidy_covid_data <- tidy_covid_data %>%
  
 # Word cloud
 
-```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r out.width="80%", cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 library(wordcloud)
 pal <- brewer.pal(8, "Dark2")
 tidy_covid_data %>% 
@@ -227,7 +235,8 @@ tidy_covid_data %>%
 This needs tokenizing using n-grams. This will be our next stop. 
 
 # The way forward
-Currently, I am employing text mining applications to facilitate title abstract screening, full text screening, clustering of studies and topic modelling. I found it very interesting field and it is really appealing to learn. Looking at the current pace of medical literature, the future of systematic reviews is more on utilizing automated tools, text mining and machine learning. Anyone who is interested in systematic reviews needs to consider text mining. The biggest challenge I have so far is, applying machine learning to cluster or classify abstracts is computationally expensive. 
+R is a powerfull open source tool for systematic reviewers. It is helpful to exclude duplicate records that your reference management software often misses. Currently, I am employing text mining applications to facilitate title/abstract screening, full text screening, clustering of studies and topic modelling. I found text mining is very interesting field and it is really appealing to learn. Looking at the current pace of medical literature, the future of systematic reviews lies on using automated tools, and leveraging text mining and machine learning algorithms. In my opinion, anyone who is interested in systematic reviews needs to consider text mining. The biggest challenge I have so far is, applying machine learning to cluster or classify abstracts is computationally intensive.The curse of high dimensionality! 
+
 
 
 # Contact 
