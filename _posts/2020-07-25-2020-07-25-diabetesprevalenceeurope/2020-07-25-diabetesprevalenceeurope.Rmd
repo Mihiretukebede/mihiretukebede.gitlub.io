@@ -26,12 +26,12 @@ output:
 ## My R version
 - See below 
 
-```{r, include=T, echo=TRUE, warning=FALSE, message=FALSE}
+```{r,cache=TRUE, include=T, echo=TRUE, warning=FALSE, message=FALSE}
 version
 ```
 
 # Required packages
-```{r, include=T, echo=TRUE, warning=FALSE, message=FALSE}
+```{r,cache=TRUE, include=T, echo=TRUE, warning=FALSE, message=FALSE}
 #If you don't have any of these packages install them using install.packages("pakage)
 library(readr) #to read csv file
 library(dplyr) #for data manipulaion 
@@ -45,7 +45,7 @@ library(transformr)
 
 # Load the data and have a closer look 
 
-```{r, include=T, echo=TRUE, warning=FALSE, message=FALSE}
+```{r,cache=TRUE, include=T, echo=TRUE, warning=FALSE, message=FALSE}
 # The data is for all countries included in GBD studies
 diabetes <- read_csv("Eurodiabetes.csv") 
 dim(diabetes) #980 observations and 9 variables. 
@@ -54,7 +54,7 @@ str(diabetes)
 
 ## Let's choose only 5 European countries with high diabetes prevalence
 
-```{r, include=TRUE, echo=TRUE, warning=FALSE, message=FALSE}
+```{r,cache=TRUE, include=TRUE, echo=TRUE, warning=FALSE, message=FALSE}
 ger_au_ch <- diabetes %>% 
   filter(Location %in% c("Austria", "Germany", "Switzerland", "Denmark", "Portugal", "Finland")) 
 ger_au_ch <- na.omit(ger_au_ch) #Remove missing values
@@ -70,7 +70,7 @@ ger_au_ch$Yearnumeric <- as.numeric(ger_au_ch$Year) #change it to numeric and sa
 #  Basic plots
 Since we already have everything we need for plotting, we can start using ggplot2
 
-```{r, layout="l-body-outset", preview=TRUE, include=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
+```{r,cache=TRUE, layout="l-body-outset", preview=TRUE, include=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
 plot1 <- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
   geom_line() + geom_point() + xlab("Year") +
   ylab("Prevalence of diabetes in %") 
@@ -78,7 +78,7 @@ plot1
 ```
 
 
-```{r, include=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
+```{r, cache=TRUE,include=TRUE, echo=TRUE, message=FALSE, warning=FALSE}
 plot2 <- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
   geom_line() + xlab("Year") +
   ylab("Prevalence of diabetes in %") 
@@ -121,17 +121,17 @@ euro_anim <- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) +
 # Use gifski_renderer to loop or no to loop the gif 
 - Let's see, how it looks if we assign RUE or just T in short for loop.
 
-```{r, echo=TRUE, include=TRUE}
+```{r,cache=TRUE, echo=TRUE, include=TRUE}
 animate(euro_anim, renderer = gifski_renderer(loop = T), width = 700, height = 700, duration = 15) # when you assign loop=TRUE or just T, the gif starts playing again 
 ```
 
 - Assign loop to False or just F
-```{r, echo=TRUE, include=TRUE}
+```{r,cache=TRUE, echo=TRUE, include=TRUE}
 animate(euro_anim, renderer = gifski_renderer(loop = F), width = 700, height = 700, duration = 15) # when you assign loop=TRUE or just F, the gif stops looping. It only plays once. Refresh if you want to see again  
 ```
 
 # Let's tweak few things and see what happens
-```{r, echo=TRUE, warning=FALSE, message=FALSE, include=TRUE}
+```{r,cache=TRUE, echo=TRUE, warning=FALSE, message=FALSE, include=TRUE}
 
 euro_anim <- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
   geom_point(size=6) + transition_time(Yearnumeric)  +
@@ -167,7 +167,7 @@ animate(euro_anim, renderer = gifski_renderer(loop = F), width = 700, height = 7
 ```
 
 - And again 
-```{r, include=TRUE, echo=TRUE, warning=FALSE, message=FALSE}
+```{r,cache=TRUE, include=TRUE, echo=TRUE, warning=FALSE, message=FALSE}
 euro_anim3 <- ger_au_ch %>% 
   ggplot( aes(x=Yearnumeric, y=Prev, col=Location)) + geom_line() + geom_line() +
   geom_point() +
@@ -200,7 +200,7 @@ euro_anim3 <- ger_au_ch %>%
 euro_anim3  
 ```
 
-```{r, include=TRUE, echo=TRUE, warning=FALSE, message=FALSE}
+```{r,cache=TRUE, include=TRUE, echo=TRUE, warning=FALSE, message=FALSE}
 # Shorter code
  ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + geom_line() + geom_line() +
   geom_point() +
@@ -225,5 +225,5 @@ euro_anim3
 That is it all for today. I hope, you like it. See you in my next post.
 
 # Contact 
-Please mention [MihiretuKebede1](https://www.https://twitter.com/MihiretuKebede1) if you tweet this post. 
+Please mention [MihiretuKebede1](https://twitter.com/MihiretuKebede1) if you tweet this post.
 
