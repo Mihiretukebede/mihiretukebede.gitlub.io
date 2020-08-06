@@ -1474,7 +1474,7 @@ plot &lt;- ggplot(abiy_ahmed, aes(x=Date_posted,
 plot1 &lt;- direct.label(plot, &quot;last.qp&quot;)
 
 plot1</code></pre>
-<p><img src="2020-08-04-abiyahmed_files/figure-html5/unnamed-chunk-4-1.png" width="80%" /></p>
+<p><img src="2020-08-04-abiyahmed_files/figure-html5/unnamed-chunk-4-1.png" width="97%" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
@@ -1488,7 +1488,7 @@ plot1 &lt;- direct.label(plot, &quot;last.qp&quot;)
 
 plot2 &lt;- ggbackground(plot1, &quot;abiy4.jpg&quot;) 
 plot2</code></pre>
-<p><img src="2020-08-04-abiyahmed_files/figure-html5/unnamed-chunk-5-1.png" width="80%" data-distill-preview=1 /></p>
+<p><img src="2020-08-04-abiyahmed_files/figure-html5/unnamed-chunk-5-1.png" width="97%" data-distill-preview=1 /></p>
 </div>
 <h1 id="reshape-the-data">Reshape the data</h1>
 <p>For easier manipulation, let’s reshape our data using <code>reshape2</code>.</p>
@@ -1501,7 +1501,7 @@ abiy_data$Date_posted &lt;- as.Date(abiy_data$Date_posted)
 
 ggplot(abiy_data, aes(x=Date_posted, y=value, col=Reaction)) + geom_point() + xlab(&quot;Date of Facebook post&quot;) + ylab(&quot;Number of reactions&quot;) +
   geom_line() + scale_x_date(date_breaks = &quot;5 day&quot;) + theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0))</code></pre>
-<p><img src="2020-08-04-abiyahmed_files/figure-html5/unnamed-chunk-6-1.png" width="80%" /></p>
+<p><img src="2020-08-04-abiyahmed_files/figure-html5/unnamed-chunk-6-1.png" width="97%" /></p>
 </div>
 <p>The graph shows the prime minister has much more likes than the other reactions. We will filter our data and see how the trends of <em>love</em> and <em>angry</em> reactions.</p>
 <h1 id="how-about-positive-and-negative-reactions">How about positive and negative reactions</h1>
@@ -1527,7 +1527,7 @@ ggplot(abiy_pos_neg, aes(x=Date_posted, y=number_reaction, col=reaction)) + geom
   geom_line(size=1) + scale_x_date(date_breaks = &quot;5 day&quot;) + theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0)) +
   xlab(&quot;Date of Facebook post&quot;) + ylab(&quot;Reaction&quot;) + 
   scale_x_date(date_breaks = &quot;5 day&quot;, labels = date_format(&quot;%B %d&quot;) ) + theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0))</code></pre>
-<p><img src="2020-08-04-abiyahmed_files/figure-html5/unnamed-chunk-7-1.png" width="80%" /></p>
+<p><img src="2020-08-04-abiyahmed_files/figure-html5/unnamed-chunk-7-1.png" width="97%" /></p>
 </div>
 <h1 id="negative-reactions">Negative reactions</h1>
 <p>Since there is a lot of positive reaction, we can’t see the negative reaction very much in the above plot. Let’s just focus on the negative reactions. See, it declinined after its maximum on the 30th of June. I assume, this anger is more to the news not to his opinions.</p>
@@ -1537,7 +1537,7 @@ ggplot(abiy_neg, aes(x=Date_posted, y=number_reaction)) + geom_point(size=2.5) +
   geom_line(size=1.5, col=&quot;darkred&quot;) + xlab(&quot;Date of Facebook post&quot;) +
   ylab(&quot;Number of negative reaction&quot;) +
   scale_x_date(date_breaks = &quot;5 day&quot;, labels = date_format(&quot;%B %d&quot;) ) + theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0))</code></pre>
-<p><img src="2020-08-04-abiyahmed_files/figure-html5/unnamed-chunk-8-1.png" width="80%" /></p>
+<p><img src="2020-08-04-abiyahmed_files/figure-html5/unnamed-chunk-8-1.png" width="97%" /></p>
 </div>
 <h1 id="number-of-people-reacting-to-his-posts">Number of people reacting to his posts</h1>
 <p>It is some how declining. Are people loosing interest? I don’t know. I hope not.</p>
@@ -1552,7 +1552,7 @@ ggplot(abiy_reaction_sum, aes(x=Date_posted, y=number_reaction)) + geom_point(si
   geom_line(size=1, col=&quot;darkgreen&quot;) + scale_x_date(date_breaks = &quot;5 day&quot;) + theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0))  + xlab(&quot;Date of Facebook post&quot;) +
   ylab(&quot;Total reactions&quot;) +
   scale_x_date(date_breaks = &quot;5 day&quot;, labels = date_format(&quot;%B %d&quot;) ) + theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0))</code></pre>
-<p><img src="2020-08-04-abiyahmed_files/figure-html5/unnamed-chunk-9-1.png" width="80%" /></p>
+<p><img src="2020-08-04-abiyahmed_files/figure-html5/unnamed-chunk-9-1.png" width="97%" /></p>
 </div>
 <h1 id="are-people-getting-more-angry-at-the-the-prime-minister-after-haccalus-death">Are people getting more angry at the the prime minister after Haccalu’s death?</h1>
 <p>See how the anger tops the 30th of july and then it fell down like an avalance</p>
@@ -1577,7 +1577,7 @@ abiy_data %&gt;%
   geom_line(size=1.5, col=&quot;red&quot;) +
   xlab(&quot;Date of Facebook post&quot;) + ylab(&quot;Number of angry reaction&quot;) +
   scale_x_date(date_breaks = &quot;5 day&quot;, labels = date_format(&quot;%B %d&quot;) ) + theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0))</code></pre>
-<p><img src="2020-08-04-abiyahmed_files/figure-html5/unnamed-chunk-10-1.png" width="80%" /></p>
+<p><img src="2020-08-04-abiyahmed_files/figure-html5/unnamed-chunk-10-1.png" width="97%" /></p>
 </div>
 <h1 id="how-about-love-reactions">How about love reactions?</h1>
 <p>It looks like people are getting less angry at his posts. But, are they loving his posts? I don’t think so. But, let’s see.</p>
@@ -1594,7 +1594,7 @@ ggplot(love, aes(x=Date_posted, y=love_reaction)) + geom_point(size=2.5) +
   xlab(&quot;Date of Facebook post&quot;) + ylab(&quot;Number of lovely reaction&quot;) +
   ylab(&quot;Number of lovely reactions&quot;) +
   scale_x_date(date_breaks = &quot;5 day&quot;, labels = date_format(&quot;%B %d&quot;) ) + theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0))</code></pre>
-<p><img src="2020-08-04-abiyahmed_files/figure-html5/unnamed-chunk-11-1.png" width="80%" /></p>
+<p><img src="2020-08-04-abiyahmed_files/figure-html5/unnamed-chunk-11-1.png" width="97%" /></p>
 </div>
 <h1 id="are-people-sad-about-his-posts">Are people sad about his posts?</h1>
 <p>We will see the same pattern for Sad reactions on August 4. But, what happened on August 4. It is the Lebanon’s explosion. People shared their sadness about the Lebanon explosion news and shared condolences with the prime minister.</p>
@@ -1609,7 +1609,7 @@ ggplot(sad, aes(x=Date_posted, y=value)) + geom_point(size=3) +
   xlab(&quot;Date of Facebook post&quot;) + ylab(&quot;Number of sad reaction&quot;) +
   ylab(&quot;Number of sad reaction&quot;) +
   scale_x_date(date_breaks = &quot;5 day&quot;, labels = date_format(&quot;%B %d&quot;) ) + theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0))</code></pre>
-<p><img src="2020-08-04-abiyahmed_files/figure-html5/unnamed-chunk-12-1.png" width="80%" /></p>
+<p><img src="2020-08-04-abiyahmed_files/figure-html5/unnamed-chunk-12-1.png" width="97%" /></p>
 </div>
 <h1 id="interpretation">Interpretation</h1>
 <p>The anger and sadness sharply increased until it reached its peak on the 30th of June. Then, after three weeks of internet black out, his Facebook page became active and coninued posting and I continued collecting mydaata. The plots above show tall negative reactions have sharply declined. It seems the measures have worked very well to alleviate digital anger from the people or at least it is possible to hypothesize people were positive about the measures taken by his government. With this, I can say Abiy Ahmed has likely regained his control and his government started to properly use its teeth.</p>
