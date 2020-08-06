@@ -61,7 +61,7 @@ glimpse(abiy_ahmed)
 
 # Some descriptives
 
-In total, a million (824242) people showed some kind of reaction. On average, more than 37,000(sd=20560) peple liked his posts, an average of 939 people hit the angry buttons.  
+In total, about a million (824242) people showed some kind of reaction. On average, more than 37,000(sd=20560) peple liked his posts, an average of 939 people hit the angry buttons.  
 
 ```{r out.width="80%", cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 # Mean per reaction
