@@ -63,7 +63,7 @@ glimpse(abiy_ahmed)
 
 In total, about a million (824242) people showed some kind of reaction. On average, more than 37,000(sd=20560) peple liked his posts, an average of 939 people hit the angry buttons.  
 
-```{r out.width="97%", cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 # Mean per reaction
 library(dplyr)
 abiy_ahmed %>%  
@@ -87,7 +87,7 @@ merge(mean, sd)
 
 # Visualize 
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=T, include=T, out.width="97%"}
+```{r echo=T, message=FALSE, warning=FALSE, cache=T, include=T, dpi=200}
 
 
 plot <- ggplot(abiy_ahmed, aes(x=Date_posted,
@@ -99,7 +99,7 @@ plot1 <- direct.label(plot, "last.qp")
 
 plot1
 ```
-```{r out.width="97%", cache=T, include=T, echo=T, message=FALSE, warning=FALSE, preview=TRUE}
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE, preview=TRUE}
 
 
 plot <- ggplot(abiy_ahmed, aes(x=Date_posted,
@@ -118,7 +118,7 @@ plot2
 # Reshape the data
 For easier manipulation, let's reshape our data using `reshape2`. 
 
-```{r out.width="97%", cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 library(reshape2)
 library(ggplot2)
 abiy_data <- melt(abiy_ahmed, id=c("Date_posted", "Reaction", "Death_Haccalu"))
@@ -136,7 +136,7 @@ The graph shows the prime minister has much more likes than the other reactions.
 Positive reactions: "Like", "Love", "Wow", "Care"
 Negative reactions: "Angry", "Sad", "Haha"
 
-```{r out.width="97%", cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 abiy_pos <- abiy_data %>% 
   group_by(Date_posted) %>% 
   filter(Reaction == c("Like", "Love", "Wow", "Care")) %>% 
@@ -165,7 +165,7 @@ ggplot(abiy_pos_neg, aes(x=Date_posted, y=number_reaction, col=reaction)) + geom
 Since there is a lot of positive reaction, we can't see the negative reaction very much in the above plot. Let's just focus on the negative reactions. 
 See, it declinined after its maximum on the 30th of June. I assume, this anger is more to the news not to his opinions. 
 
-```{r out.width="97%", cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 ggplot(abiy_neg, aes(x=Date_posted, y=number_reaction)) + geom_point(size=2.5) +
   geom_line(size=1.5, col="darkred") + xlab("Date of Facebook post") +
   ylab("Number of negative reaction") +
@@ -176,7 +176,7 @@ ggplot(abiy_neg, aes(x=Date_posted, y=number_reaction)) + geom_point(size=2.5) +
 
 It is some how declining. Are people loosing interest? I don't know. I hope not. 
 
-```{r out.width="97%", cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 abiy_reaction_sum <- abiy_data %>% 
   group_by(Date_posted) %>% 
   mutate(number_reaction=sum(value),
@@ -192,7 +192,7 @@ ggplot(abiy_reaction_sum, aes(x=Date_posted, y=number_reaction)) + geom_point(si
 
 See how the anger tops the 30th of july and then it fell down like an avalance
 
-```{r out.width="97%", cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 angry <- abiy_data %>% 
   group_by(Date_posted) %>% 
   filter(Reaction == "Angry") 
@@ -212,7 +212,7 @@ abiy_data %>%
 
 It looks like people are getting less angry at his posts. But, are they loving his posts? I don't think so. But, let's see. 
 
-```{r out.width="97%", cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 
 love <-  abiy_data %>% 
   group_by(Date_posted) %>% 
@@ -232,7 +232,7 @@ ggplot(love, aes(x=Date_posted, y=love_reaction)) + geom_point(size=2.5) +
 
 We will see the same pattern for Sad reactions on August 4. But, what happened on August 4. It is the Lebanon's explosion. People shared their sadness about the Lebanon explosion news and shared condolences with the prime minister. 
 
-```{r out.width="97%", cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
   sad <- abiy_data %>% 
   group_by(Date_posted) %>% 
   filter(Reaction=="Sad")
