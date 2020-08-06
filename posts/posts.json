@@ -19,7 +19,7 @@
   },
   {
     "path": "posts/2020-08-03-2020-08-03-covid19/",
-    "title": "Applying bibliometric analysis and text mining to COVID-19 publications?",
+    "title": "Applying bibliometric analysis and text mining to COVID-19 publications",
     "description": "Let's have a quick overview of what on COVID-19 related records were added in PubMed on August 03/2020.",
     "author": [
       {
@@ -30,7 +30,7 @@
     "date": "2020-08-04",
     "categories": [],
     "preview": "posts/2020-08-03-2020-08-03-covid19/pic.jpg",
-    "last_modified": "2020-08-05T14:52:01+02:00",
+    "last_modified": "2020-08-06T22:52:42+02:00",
     "input_file": "2020-08-03-covid19.utf8.md"
   },
   {

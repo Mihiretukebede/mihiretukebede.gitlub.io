@@ -1,6 +1,6 @@
 ---
 name: "Aspire Data Solutions"
-title: "Applying bibliometric analysis and text mining to COVID-19 publications?"
+title: "Applying bibliometric analysis and text mining to COVID-19 publications"
 author: Mihiretu Kebede (PhD)
 url: http://www.mihiretukebede.com/ 
 google_analytics: "UA-173027539-1"
