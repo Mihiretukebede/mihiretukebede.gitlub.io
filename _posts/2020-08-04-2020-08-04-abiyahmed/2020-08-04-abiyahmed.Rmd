@@ -24,9 +24,9 @@ output:
 This blog post is simply about visualizing the data. I have no political affiliation.
 
 # Introduction
- [**Haccalu Hundessa**](https://en.wikipedia.org/wiki/Hachalu_Hundessa), the popular Ethiopian singer, was killed in June 29, 2020. His death sparked a widespread violence in Oromia region. The government has immediately taken measures to restore law and order. However, several innocent civilians were murdered and public and private properties worth of millions were vandalized. I am sincerely hoping prime minister Abiy's government will take significant steps in letting an independent and international investigation. As a concerned Ethiopian, I have tried to follow some of the news. To this date, the news is giving me nightmares!
+ [**Haccalu Hundessa**](https://en.wikipedia.org/wiki/Hachalu_Hundessa), the popular Ethiopian singer, was killed in June 29, 2020. His death sparked a widespread violence in Oromia region.Several innocent civilians were murdered and public and private properties worth of millions were vandalized. The government has immediately taken measures to restore law and order. I am sincerely hoping prime minister Abiy's government will take significant steps in letting an independent and international investigation. As a concerned Ethiopian, I have tried to follow some of the news. To this date, the news is giving me nightmares!
  
-In this short blog posts, I will dive into prime minister Abiy's one month Facebook activity and his followers reactions using emojis. I will then compare positive (like, care, love, wow) and negative reactions(angry, sad, haha) towards his posts on Facebook. More specificically, I will show you the trend of love, anger and sad reactions.   
+In this short blog posts, I will dive into prime minister Abiy's one month [*Facebook activity*](https://www.facebook.com/PMAbiyAhmedAli/) and his followers reactions using emojis. I will then compare positive (like, care, love, wow) and negative reactions(angry, sad, haha) towards his posts on Facebook. More specificically, I will show you the trend of love, anger and sad reactions.   
 
 NB: classifying the reactions into positve/negative may not reflect the actual reaction of the individual to the news. It doesn't also reflect the contents of the prime minister's Facebbook post.  In addition, internet was locked from the first of july until 23rd of July. That is clearly visible from the plots with a simple horizontal line. 
 
@@ -149,7 +149,7 @@ direct.label(
 
 ```
 
-
+ 
  
 # How about positive and negative reactions
 
