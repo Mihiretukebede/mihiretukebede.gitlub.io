@@ -129,7 +129,27 @@ ggplot(abiy_data, aes(x=Date_posted, y=value, col=Reaction)) + geom_point() + xl
 
 ```
 
-The graph shows the prime minister has much more likes than the other reactions. We will filter our data and see how the trends of *love* and *angry* reactions. 
+The graph above shows the prime minister has much more likes than the other reactions. Since there are a lot more likes than the other reactions, we will filter out the Likes to have a good picture of the other reactions. Then, we will dive more into the data to see the trends of *love* and *angry* reactions. 
+
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+
+othethan_like <-  abiy_data %>% 
+  group_by(Date_posted) %>% 
+  filter(Reaction !="Like") 
+
+direct.label(
+  ggplot(othethan_like, aes(x=Date_posted, y=value, col=Reaction)) + geom_point(size=2) +
+  geom_line(size=1) +
+  xlab("Date of Facebook post") + ylab("Number of lovely reaction") +
+  ylab("Number of lovely reactions") +
+  scale_x_date(date_breaks = "5 day", labels = date_format("%B %d") ) + theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0)),
+  "last.qp",
+)
+
+```
+
+
  
 # How about positive and negative reactions
 
