@@ -40,7 +40,7 @@ I have manually collected Prime Minister Abiy Ahmed's one month Facebook posts (
 
 ## Required packages
 
-```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=F, include=T, echo=T, message=FALSE, warning=FALSE}
 library(readxl) 
 library(ggplot2) 
 library(jpeg) 
@@ -53,7 +53,7 @@ library(jpeg)
 library(ggimage)
 ```
 
-```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=F, include=T, echo=T, message=FALSE, warning=FALSE}
 
 abiy_ahmed <- read_excel("abiy_ahmed.xlsx")
 # As usual 
@@ -66,11 +66,11 @@ glimpse(abiy_ahmed)
 
 In total, about a million (932453 ) people showed some kind of reaction. On average, more than 35206(sd=20293) peple liked his posts, an average of 840 people hit the angry buttons.
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r dpi=200, cache=F, include=T, echo=T, message=FALSE, warning=FALSE}
 # Mean per reaction
 library(dplyr)
 abiy_ahmed %>%  
-  summarize(sum=sum(Count, na.rm=T)) # 824242	
+  summarize(sum=sum(Count)) # 932453
 
 mean <- abiy_ahmed %>% 
   group_by(Reaction) %>% 
@@ -90,7 +90,7 @@ merge(mean, sd)
 
 # Visualize
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=T, include=T, dpi=200}
+```{r echo=T, message=FALSE, warning=FALSE, cache=F, include=T, dpi=200}
 
 
 plot <- ggplot(abiy_ahmed, aes(x=Date_posted,
@@ -103,7 +103,7 @@ plot1 <- direct.label(plot, "first.qp", )
 plot1
 ```
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE, preview=TRUE}
+```{r dpi=200, cache=F, include=T, echo=T, message=FALSE, warning=FALSE, preview=TRUE}
 
 
 plot <- ggplot(abiy_ahmed, aes(x=Date_posted,
@@ -122,7 +122,7 @@ plot2
 
 For easier manipulation, let's reshape our data using `reshape2`.
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r dpi=200, cache=F, include=T, echo=T, message=FALSE, warning=FALSE}
 library(reshape2)
 library(ggplot2)
 abiy_data <- melt(abiy_ahmed, id=c("Date_posted", "Reaction", "Death_Haccalu"))
@@ -135,7 +135,7 @@ ggplot(abiy_data, aes(x=Date_posted, y=value, col=Reaction)) + geom_point() + xl
 
 The graph above shows the prime minister has much more likes than the other reactions. Since there are a lot more likes than the other reactions, we will filter out the Likes to have a good picture of the other reactions. Then, we will dive more into the data to see the trends of *love* and *angry* reactions.
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r dpi=200, cache=F, include=T, echo=T, message=FALSE, warning=FALSE}
 
 othethan_like <-  abiy_data %>% 
   group_by(Date_posted) %>% 
@@ -156,7 +156,7 @@ direct.label(
 
 Positive reactions: "Like", "Love", "Wow", "Care" Negative reactions: "Angry", "Sad", "Haha"
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r dpi=200, cache=F, include=T, echo=T, message=FALSE, warning=FALSE}
 abiy_pos <- abiy_data %>% 
   group_by(Date_posted) %>% 
   filter(Reaction == c("Like", "Love", "Wow", "Care")) %>% 
@@ -183,7 +183,7 @@ ggplot(abiy_pos_neg, aes(x=Date_posted, y=number_reaction, col=reaction)) + geom
 
 Since there is a lot of positive reaction, we can't see the negative reaction very much in the above plot. Let's just focus on the negative reactions. See, it declinined after its maximum on the 30th of June. I assume, this anger is more to the news not to his opinions.
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r dpi=200, cache=F, include=T, echo=T, message=FALSE, warning=FALSE}
 ggplot(abiy_neg, aes(x=Date_posted, y=number_reaction)) + geom_point(size=2.5) +
   geom_line(size=1.5, col="darkred") + xlab("Date of Facebook post") +
   ylab("Number of negative reaction") +
@@ -194,7 +194,7 @@ ggplot(abiy_neg, aes(x=Date_posted, y=number_reaction)) + geom_point(size=2.5) +
 
 It is some how declining. Are people loosing interest? I don't know. I hope not.
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r dpi=200, cache=F, include=T, echo=T, message=FALSE, warning=FALSE}
 abiy_reaction_sum <- abiy_data %>% 
   group_by(Date_posted) %>% 
   mutate(number_reaction=sum(value),
@@ -234,7 +234,7 @@ abiy_data %>%
 
 It looks like people are getting less angry at his posts. But, are they loving his posts? I don't think so. But, let's see.
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r dpi=200, cache=F, include=T, echo=T, message=FALSE, warning=FALSE}
 
 love <-  abiy_data %>% 
   group_by(Date_posted) %>% 
@@ -254,7 +254,7 @@ ggplot(love, aes(x=Date_posted, y=love_reaction)) + geom_point(size=2.5) +
 
 We will see the same pattern for Sad reactions on August 4. But, what happened on August 4. It is the Lebanon's explosion. People shared their sadness about the Lebanon explosion news and shared condolences with the prime minister.
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r dpi=200, cache=F, include=T, echo=T, message=FALSE, warning=FALSE}
   sad <- abiy_data %>% 
   group_by(Date_posted) %>% 
   filter(Reaction=="Sad")

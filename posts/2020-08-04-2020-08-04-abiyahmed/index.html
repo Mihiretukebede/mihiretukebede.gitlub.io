@@ -1417,11 +1417,11 @@ abiy_ahmed &lt;- read_excel(&quot;abiy_ahmed.xlsx&quot;)
 # As usual 
 dim(abiy_ahmed)</code></pre>
 <pre><code>
-[1] 127   4</code></pre>
+[1] 154   4</code></pre>
 <pre class="r"><code>
 glimpse(abiy_ahmed)</code></pre>
 <pre><code>
-Rows: 127
+Rows: 154
 Columns: 4
 $ Date_posted   &lt;dttm&gt; 2020-06-24, 2020-06-24, 2020-06-24, 2020-0...
 $ Reaction      &lt;chr&gt; &quot;Like&quot;, &quot;Love&quot;, &quot;Care&quot;, &quot;Angry&quot;, &quot;Haha&quot;, &quot;W...
@@ -1435,12 +1435,12 @@ $ Death_Haccalu &lt;chr&gt; &quot;Before&quot;, &quot;Before&quot;, &quot;Before
 # Mean per reaction
 library(dplyr)
 abiy_ahmed %&gt;%  
-  summarize(sum=sum(Count, na.rm=T)) # 824242   </code></pre>
+  summarize(sum=sum(Count)) # 932453</code></pre>
 <pre><code>
 # A tibble: 1 x 1
      sum
    &lt;dbl&gt;
-1 824242</code></pre>
+1 932453</code></pre>
 <pre class="r"><code>
 mean &lt;- abiy_ahmed %&gt;% 
   group_by(Reaction) %&gt;% 
@@ -1457,13 +1457,13 @@ sd &lt;- abiy_ahmed %&gt;%
 merge(mean, sd)</code></pre>
 <pre><code>
   Reaction     mean       sd
-1    Angry   939.56   698.05
-2     Care   720.88   430.87
-3     Haha   293.84   144.05
-4     Like 37689.47 20560.18
-5     Love  3148.05  2146.58
-6      Sad   761.95  2262.67
-7      Wow    89.58    97.15</code></pre>
+1    Angry   840.10   656.16
+2     Care   670.50   441.66
+3     Haha   296.55   141.33
+4     Like 35206.52 20293.70
+5     Love  3014.17  2179.53
+6      Sad   633.43  2066.60
+7      Wow    90.09    94.38</code></pre>
 </div>
 <h1 id="visualize">Visualize</h1>
 <div class="layout-chunk" data-layout="l-body">
@@ -1592,7 +1592,7 @@ abiy_data %&gt;%
 # A tibble: 2 x 2
   Death_Haccalu `mean(value)`
   &lt;chr&gt;                 &lt;dbl&gt;
-1 After                 1080.
+1 After                  930.
 2 Before                 333.</code></pre>
 <pre class="r"><code>
   ggplot(angry, aes(x=Date_posted, y=value)) + geom_point(size=2) +
