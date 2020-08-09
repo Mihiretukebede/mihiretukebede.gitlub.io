@@ -1186,6 +1186,10 @@ ggplot(abiy_reaction_sum, aes(x=Date_posted, y=number_reaction)) + geom_point(si
 <p>See how the anger tops the 30th of July and then it fell down like an avalanche</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+library(scales)
 angry &lt;- abiy_data %&gt;% 
   group_by(Date_posted) %&gt;% 
   filter(Reaction == &quot;Angry&quot;) 
@@ -1204,7 +1208,7 @@ abiy_data %&gt;%
   ggplot(angry, aes(x=Date_posted, y=value)) + geom_point(size=2) +
   geom_line(size=1.5, col=&quot;red&quot;) +
   xlab(&quot;Date of Facebook post&quot;) + ylab(&quot;Number of angry reaction&quot;) +
-  scale_x_date(date_breaks = &quot;5 day&quot;, labels = date_format(&quot;%B %d&quot;) ) + theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0))</code></pre>
+  scale_x_date(date_breaks = &quot;7 day&quot;, labels = date_format(&quot;%B %d&quot;) ) + theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0))</code></pre>
 <p><img src="2020-08-04-abiyahmed_files/figure-html5/unnamed-chunk-11-1.png" width="1300" /></p>
 </div>
 <h1 id="how-about-love-reactions">How about love reactions?</h1>

@@ -211,6 +211,10 @@ ggplot(abiy_reaction_sum, aes(x=Date_posted, y=number_reaction)) + geom_point(si
 See how the anger tops the 30th of July and then it fell down like an avalanche
 
 ```{r dpi=200,  include=T, echo=T, message=FALSE, warning=FALSE}
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+library(scales)
 angry <- abiy_data %>% 
   group_by(Date_posted) %>% 
   filter(Reaction == "Angry") 
@@ -223,7 +227,7 @@ abiy_data %>%
   ggplot(angry, aes(x=Date_posted, y=value)) + geom_point(size=2) +
   geom_line(size=1.5, col="red") +
   xlab("Date of Facebook post") + ylab("Number of angry reaction") +
-  scale_x_date(date_breaks = "5 day", labels = date_format("%B %d") ) + theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0))
+  scale_x_date(date_breaks = "7 day", labels = date_format("%B %d") ) + theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0))
 ```
 
 # How about love reactions?
