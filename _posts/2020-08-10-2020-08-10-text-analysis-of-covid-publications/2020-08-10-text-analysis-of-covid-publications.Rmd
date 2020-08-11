@@ -1,0 +1,278 @@
+---
+title: "Applying text analyses methods on 382 COVID19 journal articles"
+
+author: Mihiretu Kebede(PhD)
+url: http://www.mihiretukebede.com/ 
+google_analytics: "UA-173027539-1"
+date: "2020-08-11"
+description: |
+  This blog post is a continuation of my previous blog post on applications of text mining on sampled COVI19 publications.
+
+collections:
+  posts:
+      share: [twitter, linkedin, facebook, google-plus, pinterest]
+      
+output:
+  distill::distill_article:
+    self_contained: false
+    widerscreen: true
+---
+
+## Load necessary packages
+
+For this analysis, I need the following packages
+
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+library(dplyr) #for data management
+library(ggplot2) #for plotting
+library(tidytext) #for text mining
+library(bib2df) #for converting bib file to data frame
+library(wordcloud) #for plotting most frequent words
+```
+
+# Data
+
+Let's import our bibliographic data using bib2df package as described in my previous [blog post](http://www.mihiretukebede.com/posts/2020-08-03-2020-08-03-covid19/)
+
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+library(bib2df)
+covid19 <- bib2df("covid19.bib")
+
+```
+
+As usual, let's have a quick glimpse of our data.
+
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+glimpse(covid19)
+dim(covid19) #601 documents and 32 variables 
+```
+
+Once you read the file, it will be saved in our enviroment as data frame and we can do our analysis. As usual, the first part of the analysis is doing some descriptives and visualizing the data. We will then move to tokenization steps. ***Token*** is meaningful unit of unit of a ***text***. This meanigful unit is represented by a word or a term. It is the unit that text analysts are interested in doing their. Breaking down a text to set of tokens is known as **tokenization**. For example
+
+Text: "COVID19 is the biggest global health crisis of the modern world". In this text, the tokens are each word. In the tokenization process, each of these words are written in a separate columns(variable) as follows.
+
+In tokenization process, the text documents is changed to tokens and each token is counted.
+
+| Text                                                            | COVID19 | is  | the | biggest | global | health | crisis | of  | the | modern | world |
+|-----------------------------------------------------------------|---------|-----|-----|---------|--------|--------|--------|-----|-----|--------|-------|
+| COVID19 is the biggest global health crisis of the modern world | 1       | 1   | 1   | 1       | 1      | 1      | 1      | 1   | 1   | 1      | 1     |
+
+In tokenization process, the text documents is changed to tokens and each token is counted. Notice "the" is mentioned twice. So, we can count it and reshuffle our table as fllows.
+
+| Text                                                            | COVID19 | is  | the | biggest | global | health | crisis | of  | modern | world |
+|-----------------------------------------------------------------|---------|-----|-----|---------|--------|--------|--------|-----|--------|-------|
+| COVID19 is the biggest global health crisis of the modern world | 1       | 1   | 2   | 1       | 1      | 1      | 1      | 1   | 1      | 1     |
+
+The next thing after tokenization is removing irrelevant words. These are words that don't give much information to the concept of the document other than making the grammatical structure of the document. The stp\_words data has about 1150 irrelevant words. These words can be easily removed using the dyplyr ant\_join function.
+
+We have enough of theory. Let's move to the more technical things. As we did in the previous blog, we will only need journal articiles having no missing data on their abstract variable.
+
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+library(dplyr)
+covid19new <- covid19 %>%
+  filter(!is.na(ABSTRACT)) #remove all records with missing abstracts
+
+```
+
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+table(covid19new$CATEGORY) #382 are journal articles with no missing abstract
+
+# Filter journal articles having  abstracts 
+covid19new <- covid19new %>% 
+  filter(CATEGORY=="ARTICLE") 
+#Check 
+table(covid19new$CATEGORY) #382 journal articles
+```
+
+# Tokenization
+
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+# select few variables from our data set
+data <- covid19new %>% 
+  select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR")
+```
+
+To start with the tokenization process, we will load stop\_words data. We can also add our own stop stop words. In text mining, words on both sides of extreme frequency are no relevant. These words can be removed by creating a customized list of stop\_words. SInce we are doing our text analysis on journal articles, words that are obviously common in each of the abstracts can be removed. Structured abstracts usually contain "Introduction" or "background", "Methods", "Results" and "conclusions". These and other words can be removed. The custom stop words can also include "covid", since all of them are about "covid". There is also a way to remove numbers from our corpus. For now, we will not remove all numbers.
+
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+data(stopwords)
+custom_stop_words <- bind_rows(tibble(word=c("covid", "covid19","covid-19", "sars", "sars", "cov", "background", "introduction","aims", "objectives", "materials", "methods", "results", "conclusions","textless", "0", "1","2", "3", "4", "5", "6", "7", "8", "9","19", "2019", "2020", "95"),
+                                      lexicon = c("custom")),
+                               stop_words)
+
+
+tidy_covid_data <- data %>% 
+  unnest_tokens(input=ABSTRACT, output=word) %>% 
+  anti_join(stop_words) %>% 
+  anti_join(custom_stop_words)
+
+dim(tidy_covid_data) # 40669 tokens, 4 variables
+
+```
+
+# count number of words and visualize it using barchart.
+
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+
+ tidy_covid_data %>% 
+  count(word, sort=T) %>% 
+   filter(n>100) %>% 
+   mutate(word=reorder(word, n)) %>% 
+   ggplot(aes(x=word, y=n)) + 
+   geom_col(fill="#619CFF") + coord_flip()
+```
+
+# Visualize most frequent words using wordcloud
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+library(wordcloud)
+pal <- brewer.pal(8, "Dark2")
+tidy_covid_data %>% 
+  count(word) %>% 
+  with(wordcloud(word, n, max.words=700, colors = pal))
+```
+
+## Relationship between words
+
+The relationship between words can be vizualized in a netork graphs after tokenizing using n-grams. n-grams is breaking a text in two-, three or n-number of word tokens.
+
+For now, we will only see bigrams(two-word tokens). Two word tokens can be represented as follows
+
+1.  text1: "How dangerous is COVID19?"
+
+2.  text 2: "How dangerous is COVID19 pandemic.?"
+
++-----------------------------------+---------------+--------------+-----------+------------------+
+| Text                              | how dangerous | dangerous is | is covi19 | covid19 pandemic |
++===================================+===============+==============+===========+==================+
+| How dangerous is COVID19?         | 1             | 1            | 1         | 0                |
++-----------------------------------+---------------+--------------+-----------+------------------+
+| How dangerous is COVID19 pandemic | 1             | 1            | 1         | 1                |
++-----------------------------------+---------------+--------------+-----------+------------------+
+
+As we did previously, lets's do the tokenization once again again. This time usigng bigrams.
+
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+covid_bigram <- data[, c(1,2,3)] %>% #selct only titles, abstracts and keywords column of the data. Title is saved
+  unnest_tokens(output=bigram, 
+                input=ABSTRACT,
+                token="ngrams", n=2)
+
+dim(covid_bigram) # 79404 bigrams, 3 variables
+
+
+```
+
+Let's see the most frequent bigrams. Notice the irrelvant words.
+
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+head(
+  covid_bigram %>%
+  count(bigram, sort = TRUE)
+)
+```
+
+# Remove useless words
+
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+library(tidyr)
+
+covid_bigrams_separated <- covid_bigram %>%
+  separate(bigram, c("word1", "word2"), sep = " ")
+
+covd_bigrams_filtered <- covid_bigrams_separated %>%
+  filter(!word1 %in% stop_words$word) %>%
+  filter(!word2 %in% stop_words$word) %>% 
+  filter(!word1 %in% custom_stop_words$word) %>%
+  filter(!word2 %in% custom_stop_words$word)
+
+dim(covd_bigrams_filtered) # 18981 bigrams, 4 variables
+
+covd_bigrams_filtered_counts <- covd_bigrams_filtered %>% 
+  count(word1, word2, sort = TRUE)
+
+head(covd_bigrams_filtered_counts)
+```
+
+As you can see from the dim( ) call, the tokenization process changed the abstract of the 382 documents to 41000 tokens. That means we have 382 observations and 41000 one word columns. In the bigram tokenization, we have about 19000 bigrams for our 382 abstracts.
+
+Now, let's join the separated bigrams.
+
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+covid_bigrams_united <- covd_bigrams_filtered %>%
+  unite(bigram, word1, word2, sep = " ")
+
+covd_bigrams_joined_counts <- covid_bigrams_united %>% 
+  count(bigram, sort = TRUE)
+
+head(covd_bigrams_joined_counts)
+
+```
+
+# Vizualize bigrams
+
+## Word cloud
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE, preview=TRUE}
+library(wordcloud)
+pal <- brewer.pal(8, "Dark2")
+covid_bigrams_united %>% 
+  count(bigram) %>% 
+  with(wordcloud(bigram, n, max.words=50, colors = pal))
+```
+
+The word cloud above shows "air pollution", "rt pcr", "personal protective", "cytokine storm" and "social distancing" as most common bigrams in the covid19 publications included in this analysis.
+
+## Network graph
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+library(igraph)
+library(ggplot2)
+bigram_graph <- covd_bigrams_filtered_counts %>%
+  filter(n > 8) %>% #words mentioned more than 8 timse
+  graph_from_data_frame()
+
+bigram_graph
+
+library(ggraph)
+set.seed(2017)
+
+ggraph(bigram_graph, layout = "fr") +
+  geom_edge_link() +
+  geom_node_point() +
+  geom_node_text(aes(label = name), vjust = 1, hjust = 1)
+
+```
+
+Term frequency inverse document frequency (tf-idf) is a weighted numerical representation of how a certain word is important in a document. It is calculated using the following formula. tf\_idf can be done for the one word columns. For now, let's just do for bigrams instead.
+
+$$tfidf( t, d, D ) = tf( t, d ) \times idf( t, D )$$ $$idf( t, D ) = log \frac{ \text{| } D \text{ |} }{ 1 + \text{| } \{ d \in D : t \in d \} \text{ |} }$$
+
+Where `t` is the terms appearing in a document; `d` denotes each document; `D` denotes the collection of documents.
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+covid_bigram_tf_idf <- covid_bigrams_united %>%
+  count(TITLE, bigram) %>%
+  bind_tf_idf(bigram, TITLE, n) %>%
+  arrange(desc(tf_idf))
+
+head(covid_bigram_tf_idf)
+
+
+covid_bigram_tf_idf %>%
+  arrange(desc(tf_idf)) %>%
+  mutate(bigram = factor(bigram, levels = rev(unique(bigram)))) %>% 
+  top_n(15) %>% 
+  ggplot(aes(bigram, tf_idf)) +
+  geom_col(show.legend = FALSE, fill="cyan4") +
+  labs(x = NULL, y = "tf-idf") +
+  coord_flip()
+```
+
+The above *tf\_idf* plot shows, "athroplasyty practice", "safely navigate", "brugada pattern", etc were bigrams having the highest tf\_idf values.
+
+That is all for today.
+
+# Contact
+
+[*\@MihiretuKebede1*](https://twitter.com/MihiretuKebede1)

@@ -1,5 +1,23 @@
 [
   {
+    "path": "posts/2020-08-10-2020-08-10-text-analysis-of-covid-publications/",
+    "title": "Applying text analyses methods on 382 COVID19 journal articles",
+    "description": "This blog post is a continuation of my previous blog post on applications of text mining on sampled COVI19 publications.",
+    "author": [
+      {
+        "name": "Mihiretu Kebede(PhD)",
+        "url": {}
+      }
+    ],
+    "date": "2020-08-11",
+    "categories": [],
+    "preview": "posts/2020-08-10-2020-08-10-text-analysis-of-covid-publications/2020-08-10-text-analysis-of-covid-publications_files/figure-html5/unnamed-chunk-14-1.png",
+    "last_modified": "2020-08-11T23:28:39+02:00",
+    "input_file": "2020-08-10-text-analysis-of-covid-publications.utf8.md",
+    "preview_width": 2600,
+    "preview_height": 1600
+  },
+  {
     "path": "posts/2020-08-04-2020-08-04-abiyahmed/",
     "title": "Digital Reactions Towards Prime Minister Abiy Ahmed's Facebook Activities.",
     "description": "Let's have some fun in visualizing Facebook reactions to prime minister Abiy Ahmed's Facebook posts (June 24 to August 09). This post is an updated version. The previous analysis was only until August 5.",
