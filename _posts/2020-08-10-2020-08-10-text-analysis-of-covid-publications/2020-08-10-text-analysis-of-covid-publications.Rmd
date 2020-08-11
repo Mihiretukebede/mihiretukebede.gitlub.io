@@ -274,6 +274,8 @@ The above *tf\_idf* plot shows, "athroplasyty practice", "safely navigate", "bru
 
 That is all for today.
 
+Next stop: Clustering text data
+
 # Contact
 
 [*\@MihiretuKebede1*](https://twitter.com/MihiretuKebede1)
