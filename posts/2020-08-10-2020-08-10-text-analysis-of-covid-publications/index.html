@@ -1554,7 +1554,7 @@ ARTICLE
 data &lt;- covid19new %&gt;% 
   select(&quot;TITLE&quot;, &quot;ABSTRACT&quot;, &quot;KEYWORDS&quot;, &quot;AUTHOR&quot;)</code></pre>
 </div>
-<p>To start with the tokenization process, we will load stop_words data. We can also add our own stop stop words. In text mining, words on both sides of extreme frequency are no relevant. These words can be removed by creating a customized list of stop_words. SInce we are doing our text analysis on journal articles, words that are obviously common in each of the abstracts can be removed. Structured abstracts usually contain “Introduction” or “background”, “Methods”, “Results” and “conclusions”. These and other words can be removed. The custom stop words can also include “covid”, since all of them are about “covid”. There is also a way to remove numbers from our corpus. For now, we will not remove all numbers.</p>
+<p>To start with the tokenization process, we will load stop_words data. We can also add our own stop stop words. In text mining, words on both sides of extreme frequency are no relevant. These words can be removed by creating a customized list of stop_words. Since we are doing our text analysis on journal articles, words that are obviously common in each of the abstracts can be removed. Structured abstracts usually contain “Introduction” or “background”, “Methods”, “Results” and “conclusions”. These and other words can be removed. The custom stop words can also include “covid”, since all of them are about “covid”. There is also a way to remove numbers from our corpus. For now, we will not remove all numbers.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 data(stopwords)
@@ -1723,14 +1723,15 @@ head(covd_bigrams_joined_counts)</code></pre>
 <h2 id="word-cloud">Word cloud</h2>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
+#Let&#39;s visualize 150 most common words
 library(wordcloud)
 pal &lt;- brewer.pal(8, &quot;Dark2&quot;)
 covid_bigrams_united %&gt;% 
   count(bigram) %&gt;% 
-  with(wordcloud(bigram, n, max.words=50, colors = pal))</code></pre>
+  with(wordcloud(bigram, n, max.words=150, colors = pal))</code></pre>
 <p><img src="2020-08-10-text-analysis-of-covid-publications_files/figure-html5/unnamed-chunk-14-1.png" width="1300" data-distill-preview=1 /></p>
 </div>
-<p>The word cloud above shows “air pollution”, “rt pcr”, “personal protective”, “cytokine storm” and “social distancing” as most common bigrams in the covid19 publications included in this analysis.</p>
+<p>The word cloud above shows, “severe acute”, “wuhan china”, “air pollution”, “rt pcr”, “personal protective”, “cytokine storm” and “social distancing” as most common bigrams in the covid19 publications included in this analysis.</p>
 <h2 id="network-graph">Network graph</h2>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>

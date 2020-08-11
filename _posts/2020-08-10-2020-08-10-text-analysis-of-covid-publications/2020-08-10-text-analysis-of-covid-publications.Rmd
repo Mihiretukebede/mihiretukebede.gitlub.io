@@ -92,7 +92,7 @@ data <- covid19new %>%
   select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR")
 ```
 
-To start with the tokenization process, we will load stop\_words data. We can also add our own stop stop words. In text mining, words on both sides of extreme frequency are no relevant. These words can be removed by creating a customized list of stop\_words. SInce we are doing our text analysis on journal articles, words that are obviously common in each of the abstracts can be removed. Structured abstracts usually contain "Introduction" or "background", "Methods", "Results" and "conclusions". These and other words can be removed. The custom stop words can also include "covid", since all of them are about "covid". There is also a way to remove numbers from our corpus. For now, we will not remove all numbers.
+To start with the tokenization process, we will load stop\_words data. We can also add our own stop stop words. In text mining, words on both sides of extreme frequency are no relevant. These words can be removed by creating a customized list of stop\_words. Since we are doing our text analysis on journal articles, words that are obviously common in each of the abstracts can be removed. Structured abstracts usually contain "Introduction" or "background", "Methods", "Results" and "conclusions". These and other words can be removed. The custom stop words can also include "covid", since all of them are about "covid". There is also a way to remove numbers from our corpus. For now, we will not remove all numbers.
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 data(stopwords)
@@ -214,14 +214,15 @@ head(covd_bigrams_joined_counts)
 ## Word cloud
 
 ```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE, preview=TRUE}
+#Let's visualize 150 most common words
 library(wordcloud)
 pal <- brewer.pal(8, "Dark2")
 covid_bigrams_united %>% 
   count(bigram) %>% 
-  with(wordcloud(bigram, n, max.words=50, colors = pal))
+  with(wordcloud(bigram, n, max.words=150, colors = pal))
 ```
 
-The word cloud above shows "air pollution", "rt pcr", "personal protective", "cytokine storm" and "social distancing" as most common bigrams in the covid19 publications included in this analysis.
+The word cloud above shows, "severe acute", "wuhan china", "air pollution", "rt pcr", "personal protective", "cytokine storm" and "social distancing" as most common bigrams in the covid19 publications included in this analysis.
 
 ## Network graph
 
