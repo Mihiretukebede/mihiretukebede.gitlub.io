@@ -47,7 +47,7 @@ glimpse(covid19)
 dim(covid19) #601 documents and 32 variables 
 ```
 
-Once you read the file, it will be saved in our enviroment as data frame and we can do our analysis. As usual, the first part of the analysis is doing some descriptives and visualizing the data. We will then move to tokenization steps. ***Token*** is meaningful unit of unit of a ***text***. This meanigful unit is represented by a word or a term. It is the unit that text analysts are interested in doing their. Breaking down a text to set of tokens is known as **tokenization**. For example
+Once you read the file, it will be saved in our enviroment as data frame and we can do our analysis. As usual, the first part of the analysis is doing some descriptives and visualizing the data. We will then move to tokenization steps. ***Token*** is meaningful unit of unit of a ***text***. This meanigful unit is represented by a word or a term. It is the unit that text analysts are interested in doing their analzsis. The process of breaking down a text to set of tokens is known as **tokenization**. For example
 
 Text: "COVID19 is the biggest global health crisis of the modern world". In this text, the tokens are each word. In the tokenization process, each of these words are written in a separate columns(variable) as follows.
 
