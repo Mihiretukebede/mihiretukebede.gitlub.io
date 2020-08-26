@@ -7,14 +7,23 @@
     <description>This is Mihiretu Kebede(PhD)'s personal website. 
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Mon, 10 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Extreme Gradient Boosting and Naive Bayes MMachine learning algorithms for systematic review: predicting inclusion/exclusion of abstracts</title>
+      <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
+      <link>http://www.mihiretukebede.com/posts/2020-08-22-machinelearningforscreening-2020-08-22</link>
+      <description>In this short blog post, I would like to try machine learning methods for automated title/abstract screening in systematic reviews.</description>
+      <guid>http://www.mihiretukebede.com/posts/2020-08-22-machinelearningforscreening-2020-08-22</guid>
+      <pubDate>Tue, 25 Aug 2020 00:00:00 +0000</pubDate>
+      <media:content url="http://www.mihiretukebede.com/posts/2020-08-22-machinelearningforscreening-2020-08-22/machinelearningforscreening-2020-08-22_files/figure-html5/unnamed-chunk-10-1.png" medium="image" type="image/png" width="2600" height="1600"/>
+    </item>
     <item>
       <title>Applying text analyses methods on 382 COVID19 journal articles</title>
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
       <link>http://www.mihiretukebede.com/posts/2020-08-10-2020-08-10-text-analysis-of-covid-publications</link>
       <description>This blog post is a continuation of my previous blog post on applications of text mining on sampled COVI19 publications.</description>
       <guid>http://www.mihiretukebede.com/posts/2020-08-10-2020-08-10-text-analysis-of-covid-publications</guid>
-      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2020-08-10-2020-08-10-text-analysis-of-covid-publications/2020-08-10-text-analysis-of-covid-publications_files/figure-html5/unnamed-chunk-14-1.png" medium="image" type="image/png" width="2600" height="1600"/>
     </item>
     <item>
