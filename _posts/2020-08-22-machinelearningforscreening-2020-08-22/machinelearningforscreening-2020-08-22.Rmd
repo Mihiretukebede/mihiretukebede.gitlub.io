@@ -30,7 +30,7 @@ In a paper ["Why Should I Trust You?": Explaining the Predictions of Any Classif
 
 In this blog post, I want to try one of the many available methods available to check whether machine learning methods correctly discriminates SARS papers from COVID19 papers. I know the two viruses are highly related. I am only using the SARS and COVID for demonstrations.
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 library(dplyr) #for data management
 library(ggplot2) #for plotting
 library(dplyr)
@@ -48,7 +48,7 @@ I will use the COVID19 data that I used in my previous [blog post](http://www.mi
 
 I will reuse some of my previous codes here again.
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 library(bib2df)
 library(dplyr)
 
@@ -83,7 +83,7 @@ We will now create a new binary factor factor variable called "Include". We will
 
 After that I will merge the two data frames with a simple rbind() code
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 # Exclude all covid papers
 covid$Include <- 1
 
@@ -100,7 +100,7 @@ covid_sars <- rbind(covid, covexclude, sars, cov2003)
 
 # Now check number of included and excluded papers
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 library(dplyr)
 table(covid_sars$Include)
 
@@ -121,7 +121,7 @@ Machine learning algorithms require our data to be split into training and testi
 
 I will need to stratify my data split by my dependent variable. That means my train and test data will have exactly similar proportion for the outcome variable responses as the original data sets. That is 51% for excluded (coded as 0) and 49% for included (coded as 1). The data is nearly balanced. We don't have the curse of class imbalance here, awesome!
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 library(caret)
 set.seed(3456) # for reproducibility
 
@@ -144,7 +144,7 @@ prop.table(table(test$Include)) # outcome proportion for testing data
 
 ![Top Machine Learning Framework: 5 Machine Learning Frameworks of 2019](https://d3l69s690g8302.cloudfront.net/wp-content/uploads/2019/10/01100418/Machine-learning-frameworks.jpeg)
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 library(text2vec)
 
 get_matrix <- function(text) {
@@ -157,7 +157,7 @@ dtm_test = get_matrix(test$ABSTRACT)
 
 ```
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 # Create boosting model for binary classification (-> logistic loss)
 # Other parameters are quite standard
 
@@ -178,7 +178,7 @@ xgb_model <- xgb.train(
 
 Now let's use our model to predict the test set
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 library(caret)
 predictions <- predict(xgb_model, dtm_test) 
 # prediction probabilities
@@ -196,7 +196,7 @@ Let's pick two abstracts(Abstract #89 and #273) and see what are the most import
 ## Abstract number 89
 We need to use *`lime::`* to avoid conflicts with `dplyr`package 
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 ab_to_explain89 <- head(test[89,]$ABSTRACT, 6)
 
 explainer89 <- lime::lime(ab_to_explain89, model = xgb_model, 
@@ -218,7 +218,7 @@ lime::plot_text_explanations(explanation89)
 
 ## Abstract 273
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 library(lime)
 
 ab_to_explain <- head(test[273,]$ABSTRACT, 6)
@@ -240,11 +240,11 @@ plot_text_explanations(explanation)
 
 ```
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 library (quanteda)
 ```
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 names(train) 
 train_data <- train[, c(5:6)]  # I need only some of my variables: include, and BIBTEXKEY. I don't need the rest of the variables for now. The BIBTEX key variable helps me to identify the papers it is written like Authoryyyy.1. I will use it to attach as a document identifier. 
 
@@ -256,7 +256,7 @@ train_corpus <- corpus(train$ABSTRACT,
 
 Similarly for the test set
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 names(test) 
 
 test_data <- test[, c(5:6)] 
@@ -268,7 +268,7 @@ test_corpus <- corpus(test$ABSTRACT,
 
 Add document identifier for both test and training set data
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 docid <- paste(train$BIBTEXKEY)
 docnames(train_corpus) <- docid
 print(train_corpus)
@@ -276,7 +276,7 @@ print(train_corpus)
 
 Attach the document identifier also for the test set
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 docidtest <- paste(test$BIBTEXKEY)
 docnames(test_corpus) <- docidtest
 print(test_corpus)
@@ -286,7 +286,7 @@ print(test_corpus)
 
 I will create tokens and then later document feature matrix for both train and test abstract copuses. We do the same tokenization process as we did in my previous [blog post](http://www.mihiretukebede.com/posts/2020-08-10-2020-08-10-text-analysis-of-covid-publications/). We will remove numbers, remove punctuation, or remove a customized list of stop words
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 custom_stop_words <- c("background", "introduction","aims", "objectives", "materials", "methods", "results", "conclusions","textless", "study") 
                                       
 train_tokens <- tokens(train_corpus, remove_punct = TRUE,
@@ -299,7 +299,7 @@ train_tokens <- tokens_select(train_tokens, pattern = custom_stop_words, selecti
 
 I do the same for the test abstract corpuses
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 
 test_tokens <- tokens(test_corpus, remove_punct = TRUE,
                   remove_numbers = TRUE)
@@ -311,14 +311,14 @@ test_tokens <- tokens_select(test_tokens, pattern = custom_stop_words, selection
 
 # Construct document feature matrix for both train and test abstract tokens
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 train_dfmat <- dfm(train_tokens) 
 test_dfmat <- dfm(test_tokens)
 ```
 
 # Have a quick look of the two document feature matrices
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 head(train_dfmat)
 head(test_dfmat)
 
@@ -359,25 +359,25 @@ Both plots of the test and train data are comparable.
 
 I need the following packages
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 library(quanteda)
 library(quanteda.textmodels)
 library(caret)
 ```
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 naive_bayes <- textmodel_nb(train_dfmat,train_data$Include)
 summary(naive_bayes)
 ```
 
 Since we have already our model, we can use it for predicting the test sets. Unfortunately, the features in test\_dfmat which are also in train\_dfmat. *Quanteda* package has one really nice function called *dfm\_match()* to select only features of the testing set that also occur in the training set.
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 matched_dfmat <- dfm_match(test_dfmat, features = featnames(train_dfmat))
 
 ```
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 actual_class <- test_data$Include
 predicted_class <- predict(naive_bayes, newdata = matched_dfmat)
 tab_class <- table(predicted_class, actual_class )
