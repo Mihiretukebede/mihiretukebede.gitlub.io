@@ -9,7 +9,7 @@
     <generator>Distill</generator>
     <lastBuildDate>Tue, 25 Aug 2020 00:00:00 +0000</lastBuildDate>
     <item>
-      <title>Extreme Gradient Boosting and Naive Bayes Machine learning algorithms for systematic review: predicting inclusion/exclusion of abstracts</title>
+      <title>Extreme Gradient Boosting and Naive Bayes Machine learning algorithms for for facilitating title/abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts</title>
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
       <link>http://www.mihiretukebede.com/posts/2020-08-22-machinelearningforscreening-2020-08-22</link>
       <description>In this short blog post, I would like to try machine learning methods for automated title/abstract screening in systematic reviews.</description>

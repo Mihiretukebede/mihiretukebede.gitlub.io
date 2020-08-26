@@ -1,7 +1,7 @@
 [
   {
     "path": "posts/2020-08-22-machinelearningforscreening-2020-08-22/",
-    "title": "Extreme Gradient Boosting and Naive Bayes Machine learning algorithms for systematic review: predicting inclusion/exclusion of abstracts",
+    "title": "Extreme Gradient Boosting and Naive Bayes Machine learning algorithms for for facilitating title/abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts",
     "description": "In this short blog post, I would like to try machine learning methods for automated title/abstract screening in systematic reviews.",
     "author": [
       {
@@ -12,7 +12,7 @@
     "date": "2020-08-26",
     "categories": [],
     "preview": "posts/2020-08-22-machinelearningforscreening-2020-08-22/machinelearningforscreening-2020-08-22_files/figure-html5/unnamed-chunk-24-1.png",
-    "last_modified": "2020-08-26T23:59:25+02:00",
+    "last_modified": "2020-08-27T00:01:55+02:00",
     "input_file": "machinelearningforscreening-2020-08-22.utf8.md",
     "preview_width": 2600,
     "preview_height": 1600
