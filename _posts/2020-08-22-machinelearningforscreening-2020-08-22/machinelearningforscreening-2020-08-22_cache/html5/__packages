@@ -1,0 +1,12 @@
+base
+bib2df
+dplyr
+ggplot2
+xgboost
+lime
+lattice
+caret
+text2vec
+quanteda
+RColorBrewer
+quanteda.textmodels

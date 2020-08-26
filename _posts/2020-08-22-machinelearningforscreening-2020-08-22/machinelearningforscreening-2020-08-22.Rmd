@@ -1,0 +1,407 @@
+---
+title: "Extreme Gradient Boosting and Naive Bayes MMachine learning algorithms for systematic review: predicting inclusion/exclusion of abstracts"
+author: Mihiretu Kebede(PhD)
+url: http://www.mihiretukebede.com/ 
+google_analytics: "UA-173027539-1"
+date: "2020-08-26"
+
+description: |
+  In this short blog post, I would like to try machine learning methods for automated title/abstract screening in systematic reviews. 
+
+collections:
+  posts:
+      share: [twitter, linkedin, facebook, google-plus, pinterest]
+      
+output:
+  distill::distill_article:
+    self_contained: false
+    widerscreen: true
+---
+
+# Introduction
+
+Several thousands of papers are being published everyday. A paper published about a decade ago wrote "the total number of science papers published since 1665 passed 50 million. About 2.5 million new scientific papers are published each year." In the introduction section of one of [my previous systematic review](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6305167/), I wrote "The number of published research doubles every 9 years and its growth particularly in medicine and health care is exponential."
+
+Doing systematic reviews on a certain topic requires an extensive database search, title/abstract screening, full-text screening, quality assessment, data extraction, qualitative, quantitative synthesis and other important steps. Of these steps, at least title/abstract screening and full text reviews is required to be done by two review authors.
+
+Going through the title and abstract of thousands of papers is time-taking, and laborious. Yet, policy makers medical practitioners require the latest evidence for making urgent decisions. Thanks to the development of machine learning and artificial intelligence over the past decade, systematic reviews can be used to automate or semi-automate some of the steps of systematic reviews. Systematic reviewers are already using some web-based text mining and machine learning tools such as Abstrackr, Robotreviewer, RobotAnalyst, etc. However, it is worth a try to implement text classification algorithms in R.
+
+In a paper ["Why Should I Trust You?": Explaining the Predictions of Any Classifier\"](https://arxiv.org/abs/1602.04938), Riberio TL et.al described machine learning models as mostly "black boxes". The biggest challenge of machine learning is interpretability and applying it to local context or simply to an individual or observation with a specific characteristics. They developed LIME which was later changed into Python and R packages. Lime can help explain several models implemented in about six different packages including caret, h2o, and xgboost.
+
+In this blog post, I want to try one of the many available methods available to check whether machine learning methods correctly discriminates SARS papers from COVID19 papers. I know the two viruses are highly related. I am only using the SARS and COVID for demonstrations.
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+library(dplyr) #for data management
+library(ggplot2) #for plotting
+library(dplyr)
+library(bib2df)
+library(xgboost) #for converting bib file to data frame
+library(lime) #for plotting most frequent words
+library(bib2df) # for reading and converting bibliographic data to R data frame
+
+
+```
+
+# Data
+
+I will use the COVID19 data that I used in my previous [blog post](http://www.mihiretukebede.com/posts/2020-08-03-2020-08-03-covid19/). In addition, I have added new reference data by searching SARS papers published from January 1/2003 until September 12/2003.
+
+I will reuse some of my previous codes here again.
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+library(bib2df)
+library(dplyr)
+
+covid <- bib2df("covid19.bib") %>% # improt
+  filter(!is.na(ABSTRACT)) %>% # select only papers with no missing abstract
+  filter(CATEGORY=="ARTICLE") %>% # Only journal articles
+  select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY") # Select few variables
+  
+
+# 2003 corona virus
+covexclude <- bib2df("covexclude.bib") %>% 
+  filter(!is.na(ABSTRACT)) %>% 
+  filter(CATEGORY=="ARTICLE") %>% 
+  select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY")
+
+cov2003 <- bib2df("cov2003.bib") %>% 
+  filter(!is.na(ABSTRACT)) %>% 
+  filter(CATEGORY=="ARTICLE") %>% 
+  select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY")
+
+# Now import the TB data
+sars <- bib2df("sars.bib") %>% 
+  filter(!is.na(ABSTRACT)) %>% 
+  filter(CATEGORY=="ARTICLE") %>% 
+  select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY")
+
+```
+
+Assume we are only looking for COVID19 papers to include in our review. That means we will need to exclude all SARS papers published in 2003. I will simply use a simple include/exclude decisions.
+
+We will now create a new binary factor factor variable called "Include". We will then assign 1 for all covid papers and 0 for all SARS papers. To make the decissions look more in real world setting, I excluded 40 COVID papers published in August 22/2020. This has nothing to do with the contents of the papers. I am arbitrarily excluding the papers to make it look like a real world title/abstract screening not just a random decision.
+
+After that I will merge the two data frames with a simple rbind() code
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+# Exclude all covid papers
+covid$Include <- 1
+
+covexclude$Include <- 0
+
+cov2003$Include <- 1
+sars$Include <- 0
+
+# Now merge the tw data frames
+covid_sars <- rbind(covid, covexclude, sars, cov2003)
+
+
+```
+
+# Now check number of included and excluded papers
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+library(dplyr)
+table(covid_sars$Include)
+
+# check the type of this variable and convert it to factor 
+
+typeof(covid_sars$Include) # it is double. We have to convert it to factor variable
+covid_sars$Include[covid_sars$Include=="1"]<-"included"
+covid_sars$Include[covid_sars$Include=="0"]<-"not included"
+
+table(covid_sars$Include) %>% prop.table() #66% excluded, 34% included
+```
+
+# Now split the data
+
+![Train and Test Set in Python Machine Learning - How to Split - DataFlair](https://data-flair.training/blogs/wp-content/uploads/sites/2/2018/08/1-16.png)
+
+Machine learning algorithms require our data to be split into training and testing. The training data will be used to train the model and the testing data sets will be used to make predictions by deploying the model developed using the training sets. There are different ways of splitting our data to training and testing split. You may use *base R*, *Resample* or *Caret* package to easily perform this task. Here, I will use my favorite R packager: the Caret package. We will use 70/30 split which means 70% of my data will be assigned to the training set and 30% the data will be used for test sets.
+
+I will need to stratify my data split by my dependent variable. That means my train and test data will have exactly similar proportion for the outcome variable responses as the original data sets. That is 51% for excluded (coded as 0) and 49% for included (coded as 1). The data is nearly balanced. We don't have the curse of class imbalance here, awesome!
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+library(caret)
+set.seed(3456) # for reproducibility
+
+trainIndex <- createDataPartition(covid_sars$Include, p = .7, 
+                                  list = FALSE, 
+                                  times = 1)
+train <- covid_sars[ trainIndex,]
+test  <- covid_sars[-trainIndex,]
+
+
+prop.table(table(covid_sars$Include)) # outcome proportion for th original data
+prop.table(table(train$Include)) # outcome proportion for training data
+prop.table(table(test$Include)) # outcome proportion for testing data
+
+# Cool! They have exactly similar proportions with respect to the outcome variable. 
+
+```
+
+# The nice part
+
+![Top Machine Learning Framework: 5 Machine Learning Frameworks of 2019](https://d3l69s690g8302.cloudfront.net/wp-content/uploads/2019/10/01100418/Machine-learning-frameworks.jpeg)
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+library(text2vec)
+
+get_matrix <- function(text) {
+  it <- itoken(text, progressbar = FALSE)
+  create_dtm(it, vectorizer = hash_vectorizer())
+}
+
+dtm_train = get_matrix(train$ABSTRACT)
+dtm_test = get_matrix(test$ABSTRACT)
+
+```
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+# Create boosting model for binary classification (-> logistic loss)
+# Other parameters are quite standard
+
+library(xgboost) # I will use extreme gradient boosting algorithm for building the model. But, I will also try other algorithms in the future. 
+
+param <- list(max_depth = 10, 
+              eta = 0.1, 
+              objective = "binary:logistic", 
+              eval_metric = "error", 
+              nthread = 1) # I will set the paprametres nearly similarly as it was described in the example from the package description. 
+
+xgb_model <- xgb.train(
+  param, 
+  xgb.DMatrix(dtm_train, label = train$Include=="included"),
+  nrounds = 50
+)
+```
+
+Now let's use our model to predict the test set
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+library(caret)
+predictions <- predict(xgb_model, dtm_test) 
+# prediction probabilities
+
+predict <- ifelse(predictions > 0.5, "included", "not included") # assign prediction probabilities greater than 0.5 as included and less than 0.5 as not included
+
+
+confusionMatrix(as.factor(predict), as.factor(test$Include))
+```
+
+It resulted 93.8% accuracy. In real world setting this may not happen because we will work on highly related titles and abstracts. My experiment brings two somehow related documents (SARS and covid19). ALthough we are explcitly looking for covid papers, I assigned some of the covid papers to be excluded just to add some confusion.
+
+Let's pick two abstracts(Abstract #89 and #273) and see what are the most important terms of the abstract that xgboost used for its predictions. We will use *lime* package to explain the predictions
+
+## Abstract number 89
+We need to use *`lime::`* to avoid conflicts with `dplyr`package 
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+ab_to_explain89 <- head(test[89,]$ABSTRACT, 6)
+
+explainer89 <- lime::lime(ab_to_explain89, model = xgb_model, 
+                  preprocess = get_matrix)
+
+explanation89 <- lime::explain(ab_to_explain89, explainer89, n_labels=1,
+                       n_features = 7) # Set number most important features to 7
+```
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+explanation89[, 2:10]
+lime::plot_features(explanation89)
+```
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+lime::plot_text_explanations(explanation89)
+
+```
+
+## Abstract 273
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+library(lime)
+
+ab_to_explain <- head(test[273,]$ABSTRACT, 6)
+
+explainer <- lime::lime(ab_to_explain, model = xgb_model, 
+                  preprocess = get_matrix, tokenization = default_tokenize)
+
+explanation <- lime::explain(ab_to_explain, explainer, n_labels=1,
+                       n_features = 7) # Set number most important features to 7
+```
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+explanation[, 2:10]
+plot_features(explanation)
+```
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+plot_text_explanations(explanation)
+
+```
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+library (quanteda)
+```
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+names(train) 
+train_data <- train[, c(5:6)]  # I need only some of my variables: include, and BIBTEXKEY. I don't need the rest of the variables for now. The BIBTEX key variable helps me to identify the papers it is written like Authoryyyy.1. I will use it to attach as a document identifier. 
+
+# Now build the corpus using abstracts of the papers
+train_corpus <- corpus(train$ABSTRACT, 
+                     docvars = data.frame(abstract_BIBTEX = names(train_data))) # I added the docvars to save the additional variables other than the abstract
+
+```
+
+Similarly for the test set
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+names(test) 
+
+test_data <- test[, c(5:6)] 
+
+test_corpus <- corpus(test$ABSTRACT, 
+                     docvars = data.frame(abstract_BIBTEX = names(test_data)))
+
+```
+
+Add document identifier for both test and training set data
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+docid <- paste(train$BIBTEXKEY)
+docnames(train_corpus) <- docid
+print(train_corpus)
+```
+
+Attach the document identifier also for the test set
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+docidtest <- paste(test$BIBTEXKEY)
+docnames(test_corpus) <- docidtest
+print(test_corpus)
+```
+
+# Tokenize
+
+I will create tokens and then later document feature matrix for both train and test abstract copuses. We do the same tokenization process as we did in my previous [blog post](http://www.mihiretukebede.com/posts/2020-08-10-2020-08-10-text-analysis-of-covid-publications/). We will remove numbers, remove punctuation, or remove a customized list of stop words
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+custom_stop_words <- c("background", "introduction","aims", "objectives", "materials", "methods", "results", "conclusions","textless", "study") 
+                                      
+train_tokens <- tokens(train_corpus, remove_punct = TRUE,
+                  remove_numbers = TRUE)
+train_tokens <- tokens_select(train_tokens, pattern = stopwords('en'), selection = 'remove') # remove irrelevant words
+
+train_tokens <- tokens_select(train_tokens, pattern = custom_stop_words, selection = 'remove') # remove customized list of stop words
+
+```
+
+I do the same for the test abstract corpuses
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+
+test_tokens <- tokens(test_corpus, remove_punct = TRUE,
+                  remove_numbers = TRUE)
+test_tokens <- tokens_select(test_tokens, pattern = stopwords('en'), selection = 'remove') # remove irrelevant words
+
+test_tokens <- tokens_select(test_tokens, pattern = custom_stop_words, selection = 'remove') # remove customized list of stop words
+
+```
+
+# Construct document feature matrix for both train and test abstract tokens
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+train_dfmat <- dfm(train_tokens) 
+test_dfmat <- dfm(test_tokens)
+```
+
+# Have a quick look of the two document feature matrices
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+head(train_dfmat)
+head(test_dfmat)
+
+dim(train_dfmat) # 646 abstracts 11191 features/terms
+dim(test_dfmat) # 276 abstracts 6668 features/terms
+
+# Or simply pass the dfm object in ndoc() or nfeat() functions
+ndoc(train_dfmat)
+nfeat(train_dfmat)
+
+ndoc(test_dfmat)
+nfeat(test_dfmat)
+
+```
+
+# Vizualize the test and train document feature matrices
+
+Vizualizing the data is very importnat. Let's see how the wordclouds look for train and test abstracts.
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+library(RColorBrewer)
+pal <- brewer.pal(5, "Dark2")
+
+textplot_wordcloud(train_dfmat, min_count = 40,max_words = 400,
+     color = pal)
+```
+
+Similarly, for the test_dfmat
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+textplot_wordcloud(test_dfmat, min_count = 20,max_words = 400,
+     color = pal)
+```
+
+Both plots of the test and train data are comparable.
+
+# Document classification using Naive Bayes
+
+I need the following packages
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+library(quanteda)
+library(quanteda.textmodels)
+library(caret)
+```
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+naive_bayes <- textmodel_nb(train_dfmat,train_data$Include)
+summary(naive_bayes)
+```
+
+Since we have already our model, we can use it for predicting the test sets. Unfortunately, the features in test\_dfmat which are also in train\_dfmat. *Quanteda* package has one really nice function called *dfm\_match()* to select only features of the testing set that also occur in the training set.
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+matched_dfmat <- dfm_match(test_dfmat, features = featnames(train_dfmat))
+
+```
+
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+actual_class <- test_data$Include
+predicted_class <- predict(naive_bayes, newdata = matched_dfmat)
+tab_class <- table(predicted_class, actual_class )
+tab_class
+```
+
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+confusionMatrix(tab_class, mode = "everything")
+```
+
+Our model predicted the test data set with 87% accuracy. This is woderful! The other model performance parameters are also very promising.
+
+One limitation of implementing this model using *quanteda.textmodels* is we cannot benefit the great advantages of *lime* package, we cannot use *lime* to explain our naive\_bayes model locally (within abstracts) as we did it our prediction using *XGB* because *lime* currently doesn't support *quanteda.textmodels* package. Currently *lime* package only explains models developed using `mlr`, `xgboost`, `h2o`, `keras`, or `MASS`packages.
+
+# Final remarks
+
+I see lots of promises in NLP for systematic reviews. However, the process is quite complex and we don't know which model works best unless we experiment several models with lots of different model parameter tuning. I realized its tremendous potential even after such a tiny scratch on its surface.
+
+# Next stop
+
+![Next Stop: Growing Successful -- Brian Leichnitz](https://brianleichnitz.files.wordpress.com/2017/06/maxresdefault.jpg)
+
+Visualizing odds ratios/risk ratios in forest plots. See you. 🙂
+
+# Contact
+
+[*\@MihiretuKebede1*](https://twitter.com/MihiretuKebede1)
