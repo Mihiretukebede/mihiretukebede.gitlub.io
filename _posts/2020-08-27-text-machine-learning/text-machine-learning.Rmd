@@ -6,7 +6,6 @@ url: http://www.mihiretukebede.com/
 google_analytics: "UA-173027539-1"
 
 
-
 description: |
   In this short blog post, I would like to try machine learning methods for automated title/abstract screening in systematic reviews. 
 
@@ -19,6 +18,8 @@ output:
     self_contained: false
     widerscreen: true
 ---
+
+
 
 # Introduction
 
@@ -36,10 +37,9 @@ In this blog post, I want to try one of the many available methods available to 
 library(dplyr) #for data management
 library(ggplot2) #for plotting
 library(dplyr)
-library(bib2df)
-library(xgboost) #for converting bib file to data frame
-library(lime) #for plotting most frequent words
-library(bib2df) # for reading and converting bibliographic data to R data frame
+library(bib2df) #for converting bib file to data frame
+library(xgboost) 
+library(lime) #for explaining machine learning models
 
 
 ```
@@ -57,7 +57,7 @@ library(dplyr)
 covid <- bib2df("covid19.bib") %>% # imprort references
   filter(!is.na(ABSTRACT)) %>% # select only papers with no missing abstract
   filter(CATEGORY=="ARTICLE") %>% # Only journal articles
-  select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY") # Select few variables
+  select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY") # Select few variables 
   
 
 # 2003 corona virus
@@ -76,7 +76,6 @@ sars <- bib2df("sars.bib") %>%
   filter(!is.na(ABSTRACT)) %>% 
   filter(CATEGORY=="ARTICLE") %>% 
   select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY")
-
 ```
 
 Assume we are only looking for COVID19 papers to include in our review. That means we will need to exclude all SARS papers published in 2003. I will simply use a simple include/exclude decisions.
@@ -113,6 +112,10 @@ covid_sars$Include[covid_sars$Include=="1"]<-"included"
 covid_sars$Include[covid_sars$Include=="0"]<-"not included"
 
 table(covid_sars$Include) %>% prop.table() #66% excluded, 34% included
+```
+
+```{r}
+covid_sars2 <- read.csv("covid_sars.csv",sep=";", encoding="UTF-8")
 ```
 
 # Now split the data
@@ -413,7 +416,7 @@ tab_class_svm
 confusionMatrix(tab_class_svm, mode = "everything")
 ```
 
-SVM prediction is quite remarkable. Almsot 92% accurate prediction. This is cool. Look at the other performance measures. 
+SVM prediction is quite remarkable. Almsot 92% accurate prediction. This is cool. Look at the other performance measures: sensitivity, specificity, PVP, NPV, recall, precission. They are all more than 90%!
 
 One limitation of implementing these models using *quanteda.textmodels* is we cannot benefit the great advantages of *lime* package, we cannot use *lime* to explain our naive\_bayes model locally (within abstracts) as we did it our prediction using *XGB* because *lime* currently doesn't support *quanteda.textmodels* package. Currently *lime* package only explains models developed using `mlr`, `xgboost`, `h2o`, `keras`, or `MASS`packages.
 

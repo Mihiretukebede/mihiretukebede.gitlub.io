@@ -49,7 +49,7 @@
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["cov2003.bib","covexclude.bib","covid19.bib","datasplit.JPG","machinelearning.JPG","nexstop.JPG","sars.bib","text-machine-learning_files/bowser-1.9.3/bowser.min.js","text-machine-learning_files/distill-2.2.21/template.v2.js","text-machine-learning_files/figure-html5/unnamed-chunk-10-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-13-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-24-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-25-1.png","text-machine-learning_files/header-attrs-2.3/header-attrs.js","text-machine-learning_files/htmlwidgets-1.5.1/htmlwidgets.js","text-machine-learning_files/jquery-1.11.3/jquery.min.js","text-machine-learning_files/plot_text_explanations-0.1.0/plot_text_explanations.css","text-machine-learning_files/plot_text_explanations-binding-0.5.1/plot_text_explanations.js","text-machine-learning_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["cov2003.bib","covexclude.bib","covid_sars","covid_sars.csv","covid19.bib","covidsars.csv","covidsars.xlsx","datasplit.JPG","machinelearning.JPG","nexstop.JPG","sars.bib","text-machine-learning_files/bowser-1.9.3/bowser.min.js","text-machine-learning_files/distill-2.2.21/template.v2.js","text-machine-learning_files/figure-html5/unnamed-chunk-10-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-11-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-13-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-14-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-24-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-25-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-26-1.png","text-machine-learning_files/header-attrs-2.3/header-attrs.js","text-machine-learning_files/htmlwidgets-1.5.1/htmlwidgets.js","text-machine-learning_files/jquery-1.11.3/jquery.min.js","text-machine-learning_files/plot_text_explanations-0.1.0/plot_text_explanations.css","text-machine-learning_files/plot_text_explanations-binding-0.5.1/plot_text_explanations.js","text-machine-learning_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -989,10 +989,9 @@
 library(dplyr) #for data management
 library(ggplot2) #for plotting
 library(dplyr)
-library(bib2df)
-library(xgboost) #for converting bib file to data frame
-library(lime) #for plotting most frequent words
-library(bib2df) # for reading and converting bibliographic data to R data frame</code></pre>
+library(bib2df) #for converting bib file to data frame
+library(xgboost) 
+library(lime) #for explaining machine learning models</code></pre>
 </div>
 <h1 id="data">Data</h1>
 <p>I will use the COVID19 data that I used in my previous <a href="http://www.mihiretukebede.com/posts/2020-08-03-2020-08-03-covid19/">blog post</a>. In addition, I have added new reference data by searching SARS papers published from January 1/2003 until September 12/2003.</p>
@@ -1005,7 +1004,7 @@ library(dplyr)
 covid &lt;- bib2df(&quot;covid19.bib&quot;) %&gt;% # imprort references
   filter(!is.na(ABSTRACT)) %&gt;% # select only papers with no missing abstract
   filter(CATEGORY==&quot;ARTICLE&quot;) %&gt;% # Only journal articles
-  select(&quot;TITLE&quot;, &quot;ABSTRACT&quot;, &quot;KEYWORDS&quot;, &quot;AUTHOR&quot;, &quot;BIBTEXKEY&quot;) # Select few variables
+  select(&quot;TITLE&quot;, &quot;ABSTRACT&quot;, &quot;KEYWORDS&quot;, &quot;AUTHOR&quot;, &quot;BIBTEXKEY&quot;) # Select few variables 
   
 
 # 2003 corona virus
@@ -1063,6 +1062,9 @@ table(covid_sars$Include) %&gt;% prop.table() #66% excluded, 34% included</code>
 <pre><code>
     included not included 
    0.4880694    0.5119306 </code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
 </div>
 <h1 id="now-split-the-data">Now split the data</h1>
 <figure>
@@ -1204,7 +1206,7 @@ explanation89[, 2:10]</code></pre>
 #   feature_weight &lt;dbl&gt;</code></pre>
 <pre class="r"><code>
 lime::plot_features(explanation89)</code></pre>
-<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-10-1.png" width="1300" /></p>
+<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-11-1.png" width="1300" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
@@ -1243,7 +1245,7 @@ explanation[, 2:10]</code></pre>
 #   feature_weight &lt;dbl&gt;</code></pre>
 <pre class="r"><code>
 plot_features(explanation)</code></pre>
-<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-13-1.png" width="1300" /></p>
+<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-14-1.png" width="1300" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
@@ -1451,14 +1453,14 @@ pal &lt;- brewer.pal(5, &quot;Dark2&quot;)
 
 textplot_wordcloud(train_dfmat, min_count = 40,max_words = 400,
      color = pal)</code></pre>
-<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-24-1.png" width="1300" data-distill-preview=1 /></p>
+<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-25-1.png" width="1300" data-distill-preview=1 /></p>
 </div>
 <p>Similarly, for the test_dfmat</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 textplot_wordcloud(test_dfmat, min_count = 20,max_words = 400,
      color = pal)</code></pre>
-<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-25-1.png" width="1300" /></p>
+<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-26-1.png" width="1300" /></p>
 </div>
 <p>Both plots of the test and train data are comparable.</p>
 <h1 id="document-classification-using-naive-bayes">Document classification using Naive Bayes</h1>
@@ -1608,7 +1610,7 @@ predicted_class_svm included not included
        &#39;Positive&#39; Class : included        
                                           </code></pre>
 </div>
-<p>SVM prediction is quite remarkable. Almsot 92% accurate prediction. This is cool. Look at the other performance measures.</p>
+<p>SVM prediction is quite remarkable. Almsot 92% accurate prediction. This is cool. Look at the other performance measures: sensitivity, specificity, PVP, NPV, recall, precission. They are all more than 90%!</p>
 <p>One limitation of implementing these models using <em>quanteda.textmodels</em> is we cannot benefit the great advantages of <em>lime</em> package, we cannot use <em>lime</em> to explain our naive_bayes model locally (within abstracts) as we did it our prediction using <em>XGB</em> because <em>lime</em> currently doesn’t support <em>quanteda.textmodels</em> package. Currently <em>lime</em> package only explains models developed using <code>mlr</code>, <code>xgboost</code>, <code>h2o</code>, <code>keras</code>, or <code>MASS</code>packages.</p>
 <h1 id="final-remarks">Final remarks</h1>
 <p>I have tried three different models and the level of accuracy has improved through my model choices. I see lots of beautiful things that we can take advantage of NLP for systematic reviews. However, the process is quite complex, computationally expensive and we don’t know which model works best unless we experiment several models with broad range of model parameters. I can see its tremendous potential even after such a tiny scratch on its surface. We don’t know what would happen if I process my abstracts using tf-idf, n-grams and redo my analysis with several models including deep learning, etc.</p>
