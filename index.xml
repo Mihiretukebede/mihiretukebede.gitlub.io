@@ -18,7 +18,7 @@
       <media:content url="http://www.mihiretukebede.com/posts/2020-08-22-machinelearningforscreening-2020-08-22/machinelearningforscreening-2020-08-22_files/figure-html5/unnamed-chunk-24-1.png" medium="image" type="image/png" width="2600" height="1600"/>
     </item>
     <item>
-      <title>Extreme Gradient Boosting and Naive Bayes Machine learning algorithms for for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts</title>
+      <title>Extreme Gradient Boosting, Naive Bayes and SVM Machine learning algorithms for for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts</title>
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
       <link>http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning</link>
       <description>In this short blog post, I would like to try machine learning methods for automated title/abstract screening in systematic reviews.</description>
