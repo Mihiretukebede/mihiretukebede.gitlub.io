@@ -5,6 +5,7 @@ author: Mihiretu Kebede(PhD)
 url: http://www.mihiretukebede.com/ 
 google_analytics: "UA-173027539-1"
 date: "2020-08-06"
+encoding: UTF-8
 
 description: |
   In this short blog post, I would like to try machine learning methods for automated title/abstract screening in systematic reviews. 
