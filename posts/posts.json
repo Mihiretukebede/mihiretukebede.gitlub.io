@@ -18,24 +18,6 @@
     "preview_height": 1600
   },
   {
-    "path": "posts/2020-08-27-text-machine-learning/",
-    "title": "Extreme Gradient Boosting and Naive Bayes Machine learning algorithms for for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts",
-    "description": "In this short blog post, I would like to try machine learning methods for automated title/abstract screening in systematic reviews.",
-    "author": [
-      {
-        "name": "Mihiretu Kebede(PhD)",
-        "url": {}
-      }
-    ],
-    "date": "2020-08-26",
-    "categories": [],
-    "preview": "posts/2020-08-27-text-machine-learning/text-machine-learning_files/figure-html5/unnamed-chunk-24-1.png",
-    "last_modified": "2020-08-27T13:06:03+02:00",
-    "input_file": "text-machine-learning.utf8.md",
-    "preview_width": 2600,
-    "preview_height": 1600
-  },
-  {
     "path": "posts/2020-08-10-2020-08-10-text-analysis-of-covid-publications/",
     "title": "Applying text analyses methods on 382 COVID19 journal articles",
     "description": "This blog post is a continuation of my previous blog post on applications of text mining on sampled COVI19 publications.",
@@ -68,6 +50,24 @@
     "preview": "posts/2020-08-04-2020-08-04-abiyahmed/2020-08-04-abiyahmed_files/figure-html5/unnamed-chunk-5-1.png",
     "last_modified": "2020-08-10T10:28:45+02:00",
     "input_file": "2020-08-04-abiyahmed.utf8.md",
+    "preview_width": 2600,
+    "preview_height": 1600
+  },
+  {
+    "path": "posts/2020-08-27-text-machine-learning/",
+    "title": "Extreme Gradient Boosting and Naive Bayes Machine learning algorithms for for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts",
+    "description": "In this short blog post, I would like to try machine learning methods for automated title/abstract screening in systematic reviews.",
+    "author": [
+      {
+        "name": "Mihiretu Kebede(PhD)",
+        "url": {}
+      }
+    ],
+    "date": "2020-08-06",
+    "categories": [],
+    "preview": "posts/2020-08-27-text-machine-learning/text-machine-learning_files/figure-html5/unnamed-chunk-24-1.png",
+    "last_modified": "2020-08-27T13:42:06+02:00",
+    "input_file": "text-machine-learning.utf8.md",
     "preview_width": 2600,
     "preview_height": 1600
   },
