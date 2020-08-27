@@ -20,7 +20,7 @@
   {
     "path": "posts/2020-08-27-text-machine-learning/",
     "title": "Extreme Gradient Boosting, Naive Bayes and SVM Machine learning algorithms for for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts",
-    "description": "In this short blog post, I would like to try machine learning methods for automated title/abstract screening in systematic reviews.",
+    "description": "Machine learning methods for document classification.",
     "author": [
       {
         "name": "Mihiretu Kebede(PhD)",
@@ -30,7 +30,7 @@
     "date": "2020-08-27",
     "categories": [],
     "preview": "posts/2020-08-27-text-machine-learning/text-machine-learning_files/figure-html5/unnamed-chunk-24-1.png",
-    "last_modified": "2020-08-27T17:03:38+02:00",
+    "last_modified": "2020-08-27T20:03:32+02:00",
     "input_file": "text-machine-learning.utf8.md",
     "preview_width": 2600,
     "preview_height": 1600

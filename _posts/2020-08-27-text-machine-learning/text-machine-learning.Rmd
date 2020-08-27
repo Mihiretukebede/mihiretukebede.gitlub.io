@@ -7,7 +7,7 @@ google_analytics: "UA-173027539-1"
 
 
 description: |
-  In this short blog post, I would like to try machine learning methods for automated title/abstract screening in systematic reviews. 
+   Machine learning methods for document classification. 
 
 collections:
   posts:
