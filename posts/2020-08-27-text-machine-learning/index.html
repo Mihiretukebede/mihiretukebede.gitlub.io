@@ -35,7 +35,7 @@
 <meta property="og:type" content="article"/>
 <meta property="og:description" content="Machine learning methods for document classification."/>
 <meta property="og:url" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/"/>
-<meta property="og:image" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/text-machine-learning_files/figure-html5/unnamed-chunk-26-1.png"/>
+<meta property="og:image" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-26-1.png"/>
 <meta property="og:image:width" content="2600"/>
 <meta property="og:image:height" content="1600"/>
 <meta property="og:locale" content="en_US"/>
@@ -46,7 +46,7 @@
 <meta property="twitter:title" content="Aspire Data Solutions: Extreme Gradient Boosting, Naive Bayes and SVM Machine learning algorithms for for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts"/>
 <meta property="twitter:description" content="Machine learning methods for document classification."/>
 <meta property="twitter:url" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/"/>
-<meta property="twitter:image" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/text-machine-learning_files/figure-html5/unnamed-chunk-26-1.png"/>
+<meta property="twitter:image" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-26-1.png"/>
 <meta property="twitter:image:width" content="2600"/>
 <meta property="twitter:image:height" content="1600"/>
 
@@ -65,7 +65,7 @@
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["cov2003.bib","covexclude.bib","covid_sars","covid_sars.csv","covid19.bib","covidsars.csv","covidsars.xlsx","datasplit.JPG","machinelearning.JPG","nexstop.JPG","sars.bib","text-machine-learning_files/bowser-1.9.3/bowser.min.js","text-machine-learning_files/distill-2.2.21/template.v2.js","text-machine-learning_files/figure-html5/unnamed-chunk-10-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-11-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-13-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-14-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-15-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-24-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-25-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-26-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-27-1.png","text-machine-learning_files/header-attrs-2.3/header-attrs.js","text-machine-learning_files/htmlwidgets-1.5.1/htmlwidgets.js","text-machine-learning_files/jquery-1.11.3/jquery.min.js","text-machine-learning_files/plot_text_explanations-0.1.0/plot_text_explanations.css","text-machine-learning_files/plot_text_explanations-binding-0.5.1/plot_text_explanations.js","text-machine-learning_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["2020-08-27-text-machine-learning/bowser-1.9.3/bowser.min.js","2020-08-27-text-machine-learning/distill-2.2.21/template.v2.js","2020-08-27-text-machine-learning/figure-html5/unnamed-chunk-10-1.png","2020-08-27-text-machine-learning/figure-html5/unnamed-chunk-11-1.png","2020-08-27-text-machine-learning/figure-html5/unnamed-chunk-13-1.png","2020-08-27-text-machine-learning/figure-html5/unnamed-chunk-14-1.png","2020-08-27-text-machine-learning/figure-html5/unnamed-chunk-15-1.png","2020-08-27-text-machine-learning/figure-html5/unnamed-chunk-24-1.png","2020-08-27-text-machine-learning/figure-html5/unnamed-chunk-25-1.png","2020-08-27-text-machine-learning/figure-html5/unnamed-chunk-26-1.png","2020-08-27-text-machine-learning/figure-html5/unnamed-chunk-27-1.png","2020-08-27-text-machine-learning/header-attrs-2.3/header-attrs.js","2020-08-27-text-machine-learning/htmlwidgets-1.5.1/htmlwidgets.js","2020-08-27-text-machine-learning/jquery-1.11.3/jquery.min.js","2020-08-27-text-machine-learning/plot_text_explanations-0.1.0/plot_text_explanations.css","2020-08-27-text-machine-learning/plot_text_explanations-binding-0.5.1/plot_text_explanations.js","2020-08-27-text-machine-learning/webcomponents-2.0.0/webcomponents.js","2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-11-1.png","2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-15-1.png","2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-26-1.png","2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-27-1.png","cov2003.bib","covexclude.bib","covid19.bib","datasplit.JPG","machinelearning.JPG","nexstop.JPG","sars.bib"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 
@@ -1433,7 +1433,7 @@ library(dplyr)
 table(covid_sars$Include)</code></pre>
 <pre><code>
   0   1 
-472 450 </code></pre>
+472 509 </code></pre>
 <pre class="r"><code>
 # check the type of this variable and convert it to factor 
 
@@ -1447,7 +1447,7 @@ covid_sars$Include[covid_sars$Include==&quot;0&quot;]&lt;-&quot;not included&quo
 table(covid_sars$Include) %&gt;% prop.table() #66% excluded, 34% included</code></pre>
 <pre><code>
     included not included 
-   0.4880694    0.5119306 </code></pre>
+   0.5188583    0.4811417 </code></pre>
 </div>
 <h1 id="now-split-the-data">Now split the data</h1>
 <figure>
@@ -1470,17 +1470,17 @@ test  &lt;- covid_sars[-trainIndex,]
 prop.table(table(covid_sars$Include)) # outcome proportion for th original data</code></pre>
 <pre><code>
     included not included 
-   0.4880694    0.5119306 </code></pre>
+   0.5188583    0.4811417 </code></pre>
 <pre class="r"><code>
 prop.table(table(train$Include)) # outcome proportion for training data</code></pre>
 <pre><code>
     included not included 
-   0.4876161    0.5123839 </code></pre>
+   0.5188953    0.4811047 </code></pre>
 <pre class="r"><code>
 prop.table(table(test$Include)) # outcome proportion for testing data</code></pre>
 <pre><code>
     included not included 
-   0.4891304    0.5108696 </code></pre>
+   0.5187713    0.4812287 </code></pre>
 <pre class="r"><code>
 # Cool! They have exactly similar proportions with respect to the outcome variable. </code></pre>
 </div>
@@ -1533,26 +1533,26 @@ Confusion Matrix and Statistics
 
               Reference
 Prediction     included not included
-  included          127            9
-  not included        8          132
+  included          142            9
+  not included       10          132
                                           
-               Accuracy : 0.9384          
-                 95% CI : (0.9032, 0.9637)
-    No Information Rate : 0.5109          
+               Accuracy : 0.9352          
+                 95% CI : (0.9006, 0.9605)
+    No Information Rate : 0.5188          
     P-Value [Acc &gt; NIR] : &lt;2e-16          
                                           
-                  Kappa : 0.8768          
+                  Kappa : 0.8702          
                                           
  Mcnemar&#39;s Test P-Value : 1               
                                           
-            Sensitivity : 0.9407          
+            Sensitivity : 0.9342          
             Specificity : 0.9362          
-         Pos Pred Value : 0.9338          
-         Neg Pred Value : 0.9429          
-             Prevalence : 0.4891          
-         Detection Rate : 0.4601          
-   Detection Prevalence : 0.4928          
-      Balanced Accuracy : 0.9385          
+         Pos Pred Value : 0.9404          
+         Neg Pred Value : 0.9296          
+             Prevalence : 0.5188          
+         Detection Rate : 0.4846          
+   Detection Prevalence : 0.5154          
+      Balanced Accuracy : 0.9352          
                                           
        &#39;Positive&#39; Class : included        
                                           </code></pre>
@@ -1578,27 +1578,27 @@ explanation89[, 2:10]</code></pre>
 # A tibble: 7 x 9
    case label label_prob model_r2 model_intercept model_prediction
   &lt;int&gt; &lt;chr&gt;      &lt;dbl&gt;    &lt;dbl&gt;           &lt;dbl&gt;            &lt;dbl&gt;
-1     1 0          0.984    0.690           0.962            0.970
-2     1 0          0.984    0.690           0.962            0.970
-3     1 0          0.984    0.690           0.962            0.970
-4     1 0          0.984    0.690           0.962            0.970
-5     1 0          0.984    0.690           0.962            0.970
-6     1 0          0.984    0.690           0.962            0.970
-7     1 0          0.984    0.690           0.962            0.970
+1     1 0          0.992    0.827           0.981            0.990
+2     1 0          0.992    0.827           0.981            0.990
+3     1 0          0.992    0.827           0.981            0.990
+4     1 0          0.992    0.827           0.981            0.990
+5     1 0          0.992    0.827           0.981            0.990
+6     1 0          0.992    0.827           0.981            0.990
+7     1 0          0.992    0.827           0.981            0.990
 # ... with 3 more variables: feature &lt;chr&gt;, feature_value &lt;chr&gt;,
 #   feature_weight &lt;dbl&gt;</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 lime::plot_features(explanation89)</code></pre>
-<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
+<p><img src="2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
 </div>
 <p>The word sars is most important word that xgb model used to predict the exclusion of this this abstract.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 lime::plot_text_explanations(explanation89)</code></pre>
-<div id="htmlwidget-dbf5b0f03bffc4241957" style="width:100%;height:auto;" class="plot_text_explanations html-widget"></div>
-<script type="application/json" data-for="htmlwidget-dbf5b0f03bffc4241957">{"x":{"html":"<div style=\"overflow-y:scroll;font-family:sans-serif;height:100%\"> <p> SUMMARY: iBioProVis is an interactive tool for visual analysis of the compound  bioactivity space in the context of target proteins, drugs <span class='negative_1'>and<\/span> drug candidate compounds. iBioProVis tool takes target protein identifiers <span class='negative_1'>and<\/span>, optionally, compound SMILES as input, <span class='negative_1'>and<\/span> uses the state-of-the-art non-linear dimensionality reduction method t-Distributed Stochastic Neighbor Embedding (t-SNE) <span class='negative_1'>to<\/span> plot the distribution of compounds embedded in a 2D map, based on the similarity of structural properties of compounds <span class='negative_1'>and<\/span> in the context of compounds' cognate targets. Similar compounds, which are embedded <span class='negative_1'>to<\/span> proximate points on the 2D map, may bind the same or similar target proteins. Thus, iBioProVis <span class='negative_1'>can<\/span> <span class='negative_1'>be<\/span> used <span class='negative_1'>to<\/span> easily observe the structural distribution of one or two target proteins' known ligands on the 2D compound space, <span class='negative_1'>and<\/span> <span class='negative_1'>to<\/span> infer new binders <span class='negative_1'>to<\/span> the same protein, or <span class='negative_1'>to<\/span> infer new potential target(s) for a compound of interest, based on this distribution. Principal component analysis (PCA) projection of the input compounds is also provided, Hence the user <span class='negative_1'>can<\/span> interactively observe the same compound or a group of selected compounds which is projected by both PCA <span class='negative_1'>and<\/span> embedded by t-SNE. iBioProVis also provides detailed information about drugs <span class='negative_1'>and<\/span> drug candidate compounds through cross-references <span class='negative_1'>to<\/span> widely used <span class='negative_1'>and<\/span> well-known databases, in the <span class='negative_1'>form<\/span> of linked table views. Two use-case studies <span class='negative_1'>were<\/span> demonstrated, one being on angiotensin-converting enzyme 2 (ACE2) protein which is Severe Acute Respiratory Syndrome Coronavirus 2 (<span class='positive_3'>SARS<\/span>-CoV-2) Spike protein receptor. ACE2 binding compounds <span class='negative_1'>and<\/span> seven antiviral drugs <span class='negative_1'>were<\/span> closely embedded in which two of them have been under clinical trial for Coronavirus disease 19 (COVID-19). AVAILABILITY AND IMPLEMENTATION: iBioProVis <span class='negative_1'>and<\/span> its carefully filtered dataset are available at https://ibpv.kansil.org/ for public use. CONTACT: vatalay@metu.edu.tr. SUPPLEMENTARY INFORMATION: Supplementary data are available at Bioinformatics online. <\/br> <sub>Label predicted: 0 (98.43%)<br/>Explainer fit: 0.69<\/sub> <\/p> <\/div>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-a7117a3eb966d56fb998" style="width:100%;height:auto;" class="plot_text_explanations html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a7117a3eb966d56fb998">{"x":{"html":"<div style=\"overflow-y:scroll;font-family:sans-serif;height:100%\"> <p> The previous outbreaks of <span class='positive_3'>SARS<\/span>-CoV and MERS-CoV have led researchers to study the  role of diagnostics <span class='negative_1'>in<\/span> impediment of further spread and transmission. With the recent emergence of the novel <span class='positive_3'>SARS<\/span>-CoV-2, the availability of rapid, sensitive, and reliable diagnostic <span class='negative_1'>methods<\/span> <span class='negative_1'>is<\/span> essential for disease control. Hence, we have developed a reverse transcription loop-mediated isothermal amplification (RT-LAMP) assay for the specific detection of <span class='positive_3'>SARS<\/span>-CoV-2. The primer sets for RT-LAMP assay were designed to target the nucleocapsid gene of the viral RNA, and displayed a detection limit of 10(2) RNA copies close to that of qRT-PCR. Notably, the assay has exhibited a rapid detection span of 30â€…min combined with the colorimetric visualization. This test can detect specifically viral RNAs of the <span class='positive_3'>SARS<\/span>-CoV-2 with no cross-reactivity to related coronaviruses, such as HCoV-229E, HCoV-NL63, HCoV-OC43, and MERS-CoV as well as human infectious influenza viruses (<span class='negative_1'>type<\/span> B, H1N1pdm, H3N2, H5N1, H5N6, H5N8, and H7N9), and other <span class='positive_1'>respiratory<\/span> disease-causing viruses (RSVA, RSVB, ADV, PIV, MPV, and HRV). Furthermore, the developed RT-LAMP assay has <span class='negative_1'>been<\/span> evaluated using specimens collected from COVID-19 patients that exhibited high agreement to the qRT-PCR. Our RT-LAMP assay <span class='negative_1'>is<\/span> simple to perform, less expensive, time-efficient, and can be used <span class='negative_1'>in<\/span> clinical laboratories for preliminary detection of <span class='positive_3'>SARS<\/span>-CoV-2 <span class='negative_1'>in<\/span> suspected patients. In addition to the high sensitivity and specificity, this isothermal amplification conjugated with a single-tube colorimetric detection method may contribute to the public health responses and disease control, especially <span class='negative_1'>in<\/span> the areas with limited laboratory capacities. <\/br> <sub>Label predicted: 0 (99.2%)<br/>Explainer fit: 0.83<\/sub> <\/p> <\/div>"},"evals":[],"jsHooks":[]}</script>
 </div>
 <h2 id="abstract-283">Abstract 283</h2>
 <div class="layout-chunk" data-layout="l-body">
@@ -1621,26 +1621,26 @@ explanation[, 2:10]</code></pre>
 # A tibble: 7 x 9
    case label label_prob model_r2 model_intercept model_prediction
   &lt;int&gt; &lt;chr&gt;      &lt;dbl&gt;    &lt;dbl&gt;           &lt;dbl&gt;            &lt;dbl&gt;
-1     1 0          0.984    0.680           0.962            0.971
-2     1 0          0.984    0.680           0.962            0.971
-3     1 0          0.984    0.680           0.962            0.971
-4     1 0          0.984    0.680           0.962            0.971
-5     1 0          0.984    0.680           0.962            0.971
-6     1 0          0.984    0.680           0.962            0.971
-7     1 0          0.984    0.680           0.962            0.971
+1     1 0          0.671    0.836           0.846            0.585
+2     1 0          0.671    0.836           0.846            0.585
+3     1 0          0.671    0.836           0.846            0.585
+4     1 0          0.671    0.836           0.846            0.585
+5     1 0          0.671    0.836           0.846            0.585
+6     1 0          0.671    0.836           0.846            0.585
+7     1 0          0.671    0.836           0.846            0.585
 # ... with 3 more variables: feature &lt;chr&gt;, feature_value &lt;chr&gt;,
 #   feature_weight &lt;dbl&gt;</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 plot_features(explanation)</code></pre>
-<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
+<p><img src="2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 plot_text_explanations(explanation)</code></pre>
-<div id="htmlwidget-3740e5d28da9397d0cc7" style="width:100%;height:auto;" class="plot_text_explanations html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3740e5d28da9397d0cc7">{"x":{"html":"<div style=\"overflow-y:scroll;font-family:sans-serif;height:100%\"> <p> SUMMARY: iBioProVis is an interactive tool for visual analysis of the compound  bioactivity space in the context of target proteins, drugs <span class='negative_1'>and<\/span> drug candidate compounds. iBioProVis tool takes target protein identifiers <span class='negative_1'>and<\/span>, optionally, compound SMILES as input, <span class='negative_1'>and<\/span> uses the state-of-the-art non-linear dimensionality reduction method t-Distributed Stochastic Neighbor Embedding (t-SNE) to plot the distribution of compounds embedded in <span class='positive_1'>a<\/span> 2D map, based on the similarity of structural properties of compounds <span class='negative_1'>and<\/span> in the context of compounds' cognate targets. Similar compounds, which are embedded to proximate points on the 2D map, may bind the same or similar target proteins. Thus, iBioProVis <span class='negative_1'>can<\/span> <span class='negative_1'>be<\/span> used to easily observe the structural distribution of one or two target proteins' known ligands on the 2D compound space, <span class='negative_1'>and<\/span> to infer new binders to the same protein, or to infer new potential target(s) for <span class='positive_1'>a<\/span> compound of interest, based on this distribution. Principal component analysis (PCA) projection of the input compounds is also provided, Hence the user <span class='negative_1'>can<\/span> interactively observe the same compound or <span class='positive_1'>a<\/span> group of selected compounds which is projected by both PCA <span class='negative_1'>and<\/span> embedded by t-SNE. iBioProVis also provides detailed information about drugs <span class='negative_1'>and<\/span> drug candidate compounds through cross-references to widely used <span class='negative_1'>and<\/span> well-known databases, in the <span class='negative_1'>form<\/span> of linked table views. Two use-case studies <span class='negative_1'>were<\/span> demonstrated, one being on angiotensin-converting enzyme 2 (ACE2) protein which is Severe Acute Respiratory Syndrome Coronavirus 2 (<span class='positive_3'>SARS<\/span>-CoV-2) Spike protein receptor. ACE2 binding compounds <span class='negative_1'>and<\/span> seven antiviral drugs <span class='negative_1'>were<\/span> closely embedded in which two of them have been under clinical trial for Coronavirus disease 19 (COVID-19). AVAILABILITY AND IMPLEMENTATION: iBioProVis <span class='negative_1'>and<\/span> its carefully filtered dataset are available at https://ibpv.kansil.org/ for public use. CONTACT: vatalay@metu.edu.tr. SUPPLEMENTARY INFORMATION: Supplementary data are available at Bioinformatics online. <\/br> <sub>Label predicted: 0 (98.43%)<br/>Explainer fit: 0.68<\/sub> <\/p> <\/div>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9e5c00a8757ba5dc6ae9" style="width:100%;height:auto;" class="plot_text_explanations html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9e5c00a8757ba5dc6ae9">{"x":{"html":"<div style=\"overflow-y:scroll;font-family:sans-serif;height:100%\"> <p> To prepare immunomicelles, <span class='positive_1'>new<\/span> targeted carriers <span class='positive_1'>for<\/span> poorly soluble pharmaceuticals, a procedure <span class='positive_2'>has<\/span> been developed to chemically attach mAbs to reactive groups incorporated into the <span class='negative_3'>corona<\/span> of polymeric micelles made of polyethylene glycol-phosphatidylethanolamine conjugates. Micelle-attached antibodies retained their ability to specifically interact with their antigens. Immunomicelles with attached antitumor mAb 2C5 effectively recognized <span class='negative_1'>and<\/span> bound various cancer cells in vitro <span class='negative_1'>and<\/span> showed <span class='negative_1'>an<\/span> increased accumulation in experimental tumors in mice when compared with nontargeted micelles. Intravenous administration of tumor-specific 2C5 immunomicelles loaded with a sparingly soluble anticancer agent, taxol, into experimental mice bearing Lewis lung carcinoma resulted in <span class='negative_1'>an<\/span> increased accumulation of taxol in the tumor compared with free taxol or taxol in nontargeted micelles <span class='negative_1'>and<\/span> in enhanced tumor growth inhibition. This family of pharmaceutical carriers can be <span class='positive_1'>used<\/span> <span class='positive_1'>for<\/span> the solubilization <span class='negative_1'>and<\/span> enhanced delivery of poorly soluble drugs to various pathological sites in the body. <\/br> <sub>Label predicted: 0 (67.05%)<br/>Explainer fit: 0.84<\/sub> <\/p> <\/div>"},"evals":[],"jsHooks":[]}</script>
 </div>
 <p>The word corona is used for predicting “Include” with 67% probability.</p>
 <p>The above modelling is dirty.It didn’t use only the relevant words. I will use <em>quanteda</em> package to remove all irrelavnt words.</p>
@@ -1684,7 +1684,7 @@ docid &lt;- paste(train$BIBTEXKEY)
 docnames(train_corpus) &lt;- docid
 print(train_corpus)</code></pre>
 <pre><code>
-Corpus consisting of 646 documents and 1 docvar.
+Corpus consisting of 688 documents and 1 docvar.
 Ataguba2020.1 :
 &quot;The coronavirus disease 2019 (COVID-19) pandemic has affecte...&quot;
 
@@ -1694,16 +1694,16 @@ Sigala2020.1 :
 Lechner2020.1 :
 &quot;Amidst the coronavirus pandemic, universities across the cou...&quot;
 
-Wister2020.1 :
-&quot;The COVID-19 global crisis is reshaping Canadian society in ...&quot;
+VanDorp2020.1 :
+&quot;SARS-CoV-2 is a SARS-like coronavirus of likely zoonotic ori...&quot;
+
+Barilla2020.1 :
+&quot;: ACE2 receptor has a broad expression pattern in the cellul...&quot;
 
 Zhang2020d.1 :
 &quot;The nucleocapsid protein is significant in the formation of ...&quot;
 
-Peng2020.1 :
-&quot;BACKGROUND: The COVID-19 outbreak has brought tremendous psy...&quot;
-
-[ reached max_ndoc ... 640 more documents ]</code></pre>
+[ reached max_ndoc ... 682 more documents ]</code></pre>
 </div>
 <p>Attach the document identifier also for the test set</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1712,7 +1712,7 @@ docidtest &lt;- paste(test1$BIBTEXKEY)
 docnames(test_corpus) &lt;- docidtest
 print(test_corpus)</code></pre>
 <pre><code>
-Corpus consisting of 266 documents.
+Corpus consisting of 283 documents.
 Coccia2020.1 :
 &quot;This study has two goals. The first is to explain the geo-en...&quot;
 
@@ -1722,16 +1722,16 @@ Cagliani2020.1 :
 Okba2020.1 :
 &quot;Middle East respiratory syndrome coronavirus (MERS-CoV) is a...&quot;
 
-VanDorp2020.1 :
-&quot;SARS-CoV-2 is a SARS-like coronavirus of likely zoonotic ori...&quot;
+Donthu2020.1 :
+&quot;The COVID-19 outbreak is a sharp reminder that pandemics, li...&quot;
 
-Barilla2020.1 :
-&quot;: ACE2 receptor has a broad expression pattern in the cellul...&quot;
+Wister2020.1 :
+&quot;The COVID-19 global crisis is reshaping Canadian society in ...&quot;
 
-Kerimray2020.1 :
-&quot;Number of cities worlwide experienced air quality improvemen...&quot;
+Acter2020.1 :
+&quot;According to data compiled by researchers at Johns Hopkins U...&quot;
 
-[ reached max_ndoc ... 260 more documents ]</code></pre>
+[ reached max_ndoc ... 277 more documents ]</code></pre>
 </div>
 <h1 id="tokenize">Tokenize</h1>
 <p>I will create tokens and then later document feature matrix for both train and test abstract copuses. We do the same tokenization process as we did in my previous <a href="http://www.mihiretukebede.com/posts/2020-08-10-2020-08-10-text-analysis-of-covid-publications/">blog post</a>. We will remove numbers, remove punctuation, or remove a customized list of stop words</p>
@@ -1765,78 +1765,78 @@ test_dfmat &lt;- dfm(test_tokens)</code></pre>
 <pre class="r"><code>
 head(train_dfmat)</code></pre>
 <pre><code>
-Document-feature matrix of: 6 documents, 11,190 features (99.2% sparse) and 1 docvar.
+Document-feature matrix of: 6 documents, 11,318 features (99.1% sparse) and 1 docvar.
                features
 docs            coronavirus disease covid-19 pandemic affected many
   Ataguba2020.1           2       2        6        3        1    7
   Sigala2020.1            0       0        4        1        0    0
   Lechner2020.1           2       0        0        2        0    0
-  Wister2020.1            0       0        4        1        1    0
+  VanDorp2020.1           1       0        1        1        0    0
+  Barilla2020.1           1       1        2        1        0    1
   Zhang2020d.1            1       0        1        0        0    0
-  Peng2020.1              0       0        2        0        0    0
                features
 docs            countries increasing morbidity mortality
   Ataguba2020.1         7          1         2         1
   Sigala2020.1          0          0         0         0
   Lechner2020.1         0          0         0         0
-  Wister2020.1          0          0         1         1
+  VanDorp2020.1         1          0         0         0
+  Barilla2020.1         0          0         0         0
   Zhang2020d.1          0          0         0         0
-  Peng2020.1            0          0         0         0
-[ reached max_nfeat ... 11,180 more features ]</code></pre>
+[ reached max_nfeat ... 11,308 more features ]</code></pre>
 <pre class="r"><code>
 head(test_dfmat)</code></pre>
 <pre><code>
-Document-feature matrix of: 6 documents, 6,621 features (98.1% sparse).
+Document-feature matrix of: 6 documents, 6,953 features (98.4% sparse).
                 features
 docs             two goals first explain geo-environmental
   Coccia2020.1     1     1     1       1                 1
   Cagliani2020.1   0     0     0       0                 0
   Okba2020.1       0     0     0       0                 0
-  VanDorp2020.1    0     0     2       0                 0
-  Barilla2020.1    0     0     0       0                 0
-  Kerimray2020.1   0     0     1       0                 0
+  Donthu2020.1     0     0     0       0                 0
+  Wister2020.1     0     0     0       0                 0
+  Acter2020.1      1     0     0       0                 0
                 features
 docs             determinants accelerated diffusion covid-19
   Coccia2020.1              1           3         3        9
   Cagliani2020.1            0           0         0        0
   Okba2020.1                0           0         0        0
-  VanDorp2020.1             0           0         0        1
-  Barilla2020.1             0           0         0        2
-  Kerimray2020.1            0           0         0        2
+  Donthu2020.1              0           0         0        1
+  Wister2020.1              0           0         0        4
+  Acter2020.1               0           0         0        1
                 features
 docs             generating
   Coccia2020.1            1
   Cagliani2020.1          0
   Okba2020.1              0
-  VanDorp2020.1           0
-  Barilla2020.1           0
-  Kerimray2020.1          0
-[ reached max_nfeat ... 6,611 more features ]</code></pre>
+  Donthu2020.1            0
+  Wister2020.1            0
+  Acter2020.1             0
+[ reached max_nfeat ... 6,943 more features ]</code></pre>
 <pre class="r"><code>
 dim(train_dfmat) # 646 abstracts 11191 features/terms</code></pre>
 <pre><code>
-[1]   646 11190</code></pre>
+[1]   688 11318</code></pre>
 <pre class="r"><code>
 dim(test_dfmat) # 276 abstracts 6668 features/terms</code></pre>
 <pre><code>
-[1]  266 6621</code></pre>
+[1]  283 6953</code></pre>
 <pre class="r"><code>
 # Or simply pass the dfm object in ndoc() or nfeat() functions
 ndoc(train_dfmat)</code></pre>
 <pre><code>
-[1] 646</code></pre>
+[1] 688</code></pre>
 <pre class="r"><code>
 nfeat(train_dfmat)</code></pre>
 <pre><code>
-[1] 11190</code></pre>
+[1] 11318</code></pre>
 <pre class="r"><code>
 ndoc(test_dfmat)</code></pre>
 <pre><code>
-[1] 266</code></pre>
+[1] 283</code></pre>
 <pre class="r"><code>
 nfeat(test_dfmat)</code></pre>
 <pre><code>
-[1] 6621</code></pre>
+[1] 6953</code></pre>
 </div>
 <h1 id="vizualize-the-test-and-train-document-feature-matrices">Vizualize the test and train document feature matrices</h1>
 <p>Vizualizing the data is very importnat. Let’s see how the wordclouds look for train and test abstracts.</p>
@@ -1847,14 +1847,14 @@ pal &lt;- brewer.pal(5, &quot;Dark2&quot;)
 
 textplot_wordcloud(train_dfmat, min_count = 40,max_words = 400,
      color = pal)</code></pre>
-<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-26-1.png" width="1300" data-distill-preview=1 /></p>
+<p><img src="2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-26-1.png" width="1300" data-distill-preview=1 /></p>
 </div>
 <p>Similarly, for the test_dfmat</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 textplot_wordcloud(test_dfmat, min_count = 20,max_words = 400,
      color = pal)</code></pre>
-<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-27-1.png" width="1300" /></p>
+<p><img src="2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-27-1.png" width="1300" /></p>
 </div>
 <p>Both plots of the test and train data are comparable.</p>
 <h1 id="document-classification-using-naive-bayes">Document classification using Naive Bayes</h1>
@@ -1879,24 +1879,24 @@ Class Priors:
          0.5          0.5 
 
 Estimated Feature Scores:
-             coronavirus  disease  covid-19 pandemic  affected
-included        0.004040 0.004462 0.0136868 0.004341 0.0006431
-not included    0.004166 0.004596 0.0006872 0.000451 0.0006872
+             coronavirus  disease  covid-19  pandemic  affected
+included        0.004073 0.004474 0.0148763 0.0047994 0.0005928
+not included    0.003578 0.004268 0.0007113 0.0004311 0.0006035
                   many countries increasing morbidity mortality
-included     0.0007637 0.0012662  0.0005025 0.0001608 0.0005025
-not included 0.0006872 0.0005584  0.0001718 0.0001933 0.0009020
+included     0.0007840 0.0011664  0.0005736 0.0001912 0.0004780
+not included 0.0007329 0.0005604  0.0001078 0.0001509 0.0006898
              interestingly   actions  policies   adopted    linked
-included         1.206e-04 1.608e-04 2.211e-04 1.809e-04 0.0002211
-not included     4.295e-05 6.443e-05 4.295e-05 4.295e-05 0.0002792
+included         1.147e-04 2.103e-04 1.912e-04 1.530e-04 0.0001912
+not included     6.466e-05 6.466e-05 4.311e-05 4.311e-05 0.0001940
                 social determinants   health       sdh  critical
-included     0.0008039    0.0001005 0.003497 1.206e-04 0.0008039
-not included 0.0001289    0.0001074 0.003157 2.148e-05 0.0003866
+included     0.0007457    9.561e-05 0.003729 1.147e-04 0.0007457
+not included 0.0002155    8.622e-05 0.003341 2.155e-05 0.0004742
              inequalities  directly    within    sector distancing
-included        4.020e-05 0.0001608 0.0006431 1.608e-04  3.417e-04
-not included    2.148e-05 0.0001503 0.0008161 6.443e-05  6.443e-05
+included        3.824e-05 0.0002677 0.0007075 1.721e-04  3.059e-04
+not included    2.155e-05 0.0001293 0.0009700 8.622e-05  6.466e-05
                   good   hygiene  avoiding     large gatherings
-included     0.0003216 0.0001005 1.005e-04 0.0006431  4.020e-05
-not included 0.0001718 0.0001074 2.148e-05 0.0008376  2.148e-05</code></pre>
+included     0.0003251 0.0001147 1.338e-04 0.0005736  3.824e-05
+not included 0.0002155 0.0001078 2.155e-05 0.0007760  2.155e-05</code></pre>
 </div>
 <p>Since we have already our model, we can use it for predicting the test sets. Unfortunately, the features in test_dfmat which are also in train_dfmat. <em>Quanteda</em> package has one really nice function called <em>dfm_match()</em> to select only features of the testing set that also occur in the training set.</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1912,8 +1912,8 @@ tab_class</code></pre>
 <pre><code>
                actual_class
 predicted_class included not included
-   included          115           15
-   not included       20          116</code></pre>
+   included          135           18
+   not included       17          113</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
@@ -1923,29 +1923,29 @@ Confusion Matrix and Statistics
 
                actual_class
 predicted_class included not included
-   included          115           15
-   not included       20          116
+   included          135           18
+   not included       17          113
                                           
-               Accuracy : 0.8684          
-                 95% CI : (0.8218, 0.9066)
-    No Information Rate : 0.5075          
+               Accuracy : 0.8763          
+                 95% CI : (0.8322, 0.9123)
+    No Information Rate : 0.5371          
     P-Value [Acc &gt; NIR] : &lt;2e-16          
                                           
-                  Kappa : 0.7369          
+                  Kappa : 0.7511          
                                           
- Mcnemar&#39;s Test P-Value : 0.499           
+ Mcnemar&#39;s Test P-Value : 1               
                                           
-            Sensitivity : 0.8519          
-            Specificity : 0.8855          
-         Pos Pred Value : 0.8846          
-         Neg Pred Value : 0.8529          
-              Precision : 0.8846          
-                 Recall : 0.8519          
-                     F1 : 0.8679          
-             Prevalence : 0.5075          
-         Detection Rate : 0.4323          
-   Detection Prevalence : 0.4887          
-      Balanced Accuracy : 0.8687          
+            Sensitivity : 0.8882          
+            Specificity : 0.8626          
+         Pos Pred Value : 0.8824          
+         Neg Pred Value : 0.8692          
+              Precision : 0.8824          
+                 Recall : 0.8882          
+                     F1 : 0.8852          
+             Prevalence : 0.5371          
+         Detection Rate : 0.4770          
+   Detection Prevalence : 0.5406          
+      Balanced Accuracy : 0.8754          
                                           
        &#39;Positive&#39; Class : included        
                                           </code></pre>
@@ -1965,8 +1965,8 @@ tab_class_svm</code></pre>
 <pre><code>
                    Actual
 predicted_class_svm included not included
-       included          125           13
-       not included       10          118</code></pre>
+       included          145           14
+       not included        7          117</code></pre>
 </div>
 <h1 id="now-the-confusion-matrix">Now the confusion matrix</h1>
 <div class="layout-chunk" data-layout="l-body">
@@ -1977,29 +1977,29 @@ Confusion Matrix and Statistics
 
                    Actual
 predicted_class_svm included not included
-       included          125           13
-       not included       10          118
+       included          145           14
+       not included        7          117
                                           
-               Accuracy : 0.9135          
-                 95% CI : (0.8731, 0.9444)
-    No Information Rate : 0.5075          
+               Accuracy : 0.9258          
+                 95% CI : (0.8888, 0.9535)
+    No Information Rate : 0.5371          
     P-Value [Acc &gt; NIR] : &lt;2e-16          
                                           
-                  Kappa : 0.827           
+                  Kappa : 0.8502          
                                           
- Mcnemar&#39;s Test P-Value : 0.6767          
+ Mcnemar&#39;s Test P-Value : 0.1904          
                                           
-            Sensitivity : 0.9259          
-            Specificity : 0.9008          
-         Pos Pred Value : 0.9058          
-         Neg Pred Value : 0.9219          
-              Precision : 0.9058          
-                 Recall : 0.9259          
-                     F1 : 0.9158          
-             Prevalence : 0.5075          
-         Detection Rate : 0.4699          
-   Detection Prevalence : 0.5188          
-      Balanced Accuracy : 0.9133          
+            Sensitivity : 0.9539          
+            Specificity : 0.8931          
+         Pos Pred Value : 0.9119          
+         Neg Pred Value : 0.9435          
+              Precision : 0.9119          
+                 Recall : 0.9539          
+                     F1 : 0.9325          
+             Prevalence : 0.5371          
+         Detection Rate : 0.5124          
+   Detection Prevalence : 0.5618          
+      Balanced Accuracy : 0.9235          
                                           
        &#39;Positive&#39; Class : included        
                                           </code></pre>
