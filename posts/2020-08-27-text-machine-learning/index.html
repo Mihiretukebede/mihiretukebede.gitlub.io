@@ -1944,10 +1944,64 @@ predicted_class included not included
        &#39;Positive&#39; Class : included       
                                          </code></pre>
 </div>
-<p>Our model predicted the test data set with 87% accuracy. This is woderful! The other model performance parameters are also very promising.</p>
-<p>One limitation of implementing this model using <em>quanteda.textmodels</em> is we cannot benefit the great advantages of <em>lime</em> package, we cannot use <em>lime</em> to explain our naive_bayes model locally (within abstracts) as we did it our prediction using <em>XGB</em> because <em>lime</em> currently doesn’t support <em>quanteda.textmodels</em> package. Currently <em>lime</em> package only explains models developed using <code>mlr</code>, <code>xgboost</code>, <code>h2o</code>, <code>keras</code>, or <code>MASS</code>packages.</p>
+<p>Our models predicted the test data set with 87% accuracy. This is woderful! The other model performance parameters are also very promising. # How about Support Vector Machines?</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+train_svm &lt;- textmodel_svm(train_dfmat,train_data$Include, weight=&quot;uniform&quot;) # There are three weighting options. I don&#39;t have problem of class imbalance, let me just use the default &quot;uniform&quot;</code></pre>
+</div>
+<h1 id="predict-the-test-set-using-svm">Predict the test set using SVM</h1>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+Actual &lt;- test_data$Include
+predicted_class_svm &lt;- predict(train_svm, newdata = matched_dfmat)
+tab_class_svm &lt;- table(predicted_class_svm, Actual )
+tab_class_svm</code></pre>
+<pre><code>
+                   Actual
+predicted_class_svm included not included
+       included          125           13
+       not included       10          128</code></pre>
+</div>
+<h1 id="now-the-confusion-matrix">Now the confusion matrix</h1>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+confusionMatrix(tab_class_svm, mode = &quot;everything&quot;)</code></pre>
+<pre><code>
+Confusion Matrix and Statistics
+
+                   Actual
+predicted_class_svm included not included
+       included          125           13
+       not included       10          128
+                                          
+               Accuracy : 0.9167          
+                 95% CI : (0.8776, 0.9464)
+    No Information Rate : 0.5109          
+    P-Value [Acc &gt; NIR] : &lt;2e-16          
+                                          
+                  Kappa : 0.8333          
+                                          
+ Mcnemar&#39;s Test P-Value : 0.6767          
+                                          
+            Sensitivity : 0.9259          
+            Specificity : 0.9078          
+         Pos Pred Value : 0.9058          
+         Neg Pred Value : 0.9275          
+              Precision : 0.9058          
+                 Recall : 0.9259          
+                     F1 : 0.9158          
+             Prevalence : 0.4891          
+         Detection Rate : 0.4529          
+   Detection Prevalence : 0.5000          
+      Balanced Accuracy : 0.9169          
+                                          
+       &#39;Positive&#39; Class : included        
+                                          </code></pre>
+</div>
+<p>SVM prediction is quite remarkable. Almsot 92% accurate prediction. This is cool. Look at the other performance measures.</p>
+<p>One limitation of implementing these models using <em>quanteda.textmodels</em> is we cannot benefit the great advantages of <em>lime</em> package, we cannot use <em>lime</em> to explain our naive_bayes model locally (within abstracts) as we did it our prediction using <em>XGB</em> because <em>lime</em> currently doesn’t support <em>quanteda.textmodels</em> package. Currently <em>lime</em> package only explains models developed using <code>mlr</code>, <code>xgboost</code>, <code>h2o</code>, <code>keras</code>, or <code>MASS</code>packages.</p>
 <h1 id="final-remarks">Final remarks</h1>
-<p>I see lots of promises in NLP for systematic reviews. However, the process is quite complex and we don’t know which model works best unless we experiment several models with lots of different model parameter tuning. I realized its tremendous potential even after such a tiny scratch on its surface.</p>
+<p>I have tried three different models and the level of accuracy has improved through my model choices. I see lots of beautiful things that we can take advantage of NLP for systematic reviews. However, the process is quite complex, computationally expensive and we don’t know which model works best unless we experiment several models with broad range of model parameters. I can see its tremendous potential even after such a tiny scratch on its surface. We don’t know what would happen if I process my abstracts using tf-idf, n-grams and redo my analysis with several models including deep learning, etc.</p>
 <h1 id="next-stop">Next stop</h1>
 <p><img src="nexstop.JPG" /></p>
 <p>Visualizing odds ratios/risk ratios in forest plots. See you. 🙂</p>

@@ -391,13 +391,36 @@ tab_class
 confusionMatrix(tab_class, mode = "everything")
 ```
 
-Our model predicted the test data set with 87% accuracy. This is woderful! The other model performance parameters are also very promising.
+Our models predicted the test data set with 87% accuracy. This is woderful! The other model performance parameters are also very promising.
+# How about Support Vector Machines? 
 
-One limitation of implementing this model using *quanteda.textmodels* is we cannot benefit the great advantages of *lime* package, we cannot use *lime* to explain our naive\_bayes model locally (within abstracts) as we did it our prediction using *XGB* because *lime* currently doesn't support *quanteda.textmodels* package. Currently *lime* package only explains models developed using `mlr`, `xgboost`, `h2o`, `keras`, or `MASS`packages.
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+train_svm <- textmodel_svm(train_dfmat,train_data$Include, weight="uniform") # There are three weighting options. I don't have problem of class imbalance, let me just use the default "uniform"
+```
+
+# Predict the test set using SVM
+
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+Actual <- test_data$Include
+predicted_class_svm <- predict(train_svm, newdata = matched_dfmat)
+tab_class_svm <- table(predicted_class_svm, Actual )
+tab_class_svm
+```
+
+# Now the confusion matrix
+
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+confusionMatrix(tab_class_svm, mode = "everything")
+```
+
+SVM prediction is quite remarkable. Almsot 92% accurate prediction. This is cool. Look at the other performance measures. 
+
+One limitation of implementing these models using *quanteda.textmodels* is we cannot benefit the great advantages of *lime* package, we cannot use *lime* to explain our naive\_bayes model locally (within abstracts) as we did it our prediction using *XGB* because *lime* currently doesn't support *quanteda.textmodels* package. Currently *lime* package only explains models developed using `mlr`, `xgboost`, `h2o`, `keras`, or `MASS`packages.
 
 # Final remarks
 
-I see lots of promises in NLP for systematic reviews. However, the process is quite complex and we don't know which model works best unless we experiment several models with lots of different model parameter tuning. I realized its tremendous potential even after such a tiny scratch on its surface.
+I have tried three different models and the level of accuracy has improved through my model choices.
+I see lots of beautiful things that we can take advantage of NLP for systematic reviews. However, the process is quite complex, computationally expensive and we don't know which model works best unless we experiment several models with broad range of model parameters. I can see its tremendous potential even after such a tiny scratch on its surface. We don't know what would happen if I process my abstracts using tf-idf, n-grams and redo my analysis with several models including deep learning, etc.
 
 # Next stop
 
