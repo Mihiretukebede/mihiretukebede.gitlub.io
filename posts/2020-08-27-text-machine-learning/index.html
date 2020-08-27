@@ -65,7 +65,7 @@
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["cov2003.bib","covexclude.bib","covid19.bib","sars.bib","text-machine-learning_files/figure-html5/unnamed-chunk-10-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-13-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-24-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-25-1.png"]}
+  {"type":"character","attributes":{},"value":["cov2003.bib","covexclude.bib","covid19.bib","sars.bib","text-machine-learning_files/bowser-1.9.3/bowser.min.js","text-machine-learning_files/distill-2.2.21/template.v2.js","text-machine-learning_files/figure-html5/unnamed-chunk-10-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-13-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-24-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-25-1.png","text-machine-learning_files/header-attrs-2.3/header-attrs.js","text-machine-learning_files/htmlwidgets-1.5.1/htmlwidgets.js","text-machine-learning_files/jquery-1.11.3/jquery.min.js","text-machine-learning_files/plot_text_explanations-0.1.0/plot_text_explanations.css","text-machine-learning_files/plot_text_explanations-binding-0.5.1/plot_text_explanations.js","text-machine-learning_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 
@@ -1392,7 +1392,7 @@ library(bib2df) # for reading and converting bibliographic data to R data frame<
 library(bib2df)
 library(dplyr)
 
-covid &lt;- bib2df(&quot;covid19.bib&quot;) %&gt;% # improt
+covid &lt;- bib2df(&quot;covid19.bib&quot;) %&gt;% # imprort references
   filter(!is.na(ABSTRACT)) %&gt;% # select only papers with no missing abstract
   filter(CATEGORY==&quot;ARTICLE&quot;) %&gt;% # Only journal articles
   select(&quot;TITLE&quot;, &quot;ABSTRACT&quot;, &quot;KEYWORDS&quot;, &quot;AUTHOR&quot;, &quot;BIBTEXKEY&quot;) # Select few variables

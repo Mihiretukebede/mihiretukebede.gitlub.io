@@ -52,7 +52,7 @@ I will reuse some of my previous codes here again.
 library(bib2df)
 library(dplyr)
 
-covid <- bib2df("covid19.bib") %>% # improt
+covid <- bib2df("covid19.bib") %>% # imprort references
   filter(!is.na(ABSTRACT)) %>% # select only papers with no missing abstract
   filter(CATEGORY=="ARTICLE") %>% # Only journal articles
   select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY") # Select few variables
