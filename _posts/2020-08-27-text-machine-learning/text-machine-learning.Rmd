@@ -1,4 +1,5 @@
 ---
+name: "Aspire Data Solutions"
 title: "Extreme Gradient Boosting and Naive Bayes Machine learning algorithms for for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts"
 author: Mihiretu Kebede(PhD)
 url: http://www.mihiretukebede.com/ 
