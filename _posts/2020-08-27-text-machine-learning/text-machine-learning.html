@@ -49,7 +49,7 @@
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["cov2003.bib","covexclude.bib","covid19.bib","sars.bib","text-machine-learning_files/bowser-1.9.3/bowser.min.js","text-machine-learning_files/distill-2.2.21/template.v2.js","text-machine-learning_files/figure-html5/unnamed-chunk-10-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-13-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-24-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-25-1.png","text-machine-learning_files/header-attrs-2.3/header-attrs.js","text-machine-learning_files/htmlwidgets-1.5.1/htmlwidgets.js","text-machine-learning_files/jquery-1.11.3/jquery.min.js","text-machine-learning_files/plot_text_explanations-0.1.0/plot_text_explanations.css","text-machine-learning_files/plot_text_explanations-binding-0.5.1/plot_text_explanations.js","text-machine-learning_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["cov2003.bib","covexclude.bib","covid19.bib","datasplit.html","datasplit.JPG","datasplit_files/bowser-1.9.3/bowser.min.js","datasplit_files/distill-2.2.21/template.v2.js","datasplit_files/figure-html5/unnamed-chunk-10-1.png","datasplit_files/figure-html5/unnamed-chunk-13-1.png","datasplit_files/figure-html5/unnamed-chunk-24-1.png","datasplit_files/figure-html5/unnamed-chunk-25-1.png","datasplit_files/header-attrs-2.3/header-attrs.js","datasplit_files/htmlwidgets-1.5.1/htmlwidgets.js","datasplit_files/jquery-1.11.3/jquery.min.js","datasplit_files/plot_text_explanations-0.1.0/plot_text_explanations.css","datasplit_files/plot_text_explanations-binding-0.5.1/plot_text_explanations.js","datasplit_files/webcomponents-2.0.0/webcomponents.js","machinelearning.JPG","nexstop.JPG","sars.bib","text-machine-learning_files/bowser-1.9.3/bowser.min.js","text-machine-learning_files/distill-2.2.21/template.v2.js","text-machine-learning_files/figure-html5/unnamed-chunk-10-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-13-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-24-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-25-1.png","text-machine-learning_files/header-attrs-2.3/header-attrs.js","text-machine-learning_files/htmlwidgets-1.5.1/htmlwidgets.js","text-machine-learning_files/jquery-1.11.3/jquery.min.js","text-machine-learning_files/plot_text_explanations-0.1.0/plot_text_explanations.css","text-machine-learning_files/plot_text_explanations-binding-0.5.1/plot_text_explanations.js","text-machine-learning_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1066,7 +1066,7 @@ table(covid_sars$Include) %&gt;% prop.table() #66% excluded, 34% included</code>
 </div>
 <h1 id="now-split-the-data">Now split the data</h1>
 <figure>
-<img src="https://data-flair.training/blogs/wp-content/uploads/sites/2/2018/08/1-16.png" alt="" /><figcaption>Train and Test Set in Python Machine Learning - How to Split - DataFlair</figcaption>
+<img src="datasplit.JPG" alt="" /><figcaption>image</figcaption>
 </figure>
 <p>Machine learning algorithms require our data to be split into training and testing. The training data will be used to train the model and the testing data sets will be used to make predictions by deploying the model developed using the training sets. There are different ways of splitting our data to training and testing split. You may use <em>base R</em>, <em>Resample</em> or <em>Caret</em> package to easily perform this task. Here, I will use my favorite R packager: the Caret package. We will use 70/30 split which means 70% of my data will be assigned to the training set and 30% the data will be used for test sets.</p>
 <p>I will need to stratify my data split by my dependent variable. That means my train and test data will have exactly similar proportion for the outcome variable responses as the original data sets. That is 51% for excluded (coded as 0) and 49% for included (coded as 1). The data is nearly balanced. We don’t have the curse of class imbalance here, awesome!</p>
@@ -1100,9 +1100,7 @@ prop.table(table(test$Include)) # outcome proportion for testing data</code></pr
 # Cool! They have exactly similar proportions with respect to the outcome variable. </code></pre>
 </div>
 <h1 id="the-nice-part">The nice part</h1>
-<figure>
-<img src="https://d3l69s690g8302.cloudfront.net/wp-content/uploads/2019/10/01100418/Machine-learning-frameworks.jpeg" alt="" /><figcaption>Top Machine Learning Framework: 5 Machine Learning Frameworks of 2019</figcaption>
-</figure>
+<p><img src="machinelearning.JPG" /></p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 library(text2vec)
@@ -1561,9 +1559,7 @@ predicted_class included not included
 <h1 id="final-remarks">Final remarks</h1>
 <p>I see lots of promises in NLP for systematic reviews. However, the process is quite complex and we don’t know which model works best unless we experiment several models with lots of different model parameter tuning. I realized its tremendous potential even after such a tiny scratch on its surface.</p>
 <h1 id="next-stop">Next stop</h1>
-<figure>
-<img src="https://brianleichnitz.files.wordpress.com/2017/06/maxresdefault.jpg" alt="" /><figcaption>Next Stop: Growing Successful – Brian Leichnitz</figcaption>
-</figure>
+<p><img src="nexstop.JPG" /></p>
 <p>Visualizing odds ratios/risk ratios in forest plots. See you. 🙂</p>
 <h1 id="contact">Contact</h1>
 <p><a href="https://twitter.com/MihiretuKebede1"><em>@MihiretuKebede1</em></a></p>

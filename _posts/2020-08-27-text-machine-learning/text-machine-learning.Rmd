@@ -115,7 +115,7 @@ table(covid_sars$Include) %>% prop.table() #66% excluded, 34% included
 
 # Now split the data
 
-![Train and Test Set in Python Machine Learning - How to Split - DataFlair](https://data-flair.training/blogs/wp-content/uploads/sites/2/2018/08/1-16.png)
+![image](datasplit.JPG)
 
 Machine learning algorithms require our data to be split into training and testing. The training data will be used to train the model and the testing data sets will be used to make predictions by deploying the model developed using the training sets. There are different ways of splitting our data to training and testing split. You may use *base R*, *Resample* or *Caret* package to easily perform this task. Here, I will use my favorite R packager: the Caret package. We will use 70/30 split which means 70% of my data will be assigned to the training set and 30% the data will be used for test sets.
 
@@ -142,7 +142,7 @@ prop.table(table(test$Include)) # outcome proportion for testing data
 
 # The nice part
 
-![Top Machine Learning Framework: 5 Machine Learning Frameworks of 2019](https://d3l69s690g8302.cloudfront.net/wp-content/uploads/2019/10/01100418/Machine-learning-frameworks.jpeg)
+![](machinelearning.JPG)
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 library(text2vec)
@@ -191,10 +191,11 @@ confusionMatrix(as.factor(predict), as.factor(test$Include))
 
 It resulted 93.8% accuracy. In real world setting this may not happen because we will work on highly related titles and abstracts. My experiment brings two somehow related documents (SARS and covid19). ALthough we are explcitly looking for covid papers, I assigned some of the covid papers to be excluded just to add some confusion.
 
-Let's pick two abstracts(Abstract #89 and #273) and see what are the most important terms of the abstract that xgboost used for its predictions. We will use *lime* package to explain the predictions
+Let's pick two abstracts(Abstract \#89 and \#273) and see what are the most important terms of the abstract that xgboost used for its predictions. We will use *lime* package to explain the predictions
 
 ## Abstract number 89
-We need to use *`lime::`* to avoid conflicts with `dplyr`package 
+
+We need to use *`lime::`* to avoid conflicts with `dplyr`package
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 ab_to_explain89 <- head(test[89,]$ABSTRACT, 6)
@@ -346,7 +347,7 @@ textplot_wordcloud(train_dfmat, min_count = 40,max_words = 400,
      color = pal)
 ```
 
-Similarly, for the test_dfmat
+Similarly, for the test\_dfmat
 
 ```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 textplot_wordcloud(test_dfmat, min_count = 20,max_words = 400,
@@ -398,7 +399,7 @@ I see lots of promises in NLP for systematic reviews. However, the process is qu
 
 # Next stop
 
-![Next Stop: Growing Successful -- Brian Leichnitz](https://brianleichnitz.files.wordpress.com/2017/06/maxresdefault.jpg)
+![](nexstop.JPG)
 
 Visualizing odds ratios/risk ratios in forest plots. See you. 🙂
 
