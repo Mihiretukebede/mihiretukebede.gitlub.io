@@ -35,7 +35,7 @@
 <meta property="og:type" content="article"/>
 <meta property="og:description" content="Machine learning methods for document classification."/>
 <meta property="og:url" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/"/>
-<meta property="og:image" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/text-machine-learning_files/figure-html5/unnamed-chunk-24-1.png"/>
+<meta property="og:image" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/text-machine-learning_files/figure-html5/unnamed-chunk-26-1.png"/>
 <meta property="og:image:width" content="2600"/>
 <meta property="og:image:height" content="1600"/>
 <meta property="og:locale" content="en_US"/>
@@ -46,7 +46,7 @@
 <meta property="twitter:title" content="Aspire Data Solutions: Extreme Gradient Boosting, Naive Bayes and SVM Machine learning algorithms for for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts"/>
 <meta property="twitter:description" content="Machine learning methods for document classification."/>
 <meta property="twitter:url" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/"/>
-<meta property="twitter:image" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/text-machine-learning_files/figure-html5/unnamed-chunk-24-1.png"/>
+<meta property="twitter:image" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/text-machine-learning_files/figure-html5/unnamed-chunk-26-1.png"/>
 <meta property="twitter:image:width" content="2600"/>
 <meta property="twitter:image:height" content="1600"/>
 
@@ -65,7 +65,7 @@
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["cov2003.bib","covexclude.bib","covid_sars","covid_sars.csv","covid19.bib","covidsars.csv","covidsars.xlsx","datasplit.JPG","machinelearning.JPG","nexstop.JPG","sars.bib","text-machine-learning_files/bowser-1.9.3/bowser.min.js","text-machine-learning_files/distill-2.2.21/template.v2.js","text-machine-learning_files/figure-html5/unnamed-chunk-10-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-11-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-13-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-14-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-24-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-25-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-26-1.png","text-machine-learning_files/header-attrs-2.3/header-attrs.js","text-machine-learning_files/htmlwidgets-1.5.1/htmlwidgets.js","text-machine-learning_files/jquery-1.11.3/jquery.min.js","text-machine-learning_files/plot_text_explanations-0.1.0/plot_text_explanations.css","text-machine-learning_files/plot_text_explanations-binding-0.5.1/plot_text_explanations.js","text-machine-learning_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["cov2003.bib","covexclude.bib","covid_sars","covid_sars.csv","covid19.bib","covidsars.csv","covidsars.xlsx","datasplit.JPG","machinelearning.JPG","nexstop.JPG","sars.bib","text-machine-learning_files/bowser-1.9.3/bowser.min.js","text-machine-learning_files/distill-2.2.21/template.v2.js","text-machine-learning_files/figure-html5/unnamed-chunk-10-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-11-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-13-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-14-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-15-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-24-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-25-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-26-1.png","text-machine-learning_files/figure-html5/unnamed-chunk-27-1.png","text-machine-learning_files/header-attrs-2.3/header-attrs.js","text-machine-learning_files/htmlwidgets-1.5.1/htmlwidgets.js","text-machine-learning_files/jquery-1.11.3/jquery.min.js","text-machine-learning_files/plot_text_explanations-0.1.0/plot_text_explanations.css","text-machine-learning_files/plot_text_explanations-binding-0.5.1/plot_text_explanations.js","text-machine-learning_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 
@@ -1393,25 +1393,21 @@ library(dplyr)
 
 covid &lt;- bib2df(&quot;covid19.bib&quot;) %&gt;% # imprort references
   filter(!is.na(ABSTRACT)) %&gt;% # select only papers with no missing abstract
-  filter(CATEGORY==&quot;ARTICLE&quot;) %&gt;% # Only journal articles
   select(&quot;TITLE&quot;, &quot;ABSTRACT&quot;, &quot;KEYWORDS&quot;, &quot;AUTHOR&quot;, &quot;BIBTEXKEY&quot;) # Select few variables 
   
 
 # 2003 corona virus
 covexclude &lt;- bib2df(&quot;covexclude.bib&quot;) %&gt;% 
   filter(!is.na(ABSTRACT)) %&gt;% 
-  filter(CATEGORY==&quot;ARTICLE&quot;) %&gt;% 
   select(&quot;TITLE&quot;, &quot;ABSTRACT&quot;, &quot;KEYWORDS&quot;, &quot;AUTHOR&quot;, &quot;BIBTEXKEY&quot;)
 
 cov2003 &lt;- bib2df(&quot;cov2003.bib&quot;) %&gt;% 
   filter(!is.na(ABSTRACT)) %&gt;% 
-  filter(CATEGORY==&quot;ARTICLE&quot;) %&gt;% 
   select(&quot;TITLE&quot;, &quot;ABSTRACT&quot;, &quot;KEYWORDS&quot;, &quot;AUTHOR&quot;, &quot;BIBTEXKEY&quot;)
 
 # Now import the TB data
 sars &lt;- bib2df(&quot;sars.bib&quot;) %&gt;% 
   filter(!is.na(ABSTRACT)) %&gt;% 
-  filter(CATEGORY==&quot;ARTICLE&quot;) %&gt;% 
   select(&quot;TITLE&quot;, &quot;ABSTRACT&quot;, &quot;KEYWORDS&quot;, &quot;AUTHOR&quot;, &quot;BIBTEXKEY&quot;)</code></pre>
 </div>
 <p>Assume we are only looking for COVID19 papers to include in our review. That means we will need to exclude all SARS papers published in 2003. I will simply use a simple include/exclude decisions.</p>
@@ -1561,8 +1557,8 @@ Prediction     included not included
        &#39;Positive&#39; Class : included        
                                           </code></pre>
 </div>
-<p>It resulted 93.8% accuracy. In real world setting this may not happen because we will work on highly related titles and abstracts. My experiment brings two somehow related documents (SARS and covid19). ALthough we are explcitly looking for covid papers, I assigned some of the covid papers to be excluded just to add some confusion.</p>
-<p>Let’s pick two abstracts(Abstract #89 and #273) and see what are the most important terms of the abstract that xgboost used for its predictions. We will use <em>lime</em> package to explain the predictions</p>
+<p>It resulted 93.5% accuracy. In real world setting this may not happen because we will work on highly related titles and abstracts. My experiment brings two somehow related documents (SARS and covid19). ALthough we are explcitly looking for covid papers, I assigned some of the covid papers to be excluded just to add some confusion.</p>
+<p>Let’s pick two abstracts(Abstract #89 and #271) and see what are the most important terms of the abstract that xgboost used for its predictions. We will use <em>lime</em> package to explain the predictions</p>
 <h2 id="abstract-number-89">Abstract number 89</h2>
 <p>We need to use <em><code>lime::</code></em> to avoid conflicts with <code>dplyr</code>package</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1591,27 +1587,31 @@ explanation89[, 2:10]</code></pre>
 7     1 0          0.984    0.690           0.962            0.970
 # ... with 3 more variables: feature &lt;chr&gt;, feature_value &lt;chr&gt;,
 #   feature_weight &lt;dbl&gt;</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 lime::plot_features(explanation89)</code></pre>
-<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-10-1.png" width="1300" /></p>
+<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
 </div>
+<p>The word sars is most important word that xgb model used to predict the exclusion of this this abstract.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 lime::plot_text_explanations(explanation89)</code></pre>
 <div id="htmlwidget-dbf5b0f03bffc4241957" style="width:100%;height:auto;" class="plot_text_explanations html-widget"></div>
 <script type="application/json" data-for="htmlwidget-dbf5b0f03bffc4241957">{"x":{"html":"<div style=\"overflow-y:scroll;font-family:sans-serif;height:100%\"> <p> SUMMARY: iBioProVis is an interactive tool for visual analysis of the compound  bioactivity space in the context of target proteins, drugs <span class='negative_1'>and<\/span> drug candidate compounds. iBioProVis tool takes target protein identifiers <span class='negative_1'>and<\/span>, optionally, compound SMILES as input, <span class='negative_1'>and<\/span> uses the state-of-the-art non-linear dimensionality reduction method t-Distributed Stochastic Neighbor Embedding (t-SNE) <span class='negative_1'>to<\/span> plot the distribution of compounds embedded in a 2D map, based on the similarity of structural properties of compounds <span class='negative_1'>and<\/span> in the context of compounds' cognate targets. Similar compounds, which are embedded <span class='negative_1'>to<\/span> proximate points on the 2D map, may bind the same or similar target proteins. Thus, iBioProVis <span class='negative_1'>can<\/span> <span class='negative_1'>be<\/span> used <span class='negative_1'>to<\/span> easily observe the structural distribution of one or two target proteins' known ligands on the 2D compound space, <span class='negative_1'>and<\/span> <span class='negative_1'>to<\/span> infer new binders <span class='negative_1'>to<\/span> the same protein, or <span class='negative_1'>to<\/span> infer new potential target(s) for a compound of interest, based on this distribution. Principal component analysis (PCA) projection of the input compounds is also provided, Hence the user <span class='negative_1'>can<\/span> interactively observe the same compound or a group of selected compounds which is projected by both PCA <span class='negative_1'>and<\/span> embedded by t-SNE. iBioProVis also provides detailed information about drugs <span class='negative_1'>and<\/span> drug candidate compounds through cross-references <span class='negative_1'>to<\/span> widely used <span class='negative_1'>and<\/span> well-known databases, in the <span class='negative_1'>form<\/span> of linked table views. Two use-case studies <span class='negative_1'>were<\/span> demonstrated, one being on angiotensin-converting enzyme 2 (ACE2) protein which is Severe Acute Respiratory Syndrome Coronavirus 2 (<span class='positive_3'>SARS<\/span>-CoV-2) Spike protein receptor. ACE2 binding compounds <span class='negative_1'>and<\/span> seven antiviral drugs <span class='negative_1'>were<\/span> closely embedded in which two of them have been under clinical trial for Coronavirus disease 19 (COVID-19). AVAILABILITY AND IMPLEMENTATION: iBioProVis <span class='negative_1'>and<\/span> its carefully filtered dataset are available at https://ibpv.kansil.org/ for public use. CONTACT: vatalay@metu.edu.tr. SUPPLEMENTARY INFORMATION: Supplementary data are available at Bioinformatics online. <\/br> <sub>Label predicted: 0 (98.43%)<br/>Explainer fit: 0.69<\/sub> <\/p> <\/div>"},"evals":[],"jsHooks":[]}</script>
 </div>
-<h2 id="abstract-273">Abstract 273</h2>
+<h2 id="abstract-283">Abstract 283</h2>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 library(lime)
 
-ab_to_explain &lt;- head(test[273,]$ABSTRACT, 6)
+ab_to_explain &lt;- head(test[271,]$ABSTRACT, 6)
 
-explainer &lt;- lime::lime(ab_to_explain, model = xgb_model, 
-                  preprocess = get_matrix, tokenization = default_tokenize)
+explainer &lt;- lime(ab_to_explain, model = xgb_model, 
+                  preprocess = get_matrix, 
+                  tokenization =default_tokenize)
 
-explanation &lt;- lime::explain(ab_to_explain, explainer, n_labels=1,
+explanation &lt;- explain(ab_to_explain, explainer, n_labels=1,
                        n_features = 7) # Set number most important features to 7</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
@@ -1621,29 +1621,34 @@ explanation[, 2:10]</code></pre>
 # A tibble: 7 x 9
    case label label_prob model_r2 model_intercept model_prediction
   &lt;int&gt; &lt;chr&gt;      &lt;dbl&gt;    &lt;dbl&gt;           &lt;dbl&gt;            &lt;dbl&gt;
-1     1 1          0.771    0.959         0.00486            0.764
-2     1 1          0.771    0.959         0.00486            0.764
-3     1 1          0.771    0.959         0.00486            0.764
-4     1 1          0.771    0.959         0.00486            0.764
-5     1 1          0.771    0.959         0.00486            0.764
-6     1 1          0.771    0.959         0.00486            0.764
-7     1 1          0.771    0.959         0.00486            0.764
+1     1 0          0.984    0.680           0.962            0.971
+2     1 0          0.984    0.680           0.962            0.971
+3     1 0          0.984    0.680           0.962            0.971
+4     1 0          0.984    0.680           0.962            0.971
+5     1 0          0.984    0.680           0.962            0.971
+6     1 0          0.984    0.680           0.962            0.971
+7     1 0          0.984    0.680           0.962            0.971
 # ... with 3 more variables: feature &lt;chr&gt;, feature_value &lt;chr&gt;,
 #   feature_weight &lt;dbl&gt;</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 plot_features(explanation)</code></pre>
-<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-13-1.png" width="1300" /></p>
+<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 plot_text_explanations(explanation)</code></pre>
-<div id="htmlwidget-db4b878d4d5c4a545c87" style="width:100%;height:auto;" class="plot_text_explanations html-widget"></div>
-<script type="application/json" data-for="htmlwidget-db4b878d4d5c4a545c87">{"x":{"html":"<div style=\"overflow-y:scroll;font-family:sans-serif;height:100%\"> <p> Background: The technique of freezing oocytes is still not widely used. Reasons cited for this include the technique's low efficacy <span class='positive_1'>and<\/span> the risk of aneuploidy. However, the introduction of technical <span class='negative_1'>changes<\/span> (the type <span class='positive_1'>and<\/span> concentration of cryoprotective substances; slow freezing <span class='positive_1'>and<\/span> rapid thawing; <span class='positive_1'>and<\/span> fertilization by ICSI) <span class='negative_1'>has<\/span> led <span class='positive_1'>to<\/span> improved results. We present four pregnancies obtained <span class='negative_1'>using<\/span> mature oocytes (in metaphase II) that had been frozen <span class='positive_1'>and<\/span> thawed. The oocytes <span class='positive_1'>were<\/span> donated by young women who <span class='positive_1'>were<\/span> not patients. Methods: The frozen oocytes (n = 88) came from seven donors aged 18-25 years. The metaphase II oocytes, morphologically normal in appearance, <span class='positive_1'>were<\/span> denuded of their cumulus-<span class='positive_4'>corona<\/span> complex. The cryoprotective freezing solution contained 1,2-propanediol (1.5 mol/l) <span class='positive_1'>and<\/span> sucrose (0.3 mol/l). Freezing was slow <span class='positive_1'>and<\/span> thawing rapid. The oocytes <span class='positive_1'>were<\/span> fertilized by ICSI. Results: Seventy-nine of the 88 thawed oocytes survived (89.8{\\%}); 58 <span class='positive_1'>were<\/span> fertilized (73.4{\\%} of all those microinjected); <span class='positive_1'>and<\/span> 26 <span class='positive_1'>were<\/span> transferred (44.8{\\%} of all those fertilized). Four pregnancies <span class='positive_1'>were<\/span> produced after seven transfers (57.1{\\%}). Five children <span class='positive_1'>were<\/span> born from four pregnancies. Conclusions: With the freezing/thawing technique used, oocyte survival was high (âˆ¼90{\\%}). The pregnancy rate with frozen oocytes was similar <span class='positive_1'>to<\/span> that obtained <span class='negative_1'>using<\/span> fresh oocytes from donors (âˆ¼50{\\%}). <\/br> <sub>Label predicted: 1 (77.06%)<br/>Explainer fit: 0.96<\/sub> <\/p> <\/div>"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-3740e5d28da9397d0cc7" style="width:100%;height:auto;" class="plot_text_explanations html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3740e5d28da9397d0cc7">{"x":{"html":"<div style=\"overflow-y:scroll;font-family:sans-serif;height:100%\"> <p> SUMMARY: iBioProVis is an interactive tool for visual analysis of the compound  bioactivity space in the context of target proteins, drugs <span class='negative_1'>and<\/span> drug candidate compounds. iBioProVis tool takes target protein identifiers <span class='negative_1'>and<\/span>, optionally, compound SMILES as input, <span class='negative_1'>and<\/span> uses the state-of-the-art non-linear dimensionality reduction method t-Distributed Stochastic Neighbor Embedding (t-SNE) to plot the distribution of compounds embedded in <span class='positive_1'>a<\/span> 2D map, based on the similarity of structural properties of compounds <span class='negative_1'>and<\/span> in the context of compounds' cognate targets. Similar compounds, which are embedded to proximate points on the 2D map, may bind the same or similar target proteins. Thus, iBioProVis <span class='negative_1'>can<\/span> <span class='negative_1'>be<\/span> used to easily observe the structural distribution of one or two target proteins' known ligands on the 2D compound space, <span class='negative_1'>and<\/span> to infer new binders to the same protein, or to infer new potential target(s) for <span class='positive_1'>a<\/span> compound of interest, based on this distribution. Principal component analysis (PCA) projection of the input compounds is also provided, Hence the user <span class='negative_1'>can<\/span> interactively observe the same compound or <span class='positive_1'>a<\/span> group of selected compounds which is projected by both PCA <span class='negative_1'>and<\/span> embedded by t-SNE. iBioProVis also provides detailed information about drugs <span class='negative_1'>and<\/span> drug candidate compounds through cross-references to widely used <span class='negative_1'>and<\/span> well-known databases, in the <span class='negative_1'>form<\/span> of linked table views. Two use-case studies <span class='negative_1'>were<\/span> demonstrated, one being on angiotensin-converting enzyme 2 (ACE2) protein which is Severe Acute Respiratory Syndrome Coronavirus 2 (<span class='positive_3'>SARS<\/span>-CoV-2) Spike protein receptor. ACE2 binding compounds <span class='negative_1'>and<\/span> seven antiviral drugs <span class='negative_1'>were<\/span> closely embedded in which two of them have been under clinical trial for Coronavirus disease 19 (COVID-19). AVAILABILITY AND IMPLEMENTATION: iBioProVis <span class='negative_1'>and<\/span> its carefully filtered dataset are available at https://ibpv.kansil.org/ for public use. CONTACT: vatalay@metu.edu.tr. SUPPLEMENTARY INFORMATION: Supplementary data are available at Bioinformatics online. <\/br> <sub>Label predicted: 0 (98.43%)<br/>Explainer fit: 0.68<\/sub> <\/p> <\/div>"},"evals":[],"jsHooks":[]}</script>
 </div>
+<p>The word corona is used for predicting “Include” with 67% probability.</p>
+<p>The above modelling is dirty.It didn’t use only the relevant words. I will use <em>quanteda</em> package to remove all irrelavnt words.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 library (quanteda)</code></pre>
 </div>
+<h1 id="create-corpus">Create corpus</h1>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 names(train) </code></pre>
@@ -1651,7 +1656,7 @@ names(train) </code></pre>
 [1] &quot;TITLE&quot;     &quot;ABSTRACT&quot;  &quot;KEYWORDS&quot;  &quot;AUTHOR&quot;    &quot;BIBTEXKEY&quot;
 [6] &quot;Include&quot;  </code></pre>
 <pre class="r"><code>
-train_data &lt;- train[, c(5:6)]  # I need only some of my variables: include, and BIBTEXKEY. I don&#39;t need the rest of the variables for now. The BIBTEX key variable helps me to identify the papers it is written like Authoryyyy.1. I will use it to attach as a document identifier. 
+train_data &lt;- train[, c(5,6)]  # I need only some of my variables: include, and BIBTEXKEY. I don&#39;t need the rest of the variables for now. The BIBTEX key variable helps me to identify the papers it is written like Authoryyyy.1. I will use it to attach as a document identifier. 
 
 # Now build the corpus using abstracts of the papers
 train_corpus &lt;- corpus(train$ABSTRACT, 
@@ -1665,10 +1670,12 @@ names(test) </code></pre>
 [1] &quot;TITLE&quot;     &quot;ABSTRACT&quot;  &quot;KEYWORDS&quot;  &quot;AUTHOR&quot;    &quot;BIBTEXKEY&quot;
 [6] &quot;Include&quot;  </code></pre>
 <pre class="r"><code>
-test_data &lt;- test[, c(5:6)] 
+test1 &lt;- test %&gt;% 
+  filter(BIBTEXKEY!=&quot;NA&quot;)
 
-test_corpus &lt;- corpus(test$ABSTRACT, 
-                     docvars = data.frame(abstract_BIBTEX = names(test_data)))</code></pre>
+test_data &lt;- test1[, c(5,6)] 
+
+test_corpus &lt;- corpus(test1$ABSTRACT)</code></pre>
 </div>
 <p>Add document identifier for both test and training set data</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1701,11 +1708,11 @@ Peng2020.1 :
 <p>Attach the document identifier also for the test set</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-docidtest &lt;- paste(test$BIBTEXKEY)
+docidtest &lt;- paste(test1$BIBTEXKEY)
 docnames(test_corpus) &lt;- docidtest
 print(test_corpus)</code></pre>
 <pre><code>
-Corpus consisting of 276 documents and 1 docvar.
+Corpus consisting of 266 documents.
 Coccia2020.1 :
 &quot;This study has two goals. The first is to explain the geo-en...&quot;
 
@@ -1724,7 +1731,7 @@ Barilla2020.1 :
 Kerimray2020.1 :
 &quot;Number of cities worlwide experienced air quality improvemen...&quot;
 
-[ reached max_ndoc ... 270 more documents ]</code></pre>
+[ reached max_ndoc ... 260 more documents ]</code></pre>
 </div>
 <h1 id="tokenize">Tokenize</h1>
 <p>I will create tokens and then later document feature matrix for both train and test abstract copuses. We do the same tokenization process as we did in my previous <a href="http://www.mihiretukebede.com/posts/2020-08-10-2020-08-10-text-analysis-of-covid-publications/">blog post</a>. We will remove numbers, remove punctuation, or remove a customized list of stop words</p>
@@ -1779,7 +1786,7 @@ docs            countries increasing morbidity mortality
 <pre class="r"><code>
 head(test_dfmat)</code></pre>
 <pre><code>
-Document-feature matrix of: 6 documents, 6,667 features (98.1% sparse) and 1 docvar.
+Document-feature matrix of: 6 documents, 6,621 features (98.1% sparse).
                 features
 docs             two goals first explain geo-environmental
   Coccia2020.1     1     1     1       1                 1
@@ -1804,7 +1811,7 @@ docs             generating
   VanDorp2020.1           0
   Barilla2020.1           0
   Kerimray2020.1          0
-[ reached max_nfeat ... 6,657 more features ]</code></pre>
+[ reached max_nfeat ... 6,611 more features ]</code></pre>
 <pre class="r"><code>
 dim(train_dfmat) # 646 abstracts 11191 features/terms</code></pre>
 <pre><code>
@@ -1812,7 +1819,7 @@ dim(train_dfmat) # 646 abstracts 11191 features/terms</code></pre>
 <pre class="r"><code>
 dim(test_dfmat) # 276 abstracts 6668 features/terms</code></pre>
 <pre><code>
-[1]  276 6667</code></pre>
+[1]  266 6621</code></pre>
 <pre class="r"><code>
 # Or simply pass the dfm object in ndoc() or nfeat() functions
 ndoc(train_dfmat)</code></pre>
@@ -1825,11 +1832,11 @@ nfeat(train_dfmat)</code></pre>
 <pre class="r"><code>
 ndoc(test_dfmat)</code></pre>
 <pre><code>
-[1] 276</code></pre>
+[1] 266</code></pre>
 <pre class="r"><code>
 nfeat(test_dfmat)</code></pre>
 <pre><code>
-[1] 6667</code></pre>
+[1] 6621</code></pre>
 </div>
 <h1 id="vizualize-the-test-and-train-document-feature-matrices">Vizualize the test and train document feature matrices</h1>
 <p>Vizualizing the data is very importnat. Let’s see how the wordclouds look for train and test abstracts.</p>
@@ -1840,14 +1847,14 @@ pal &lt;- brewer.pal(5, &quot;Dark2&quot;)
 
 textplot_wordcloud(train_dfmat, min_count = 40,max_words = 400,
      color = pal)</code></pre>
-<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-24-1.png" width="1300" data-distill-preview=1 /></p>
+<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-26-1.png" width="1300" data-distill-preview=1 /></p>
 </div>
 <p>Similarly, for the test_dfmat</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 textplot_wordcloud(test_dfmat, min_count = 20,max_words = 400,
      color = pal)</code></pre>
-<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-25-1.png" width="1300" /></p>
+<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-27-1.png" width="1300" /></p>
 </div>
 <p>Both plots of the test and train data are comparable.</p>
 <h1 id="document-classification-using-naive-bayes">Document classification using Naive Bayes</h1>
@@ -1905,8 +1912,8 @@ tab_class</code></pre>
 <pre><code>
                actual_class
 predicted_class included not included
-   included          115           16
-   not included       20          125</code></pre>
+   included          115           15
+   not included       20          116</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
@@ -1916,34 +1923,34 @@ Confusion Matrix and Statistics
 
                actual_class
 predicted_class included not included
-   included          115           16
-   not included       20          125
-                                         
-               Accuracy : 0.8696         
-                 95% CI : (0.824, 0.9069)
-    No Information Rate : 0.5109         
-    P-Value [Acc &gt; NIR] : &lt;2e-16         
-                                         
-                  Kappa : 0.7388         
-                                         
- Mcnemar&#39;s Test P-Value : 0.6171         
-                                         
-            Sensitivity : 0.8519         
-            Specificity : 0.8865         
-         Pos Pred Value : 0.8779         
-         Neg Pred Value : 0.8621         
-              Precision : 0.8779         
-                 Recall : 0.8519         
-                     F1 : 0.8647         
-             Prevalence : 0.4891         
-         Detection Rate : 0.4167         
-   Detection Prevalence : 0.4746         
-      Balanced Accuracy : 0.8692         
-                                         
-       &#39;Positive&#39; Class : included       
-                                         </code></pre>
+   included          115           15
+   not included       20          116
+                                          
+               Accuracy : 0.8684          
+                 95% CI : (0.8218, 0.9066)
+    No Information Rate : 0.5075          
+    P-Value [Acc &gt; NIR] : &lt;2e-16          
+                                          
+                  Kappa : 0.7369          
+                                          
+ Mcnemar&#39;s Test P-Value : 0.499           
+                                          
+            Sensitivity : 0.8519          
+            Specificity : 0.8855          
+         Pos Pred Value : 0.8846          
+         Neg Pred Value : 0.8529          
+              Precision : 0.8846          
+                 Recall : 0.8519          
+                     F1 : 0.8679          
+             Prevalence : 0.5075          
+         Detection Rate : 0.4323          
+   Detection Prevalence : 0.4887          
+      Balanced Accuracy : 0.8687          
+                                          
+       &#39;Positive&#39; Class : included        
+                                          </code></pre>
 </div>
-<p>Our models predicted the test data set with 87% accuracy. This is woderful! The other model performance parameters are also very promising. # How about Support Vector Machines?</p>
+<p>Our models predicted the test data set with 87.6% accuracy. This is woderful! The other model performance parameters are also very promising. # How about Support Vector Machines?</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 train_svm &lt;- textmodel_svm(train_dfmat,train_data$Include, weight=&quot;uniform&quot;) # There are three weighting options. I don&#39;t have problem of class imbalance, let me just use the default &quot;uniform&quot;</code></pre>
@@ -1959,7 +1966,7 @@ tab_class_svm</code></pre>
                    Actual
 predicted_class_svm included not included
        included          125           13
-       not included       10          128</code></pre>
+       not included       10          118</code></pre>
 </div>
 <h1 id="now-the-confusion-matrix">Now the confusion matrix</h1>
 <div class="layout-chunk" data-layout="l-body">
@@ -1971,33 +1978,33 @@ Confusion Matrix and Statistics
                    Actual
 predicted_class_svm included not included
        included          125           13
-       not included       10          128
+       not included       10          118
                                           
-               Accuracy : 0.9167          
-                 95% CI : (0.8776, 0.9464)
-    No Information Rate : 0.5109          
+               Accuracy : 0.9135          
+                 95% CI : (0.8731, 0.9444)
+    No Information Rate : 0.5075          
     P-Value [Acc &gt; NIR] : &lt;2e-16          
                                           
-                  Kappa : 0.8333          
+                  Kappa : 0.827           
                                           
  Mcnemar&#39;s Test P-Value : 0.6767          
                                           
             Sensitivity : 0.9259          
-            Specificity : 0.9078          
+            Specificity : 0.9008          
          Pos Pred Value : 0.9058          
-         Neg Pred Value : 0.9275          
+         Neg Pred Value : 0.9219          
               Precision : 0.9058          
                  Recall : 0.9259          
                      F1 : 0.9158          
-             Prevalence : 0.4891          
-         Detection Rate : 0.4529          
-   Detection Prevalence : 0.5000          
-      Balanced Accuracy : 0.9169          
+             Prevalence : 0.5075          
+         Detection Rate : 0.4699          
+   Detection Prevalence : 0.5188          
+      Balanced Accuracy : 0.9133          
                                           
        &#39;Positive&#39; Class : included        
                                           </code></pre>
 </div>
-<p>SVM prediction is quite remarkable. Almsot 92% accurate prediction. This is cool. Look at the other performance measures: sensitivity, specificity, PVP, NPV, recall, precission. They are all more than 90%!</p>
+<p>SVM prediction is quite remarkable. Almost 92.6% accurate prediction. This is cool. Look at the other performance measures: sensitivity, specificity, PVP, NPV, recall, precision. They are all more than 90%!</p>
 <p>One limitation of implementing these models using <em>quanteda.textmodels</em> is we cannot benefit the great advantages of <em>lime</em> package, we cannot use <em>lime</em> to explain our naive_bayes model locally (within abstracts) as we did it our prediction using <em>XGB</em> because <em>lime</em> currently doesn’t support <em>quanteda.textmodels</em> package. Currently <em>lime</em> package only explains models developed using <code>mlr</code>, <code>xgboost</code>, <code>h2o</code>, <code>keras</code>, or <code>MASS</code>packages.</p>
 <h1 id="final-remarks">Final remarks</h1>
 <p>I have tried three different models and the level of accuracy has improved through my model choices. I see lots of beautiful things that we can take advantage of NLP for systematic reviews. However, the process is quite complex, computationally expensive and we don’t know which model works best unless we experiment several models with broad range of model parameters. I can see its tremendous potential even after such a tiny scratch on its surface. We don’t know what would happen if I process my abstracts using tf-idf, n-grams and redo my analysis with several models including deep learning, etc.</p>

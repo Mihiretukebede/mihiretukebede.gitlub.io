@@ -56,25 +56,21 @@ library(dplyr)
 
 covid <- bib2df("covid19.bib") %>% # imprort references
   filter(!is.na(ABSTRACT)) %>% # select only papers with no missing abstract
-  filter(CATEGORY=="ARTICLE") %>% # Only journal articles
   select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY") # Select few variables 
   
 
 # 2003 corona virus
 covexclude <- bib2df("covexclude.bib") %>% 
   filter(!is.na(ABSTRACT)) %>% 
-  filter(CATEGORY=="ARTICLE") %>% 
   select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY")
 
 cov2003 <- bib2df("cov2003.bib") %>% 
   filter(!is.na(ABSTRACT)) %>% 
-  filter(CATEGORY=="ARTICLE") %>% 
   select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY")
 
 # Now import the TB data
 sars <- bib2df("sars.bib") %>% 
   filter(!is.na(ABSTRACT)) %>% 
-  filter(CATEGORY=="ARTICLE") %>% 
   select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY")
 ```
 
@@ -190,9 +186,9 @@ predict <- ifelse(predictions > 0.5, "included", "not included") # assign predic
 confusionMatrix(as.factor(predict), as.factor(test$Include))
 ```
 
-It resulted 93.8% accuracy. In real world setting this may not happen because we will work on highly related titles and abstracts. My experiment brings two somehow related documents (SARS and covid19). ALthough we are explcitly looking for covid papers, I assigned some of the covid papers to be excluded just to add some confusion.
+It resulted 93.5% accuracy. In real world setting this may not happen because we will work on highly related titles and abstracts. My experiment brings two somehow related documents (SARS and covid19). ALthough we are explcitly looking for covid papers, I assigned some of the covid papers to be excluded just to add some confusion.
 
-Let's pick two abstracts(Abstract \#89 and \#273) and see what are the most important terms of the abstract that xgboost used for its predictions. We will use *lime* package to explain the predictions
+Let's pick two abstracts(Abstract #89 and #271) and see what are the most important terms of the abstract that xgboost used for its predictions. We will use *lime* package to explain the predictions
 
 ## Abstract number 89
 
@@ -210,45 +206,57 @@ explanation89 <- lime::explain(ab_to_explain89, explainer89, n_labels=1,
 
 ```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 explanation89[, 2:10]
+```
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 lime::plot_features(explanation89)
 ```
+
+The word sars is most important word that xgb model used to predict the exclusion of this this abstract.  
 
 ```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 lime::plot_text_explanations(explanation89)
 
 ```
 
-## Abstract 273
+## Abstract 283
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 library(lime)
 
-ab_to_explain <- head(test[273,]$ABSTRACT, 6)
+ab_to_explain <- head(test[271,]$ABSTRACT, 6)
 
-explainer <- lime::lime(ab_to_explain, model = xgb_model, 
-                  preprocess = get_matrix, tokenization = default_tokenize)
+explainer <- lime(ab_to_explain, model = xgb_model, 
+                  preprocess = get_matrix, 
+                  tokenization =default_tokenize)
 
-explanation <- lime::explain(ab_to_explain, explainer, n_labels=1,
+explanation <- explain(ab_to_explain, explainer, n_labels=1,
                        n_features = 7) # Set number most important features to 7
 ```
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r dpi=200, cache=T, include=T,  echo=T, message=FALSE, warning=FALSE}
 explanation[, 2:10]
+```
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 plot_features(explanation)
 ```
+
 
 ```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 plot_text_explanations(explanation)
 
 ```
+The word corona is used for predicting "Include" with 67% probability. 
+
+The above modelling is dirty.It didn't use only the relevant words. I will use *quanteda* package to remove all irrelavnt words. 
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 library (quanteda)
 ```
 
+# Create corpus
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 names(train) 
-train_data <- train[, c(5:6)]  # I need only some of my variables: include, and BIBTEXKEY. I don't need the rest of the variables for now. The BIBTEX key variable helps me to identify the papers it is written like Authoryyyy.1. I will use it to attach as a document identifier. 
+train_data <- train[, c(5,6)]  # I need only some of my variables: include, and BIBTEXKEY. I don't need the rest of the variables for now. The BIBTEX key variable helps me to identify the papers it is written like Authoryyyy.1. I will use it to attach as a document identifier. 
 
 # Now build the corpus using abstracts of the papers
 train_corpus <- corpus(train$ABSTRACT, 
@@ -261,10 +269,12 @@ Similarly for the test set
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 names(test) 
 
-test_data <- test[, c(5:6)] 
+test1 <- test %>% 
+  filter(BIBTEXKEY!="NA")
 
-test_corpus <- corpus(test$ABSTRACT, 
-                     docvars = data.frame(abstract_BIBTEX = names(test_data)))
+test_data <- test1[, c(5,6)] 
+
+test_corpus <- corpus(test1$ABSTRACT)
 
 ```
 
@@ -279,7 +289,7 @@ print(train_corpus)
 Attach the document identifier also for the test set
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
-docidtest <- paste(test$BIBTEXKEY)
+docidtest <- paste(test1$BIBTEXKEY)
 docnames(test_corpus) <- docidtest
 print(test_corpus)
 ```
@@ -390,7 +400,7 @@ tab_class
 confusionMatrix(tab_class, mode = "everything")
 ```
 
-Our models predicted the test data set with 87% accuracy. This is woderful! The other model performance parameters are also very promising.
+Our models predicted the test data set with 87.6% accuracy. This is woderful! The other model performance parameters are also very promising.
 # How about Support Vector Machines? 
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
@@ -412,7 +422,7 @@ tab_class_svm
 confusionMatrix(tab_class_svm, mode = "everything")
 ```
 
-SVM prediction is quite remarkable. Almsot 92% accurate prediction. This is cool. Look at the other performance measures: sensitivity, specificity, PVP, NPV, recall, precission. They are all more than 90%!
+SVM prediction is quite remarkable. Almost 92.6% accurate prediction. This is cool. Look at the other performance measures: sensitivity, specificity, PVP, NPV, recall, precision. They are all more than 90%!
 
 One limitation of implementing these models using *quanteda.textmodels* is we cannot benefit the great advantages of *lime* package, we cannot use *lime* to explain our naive\_bayes model locally (within abstracts) as we did it our prediction using *XGB* because *lime* currently doesn't support *quanteda.textmodels* package. Currently *lime* package only explains models developed using `mlr`, `xgboost`, `h2o`, `keras`, or `MASS`packages.
 
