@@ -35,7 +35,7 @@
 <meta property="og:type" content="article"/>
 <meta property="og:description" content="In this short blog post, I would like to try machine learning methods for automated title/abstract screening in systematic reviews."/>
 <meta property="og:url" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/"/>
-<meta property="og:image" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/text-machine-learning_files/figure-html5/unnamed-chunk-25-1.png"/>
+<meta property="og:image" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/text-machine-learning_files/figure-html5/unnamed-chunk-24-1.png"/>
 <meta property="og:image:width" content="2600"/>
 <meta property="og:image:height" content="1600"/>
 <meta property="og:locale" content="en_US"/>
@@ -46,7 +46,7 @@
 <meta property="twitter:title" content="Aspire Data Solutions: Extreme Gradient Boosting and Naive Bayes Machine learning algorithms for for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts"/>
 <meta property="twitter:description" content="In this short blog post, I would like to try machine learning methods for automated title/abstract screening in systematic reviews."/>
 <meta property="twitter:url" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/"/>
-<meta property="twitter:image" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/text-machine-learning_files/figure-html5/unnamed-chunk-25-1.png"/>
+<meta property="twitter:image" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/text-machine-learning_files/figure-html5/unnamed-chunk-24-1.png"/>
 <meta property="twitter:image:width" content="2600"/>
 <meta property="twitter:image:height" content="1600"/>
 
@@ -1453,9 +1453,6 @@ table(covid_sars$Include) %&gt;% prop.table() #66% excluded, 34% included</code>
     included not included 
    0.4880694    0.5119306 </code></pre>
 </div>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
 <h1 id="now-split-the-data">Now split the data</h1>
 <figure>
 <img src="datasplit.JPG" alt="" /><figcaption>image</figcaption>
@@ -1596,7 +1593,7 @@ explanation89[, 2:10]</code></pre>
 #   feature_weight &lt;dbl&gt;</code></pre>
 <pre class="r"><code>
 lime::plot_features(explanation89)</code></pre>
-<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-11-1.png" width="1300" /></p>
+<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-10-1.png" width="1300" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
@@ -1635,7 +1632,7 @@ explanation[, 2:10]</code></pre>
 #   feature_weight &lt;dbl&gt;</code></pre>
 <pre class="r"><code>
 plot_features(explanation)</code></pre>
-<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-14-1.png" width="1300" /></p>
+<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-13-1.png" width="1300" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
@@ -1843,14 +1840,14 @@ pal &lt;- brewer.pal(5, &quot;Dark2&quot;)
 
 textplot_wordcloud(train_dfmat, min_count = 40,max_words = 400,
      color = pal)</code></pre>
-<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-25-1.png" width="1300" data-distill-preview=1 /></p>
+<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-24-1.png" width="1300" data-distill-preview=1 /></p>
 </div>
 <p>Similarly, for the test_dfmat</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
 textplot_wordcloud(test_dfmat, min_count = 20,max_words = 400,
      color = pal)</code></pre>
-<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-26-1.png" width="1300" /></p>
+<p><img src="text-machine-learning_files/figure-html5/unnamed-chunk-25-1.png" width="1300" /></p>
 </div>
 <p>Both plots of the test and train data are comparable.</p>
 <h1 id="document-classification-using-naive-bayes">Document classification using Naive Bayes</h1>
@@ -2006,9 +2003,9 @@ predicted_class_svm included not included
 <p>I have tried three different models and the level of accuracy has improved through my model choices. I see lots of beautiful things that we can take advantage of NLP for systematic reviews. However, the process is quite complex, computationally expensive and we don’t know which model works best unless we experiment several models with broad range of model parameters. I can see its tremendous potential even after such a tiny scratch on its surface. We don’t know what would happen if I process my abstracts using tf-idf, n-grams and redo my analysis with several models including deep learning, etc.</p>
 <h1 id="next-stop">Next stop</h1>
 <p><img src="nexstop.JPG" /></p>
-<p>Visualizing odds ratios/risk ratios in forest plots. See you. 🙂</p>
+<p>Visualizing odds ratios/risk ratios in forest plots. See you.</p>
 <h1 id="contact">Contact</h1>
-<p><a href="https://twitter.com/MihiretuKebede1"><em>@MihiretuKebede1</em></a></p>
+<p><a href="https://twitter.com/MihiretuKebede1"><em><span class="citation" data-cites="MihiretuKebede1">@MihiretuKebede1</span></em></a></p>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">

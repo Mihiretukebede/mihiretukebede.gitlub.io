@@ -115,10 +115,6 @@ covid_sars$Include[covid_sars$Include=="0"]<-"not included"
 table(covid_sars$Include) %>% prop.table() #66% excluded, 34% included
 ```
 
-```{r}
-covid_sars2 <- read.csv("covid_sars.csv",sep=";", encoding="UTF-8")
-```
-
 # Now split the data
 
 ![image](datasplit.JPG)
@@ -430,8 +426,8 @@ I see lots of beautiful things that we can take advantage of NLP for systematic 
 
 ![](nexstop.JPG)
 
-Visualizing odds ratios/risk ratios in forest plots. See you. 🙂
+Visualizing odds ratios/risk ratios in forest plots. See you. 
 
 # Contact
 
-[*\@MihiretuKebede1*](https://twitter.com/MihiretuKebede1)
+[*@MihiretuKebede1*](https://twitter.com/MihiretuKebede1)
