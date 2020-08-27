@@ -6,6 +6,7 @@ description: |
     This is Mihiretu Kebede(PhD)'s personal website. 
 google_analytics: "UA-173027539-1"
 base_url: http://www.mihiretukebede.com/ 
+date: "2020-08-06"
 
 collections: 
   posts:
