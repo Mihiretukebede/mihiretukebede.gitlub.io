@@ -10,7 +10,7 @@ description: |
 
 collections:
   posts:
-      share: [twitter, linkedin, facebook, google-plus, pinterest]
+      share: [twitter, linkedin, facebook, google-plus, pinterest] 
       
 output:
   distill::distill_article:
@@ -275,6 +275,8 @@ The above *tf\_idf* plot shows, "athroplasyty practice", "safely navigate", "bru
 That is all for today.
 
 Next stop: Clustering text data
+
+![hello friends dogs GIF by Digg](https://media4.giphy.com/media/1435mtM2Yo5MAM/200w.gif?cid=ecf05e475fba9ad95193341861ac70941cc7e985440a70da&rid=200w.gif){width="400"}
 
 # Contact
 
