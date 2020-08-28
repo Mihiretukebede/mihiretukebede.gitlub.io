@@ -433,7 +433,7 @@ I have tried three different models and the level of accuracy has improved throu
 
 ![](nexstop.JPG)
 
-Visualizing odds ratios/risk ratios in forest plots. See you.
+Visualizing odds ratios/risk ratios in forest plots. See you. 👍
 
 # Contact
 
