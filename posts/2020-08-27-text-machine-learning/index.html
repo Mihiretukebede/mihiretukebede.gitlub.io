@@ -1,0 +1,2067 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
+  <meta name="generator" content="distill" />
+
+  <style type="text/css">
+  /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
+  body {
+    visibility: hidden;
+  }
+  </style>
+
+ <!--radix_placeholder_import_source-->
+ <!--/radix_placeholder_import_source-->
+
+  <!--radix_placeholder_meta_tags-->
+<title>Aspire Data Solutions: XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts</title>
+
+<meta property="description" itemprop="description" content="Machine learning methods for document classification."/>
+
+<link rel="canonical" href="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/"/>
+
+<!--  https://schema.org/Article -->
+<meta property="article:published" itemprop="datePublished" content="2020-08-28"/>
+<meta property="article:created" itemprop="dateCreated" content="2020-08-28"/>
+<meta name="article:author" content="Mihiretu Kebede(PhD)"/>
+
+<!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
+<meta property="og:title" content="Aspire Data Solutions: XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts"/>
+<meta property="og:type" content="article"/>
+<meta property="og:description" content="Machine learning methods for document classification."/>
+<meta property="og:url" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/"/>
+<meta property="og:image" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-26-1.png"/>
+<meta property="og:image:width" content="2600"/>
+<meta property="og:image:height" content="1600"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:site_name" content="Aspire Data Solutions"/>
+
+<!--  https://dev.twitter.com/cards/types/summary -->
+<meta property="twitter:card" content="summary_large_image"/>
+<meta property="twitter:title" content="Aspire Data Solutions: XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts"/>
+<meta property="twitter:description" content="Machine learning methods for document classification."/>
+<meta property="twitter:url" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/"/>
+<meta property="twitter:image" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-26-1.png"/>
+<meta property="twitter:image:width" content="2600"/>
+<meta property="twitter:image:height" content="1600"/>
+
+<!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
+<meta name="citation_title" content="Aspire Data Solutions: XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts"/>
+<meta name="citation_fulltext_html_url" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/"/>
+<meta name="citation_online_date" content="2020/08/28"/>
+<meta name="citation_publication_date" content="2020/08/28"/>
+<meta name="citation_author" content="Mihiretu Kebede(PhD)"/>
+<!--/radix_placeholder_meta_tags-->
+  <!--radix_placeholder_rmarkdown_metadata-->
+
+<script type="text/json" id="radix-rmarkdown-metadata">
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","title","author","url","google_analytics","description","collections","output","date","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Aspire Data Solutions"]},{"type":"character","attributes":{},"value":["XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Mihiretu Kebede(PhD)"]}]}]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/"]},{"type":"character","attributes":{},"value":["UA-173027539-1"]},{"type":"character","attributes":{},"value":["Machine learning methods for document classification."]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["posts"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["share"]}},"value":[{"type":"character","attributes":{},"value":["twitter","linkedin","facebook","google-plus","pinterest"]}]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","widerscreen"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["08-28-2020"]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/"]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/"]}]}
+</script>
+<!--/radix_placeholder_rmarkdown_metadata-->
+  
+  <script type="text/json" id="radix-resource-manifest">
+  {"type":"character","attributes":{},"value":["2020-08-27-text-machine-learning/bowser-1.9.3/bowser.min.js","2020-08-27-text-machine-learning/distill-2.2.21/template.v2.js","2020-08-27-text-machine-learning/figure-html5/unnamed-chunk-10-1.png","2020-08-27-text-machine-learning/figure-html5/unnamed-chunk-11-1.png","2020-08-27-text-machine-learning/figure-html5/unnamed-chunk-13-1.png","2020-08-27-text-machine-learning/figure-html5/unnamed-chunk-14-1.png","2020-08-27-text-machine-learning/figure-html5/unnamed-chunk-15-1.png","2020-08-27-text-machine-learning/figure-html5/unnamed-chunk-24-1.png","2020-08-27-text-machine-learning/figure-html5/unnamed-chunk-25-1.png","2020-08-27-text-machine-learning/figure-html5/unnamed-chunk-26-1.png","2020-08-27-text-machine-learning/figure-html5/unnamed-chunk-27-1.png","2020-08-27-text-machine-learning/header-attrs-2.3/header-attrs.js","2020-08-27-text-machine-learning/htmlwidgets-1.5.1/htmlwidgets.js","2020-08-27-text-machine-learning/jquery-1.11.3/jquery.min.js","2020-08-27-text-machine-learning/plot_text_explanations-0.1.0/plot_text_explanations.css","2020-08-27-text-machine-learning/plot_text_explanations-binding-0.5.1/plot_text_explanations.js","2020-08-27-text-machine-learning/webcomponents-2.0.0/webcomponents.js","2020-08-27-text-machine-learning_files/bowser-1.9.3/bowser.min.js","2020-08-27-text-machine-learning_files/distill-2.2.21/template.v2.js","2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-11-1.png","2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-15-1.png","2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-26-1.png","2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-27-1.png","2020-08-27-text-machine-learning_files/header-attrs-2.3/header-attrs.js","2020-08-27-text-machine-learning_files/htmlwidgets-1.5.1/htmlwidgets.js","2020-08-27-text-machine-learning_files/jquery-1.11.3/jquery.min.js","2020-08-27-text-machine-learning_files/plot_text_explanations-0.1.0/plot_text_explanations.css","2020-08-27-text-machine-learning_files/plot_text_explanations-binding-0.5.1/plot_text_explanations.js","2020-08-27-text-machine-learning_files/webcomponents-2.0.0/webcomponents.js","cov2003.bib","covexclude.bib","covid19.bib","datasplit.JPG","machinelearning.JPG","nexstop.JPG","sars.bib"]}
+  </script>
+  <!--radix_placeholder_navigation_in_header-->
+
+<script type="application/javascript">
+
+  window.headroom_prevent_pin = false;
+
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+
+    // initialize headroom for banner
+    var header = $('header').get(0);
+    var headerHeight = header.offsetHeight;
+    var headroom = new Headroom(header, {
+      onPin : function() {
+        if (window.headroom_prevent_pin) {
+          window.headroom_prevent_pin = false;
+          headroom.unpin();
+        }
+      }
+    });
+    headroom.init();
+    if(window.location.hash)
+      headroom.unpin();
+    $(header).addClass('headroom--transition');
+
+    // offset scroll location for banner on hash change
+    // (see: https://github.com/WickyNilliams/headroom.js/issues/38)
+    window.addEventListener("hashchange", function(event) {
+      window.scrollTo(0, window.pageYOffset - (headerHeight + 25));
+    });
+
+    // responsive menu
+    $('.distill-site-header').each(function(i, val) {
+      var topnav = $(this);
+      var toggle = topnav.find('.nav-toggle');
+      toggle.on('click', function() {
+        topnav.toggleClass('responsive');
+      });
+    });
+
+    // nav dropdowns
+    $('.nav-dropbtn').click(function(e) {
+      $(this).next('.nav-dropdown-content').toggleClass('nav-dropdown-active');
+      $(this).parent().siblings('.nav-dropdown')
+         .children('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $("body").click(function(e){
+      $('.nav-dropdown-content').removeClass('nav-dropdown-active');
+    });
+    $(".nav-dropdown").click(function(e){
+      e.stopPropagation();
+    });
+  });
+</script>
+
+<style type="text/css">
+
+/* Theme (user-documented overrideables for nav appearance) */
+
+.distill-site-nav {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #455a64;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.distill-site-nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.distill-site-nav a:hover {
+  color: white;
+}
+
+@media print {
+  .distill-site-nav {
+    display: none;
+  }
+}
+
+.distill-site-header {
+
+}
+
+.distill-site-footer {
+
+}
+
+
+/* Site Header */
+
+.distill-site-header {
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 3;
+}
+
+.distill-site-header .nav-left {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header .nav-left {
+    margin-left: 0;
+  }
+}
+
+
+.distill-site-header .nav-right {
+  float: right;
+  margin-right: 8px;
+}
+
+.distill-site-header a,
+.distill-site-header .title {
+  display: inline-block;
+  text-align: center;
+  padding: 14px 10px 14px 10px;
+}
+
+.distill-site-header .title {
+  font-size: 18px;
+}
+
+.distill-site-header .logo {
+  padding: 0;
+}
+
+.distill-site-header .logo img {
+  display: none;
+  max-height: 20px;
+  width: auto;
+  margin-bottom: -4px;
+}
+
+.distill-site-header .nav-image img {
+  max-height: 18px;
+  width: auto;
+  display: inline-block;
+  margin-bottom: -3px;
+}
+
+
+
+@media screen and (min-width: 1000px) {
+  .distill-site-header .logo img {
+    display: inline-block;
+  }
+  .distill-site-header .nav-left {
+    margin-left: 20px;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 20px;
+  }
+  .distill-site-header .title {
+    padding-left: 12px;
+  }
+}
+
+
+.distill-site-header .nav-toggle {
+  display: none;
+}
+
+.nav-dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+.nav-dropdown .nav-dropbtn {
+  border: none;
+  outline: none;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 16px 10px;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  margin: 0;
+  margin-top: 1px;
+  z-index: 2;
+}
+
+.nav-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 4px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+  margin-top: 2px;
+  white-space: nowrap;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.nav-dropdown-content hr {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-dropdown-active {
+  display: block;
+}
+
+.nav-dropdown-content a, .nav-dropdown-content .nav-dropdown-header {
+  color: black;
+  padding: 6px 24px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.nav-dropdown-content .nav-dropdown-header {
+  display: block;
+  padding: 5px 24px;
+  padding-bottom: 0;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #999999;
+  white-space: nowrap;
+}
+
+.nav-dropdown:hover .nav-dropbtn {
+  color: white;
+}
+
+.nav-dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.nav-right .nav-dropdown-content {
+  margin-left: -45%;
+  right: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
+  .distill-site-header a.nav-toggle {
+    float: right;
+    display: block;
+  }
+  .distill-site-header .title {
+    margin-left: 0;
+  }
+  .distill-site-header .nav-right {
+    margin-right: 0;
+  }
+  .distill-site-header {
+    overflow: hidden;
+  }
+  .nav-right .nav-dropdown-content {
+    margin-left: 0;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .distill-site-header.responsive {position: relative;}
+  .distill-site-header.responsive a.nav-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .distill-site-header.responsive a,
+  .distill-site-header.responsive .nav-dropdown {
+    display: block;
+    text-align: left;
+  }
+  .distill-site-header.responsive .nav-left,
+  .distill-site-header.responsive .nav-right {
+    width: 100%;
+  }
+  .distill-site-header.responsive .nav-dropdown {float: none;}
+  .distill-site-header.responsive .nav-dropdown-content {position: relative;}
+  .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+}
+
+/* Site Footer */
+
+.distill-site-footer {
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  z-index: 3;
+  margin-top: 30px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+/* Headroom */
+
+d-title {
+  padding-top: 6rem;
+}
+
+@media print {
+  d-title {
+    padding-top: 4rem;
+  }
+}
+
+.headroom {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.headroom--transition {
+  transition: all .4s ease-in-out;
+}
+
+.headroom--unpinned {
+  top: -100px;
+}
+
+.headroom--pinned {
+  top: 0;
+}
+
+</style>
+
+<link href="../../site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
+<link href="../../site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
+<script src="../../site_libs/headroom-0.9.4/headroom.min.js"></script>
+<!--/radix_placeholder_navigation_in_header-->
+  <!--radix_placeholder_distill-->
+
+<style type="text/css">
+
+body {
+  background-color: white;
+}
+
+.pandoc-table {
+  width: 100%;
+}
+
+.pandoc-table>caption {
+  margin-bottom: 10px;
+}
+
+.pandoc-table th:not([align]) {
+  text-align: left;
+}
+
+.pagedtable-footer {
+  font-size: 15px;
+}
+
+.html-widget {
+  margin-bottom: 2.0em;
+}
+
+.l-screen-inset {
+  padding-right: 16px;
+}
+
+.l-screen .caption {
+  margin-left: 10px;
+}
+
+.shaded {
+  background: rgb(247, 247, 247);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .html-widget {
+  margin-bottom: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.shaded .shaded-content {
+  background: white;
+}
+
+.text-output {
+  margin-top: 0;
+  line-height: 1.5em;
+}
+
+.hidden {
+  display: none !important;
+}
+
+d-article {
+  padding-bottom: 30px;
+}
+
+d-appendix {
+  padding-top: 30px;
+}
+
+d-article>p>img {
+  width: 100%;
+}
+
+d-article iframe {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 2.0em;
+  width: 100%;
+}
+
+figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+/* CSS for table of contents */
+
+.d-toc {
+  color: rgba(0,0,0,0.8);
+  font-size: 0.8em;
+  line-height: 1em;
+}
+
+.d-toc-header {
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 1.3em;
+}
+
+.d-toc a {
+  border-bottom: none;
+}
+
+.d-toc ul {
+  padding-left: 0;
+}
+
+.d-toc li>ul {
+  padding-top: 0.8em;
+  padding-left: 16px;
+  margin-bottom: 0.6em;
+}
+
+.d-toc ul,
+.d-toc li {
+  list-style-type: none;
+}
+
+.d-toc li {
+  margin-bottom: 0.9em;
+}
+
+.d-toc-separator {
+  margin-top: 20px;
+  margin-bottom: 2em;
+}
+
+.d-article-with-toc {
+  border-top: none;
+  padding-top: 0;
+}
+
+
+
+/* Tweak code blocks (note that this CSS is repeated above in an injection
+   into the d-code shadow dom) */
+
+d-code {
+  overflow-x: auto !important;
+}
+
+pre.d-code code.d-code {
+  padding-left: 10px;
+  font-size: 12px;
+  border-left: 2px solid rgba(0,0,0,0.1);
+}
+
+pre.text-output {
+
+  font-size: 12px;
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+@media(min-width: 768px) {
+
+d-code {
+  overflow-x: visible !important;
+}
+
+pre.d-code code.d-code  {
+    padding-left: 18px;
+    font-size: 14px;
+}
+pre.text-output {
+  font-size: 14px;
+}
+}
+
+/* Figure */
+
+.figure {
+  position: relative;
+  margin-bottom: 2.5em;
+  margin-top: 1.5em;
+}
+
+.figure img {
+  width: 100%;
+}
+
+.figure .caption {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  line-height: 1.5em;
+}
+
+.figure img.external {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+.figure .caption a {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.figure .caption b,
+.figure .caption strong, {
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1.0);
+}
+
+
+
+/* Tweak 1000px media break to show more text */
+
+@media(min-width: 1000px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 80px [middle-start] 50px [text-start kicker-end] 65px 65px 65px 65px 65px 65px 65px 65px [text-end gutter-start] 65px [middle-end] 65px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 16px;
+  }
+
+  .grid {
+    grid-column-gap: 16px;
+  }
+
+  d-article {
+    font-size: 1.06rem;
+    line-height: 1.7em;
+  }
+  figure .caption, .figure .caption, figure figcaption {
+    font-size: 13px;
+  }
+}
+
+@media(min-width: 1180px) {
+  .base-grid,
+  distill-header,
+  d-title,
+  d-abstract,
+  d-article,
+  d-appendix,
+  distill-appendix,
+  d-byline,
+  d-footnote-list,
+  d-citation-list,
+  distill-footer {
+    grid-template-columns: [screen-start] 1fr [page-start kicker-start] 60px [middle-start] 60px [text-start kicker-end] 60px 60px 60px 60px 60px 60px 60px 60px [text-end gutter-start] 60px [middle-end] 60px [page-end gutter-end] 1fr [screen-end];
+    grid-column-gap: 32px;
+  }
+
+  .grid {
+    grid-column-gap: 32px;
+  }
+}
+
+
+/* Get the citation styles for the appendix (not auto-injected on render since
+   we do our own rendering of the citation appendix) */
+
+d-appendix .citation-appendix,
+.d-appendix .citation-appendix {
+  font-size: 11px;
+  line-height: 15px;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 18px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: rgba(0, 0, 0, 0.02);
+  padding: 10px 18px;
+  border-radius: 3px;
+  color: rgba(150, 150, 150, 1);
+  overflow: hidden;
+  margin-top: -12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+
+/* Social footer */
+
+.social_footer {
+  margin-top: 30px;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.67);
+}
+
+.disqus-comments {
+  margin-right: 30px;
+}
+
+.disqus-comment-count {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+#disqus_thread {
+  margin-top: 30px;
+}
+
+.article-sharing a {
+  border-bottom: none;
+  margin-right: 8px;
+}
+
+.article-sharing a:hover {
+  border-bottom: none;
+}
+
+.sidebar-section.subscribe {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.subscribe p {
+  margin-bottom: 0.5em;
+}
+
+
+.article-footer .subscribe {
+  font-size: 15px;
+  margin-top: 45px;
+}
+
+
+.sidebar-section.custom {
+  font-size: 12px;
+  line-height: 1.6em;
+}
+
+.custom p {
+  margin-bottom: 0.5em;
+}
+
+
+/* Improve display for browsers without grid (IE/Edge <= 15) */
+
+.downlevel {
+  line-height: 1.6em;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+}
+
+.downlevel .d-title {
+  padding-top: 6rem;
+  padding-bottom: 1.5rem;
+}
+
+.downlevel .d-title h1 {
+  font-size: 50px;
+  font-weight: 700;
+  line-height: 1.1em;
+  margin: 0 0 0.5rem;
+}
+
+.downlevel .d-title p {
+  font-weight: 300;
+  font-size: 1.2rem;
+  line-height: 1.55em;
+  margin-top: 0;
+}
+
+.downlevel .d-byline {
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  font-size: 0.8rem;
+  line-height: 1.8em;
+}
+
+.downlevel .section-separator {
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.downlevel .d-article {
+  font-size: 1.06rem;
+  line-height: 1.7em;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+
+.downlevel .d-appendix {
+  padding-left: 0;
+  padding-right: 0;
+  max-width: none;
+  font-size: 0.8em;
+  line-height: 1.7em;
+  margin-bottom: 0;
+  color: rgba(0,0,0,0.5);
+  padding-top: 40px;
+  padding-bottom: 48px;
+}
+
+.downlevel .footnotes ol {
+  padding-left: 13px;
+}
+
+.downlevel .base-grid,
+.downlevel .distill-header,
+.downlevel .d-title,
+.downlevel .d-abstract,
+.downlevel .d-article,
+.downlevel .d-appendix,
+.downlevel .distill-appendix,
+.downlevel .d-byline,
+.downlevel .d-footnote-list,
+.downlevel .d-citation-list,
+.downlevel .distill-footer,
+.downlevel .appendix-bottom,
+.downlevel .posts-container {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+@media(min-width: 768px) {
+  .downlevel .base-grid,
+  .downlevel .distill-header,
+  .downlevel .d-title,
+  .downlevel .d-abstract,
+  .downlevel .d-article,
+  .downlevel .d-appendix,
+  .downlevel .distill-appendix,
+  .downlevel .d-byline,
+  .downlevel .d-footnote-list,
+  .downlevel .d-citation-list,
+  .downlevel .distill-footer,
+  .downlevel .appendix-bottom,
+  .downlevel .posts-container {
+  padding-left: 150px;
+  padding-right: 150px;
+  max-width: 900px;
+}
+}
+
+.downlevel pre code {
+  display: block;
+  border-left: 2px solid rgba(0, 0, 0, .1);
+  padding: 0 0 0 20px;
+  font-size: 14px;
+}
+
+.downlevel code, .downlevel pre {
+  color: black;
+  background: none;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+</style>
+
+<script type="application/javascript">
+
+function is_downlevel_browser() {
+  if (bowser.isUnsupportedBrowser({ msie: "12", msedge: "16"},
+                                 window.navigator.userAgent)) {
+    return true;
+  } else {
+    return window.load_distill_framework === undefined;
+  }
+}
+
+// show body when load is complete
+function on_load_complete() {
+
+  // set body to visible
+  document.body.style.visibility = 'visible';
+
+  // force redraw for leaflet widgets
+  if (window.HTMLWidgets) {
+    var maps = window.HTMLWidgets.findAll(".leaflet");
+    $.each(maps, function(i, el) {
+      var map = this.getMap();
+      map.invalidateSize();
+      map.eachLayer(function(layer) {
+        if (layer instanceof L.TileLayer)
+          layer.redraw();
+      });
+    });
+  }
+
+  // trigger 'shown' so htmlwidgets resize
+  $('d-article').trigger('shown');
+}
+
+function init_distill() {
+
+  init_common();
+
+  // create front matter
+  var front_matter = $('<d-front-matter></d-front-matter>');
+  $('#distill-front-matter').wrap(front_matter);
+
+  // create d-title
+  $('.d-title').changeElementType('d-title');
+
+  // create d-byline
+  var byline = $('<d-byline></d-byline>');
+  $('.d-byline').replaceWith(byline);
+
+  // create d-article
+  var article = $('<d-article></d-article>');
+  $('.d-article').wrap(article).children().unwrap();
+
+  // move posts container into article
+  $('.posts-container').appendTo($('d-article'));
+
+  // create d-appendix
+  $('.d-appendix').changeElementType('d-appendix');
+
+  // create d-bibliography
+  var bibliography = $('<d-bibliography></d-bibliography>');
+  $('#distill-bibliography').wrap(bibliography);
+
+  // flag indicating that we have appendix items
+  var appendix = $('.appendix-bottom').children('h3').length > 0;
+
+  // replace citations with <d-cite>
+  $('.citation').each(function(i, val) {
+    appendix = true;
+    var cites = $(this).attr('data-cites').split(" ");
+    var dt_cite = $('<d-cite></d-cite>');
+    dt_cite.attr('key', cites.join());
+    $(this).replaceWith(dt_cite);
+  });
+  // remove refs
+  $('#refs').remove();
+
+  // replace footnotes with <d-footnote>
+  $('.footnote-ref').each(function(i, val) {
+    appendix = true;
+    var href = $(this).attr('href');
+    var id = href.replace('#', '');
+    var fn = $('#' + id);
+    var fn_p = $('#' + id + '>p');
+    fn_p.find('.footnote-back').remove();
+    var text = fn_p.html();
+    var dtfn = $('<d-footnote></d-footnote>');
+    dtfn.html(text);
+    $(this).replaceWith(dtfn);
+  });
+  // remove footnotes
+  $('.footnotes').remove();
+
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    var id = $(this).attr('id');
+    $('.d-toc a[href="#' + id + '"]').parent().remove();
+    appendix = true;
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('d-appendix'));
+  });
+
+  // show d-appendix if we have appendix content
+  $("d-appendix").css('display', appendix ? 'grid' : 'none');
+
+  // replace code blocks with d-code
+  $('pre>code').each(function(i, val) {
+    var code = $(this);
+    var pre = code.parent();
+    var clz = "";
+    var language = pre.attr('class');
+    if (language) {
+      // map unknown languages to "clike" (without this they just dissapear)
+      if ($.inArray(language, ["bash", "clike", "css", "go", "html",
+                               "javascript", "js", "julia", "lua", "markdown",
+                               "markup", "mathml", "python", "svg", "xml"]) == -1)
+        language = "clike";
+      language = ' language="' + language + '"';
+      var dt_code = $('<d-code block' + language + clz + '></d-code>');
+      dt_code.text(code.text());
+      pre.replaceWith(dt_code);
+    } else {
+      code.addClass('text-output').unwrap().changeElementType('pre');
+    }
+  });
+
+  // localize layout chunks to just output
+  $('.layout-chunk').each(function(i, val) {
+
+    // capture layout
+    var layout = $(this).attr('data-layout');
+
+    // apply layout to markdown level block elements
+    var elements = $(this).children().not('d-code, pre.text-output, script');
+    elements.each(function(i, el) {
+      var layout_div = $('<div class="' + layout + '"></div>');
+      if (layout_div.hasClass('shaded')) {
+        var shaded_content = $('<div class="shaded-content"></div>');
+        $(this).wrap(shaded_content);
+        $(this).parent().wrap(layout_div);
+      } else {
+        $(this).wrap(layout_div);
+      }
+    });
+
+
+    // unwrap the layout-chunk div
+    $(this).children().unwrap();
+  });
+
+  // load distill framework
+  load_distill_framework();
+
+  // wait for window.distillRunlevel == 4 to do post processing
+  function distill_post_process() {
+
+    if (!window.distillRunlevel || window.distillRunlevel < 4)
+      return;
+
+    // hide author/affiliations entirely if we have no authors
+    var front_matter = JSON.parse($("#distill-front-matter").html());
+    var have_authors = front_matter.authors && front_matter.authors.length > 0;
+    if (!have_authors)
+      $('d-byline').addClass('hidden');
+
+    // table of contents
+    if (have_authors) // adjust border if we are in authors
+      $('.d-toc').parent().addClass('d-article-with-toc');
+
+    // strip links that point to #
+    $('.authors-affiliations').find('a[href="#"]').removeAttr('href');
+
+    // hide elements of author/affiliations grid that have no value
+    function hide_byline_column(caption) {
+      $('d-byline').find('h3:contains("' + caption + '")').parent().css('visibility', 'hidden');
+    }
+
+    // affiliations
+    var have_affiliations = false;
+    for (var i = 0; i<front_matter.authors.length; ++i) {
+      var author = front_matter.authors[i];
+      if (author.affiliation !== "&nbsp;") {
+        have_affiliations = true;
+        break;
+      }
+    }
+    if (!have_affiliations)
+      $('d-byline').find('h3:contains("Affiliations")').css('visibility', 'hidden');
+
+    // published date
+    if (!front_matter.publishedDate)
+      hide_byline_column("Published");
+
+    // document object identifier
+    var doi = $('d-byline').find('h3:contains("DOI")');
+    var doi_p = doi.next().empty();
+    if (!front_matter.doi) {
+      // if we have a citation and valid citationText then link to that
+      if ($('#citation').length > 0 && front_matter.citationText) {
+        doi.html('Citation');
+        $('<a href="#citation"></a>')
+          .text(front_matter.citationText)
+          .appendTo(doi_p);
+      } else {
+        hide_byline_column("DOI");
+      }
+    } else {
+      $('<a></a>')
+         .attr('href', "https://doi.org/" + front_matter.doi)
+         .html(front_matter.doi)
+         .appendTo(doi_p);
+    }
+
+     // change plural form of authors/affiliations
+    if (front_matter.authors.length === 1) {
+      var grid = $('.authors-affiliations');
+      grid.children('h3:contains("Authors")').text('Author');
+      grid.children('h3:contains("Affiliations")').text('Affiliation');
+    }
+
+    // inject pre code styles (can't do this with a global stylesheet b/c a shadow root is used)
+    $('d-code').each(function(i, val) {
+      var style = document.createElement('style');
+      style.innerHTML = 'pre code { padding-left: 10px; font-size: 12px; border-left: 2px solid rgba(0,0,0,0.1); } ' +
+                        '@media(min-width: 768px) { pre code { padding-left: 18px; font-size: 14px; } }';
+      if (this.shadowRoot)
+        this.shadowRoot.appendChild(style);
+    });
+
+    // move appendix-bottom entries to the bottom
+    $('.appendix-bottom').appendTo('d-appendix').children().unwrap();
+    $('.appendix-bottom').remove();
+
+    // clear polling timer
+    clearInterval(tid);
+
+    // show body now that everything is ready
+    on_load_complete();
+  }
+
+  var tid = setInterval(distill_post_process, 50);
+  distill_post_process();
+
+}
+
+function init_downlevel() {
+
+  init_common();
+
+   // insert hr after d-title
+  $('.d-title').after($('<hr class="section-separator"/>'));
+
+  // check if we have authors
+  var front_matter = JSON.parse($("#distill-front-matter").html());
+  var have_authors = front_matter.authors && front_matter.authors.length > 0;
+
+  // manage byline/border
+  if (!have_authors)
+    $('.d-byline').remove();
+  $('.d-byline').after($('<hr class="section-separator"/>'));
+  $('.d-byline a').remove();
+
+  // remove toc
+  $('.d-toc-header').remove();
+  $('.d-toc').remove();
+  $('.d-toc-separator').remove();
+
+  // move appendix elements
+  $('h1.appendix, h2.appendix').each(function(i, val) {
+    $(this).changeElementType('h3');
+  });
+  $('h3.appendix').each(function(i, val) {
+    $(this).nextUntil($('h1, h2, h3')).addBack().appendTo($('.d-appendix'));
+  });
+
+
+  // inject headers into references and footnotes
+  var refs_header = $('<h3></h3>');
+  refs_header.text('References');
+  $('#refs').prepend(refs_header);
+
+  var footnotes_header = $('<h3></h3');
+  footnotes_header.text('Footnotes');
+  $('.footnotes').children('hr').first().replaceWith(footnotes_header);
+
+  // move appendix-bottom entries to the bottom
+  $('.appendix-bottom').appendTo('.d-appendix').children().unwrap();
+  $('.appendix-bottom').remove();
+
+  // remove appendix if it's empty
+  if ($('.d-appendix').children().length === 0)
+    $('.d-appendix').remove();
+
+  // prepend separator above appendix
+  $('.d-appendix').before($('<hr class="section-separator" style="clear: both"/>'));
+
+  // trim code
+  $('pre>code').each(function(i, val) {
+    $(this).html($.trim($(this).html()));
+  });
+
+  // move posts-container right before article
+  $('.posts-container').insertBefore($('.d-article'));
+
+  $('body').addClass('downlevel');
+
+  on_load_complete();
+}
+
+
+function init_common() {
+
+  // jquery plugin to change element types
+  (function($) {
+    $.fn.changeElementType = function(newType) {
+      var attrs = {};
+
+      $.each(this[0].attributes, function(idx, attr) {
+        attrs[attr.nodeName] = attr.nodeValue;
+      });
+
+      this.replaceWith(function() {
+        return $("<" + newType + "/>", attrs).append($(this).contents());
+      });
+    };
+  })(jQuery);
+
+  // prevent underline for linked images
+  $('a > img').parent().css({'border-bottom' : 'none'});
+
+  // mark non-body figures created by knitr chunks as 100% width
+  $('.layout-chunk').each(function(i, val) {
+    var figures = $(this).find('img, .html-widget');
+    if ($(this).attr('data-layout') !== "l-body") {
+      figures.css('width', '100%');
+    } else {
+      figures.css('max-width', '100%');
+      figures.filter("[width]").each(function(i, val) {
+        var fig = $(this);
+        fig.css('width', fig.attr('width') + 'px');
+      });
+
+    }
+  });
+
+  // auto-append index.html to post-preview links in file: protocol
+  // and in rstudio ide preview
+  $('.post-preview').each(function(i, val) {
+    if (window.location.protocol === "file:")
+      $(this).attr('href', $(this).attr('href') + "index.html");
+  });
+
+  // get rid of index.html references in header
+  if (window.location.protocol !== "file:") {
+    $('.distill-site-header a[href]').each(function(i,val) {
+      $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+    });
+  }
+
+  // add class to pandoc style tables
+  $('tr.header').parent('thead').parent('table').addClass('pandoc-table');
+  $('.kable-table').children('table').addClass('pandoc-table');
+
+  // add figcaption style to table captions
+  $('caption').parent('table').addClass("figcaption");
+
+  // initialize posts list
+  if (window.init_posts_list)
+    window.init_posts_list();
+
+  // implmement disqus comment link
+  $('.disqus-comment-count').click(function() {
+    window.headroom_prevent_pin = true;
+    $('#disqus_thread').toggleClass('hidden');
+    if (!$('#disqus_thread').hasClass('hidden')) {
+      var offset = $(this).offset();
+      $(window).resize();
+      $('html, body').animate({
+        scrollTop: offset.top - 35
+      });
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (is_downlevel_browser())
+    init_downlevel();
+  else
+    window.addEventListener('WebComponentsReady', init_distill);
+});
+
+</script>
+
+<!--/radix_placeholder_distill-->
+  <script src="../../site_libs/header-attrs-2.3/header-attrs.js"></script>
+  <script src="../../site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+  <link href="../../site_libs/plot_text_explanations-0.1.0/plot_text_explanations.css" rel="stylesheet" />
+  <script src="../../site_libs/plot_text_explanations-binding-0.5.1/plot_text_explanations.js"></script>
+  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
+  <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
+  <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
+  <!--radix_placeholder_site_in_header-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-173027539-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-173027539-1');
+</script>
+<!--/radix_placeholder_site_in_header-->
+
+
+</head>
+
+<body>
+
+<!--radix_placeholder_front_matter-->
+
+<script id="distill-front-matter" type="text/json">
+{"title":"XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts","description":"Machine learning methods for document classification.","authors":[{"author":"Mihiretu Kebede(PhD)","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2020-08-28T00:00:00.000+02:00","citationText":"Kebede(PhD), 2020"}
+</script>
+
+<!--/radix_placeholder_front_matter-->
+<!--radix_placeholder_navigation_before_body-->
+<header class="header header--fixed" role="banner">
+<nav class="distill-site-nav distill-site-header">
+<div class="nav-left">
+<a href="../../index.html" class="title">Aspire Data Solutions</a>
+<a href="../../home.html">Home</a>
+<a href="../../about.html">About</a>
+</div>
+<div class="nav-right">
+<a href="../../contact.html">
+<i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
+</a>
+<a href="https://github.com/Mihiretukebede/mihiretukebede.gitlub.io">
+<i class="fa fa-github fa-lg" aria-hidden="true"></i>
+</a>
+<a href="https://twitter.com/MihiretuKebede1">
+<i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
+</a>
+<a href="https://www.linkedin.com/in/mihiretu-m-kebede-18831b70/">
+<i class="fa fa-linkedin fa-lg" aria-hidden="true"></i>
+</a>
+<a href="https://orcid.org/0000-0002-5599-2823">ORCID</a>
+<a href="https://scholar.google.de/citations?user=O93Icv4AAAAJ&amp;hl=en">Google Scholar</a>
+<a href="https://www.researchgate.net/profile/Mihiretu_Kebede2">ResearchGate</a>
+<a href="../../index.xml">
+<i class="fa fa-rss" aria-hidden="true"></i>
+</a>
+<a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
+</div>
+</nav>
+</header>
+<!--/radix_placeholder_navigation_before_body-->
+<!--radix_placeholder_site_before_body-->
+<!--/radix_placeholder_site_before_body-->
+
+<div class="d-title">
+<h1>XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts</h1>
+<p><p>Machine learning methods for document classification.</p></p>
+</div>
+
+<div class="d-byline">
+  
+  Mihiretu Kebede(PhD)
+  
+<br/>08-28-2020
+</div>
+
+<div class="d-article">
+<h1 id="introduction">Introduction</h1>
+<p>Several thousands of papers are being published everyday. A paper published about a decade ago wrote “the total number of science papers published since 1665 passed 50 million. About 2.5 million new scientific papers are published each year.” In the introduction section of one of <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6305167/">my previous systematic review</a>, I wrote “The number of published research doubles every 9 years and its growth particularly in medicine and health care is exponential.”</p>
+<p>Doing systematic reviews on a certain topic requires an extensive database search, title/abstract screening, full-text screening, quality assessment, data extraction, qualitative, quantitative synthesis and other important steps. Of these steps, at least title/abstract screening and full text reviews is required to be done by two review authors.</p>
+<p>Going through the title and abstract of thousands of papers is time-taking, and laborious. Yet, policy makers medical practitioners require the latest evidence for making urgent decisions. Thanks to the development of machine learning and artificial intelligence over the past decade, systematic reviews can be used to automate or semi-automate some of the steps of systematic reviews. Systematic reviewers are already using some web-based text mining and machine learning tools such as Abstrackr, Robotreviewer, RobotAnalyst, etc. However, it is worth a try to implement text classification algorithms in R.</p>
+<p>In a paper <a href="https://arxiv.org/abs/1602.04938">“Why Should I Trust You?”: Explaining the Predictions of Any Classifier"</a>, Riberio TL et.al described machine learning models as mostly “black boxes”. The biggest challenge of machine learning is interpretability and applying it to local context or simply to an individual or observation with a specific characteristics. They developed LIME which was later changed into Python and R packages. Lime can help explain several models implemented in about six different packages including caret, h2o, and xgboost.</p>
+<p>In this blog post, I want to try one of the many available methods available to check whether machine learning methods correctly discriminates SARS papers from COVID19 papers. I know the two viruses are highly related. I am only using the SARS and COVID for demonstrations.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(dplyr) #for data management
+library(ggplot2) #for plotting
+library(dplyr)
+library(bib2df) #for converting bib file to data frame
+library(xgboost) 
+library(lime) #for explaining machine learning models</code></pre>
+</div>
+<h1 id="data">Data</h1>
+<p>I will use the COVID19 data that I used in my previous <a href="http://www.mihiretukebede.com/posts/2020-08-03-2020-08-03-covid19/">blog post</a>. In addition, I have added new reference data by searching SARS papers published from January 1/2003 until September 12/2003.</p>
+<p>I will reuse some of my previous codes here again.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(bib2df)
+library(dplyr)
+
+covid &lt;- bib2df(&quot;covid19.bib&quot;) %&gt;% # imprort references
+  filter(!is.na(ABSTRACT)) %&gt;% # select only papers with no missing abstract
+  select(&quot;TITLE&quot;, &quot;ABSTRACT&quot;, &quot;KEYWORDS&quot;, &quot;AUTHOR&quot;, &quot;BIBTEXKEY&quot;) # Select few variables 
+  
+
+# 2003 corona virus
+covexclude &lt;- bib2df(&quot;covexclude.bib&quot;) %&gt;% 
+  filter(!is.na(ABSTRACT)) %&gt;% 
+  select(&quot;TITLE&quot;, &quot;ABSTRACT&quot;, &quot;KEYWORDS&quot;, &quot;AUTHOR&quot;, &quot;BIBTEXKEY&quot;)
+
+cov2003 &lt;- bib2df(&quot;cov2003.bib&quot;) %&gt;% 
+  filter(!is.na(ABSTRACT)) %&gt;% 
+  select(&quot;TITLE&quot;, &quot;ABSTRACT&quot;, &quot;KEYWORDS&quot;, &quot;AUTHOR&quot;, &quot;BIBTEXKEY&quot;)
+
+# Now import the TB data
+sars &lt;- bib2df(&quot;sars.bib&quot;) %&gt;% 
+  filter(!is.na(ABSTRACT)) %&gt;% 
+  select(&quot;TITLE&quot;, &quot;ABSTRACT&quot;, &quot;KEYWORDS&quot;, &quot;AUTHOR&quot;, &quot;BIBTEXKEY&quot;)</code></pre>
+</div>
+<p>Assume we are only looking for COVID19 papers to include in our review. That means we will need to exclude all SARS papers published in 2003. I will simply use a simple include/exclude decisions.</p>
+<p>We will now create a new binary factor factor variable called “Include”. We will then assign 1 for all covid papers and 0 for all SARS papers. To make the decissions look more in real world setting, I excluded 40 COVID papers published in August 22/2020. This has nothing to do with the contents of the papers. I am arbitrarily excluding the papers to make it look like a real world title/abstract screening not just a random decision.</p>
+<p>After that I will merge the two data frames with a simple rbind() code</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# Exclude all covid papers
+covid$Include &lt;- 1
+
+covexclude$Include &lt;- 0
+
+cov2003$Include &lt;- 1
+sars$Include &lt;- 0
+
+# Now merge the tw data frames
+covid_sars &lt;- rbind(covid, covexclude, sars, cov2003)</code></pre>
+</div>
+<h1 id="now-check-number-of-included-and-excluded-papers">Now check number of included and excluded papers</h1>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(dplyr)
+table(covid_sars$Include)</code></pre>
+<pre><code>
+  0   1 
+472 509 </code></pre>
+<pre class="r"><code>
+# check the type of this variable and convert it to factor 
+
+typeof(covid_sars$Include) # it is double. We have to convert it to factor variable</code></pre>
+<pre><code>
+[1] &quot;double&quot;</code></pre>
+<pre class="r"><code>
+covid_sars$Include[covid_sars$Include==&quot;1&quot;]&lt;-&quot;included&quot;
+covid_sars$Include[covid_sars$Include==&quot;0&quot;]&lt;-&quot;not included&quot;
+
+table(covid_sars$Include) %&gt;% prop.table() #66% excluded, 34% included</code></pre>
+<pre><code>
+    included not included 
+   0.5188583    0.4811417 </code></pre>
+</div>
+<h1 id="now-split-the-data">Now split the data</h1>
+<figure>
+<img src="datasplit.JPG" alt="" /><figcaption>image</figcaption>
+</figure>
+<p>Machine learning algorithms require our data to be split into training and testing. The training data will be used to train the model and the testing data sets will be used to make predictions by deploying the model developed using the training sets. There are different ways of splitting our data to training and testing split. You may use <em>base R</em>, <em>Resample</em> or <em>Caret</em> package to easily perform this task. Here, I will use my favorite R packager: the Caret package. We will use 70/30 split which means 70% of my data will be assigned to the training set and 30% the data will be used for test sets.</p>
+<p>I will need to stratify my data split by my dependent variable. That means my train and test data will have exactly similar proportion for the outcome variable responses as the original data sets. That is 51% for excluded (coded as 0) and 49% for included (coded as 1). The data is nearly balanced. We don’t have the curse of class imbalance here, awesome!</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(caret)
+set.seed(3456) # for reproducibility
+
+trainIndex &lt;- createDataPartition(covid_sars$Include, p = .7, 
+                                  list = FALSE, 
+                                  times = 1)
+train &lt;- covid_sars[ trainIndex,]
+test  &lt;- covid_sars[-trainIndex,]
+
+
+prop.table(table(covid_sars$Include)) # outcome proportion for th original data</code></pre>
+<pre><code>
+    included not included 
+   0.5188583    0.4811417 </code></pre>
+<pre class="r"><code>
+prop.table(table(train$Include)) # outcome proportion for training data</code></pre>
+<pre><code>
+    included not included 
+   0.5188953    0.4811047 </code></pre>
+<pre class="r"><code>
+prop.table(table(test$Include)) # outcome proportion for testing data</code></pre>
+<pre><code>
+    included not included 
+   0.5187713    0.4812287 </code></pre>
+<pre class="r"><code>
+# Cool! They have exactly similar proportions with respect to the outcome variable. </code></pre>
+</div>
+<h1 id="the-nice-part">The nice part</h1>
+<p><img src="machinelearning.JPG" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(text2vec)
+
+get_matrix &lt;- function(text) {
+  it &lt;- itoken(text, progressbar = FALSE)
+  create_dtm(it, vectorizer = hash_vectorizer())
+}
+
+dtm_train = get_matrix(train$ABSTRACT)
+dtm_test = get_matrix(test$ABSTRACT)</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+# Create boosting model for binary classification (-&gt; logistic loss)
+# Other parameters are quite standard
+
+library(xgboost) # I will use extreme gradient boosting algorithm for building the model. But, I will also try other algorithms in the future. 
+
+param &lt;- list(max_depth = 10, 
+              eta = 0.1, 
+              objective = &quot;binary:logistic&quot;, 
+              eval_metric = &quot;error&quot;, 
+              nthread = 1) # I will set the paprametres nearly similarly as it was described in the example from the package description. 
+
+xgb_model &lt;- xgb.train(
+  param, 
+  xgb.DMatrix(dtm_train, label = train$Include==&quot;included&quot;),
+  nrounds = 50
+)</code></pre>
+</div>
+<p>Now let’s use our model to predict the test set</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(caret)
+predictions &lt;- predict(xgb_model, dtm_test) 
+# prediction probabilities
+
+predict &lt;- ifelse(predictions &gt; 0.5, &quot;included&quot;, &quot;not included&quot;) # assign prediction probabilities greater than 0.5 as included and less than 0.5 as not included
+
+
+confusionMatrix(as.factor(predict), as.factor(test$Include))</code></pre>
+<pre><code>
+Confusion Matrix and Statistics
+
+              Reference
+Prediction     included not included
+  included          142            9
+  not included       10          132
+                                          
+               Accuracy : 0.9352          
+                 95% CI : (0.9006, 0.9605)
+    No Information Rate : 0.5188          
+    P-Value [Acc &gt; NIR] : &lt;2e-16          
+                                          
+                  Kappa : 0.8702          
+                                          
+ Mcnemar&#39;s Test P-Value : 1               
+                                          
+            Sensitivity : 0.9342          
+            Specificity : 0.9362          
+         Pos Pred Value : 0.9404          
+         Neg Pred Value : 0.9296          
+             Prevalence : 0.5188          
+         Detection Rate : 0.4846          
+   Detection Prevalence : 0.5154          
+      Balanced Accuracy : 0.9352          
+                                          
+       &#39;Positive&#39; Class : included        
+                                          </code></pre>
+</div>
+<p>It resulted 93.5% accuracy. In real world setting this may not happen because we will work on highly related titles and abstracts. My experiment brings two somehow related documents (SARS and covid19). ALthough we are explcitly looking for covid papers, I assigned some of the covid papers to be excluded just to add some confusion.</p>
+<p>Let’s pick two abstracts(Abstract #89 and #271) and see what are the most important terms of the abstract that xgboost used for its predictions. We will use <em>lime</em> package to explain the predictions</p>
+<h2 id="abstract-number-89">Abstract number 89</h2>
+<p>We need to use <em><code>lime::</code></em> to avoid conflicts with <code>dplyr</code>package</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+ab_to_explain89 &lt;- head(test[89,]$ABSTRACT, 6)
+
+explainer89 &lt;- lime::lime(ab_to_explain89, model = xgb_model, 
+                  preprocess = get_matrix)
+
+explanation89 &lt;- lime::explain(ab_to_explain89, explainer89, n_labels=1,
+                       n_features = 7) # Set number most important features to 7</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+explanation89[, 2:10]</code></pre>
+<pre><code>
+# A tibble: 7 x 9
+   case label label_prob model_r2 model_intercept model_prediction
+  &lt;int&gt; &lt;chr&gt;      &lt;dbl&gt;    &lt;dbl&gt;           &lt;dbl&gt;            &lt;dbl&gt;
+1     1 0          0.992    0.827           0.981            0.990
+2     1 0          0.992    0.827           0.981            0.990
+3     1 0          0.992    0.827           0.981            0.990
+4     1 0          0.992    0.827           0.981            0.990
+5     1 0          0.992    0.827           0.981            0.990
+6     1 0          0.992    0.827           0.981            0.990
+7     1 0          0.992    0.827           0.981            0.990
+# ... with 3 more variables: feature &lt;chr&gt;, feature_value &lt;chr&gt;,
+#   feature_weight &lt;dbl&gt;</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+lime::plot_features(explanation89)</code></pre>
+<p><img src="2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-11-1.png" width="624" /></p>
+</div>
+<p>The word sars is most important word that xgb model used to predict the exclusion of this this abstract.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+lime::plot_text_explanations(explanation89)</code></pre>
+<div id="htmlwidget-a7117a3eb966d56fb998" style="width:100%;height:auto;" class="plot_text_explanations html-widget"></div>
+<script type="application/json" data-for="htmlwidget-a7117a3eb966d56fb998">{"x":{"html":"<div style=\"overflow-y:scroll;font-family:sans-serif;height:100%\"> <p> The previous outbreaks of <span class='positive_3'>SARS<\/span>-CoV and MERS-CoV have led researchers to study the  role of diagnostics <span class='negative_1'>in<\/span> impediment of further spread and transmission. With the recent emergence of the novel <span class='positive_3'>SARS<\/span>-CoV-2, the availability of rapid, sensitive, and reliable diagnostic <span class='negative_1'>methods<\/span> <span class='negative_1'>is<\/span> essential for disease control. Hence, we have developed a reverse transcription loop-mediated isothermal amplification (RT-LAMP) assay for the specific detection of <span class='positive_3'>SARS<\/span>-CoV-2. The primer sets for RT-LAMP assay were designed to target the nucleocapsid gene of the viral RNA, and displayed a detection limit of 10(2) RNA copies close to that of qRT-PCR. Notably, the assay has exhibited a rapid detection span of 30â€…min combined with the colorimetric visualization. This test can detect specifically viral RNAs of the <span class='positive_3'>SARS<\/span>-CoV-2 with no cross-reactivity to related coronaviruses, such as HCoV-229E, HCoV-NL63, HCoV-OC43, and MERS-CoV as well as human infectious influenza viruses (<span class='negative_1'>type<\/span> B, H1N1pdm, H3N2, H5N1, H5N6, H5N8, and H7N9), and other <span class='positive_1'>respiratory<\/span> disease-causing viruses (RSVA, RSVB, ADV, PIV, MPV, and HRV). Furthermore, the developed RT-LAMP assay has <span class='negative_1'>been<\/span> evaluated using specimens collected from COVID-19 patients that exhibited high agreement to the qRT-PCR. Our RT-LAMP assay <span class='negative_1'>is<\/span> simple to perform, less expensive, time-efficient, and can be used <span class='negative_1'>in<\/span> clinical laboratories for preliminary detection of <span class='positive_3'>SARS<\/span>-CoV-2 <span class='negative_1'>in<\/span> suspected patients. In addition to the high sensitivity and specificity, this isothermal amplification conjugated with a single-tube colorimetric detection method may contribute to the public health responses and disease control, especially <span class='negative_1'>in<\/span> the areas with limited laboratory capacities. <\/br> <sub>Label predicted: 0 (99.2%)<br/>Explainer fit: 0.83<\/sub> <\/p> <\/div>"},"evals":[],"jsHooks":[]}</script>
+</div>
+<h2 id="abstract-283">Abstract 283</h2>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(lime)
+
+ab_to_explain &lt;- head(test[271,]$ABSTRACT, 6)
+
+explainer &lt;- lime(ab_to_explain, model = xgb_model, 
+                  preprocess = get_matrix, 
+                  tokenization =default_tokenize)
+
+explanation &lt;- explain(ab_to_explain, explainer, n_labels=1,
+                       n_features = 7) # Set number most important features to 7</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+explanation[, 2:10]</code></pre>
+<pre><code>
+# A tibble: 7 x 9
+   case label label_prob model_r2 model_intercept model_prediction
+  &lt;int&gt; &lt;chr&gt;      &lt;dbl&gt;    &lt;dbl&gt;           &lt;dbl&gt;            &lt;dbl&gt;
+1     1 0          0.671    0.836           0.846            0.585
+2     1 0          0.671    0.836           0.846            0.585
+3     1 0          0.671    0.836           0.846            0.585
+4     1 0          0.671    0.836           0.846            0.585
+5     1 0          0.671    0.836           0.846            0.585
+6     1 0          0.671    0.836           0.846            0.585
+7     1 0          0.671    0.836           0.846            0.585
+# ... with 3 more variables: feature &lt;chr&gt;, feature_value &lt;chr&gt;,
+#   feature_weight &lt;dbl&gt;</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+plot_features(explanation)</code></pre>
+<p><img src="2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+plot_text_explanations(explanation)</code></pre>
+<div id="htmlwidget-9e5c00a8757ba5dc6ae9" style="width:100%;height:auto;" class="plot_text_explanations html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9e5c00a8757ba5dc6ae9">{"x":{"html":"<div style=\"overflow-y:scroll;font-family:sans-serif;height:100%\"> <p> To prepare immunomicelles, <span class='positive_1'>new<\/span> targeted carriers <span class='positive_1'>for<\/span> poorly soluble pharmaceuticals, a procedure <span class='positive_2'>has<\/span> been developed to chemically attach mAbs to reactive groups incorporated into the <span class='negative_3'>corona<\/span> of polymeric micelles made of polyethylene glycol-phosphatidylethanolamine conjugates. Micelle-attached antibodies retained their ability to specifically interact with their antigens. Immunomicelles with attached antitumor mAb 2C5 effectively recognized <span class='negative_1'>and<\/span> bound various cancer cells in vitro <span class='negative_1'>and<\/span> showed <span class='negative_1'>an<\/span> increased accumulation in experimental tumors in mice when compared with nontargeted micelles. Intravenous administration of tumor-specific 2C5 immunomicelles loaded with a sparingly soluble anticancer agent, taxol, into experimental mice bearing Lewis lung carcinoma resulted in <span class='negative_1'>an<\/span> increased accumulation of taxol in the tumor compared with free taxol or taxol in nontargeted micelles <span class='negative_1'>and<\/span> in enhanced tumor growth inhibition. This family of pharmaceutical carriers can be <span class='positive_1'>used<\/span> <span class='positive_1'>for<\/span> the solubilization <span class='negative_1'>and<\/span> enhanced delivery of poorly soluble drugs to various pathological sites in the body. <\/br> <sub>Label predicted: 0 (67.05%)<br/>Explainer fit: 0.84<\/sub> <\/p> <\/div>"},"evals":[],"jsHooks":[]}</script>
+</div>
+<p>The word corona is used for predicting “Include” with 67% probability.</p>
+<p>The above modelling is dirty.It didn’t use only the relevant words. I will use <em>quanteda</em> package to remove all irrelavnt words.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library (quanteda)</code></pre>
+</div>
+<h1 id="create-corpus">Create corpus</h1>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+names(train) </code></pre>
+<pre><code>
+[1] &quot;TITLE&quot;     &quot;ABSTRACT&quot;  &quot;KEYWORDS&quot;  &quot;AUTHOR&quot;    &quot;BIBTEXKEY&quot;
+[6] &quot;Include&quot;  </code></pre>
+<pre class="r"><code>
+train_data &lt;- train[, c(5,6)]  # I need only some of my variables: include, and BIBTEXKEY. I don&#39;t need the rest of the variables for now. The BIBTEX key variable helps me to identify the papers it is written like Authoryyyy.1. I will use it to attach as a document identifier. 
+
+# Now build the corpus using abstracts of the papers
+train_corpus &lt;- corpus(train$ABSTRACT, 
+                     docvars = data.frame(abstract_BIBTEX = names(train_data))) # I added the docvars to save the additional variables other than the abstract</code></pre>
+</div>
+<p>Similarly for the test set</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+names(test) </code></pre>
+<pre><code>
+[1] &quot;TITLE&quot;     &quot;ABSTRACT&quot;  &quot;KEYWORDS&quot;  &quot;AUTHOR&quot;    &quot;BIBTEXKEY&quot;
+[6] &quot;Include&quot;  </code></pre>
+<pre class="r"><code>
+test1 &lt;- test %&gt;% 
+  filter(BIBTEXKEY!=&quot;NA&quot;)
+
+test_data &lt;- test1[, c(5,6)] 
+
+test_corpus &lt;- corpus(test1$ABSTRACT)</code></pre>
+</div>
+<p>Add document identifier for both test and training set data</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+docid &lt;- paste(train$BIBTEXKEY)
+docnames(train_corpus) &lt;- docid
+print(train_corpus)</code></pre>
+<pre><code>
+Corpus consisting of 688 documents and 1 docvar.
+Ataguba2020.1 :
+&quot;The coronavirus disease 2019 (COVID-19) pandemic has affecte...&quot;
+
+Sigala2020.1 :
+&quot;The paper aims to critically review past and emerging litera...&quot;
+
+Lechner2020.1 :
+&quot;Amidst the coronavirus pandemic, universities across the cou...&quot;
+
+VanDorp2020.1 :
+&quot;SARS-CoV-2 is a SARS-like coronavirus of likely zoonotic ori...&quot;
+
+Barilla2020.1 :
+&quot;: ACE2 receptor has a broad expression pattern in the cellul...&quot;
+
+Zhang2020d.1 :
+&quot;The nucleocapsid protein is significant in the formation of ...&quot;
+
+[ reached max_ndoc ... 682 more documents ]</code></pre>
+</div>
+<p>Attach the document identifier also for the test set</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+docidtest &lt;- paste(test1$BIBTEXKEY)
+docnames(test_corpus) &lt;- docidtest
+print(test_corpus)</code></pre>
+<pre><code>
+Corpus consisting of 283 documents.
+Coccia2020.1 :
+&quot;This study has two goals. The first is to explain the geo-en...&quot;
+
+Cagliani2020.1 :
+&quot;In December 2019, a novel human-infecting coronavirus (SARS-...&quot;
+
+Okba2020.1 :
+&quot;Middle East respiratory syndrome coronavirus (MERS-CoV) is a...&quot;
+
+Donthu2020.1 :
+&quot;The COVID-19 outbreak is a sharp reminder that pandemics, li...&quot;
+
+Wister2020.1 :
+&quot;The COVID-19 global crisis is reshaping Canadian society in ...&quot;
+
+Acter2020.1 :
+&quot;According to data compiled by researchers at Johns Hopkins U...&quot;
+
+[ reached max_ndoc ... 277 more documents ]</code></pre>
+</div>
+<h1 id="tokenize">Tokenize</h1>
+<p>I will create tokens and then later document feature matrix for both train and test abstract copuses. We do the same tokenization process as we did in my previous <a href="http://www.mihiretukebede.com/posts/2020-08-10-2020-08-10-text-analysis-of-covid-publications/">blog post</a>. We will remove numbers, remove punctuation, or remove a customized list of stop words</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+custom_stop_words &lt;- c(&quot;background&quot;, &quot;introduction&quot;,&quot;aims&quot;, &quot;objectives&quot;, &quot;materials&quot;, &quot;methods&quot;, &quot;results&quot;, &quot;conclusions&quot;,&quot;textless&quot;, &quot;study&quot;) 
+                                      
+train_tokens &lt;- tokens(train_corpus, remove_punct = TRUE,
+                  remove_numbers = TRUE)
+train_tokens &lt;- tokens_select(train_tokens, pattern = stopwords(&#39;en&#39;), selection = &#39;remove&#39;) # remove irrelevant words
+
+train_tokens &lt;- tokens_select(train_tokens, pattern = custom_stop_words, selection = &#39;remove&#39;) # remove customized list of stop words</code></pre>
+</div>
+<p>I do the same for the test abstract corpuses</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+test_tokens &lt;- tokens(test_corpus, remove_punct = TRUE,
+                  remove_numbers = TRUE)
+test_tokens &lt;- tokens_select(test_tokens, pattern = stopwords(&#39;en&#39;), selection = &#39;remove&#39;) # remove irrelevant words
+
+test_tokens &lt;- tokens_select(test_tokens, pattern = custom_stop_words, selection = &#39;remove&#39;) # remove customized list of stop words</code></pre>
+</div>
+<h1 id="construct-document-feature-matrix-for-both-train-and-test-abstract-tokens">Construct document feature matrix for both train and test abstract tokens</h1>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+train_dfmat &lt;- dfm(train_tokens) 
+test_dfmat &lt;- dfm(test_tokens)</code></pre>
+</div>
+<h1 id="have-a-quick-look-of-the-two-document-feature-matrices">Have a quick look of the two document feature matrices</h1>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+head(train_dfmat)</code></pre>
+<pre><code>
+Document-feature matrix of: 6 documents, 11,318 features (99.1% sparse) and 1 docvar.
+               features
+docs            coronavirus disease covid-19 pandemic affected many
+  Ataguba2020.1           2       2        6        3        1    7
+  Sigala2020.1            0       0        4        1        0    0
+  Lechner2020.1           2       0        0        2        0    0
+  VanDorp2020.1           1       0        1        1        0    0
+  Barilla2020.1           1       1        2        1        0    1
+  Zhang2020d.1            1       0        1        0        0    0
+               features
+docs            countries increasing morbidity mortality
+  Ataguba2020.1         7          1         2         1
+  Sigala2020.1          0          0         0         0
+  Lechner2020.1         0          0         0         0
+  VanDorp2020.1         1          0         0         0
+  Barilla2020.1         0          0         0         0
+  Zhang2020d.1          0          0         0         0
+[ reached max_nfeat ... 11,308 more features ]</code></pre>
+<pre class="r"><code>
+head(test_dfmat)</code></pre>
+<pre><code>
+Document-feature matrix of: 6 documents, 6,953 features (98.4% sparse).
+                features
+docs             two goals first explain geo-environmental
+  Coccia2020.1     1     1     1       1                 1
+  Cagliani2020.1   0     0     0       0                 0
+  Okba2020.1       0     0     0       0                 0
+  Donthu2020.1     0     0     0       0                 0
+  Wister2020.1     0     0     0       0                 0
+  Acter2020.1      1     0     0       0                 0
+                features
+docs             determinants accelerated diffusion covid-19
+  Coccia2020.1              1           3         3        9
+  Cagliani2020.1            0           0         0        0
+  Okba2020.1                0           0         0        0
+  Donthu2020.1              0           0         0        1
+  Wister2020.1              0           0         0        4
+  Acter2020.1               0           0         0        1
+                features
+docs             generating
+  Coccia2020.1            1
+  Cagliani2020.1          0
+  Okba2020.1              0
+  Donthu2020.1            0
+  Wister2020.1            0
+  Acter2020.1             0
+[ reached max_nfeat ... 6,943 more features ]</code></pre>
+<pre class="r"><code>
+dim(train_dfmat) # 646 abstracts 11191 features/terms</code></pre>
+<pre><code>
+[1]   688 11318</code></pre>
+<pre class="r"><code>
+dim(test_dfmat) # 276 abstracts 6668 features/terms</code></pre>
+<pre><code>
+[1]  283 6953</code></pre>
+<pre class="r"><code>
+# Or simply pass the dfm object in ndoc() or nfeat() functions
+ndoc(train_dfmat)</code></pre>
+<pre><code>
+[1] 688</code></pre>
+<pre class="r"><code>
+nfeat(train_dfmat)</code></pre>
+<pre><code>
+[1] 11318</code></pre>
+<pre class="r"><code>
+ndoc(test_dfmat)</code></pre>
+<pre><code>
+[1] 283</code></pre>
+<pre class="r"><code>
+nfeat(test_dfmat)</code></pre>
+<pre><code>
+[1] 6953</code></pre>
+</div>
+<h1 id="vizualize-the-test-and-train-document-feature-matrices">Vizualize the test and train document feature matrices</h1>
+<p>Vizualizing the data is very importnat. Let’s see how the wordclouds look for train and test abstracts.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(RColorBrewer)
+pal &lt;- brewer.pal(5, &quot;Dark2&quot;)
+
+textplot_wordcloud(train_dfmat, min_count = 40,max_words = 400,
+     color = pal)</code></pre>
+<p><img src="2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-26-1.png" width="1300" data-distill-preview=1 /></p>
+</div>
+<p>Similarly, for the test_dfmat</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+textplot_wordcloud(test_dfmat, min_count = 20,max_words = 400,
+     color = pal)</code></pre>
+<p><img src="2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-27-1.png" width="1300" /></p>
+</div>
+<p>Both plots of the test and train data are comparable.</p>
+<h1 id="document-classification-using-naive-bayes">Document classification using Naive Bayes</h1>
+<p>I need the following packages</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+library(quanteda)
+library(quanteda.textmodels)
+library(caret)</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+naive_bayes &lt;- textmodel_nb(train_dfmat,train_data$Include)
+summary(naive_bayes)</code></pre>
+<pre><code>
+Call:
+textmodel_nb.dfm(x = train_dfmat, y = train_data$Include)
+
+Class Priors:
+(showing first 2 elements)
+    included not included 
+         0.5          0.5 
+
+Estimated Feature Scores:
+             coronavirus  disease  covid-19  pandemic  affected
+included        0.004073 0.004474 0.0148763 0.0047994 0.0005928
+not included    0.003578 0.004268 0.0007113 0.0004311 0.0006035
+                  many countries increasing morbidity mortality
+included     0.0007840 0.0011664  0.0005736 0.0001912 0.0004780
+not included 0.0007329 0.0005604  0.0001078 0.0001509 0.0006898
+             interestingly   actions  policies   adopted    linked
+included         1.147e-04 2.103e-04 1.912e-04 1.530e-04 0.0001912
+not included     6.466e-05 6.466e-05 4.311e-05 4.311e-05 0.0001940
+                social determinants   health       sdh  critical
+included     0.0007457    9.561e-05 0.003729 1.147e-04 0.0007457
+not included 0.0002155    8.622e-05 0.003341 2.155e-05 0.0004742
+             inequalities  directly    within    sector distancing
+included        3.824e-05 0.0002677 0.0007075 1.721e-04  3.059e-04
+not included    2.155e-05 0.0001293 0.0009700 8.622e-05  6.466e-05
+                  good   hygiene  avoiding     large gatherings
+included     0.0003251 0.0001147 1.338e-04 0.0005736  3.824e-05
+not included 0.0002155 0.0001078 2.155e-05 0.0007760  2.155e-05</code></pre>
+</div>
+<p>Since we have already our model, we can use it for predicting the test sets. Unfortunately, the features in test_dfmat which are also in train_dfmat. <em>Quanteda</em> package has one really nice function called <em>dfm_match()</em> to select only features of the testing set that also occur in the training set.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+matched_dfmat &lt;- dfm_match(test_dfmat, features = featnames(train_dfmat))</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+actual_class &lt;- test_data$Include
+predicted_class &lt;- predict(naive_bayes, newdata = matched_dfmat)
+tab_class &lt;- table(predicted_class, actual_class )
+tab_class</code></pre>
+<pre><code>
+               actual_class
+predicted_class included not included
+   included          135           18
+   not included       17          113</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+confusionMatrix(tab_class, mode = &quot;everything&quot;)</code></pre>
+<pre><code>
+Confusion Matrix and Statistics
+
+               actual_class
+predicted_class included not included
+   included          135           18
+   not included       17          113
+                                          
+               Accuracy : 0.8763          
+                 95% CI : (0.8322, 0.9123)
+    No Information Rate : 0.5371          
+    P-Value [Acc &gt; NIR] : &lt;2e-16          
+                                          
+                  Kappa : 0.7511          
+                                          
+ Mcnemar&#39;s Test P-Value : 1               
+                                          
+            Sensitivity : 0.8882          
+            Specificity : 0.8626          
+         Pos Pred Value : 0.8824          
+         Neg Pred Value : 0.8692          
+              Precision : 0.8824          
+                 Recall : 0.8882          
+                     F1 : 0.8852          
+             Prevalence : 0.5371          
+         Detection Rate : 0.4770          
+   Detection Prevalence : 0.5406          
+      Balanced Accuracy : 0.8754          
+                                          
+       &#39;Positive&#39; Class : included        
+                                          </code></pre>
+</div>
+<p>Our models predicted the test data set with 87.6% accuracy. This is woderful! The other model performance parameters are also very promising. # How about Support Vector Machines?</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+train_svm &lt;- textmodel_svm(train_dfmat,train_data$Include, weight=&quot;uniform&quot;) # There are three weighting options. I don&#39;t have problem of class imbalance, let me just use the default &quot;uniform&quot;</code></pre>
+</div>
+<h1 id="predict-the-test-set-using-svm">Predict the test set using SVM</h1>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+Actual &lt;- test_data$Include
+predicted_class_svm &lt;- predict(train_svm, newdata = matched_dfmat)
+tab_class_svm &lt;- table(predicted_class_svm, Actual )
+tab_class_svm</code></pre>
+<pre><code>
+                   Actual
+predicted_class_svm included not included
+       included          145           14
+       not included        7          117</code></pre>
+</div>
+<h1 id="now-the-confusion-matrix">Now the confusion matrix</h1>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="r"><code>
+confusionMatrix(tab_class_svm, mode = &quot;everything&quot;)</code></pre>
+<pre><code>
+Confusion Matrix and Statistics
+
+                   Actual
+predicted_class_svm included not included
+       included          145           14
+       not included        7          117
+                                          
+               Accuracy : 0.9258          
+                 95% CI : (0.8888, 0.9535)
+    No Information Rate : 0.5371          
+    P-Value [Acc &gt; NIR] : &lt;2e-16          
+                                          
+                  Kappa : 0.8502          
+                                          
+ Mcnemar&#39;s Test P-Value : 0.1904          
+                                          
+            Sensitivity : 0.9539          
+            Specificity : 0.8931          
+         Pos Pred Value : 0.9119          
+         Neg Pred Value : 0.9435          
+              Precision : 0.9119          
+                 Recall : 0.9539          
+                     F1 : 0.9325          
+             Prevalence : 0.5371          
+         Detection Rate : 0.5124          
+   Detection Prevalence : 0.5618          
+      Balanced Accuracy : 0.9235          
+                                          
+       &#39;Positive&#39; Class : included        
+                                          </code></pre>
+</div>
+<p>SVM prediction is quite remarkable. Almost 92.6% accurate prediction. This is cool. Look at the other performance measures: sensitivity, specificity, PVP, NPV, recall, precision. They are all more than 90%!</p>
+<p>One limitation of implementing these models using <em>quanteda.textmodels</em> is we cannot benefit the great advantages of <em>lime</em> package, we cannot use <em>lime</em> to explain our naive_bayes model locally (within abstracts) as we did it our prediction using <em>XGB</em> because <em>lime</em> currently doesn’t support <em>quanteda.textmodels</em> package. Currently <em>lime</em> package only explains models developed using <code>mlr</code>, <code>xgboost</code>, <code>h2o</code>, <code>keras</code>, or <code>MASS</code>packages.</p>
+<h1 id="final-remarks">Final remarks</h1>
+<p>I have tried three different models and the level of accuracy has improved through my model choices. I see lots of beautiful things that we can take advantage of NLP for systematic reviews. However, the process is quite complex, computationally expensive and we don’t know which model works best unless we experiment several models with broad range of model parameters. I can see its tremendous potential even after such a tiny scratch on its surface. We don’t know what would happen if I process my abstracts using tf-idf, n-grams and redo my analysis with several models including deep learning, etc.</p>
+<h1 id="next-stop">Next stop</h1>
+<p><img src="nexstop.JPG" /></p>
+<p>Visualizing odds ratios/risk ratios in forest plots. See you. 👍</p>
+<h1 id="contact">Contact</h1>
+<p><span class="citation" data-cites="MihiretuKebede1">[@MihiretuKebede1]</span></p>
+<!--radix_placeholder_article_footer-->
+<div class="article-footer">
+  <p class="social_footer">
+    <span class="article-sharing">
+      Share: &nbsp;
+      <a href="https://twitter.com/share?text=XGboost%2C%20Naive%20Bayes%20and%20SVM%20Machine%20learning%20algorithms%20for%20facilitating%20title-abstract%20screening%20in%20systematic%20reviews%3A%20predicting%20inclusion%2Fexclusion%20of%20abstracts&amp;url=http%3A%2F%2Fwww.mihiretukebede.com%2Fposts%2F2020-08-27-text-machine-learning%2F">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3A%2F%2Fwww.mihiretukebede.com%2Fposts%2F2020-08-27-text-machine-learning%2F&amp;title=XGboost%2C%20Naive%20Bayes%20and%20SVM%20Machine%20learning%20algorithms%20for%20facilitating%20title-abstract%20screening%20in%20systematic%20reviews%3A%20predicting%20inclusion%2Fexclusion%20of%20abstracts">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://www.facebook.com/sharer/sharer.php?s=100&amp;p[url]=http%3A%2F%2Fwww.mihiretukebede.com%2Fposts%2F2020-08-27-text-machine-learning%2F">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://plus.google.com/share?url=http%3A%2F%2Fwww.mihiretukebede.com%2Fposts%2F2020-08-27-text-machine-learning%2F">
+        <i class="fab fa-google-plus"></i>
+      </a>
+      <a href="https://pinterest.com/pin/create/link/?url=http%3A%2F%2Fwww.mihiretukebede.com%2Fposts%2F2020-08-27-text-machine-learning%2F&amp;description=XGboost%2C%20Naive%20Bayes%20and%20SVM%20Machine%20learning%20algorithms%20for%20facilitating%20title-abstract%20screening%20in%20systematic%20reviews%3A%20predicting%20inclusion%2Fexclusion%20of%20abstracts">
+        <i class="fab fa-pinterest"></i>
+      </a>
+    </span>
+  </p>
+</div>
+<!--/radix_placeholder_article_footer-->
+</div>
+
+<div class="d-appendix">
+</div>
+
+
+<!--radix_placeholder_site_after_body-->
+<!--/radix_placeholder_site_after_body-->
+<!--radix_placeholder_appendices-->
+<div class="appendix-bottom">
+  <h3 id="citation">Citation</h3>
+  <p>For attribution, please cite this work as</p>
+  <pre class="citation-appendix short">Kebede(PhD) (2020, Aug. 28). Aspire Data Solutions: XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts. Retrieved from http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/</pre>
+  <p>BibTeX citation</p>
+  <pre class="citation-appendix long">@misc{kebede(phd)2020xgboost,,
+  author = {Kebede(PhD), Mihiretu},
+  title = {Aspire Data Solutions: XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts},
+  url = {http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/},
+  year = {2020}
+}</pre>
+</div>
+<!--/radix_placeholder_appendices-->
+<!--radix_placeholder_navigation_after_body-->
+<!--/radix_placeholder_navigation_after_body-->
+
+</body>
+
+</html>
