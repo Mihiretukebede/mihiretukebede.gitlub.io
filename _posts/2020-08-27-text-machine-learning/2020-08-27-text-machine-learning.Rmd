@@ -18,8 +18,6 @@ output:
     widerscreen: true
 ---
 
-
-
 # Introduction
 
 Several thousands of papers are being published everyday. A paper published about a decade ago wrote "the total number of science papers published since 1665 passed 50 million. About 2.5 million new scientific papers are published each year." In the introduction section of one of [my previous systematic review](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6305167/), I wrote "The number of published research doubles every 9 years and its growth particularly in medicine and health care is exponential."
@@ -187,7 +185,7 @@ confusionMatrix(as.factor(predict), as.factor(test$Include))
 
 It resulted 93.5% accuracy. In real world setting this may not happen because we will work on highly related titles and abstracts. My experiment brings two somehow related documents (SARS and covid19). ALthough we are explcitly looking for covid papers, I assigned some of the covid papers to be excluded just to add some confusion.
 
-Let's pick two abstracts(Abstract #89 and #271) and see what are the most important terms of the abstract that xgboost used for its predictions. We will use *lime* package to explain the predictions
+Let's pick two abstracts(Abstract \#89 and \#271) and see what are the most important terms of the abstract that xgboost used for its predictions. We will use *lime* package to explain the predictions
 
 ## Abstract number 89
 
@@ -206,11 +204,12 @@ explanation89 <- lime::explain(ab_to_explain89, explainer89, n_labels=1,
 ```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 explanation89[, 2:10]
 ```
+
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 lime::plot_features(explanation89)
 ```
 
-The word sars is most important word that xgb model used to predict the exclusion of this this abstract.  
+The word sars is most important word that xgb model used to predict the exclusion of this this abstract.
 
 ```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 lime::plot_text_explanations(explanation89)
@@ -235,24 +234,26 @@ explanation <- explain(ab_to_explain, explainer, n_labels=1,
 ```{r dpi=200, cache=T, include=T,  echo=T, message=FALSE, warning=FALSE}
 explanation[, 2:10]
 ```
+
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 plot_features(explanation)
 ```
-
 
 ```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 plot_text_explanations(explanation)
 
 ```
-The word corona is used for predicting "Include" with 67% probability. 
 
-The above modelling is dirty.It didn't use only the relevant words. I will use *quanteda* package to remove all irrelavnt words. 
+The word corona is used for predicting "Include" with 67% probability.
+
+The above modelling is dirty.It didn't use only the relevant words. I will use *quanteda* package to remove all irrelavnt words.
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 library (quanteda)
 ```
 
 # Create corpus
+
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 names(train) 
 train_data <- train[, c(5,6)]  # I need only some of my variables: include, and BIBTEXKEY. I don't need the rest of the variables for now. The BIBTEX key variable helps me to identify the papers it is written like Authoryyyy.1. I will use it to attach as a document identifier. 
@@ -399,8 +400,7 @@ tab_class
 confusionMatrix(tab_class, mode = "everything")
 ```
 
-Our models predicted the test data set with 87.6% accuracy. This is woderful! The other model performance parameters are also very promising.
-# How about Support Vector Machines? 
+Our models predicted the test data set with 87.6% accuracy. This is woderful! The other model performance parameters are also very promising. \# How about Support Vector Machines?
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 train_svm <- textmodel_svm(train_dfmat,train_data$Include, weight="uniform") # There are three weighting options. I don't have problem of class imbalance, let me just use the default "uniform"
@@ -427,15 +427,14 @@ One limitation of implementing these models using *quanteda.textmodels* is we ca
 
 # Final remarks
 
-I have tried three different models and the level of accuracy has improved through my model choices.
-I see lots of beautiful things that we can take advantage of NLP for systematic reviews. However, the process is quite complex, computationally expensive and we don't know which model works best unless we experiment several models with broad range of model parameters. I can see its tremendous potential even after such a tiny scratch on its surface. We don't know what would happen if I process my abstracts using tf-idf, n-grams and redo my analysis with several models including deep learning, etc.
+I have tried three different models and the level of accuracy has improved through my model choices. I see lots of beautiful things that we can take advantage of NLP for systematic reviews. However, the process is quite complex, computationally expensive and we don't know which model works best unless we experiment several models with broad range of model parameters. I can see its tremendous potential even after such a tiny scratch on its surface. We don't know what would happen if I process my abstracts using tf-idf, n-grams and redo my analysis with several models including deep learning, etc.
 
 # Next stop
 
 ![](nexstop.JPG)
 
-Visualizing odds ratios/risk ratios in forest plots. See you. 
+Visualizing odds ratios/risk ratios in forest plots. See you.
 
 # Contact
 
-[*@MihiretuKebede1*](https://twitter.com/MihiretuKebede1)
+[@MihiretuKebede1]
