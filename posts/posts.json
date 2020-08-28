@@ -1,0 +1,126 @@
+[
+  {
+    "path": "posts/2020-08-27-text-machine-learning/",
+    "title": "XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts",
+    "description": "Machine learning methods for document classification.",
+    "author": [
+      {
+        "name": "Mihiretu Kebede(PhD)",
+        "url": {}
+      }
+    ],
+    "date": "2020-08-28",
+    "categories": [],
+    "preview": "posts/2020-08-27-text-machine-learning/2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-26-1.png",
+    "last_modified": "2020-08-28T20:09:26+02:00",
+    "input_file": {},
+    "preview_width": 2600,
+    "preview_height": 1600
+  },
+  {
+    "path": "posts/2020-08-10-2020-08-10-text-analysis-of-covid-publications/",
+    "title": "Applying text analyses methods on 382 COVID19 journal articles",
+    "description": "This blog post is a continuation of my previous blog post on applications of text mining on sampled COVI19 publications.",
+    "author": [
+      {
+        "name": "Mihiretu Kebede(PhD)",
+        "url": {}
+      }
+    ],
+    "date": "2020-08-11",
+    "categories": [],
+    "preview": "posts/2020-08-10-2020-08-10-text-analysis-of-covid-publications/2020-08-10-text-analysis-of-covid-publications_files/figure-html5/unnamed-chunk-14-1.png",
+    "last_modified": "2020-08-28T21:31:40+02:00",
+    "input_file": {},
+    "preview_width": 2600,
+    "preview_height": 1600
+  },
+  {
+    "path": "posts/2020-08-04-2020-08-04-abiyahmed/",
+    "title": "Digital Reactions Towards Prime Minister Abiy Ahmed's Facebook Activities.",
+    "description": "Let's have some fun in visualizing Facebook reactions to prime minister Abiy Ahmed's Facebook posts (June 24 to August 09). This post is an updated version. The previous analysis was only until August 5.",
+    "author": [
+      {
+        "name": "Mihiretu Kebede(PhD)",
+        "url": {}
+      }
+    ],
+    "date": "2020-08-06",
+    "categories": [],
+    "preview": "posts/2020-08-04-2020-08-04-abiyahmed/2020-08-04-abiyahmed_files/figure-html5/unnamed-chunk-5-1.png",
+    "last_modified": "2020-08-27T23:07:23+02:00",
+    "input_file": {},
+    "preview_width": 2600,
+    "preview_height": 1600
+  },
+  {
+    "path": "posts/2020-08-03-2020-08-03-covid19/",
+    "title": "Applying bibliometric analysis and text mining to COVID-19 publications",
+    "description": "Let's have a quick overview of what on COVID-19 related records were added in PubMed on August 03/2020.",
+    "author": [
+      {
+        "name": "Mihiretu Kebede (PhD)",
+        "url": {}
+      }
+    ],
+    "date": "2020-08-04",
+    "categories": [],
+    "preview": "posts/2020-08-03-2020-08-03-covid19/pic.jpg",
+    "last_modified": "2020-08-27T23:07:23+02:00",
+    "input_file": {}
+  },
+  {
+    "path": "posts/2020-07-25-2020-07-25-diabetesprevalenceeurope/",
+    "title": "Visualizing the prevalence of diabetes in six European countries, 1990-2017",
+    "description": "This is a quick demonstration of diabetes prevalence in six European countries. The data are from the the Institute of Health Metrics and Evaluation (IHME).",
+    "author": [
+      {
+        "name": "Mihiretu Kebede(PhD)",
+        "url": {}
+      }
+    ],
+    "date": "2020-07-25",
+    "categories": [],
+    "preview": "posts/2020-07-25-2020-07-25-diabetesprevalenceeurope/2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-5-1.png",
+    "last_modified": "2020-08-27T23:07:23+02:00",
+    "input_file": {},
+    "preview_width": 1248,
+    "preview_height": 768
+  },
+  {
+    "path": "posts/2020-07-19-animating-scatter-plots/",
+    "title": "Animating scatter plots",
+    "description": "Creating `Gif` for scatter plots",
+    "author": [
+      {
+        "name": "Mihiretu Kebede(PhD)",
+        "url": {}
+      }
+    ],
+    "date": "2020-07-21",
+    "categories": [],
+    "preview": "posts/2020-07-19-animating-scatter-plots/07-19-2020-animating-scatter-plots_files/figure-html5/setup-1.png",
+    "last_modified": "2020-08-27T23:07:23+02:00",
+    "input_file": {},
+    "preview_width": 1248,
+    "preview_height": 768
+  },
+  {
+    "path": "posts/2020-07-13-Animating-bar-graphs_files/",
+    "title": "Animating bar graphs",
+    "description": "Here we will have a quick look on how to create `Gif` or animated bar plots",
+    "author": [
+      {
+        "name": "Mihiretu Kebede",
+        "url": {}
+      }
+    ],
+    "date": "2020-07-13",
+    "categories": [],
+    "preview": "posts/2020-07-13-Animating-bar-graphs_files/2020-07-13-Animating-bar-graphs_files/figure-html5/unnamed-chunk-2-1.png",
+    "last_modified": "2020-08-27T23:07:23+02:00",
+    "input_file": {},
+    "preview_width": 1248,
+    "preview_height": 768
+  }
+]
