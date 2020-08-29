@@ -33,69 +33,85 @@ In this blog post, I want to try one of the many available methods available to 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 library(dplyr) #for data management
 library(ggplot2) #for plotting
-library(dplyr)
 library(bib2df) #for converting bib file to data frame
-library(xgboost) 
-library(lime) #for explaining machine learning models
+library(xgboost) # for building extreme gradient boosting 
+library(lime) #for explaining the machine learning models
 
 
 ```
 
 # Data
 
-I will use the COVID19 data that I used in my previous [blog post](http://www.mihiretukebede.com/posts/2020-08-03-2020-08-03-covid19/). In addition, I have added new reference data by searching SARS papers published from January 1/2003 until September 12/2003.
+I used the covid19 data that I used in my previous [blog post](http://www.mihiretukebede.com/posts/2020-08-03-2020-08-03-covid19/). In addition, I have added new reference data by searching SARS papers published from January 1/2003 until September 12/2003.
 
-I will reuse some of my previous codes here again.
+As I did in my last blog, I read my files using the beautiful bib2df package. You can also use `**bibliometrix**` or `**revtools**` packages to convert bibtex files to data frame in R. With `**revtools**`, you can also convert *.ris* files to data frame. Awesome! 😍
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
-library(bib2df)
-library(dplyr)
-
-covid <- bib2df("covid19.bib") %>% # imprort references
-  filter(!is.na(ABSTRACT)) %>% # select only papers with no missing abstract
-  select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY") # Select few variables 
-  
-
-# 2003 corona virus
-covexclude <- bib2df("covexclude.bib") %>% 
-  filter(!is.na(ABSTRACT)) %>% 
-  select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY")
-
-cov2003 <- bib2df("cov2003.bib") %>% 
-  filter(!is.na(ABSTRACT)) %>% 
-  select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY")
-
-# Now import the TB data
-sars <- bib2df("sars.bib") %>% 
-  filter(!is.na(ABSTRACT)) %>% 
-  select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY")
+# library(bib2df)
+# library(dplyr)
+# 
+# covid <- bib2df("covid19.bib") %>% # import references
+#   filter(!is.na(ABSTRACT)) %>% # select only papers with no missing abstract
+#   select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY") # Select few variables 
+#   
+# 
+# # 2003 corona virus
+# covexclude <- bib2df("covexclude.bib") %>% 
+#   filter(!is.na(ABSTRACT)) %>% 
+#   select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY")
+# 
+# cov2003 <- bib2df("cov2003.bib") %>% 
+#   filter(!is.na(ABSTRACT)) %>% 
+#   select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY")
+# 
+# # Now import the TB data
+# sars <- bib2df("sars.bib") %>% 
+#   filter(!is.na(ABSTRACT)) %>% 
+#   select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY")
 
 ```
 
+Assume we are only looking for COVID19 papers to include in our review. That means we will need to exclude all SARS papers published in 2003. I used a simple include/exclude decisions.
 
-Assume we are only looking for COVID19 papers to include in our review. That means we will need to exclude all SARS papers published in 2003. I will simply use a simple include/exclude decisions.
+We will now create a new binary factor factor variable called "Include". We will then assign 1 for all covid papers and 0 for all SARS papers. To make the decisions look more in real world setting, I excluded 40 COVID papers published in August 22/2020. This has nothing to do with the contents of the papers. I am arbitrarily excluding the papers to make it look like a real world title/abstract screening process rather than a random decision.
 
-We will now create a new binary factor factor variable called "Include". We will then assign 1 for all covid papers and 0 for all SARS papers. To make the decissions look more in real world setting, I excluded 40 COVID papers published in August 22/2020. This has nothing to do with the contents of the papers. I am arbitrarily excluding the papers to make it look like a real world title/abstract screening not just a random decision.
-
-After that I will merge the two data frames with a simple rbind() code
+After that I merged the two data frames with a simple rbind() code. I had a problem rendering UTF-8 characters in my github page for this blog post. So I have instead read everything using bib2df and then from there I wrote them in xlsx file. After that I simply read my excel file in R and did the whole analysis using the excel file.
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 # Exclude all covid papers
-covid$Include <- 1
+# covid$Include <- 1 # coded them as included
+# 
+# covexclude$Include <- 0 # excluded
+# 
+# cov2003$Include <- 1 # included
+# sars$Include <- 0 # excluded
+# 
+# # Now merge the tw data frames
+# covid_sars <- rbind(covid, covexclude, sars, cov2003) # combine
+# 
 
-covexclude$Include <- 0
+# write.xlsx(covid_sars, file = "covidsars.xlsx",
+#            sheetName = "covidsars", append = FALSE) 
+```
 
-cov2003$Include <- 1
-sars$Include <- 0
+```{r}
+library(readxl)
+library(dplyr)
+covid_sars <- read_excel("covidsars.xlsx")
+glimpse(covid_sars)
 
-# Now merge the tw data frames
-covid_sars <- rbind(covid, covexclude, sars, cov2003)
+#of characters
+covid_sars$abstract_length <- nchar(covid_sars$abstract)
+summary(covid_sars$abstract_length) 
+# Select only records with more than 300 characters 
+
+covid_sars <- covid_sars %>% 
+  filter(abstract_length > 200)
+
 
 ```
 
-
-
-# Now check number of included and excluded papers
+# Check number of included/excluded papers
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 library(dplyr)
@@ -110,11 +126,11 @@ covid_sars$Include[covid_sars$Include=="0"]<-"not included"
 table(covid_sars$Include) %>% prop.table() #66% excluded, 34% included
 ```
 
-# Now split the data
+# Split the data
 
 ![image](datasplit.JPG)
 
-Machine learning algorithms require our data to be split into training and testing. The training data will be used to train the model and the testing data sets will be used to make predictions by deploying the model developed using the training sets. There are different ways of splitting our data to training and testing split. You may use *base R*, *Resample* or *Caret* package to easily perform this task. Here, I will use my favorite R packager: the Caret package. We will use 70/30 split which means 70% of my data will be assigned to the training set and 30% the data will be used for test sets.
+Machine learning algorithms require our data to be split into training and testing. The training data will be used to train the model and the testing data sets will be used to make predictions by deploying the model developed using the training sets. There are different ways of splitting our data to training and testing split. You may use *base R*, *Resample* or *Caret* package to easily perform this task. Here, I will use my favorite R packager: the ***`Caret`*** package. We will use 70/30 split which means 70% of my data will be assigned to the training set and 30% the data will be used for test sets.
 
 I will need to stratify my data split by my dependent variable. That means my train and test data will have exactly similar proportion for the outcome variable responses as the original data sets. That is 51% for excluded (coded as 0) and 49% for included (coded as 1). The data is nearly balanced. We don't have the curse of class imbalance here, awesome!
 
@@ -150,8 +166,8 @@ get_matrix <- function(text) {
   create_dtm(it, vectorizer = hash_vectorizer())
 }
 
-dtm_train = get_matrix(train$ABSTRACT)
-dtm_test = get_matrix(test$ABSTRACT)
+dtm_train = get_matrix(train$abstract)
+dtm_test = get_matrix(test$abstract)
 
 ```
 
@@ -174,7 +190,9 @@ xgb_model <- xgb.train(
 )
 ```
 
-Now let's use our model to predict the test set
+Use the model to predict the test set
+
+![We Can Predict The Future Prediction GIF - WeCanPredictTheFuture Future Prediction - Discover & Share GIFs](https://media1.tenor.com/images/cf0a345aeb412c875330ae58362b63af/tenor.gif?itemid=15335500)
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 library(caret)
@@ -196,7 +214,7 @@ Let's pick two abstracts(Abstract \#89 and \#271) and see what are the most impo
 We need to use *`lime::`* to avoid conflicts with `dplyr`package
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
-ab_to_explain89 <- head(test[89,]$ABSTRACT, 6)
+ab_to_explain89 <- head(test[89,]$abstract, 6)
 
 explainer89 <- lime::lime(ab_to_explain89, model = xgb_model, 
                   preprocess = get_matrix)
@@ -213,7 +231,7 @@ explanation89[, 2:10]
 lime::plot_features(explanation89)
 ```
 
-The word sars is most important word that xgb model used to predict the exclusion of this this abstract.
+The word **sars** is most important word that xgb model used to predict the exclusion of this this abstract.
 
 ```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 lime::plot_text_explanations(explanation89)
@@ -225,7 +243,7 @@ lime::plot_text_explanations(explanation89)
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 library(lime)
 
-ab_to_explain <- head(test[271,]$ABSTRACT, 6)
+ab_to_explain <- head(test[283,]$abstract, 6)
 
 explainer <- lime(ab_to_explain, model = xgb_model, 
                   preprocess = get_matrix, 
@@ -248,7 +266,7 @@ plot_text_explanations(explanation)
 
 ```
 
-The word corona is used for predicting "Include" with 67% probability.
+The word **corona** is used for predicting "Include" with 87% prediction probability.
 
 The above modelling is dirty.It didn't use only the relevant words. I will use *quanteda* package to remove all irrelavnt words.
 
@@ -260,11 +278,11 @@ library (quanteda)
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 names(train) 
-train_data <- train[, c(5,6)]  # I need only some of my variables: include, and BIBTEXKEY. I don't need the rest of the variables for now. The BIBTEX key variable helps me to identify the papers it is written like Authoryyyy.1. I will use it to attach as a document identifier. 
+train_data <- train[, 6]  # I need only some of my variables: title, include, and label variable I don't need the rest of the variables for now. The label variable helps me to identify the papers it is written like Authoryyyy. I will use it to attach as a document identifier. 
 
 # Now build the corpus using abstracts of the papers
-train_corpus <- corpus(train$ABSTRACT, 
-                     docvars = data.frame(abstract_BIBTEX = names(train_data))) # I added the docvars to save the additional variables other than the abstract
+train_corpus <- corpus(train$abstract, 
+                     docvars = data.frame(abstract_label = names(train_data))) # I added the docvars to save the additional variables other than the abstract
 
 ```
 
@@ -274,18 +292,18 @@ Similarly for the test set
 names(test) 
 
 test1 <- test %>% 
-  filter(BIBTEXKEY!="NA")
+  filter(label!="NA")
 
-test_data <- test1[, c(5,6)] 
+test_data <- test1[,6] 
 
-test_corpus <- corpus(test1$ABSTRACT)
+test_corpus <- corpus(test1$abstract)
 
 ```
 
 Add document identifier for both test and training set data
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
-docid <- paste(train$BIBTEXKEY)
+docid <- paste(train$label)
 docnames(train_corpus) <- docid
 print(train_corpus)
 ```
@@ -293,7 +311,7 @@ print(train_corpus)
 Attach the document identifier also for the test set
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
-docidtest <- paste(test1$BIBTEXKEY)
+docidtest <- paste(test1$label)
 docnames(test_corpus) <- docidtest
 print(test_corpus)
 ```
@@ -352,6 +370,8 @@ nfeat(test_dfmat)
 
 # Vizualize the test and train document feature matrices
 
+***\"When you visualize, then you materialize.\" Denis Waitley***
+
 Vizualizing the data is very importnat. Let's see how the wordclouds look for train and test abstracts.
 
 ```{r dpi=200, preview=TRUE, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
@@ -371,7 +391,7 @@ textplot_wordcloud(test_dfmat, min_count = 20,max_words = 400,
 
 Both plots of the test and train data are comparable.
 
-# Document classification using Naive Bayes
+# Prediction using Naive Bayes model
 
 I need the following packages
 
@@ -382,7 +402,8 @@ library(caret)
 ```
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
-naive_bayes <- textmodel_nb(train_dfmat,train_data$Include)
+
+naive_bayes <- textmodel_nb(train_dfmat,train$Include)
 summary(naive_bayes)
 ```
 
@@ -394,7 +415,7 @@ matched_dfmat <- dfm_match(test_dfmat, features = featnames(train_dfmat))
 ```
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
-actual_class <- test_data$Include
+actual_class <- test$Include
 predicted_class <- predict(naive_bayes, newdata = matched_dfmat)
 tab_class <- table(predicted_class, actual_class )
 tab_class
@@ -404,16 +425,16 @@ tab_class
 confusionMatrix(tab_class, mode = "everything")
 ```
 
-Our models predicted the test data set with 87.6% accuracy. This is woderful! The other model performance parameters are also very promising. \# How about Support Vector Machines?
+Our models predicted the test data set with 89.5% accuracy. This is wonderful! The other model performance parameters are also very good. How about Support Vector Machines?
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
-train_svm <- textmodel_svm(train_dfmat,train_data$Include, weight="uniform") # There are three weighting options. I don't have problem of class imbalance, let me just use the default "uniform"
+train_svm <- textmodel_svm(train_dfmat,train$Include, weight="uniform") # There are three weighting options. I don't have problem of class imbalance, let me just use the default "uniform"
 ```
 
-# Predict the test set using SVM
+# Predict the test set using SVM model
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
-Actual <- test_data$Include
+Actual <- test$Include
 predicted_class_svm <- predict(train_svm, newdata = matched_dfmat)
 tab_class_svm <- table(predicted_class_svm, Actual )
 tab_class_svm
@@ -425,22 +446,21 @@ tab_class_svm
 confusionMatrix(tab_class_svm, mode = "everything")
 ```
 
-SVM prediction is quite remarkable. Almost 92.6% accurate prediction. This is cool. Look at the other performance measures: sensitivity, specificity, PVP, NPV, recall, precision. They are all more than 90%!
+SVM prediction is quite remarkable. Almost 92.5% accurate prediction. This is cool. Look at the other performance measures: sensitivity, specificity, PVP, NPV, recall, precision. They are all more than 90%!
 
 One limitation of implementing these models using *quanteda.textmodels* is we cannot benefit the great advantages of *lime* package, we cannot use *lime* to explain our naive\_bayes model locally (within abstracts) as we did it our prediction using *XGB* because *lime* currently doesn't support *quanteda.textmodels* package. Currently *lime* package only explains models developed using `mlr`, `xgboost`, `h2o`, `keras`, or `MASS`packages.
 
 # Final remarks
 
-I have tried three different models and the level of accuracy has improved through my model choices. I see lots of beautiful things that we can take advantage of NLP for systematic reviews. However, the process is quite complex, computationally expensive and we don't know which model works best unless we experiment several models with broad range of model parameters. I can see its tremendous potential even after such a tiny scratch on its surface. We don't know what would happen if I process my abstracts using tf-idf, n-grams and redo my analysis with several models including deep learning, etc.
+I have tried three different models and the level of accuracy has improved through my model choices. I see lots of beautiful things that we can take advantage of NLP for systematic reviews. However, the process is quite complex, computationally expensive and we don't know which model works best unless we experiment several models with broad range of model parameters. I can see its tremendous potential even after such a tiny scratch on its surface. We don't know how much I will gain in improving the prediction accuraies if I process my abstracts using `*tf-idf*`, n-grams, the might cross-validation processes, and redo my analysis with several models including deep learning, etc.
 
 # Next stop
 
-![](nexstop.JPG)
-
 Visualizing odds ratios/risk ratios in forest plots. See you! 👍
+
+![Trains GIFs \| Tenor](https://media.tenor.com/images/ed15fe5ceca132793f32df5b383a30ed/tenor.gif){width="478"}
+
 
 # Contact
 
-[@MihiretuKebede1](https://twitter.com/MihiretuKebede1)
-
-
+[@MihiretuKebede1](<https://twitter.com/MihiretuKebede1>)

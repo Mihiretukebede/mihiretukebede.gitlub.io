@@ -11,3 +11,5 @@ quanteda
 RColorBrewer
 quanteda.textmodels
 enc
+revtools
+readxl
