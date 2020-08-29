@@ -69,7 +69,9 @@ cov2003 <- bib2df("cov2003.bib") %>%
 sars <- bib2df("sars.bib") %>% 
   filter(!is.na(ABSTRACT)) %>% 
   select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY")
+
 ```
+
 
 Assume we are only looking for COVID19 papers to include in our review. That means we will need to exclude all SARS papers published in 2003. I will simply use a simple include/exclude decisions.
 
@@ -89,8 +91,9 @@ sars$Include <- 0
 # Now merge the tw data frames
 covid_sars <- rbind(covid, covexclude, sars, cov2003)
 
-
 ```
+
+
 
 # Now check number of included and excluded papers
 
@@ -116,6 +119,7 @@ Machine learning algorithms require our data to be split into training and testi
 I will need to stratify my data split by my dependent variable. That means my train and test data will have exactly similar proportion for the outcome variable responses as the original data sets. That is 51% for excluded (coded as 0) and 49% for included (coded as 1). The data is nearly balanced. We don't have the curse of class imbalance here, awesome!
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+
 library(caret)
 set.seed(3456) # for reproducibility
 

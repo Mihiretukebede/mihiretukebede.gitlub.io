@@ -51,7 +51,7 @@ library(bib2df) #for converting bib file to data frame
 library(wordcloud) #for plotting most frequent words
 ```
 
-# Import the data to R: Covert the BibTeX file to data frame
+# Import the data to R: Covert the BibTeX file to data frame 
 
 ```{r, cache=T, eval=FALSE,error=FALSE, include=T, echo=T, message=FALSE, warning=FALSE}
 covid19_bibanalysis <- convert2df("covid19.bib", dbsource = "isi", format = "bibtex")
