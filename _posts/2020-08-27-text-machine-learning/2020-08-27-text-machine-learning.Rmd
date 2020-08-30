@@ -454,7 +454,7 @@ One limitation of implementing these models using *quanteda.textmodels* is we ca
 
 # Final remarks
 
-I have tried three different models and the level of accuracy has improved through my model choices. I see lots of beautiful things that we can take advantage of NLP for systematic reviews. However, the process is quite complex, computationally expensive and we don't know which model works best unless we experiment several models with broad range of model parameters. I can see its tremendous potential even after such a tiny scratch on its surface. We don't know how much I will gain in improving the prediction accuraies if I process my abstracts using `*tf-idf*`, n-grams, the mighty cross-validation processes, and redo my analysis with several models including deep learning, etc.
+I have tried three different models and the level of accuracy has improved through my model choices. I see lots of beautiful things that we can take advantage of NLP for systematic reviews. However, the process is quite complex, computationally expensive and we don't know which model works best unless we experiment several models with broad range of model parameters. I can see its tremendous potential even after such a tiny scratch on its surface. We don't know how much I will gain in improving the prediction accuracies if I process my abstracts using `*tf-idf*`, n-grams, the mighty cross-validation processes, and redo my analysis with several models including deep learning, etc.
 
 # Next stop
 
@@ -464,4 +464,4 @@ Visualizing odds ratios/risk ratios in forest plots. See you! 👍
 
 # Contact
 
-[@MihiretuKebede1](https://twitter.com/MihiretuKebede1)
+[@MihiretuKebede1](https://twitter.com/MihiretuKebede1) 
