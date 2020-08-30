@@ -7,7 +7,7 @@ google_analytics: "UA-173027539-1"
 
 description: |
    Machine learning methods for document classification. 
-preview: previewwordcloud.jpeg
+preview: previewwordcloud.jpg
 
 collections:
   posts:
