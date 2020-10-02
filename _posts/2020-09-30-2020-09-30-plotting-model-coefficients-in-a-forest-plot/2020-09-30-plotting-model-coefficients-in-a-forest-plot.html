@@ -2195,7 +2195,7 @@ plot_lm &lt;- coef_confint[-1,] %&gt;%  #remove row number 1 (The intercept)
                 position = &quot;dodge&quot;, color=&quot;turquoise4&quot;) +
   theme(axis.title = element_text(face = &quot;bold&quot;)) +
   xlab(&quot;Variables&quot;) + ylab(&quot;Beta coeffecients with 95% CI&quot;) +
-  coord_flip(ylim = c(-0.5, 1.6)) + 
+  coord_flip(ylim = c(-2.5, 1.6)) + 
   geom_hline(yintercept = 0, color = &quot;red&quot;, size = 1) +
    theme(axis.title = element_text(size = 17)) + 
   theme(axis.text = element_text(size = 14)) 
