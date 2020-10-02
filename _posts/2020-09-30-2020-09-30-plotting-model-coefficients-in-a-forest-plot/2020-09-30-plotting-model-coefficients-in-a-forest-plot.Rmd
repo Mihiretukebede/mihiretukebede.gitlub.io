@@ -422,6 +422,7 @@ We can use the models for predictions.
 
 ```{r}
 library(caret)
+set.seed(123) #for reproducibility
 (cv_lm <-  train(life_expectancy ~ total_expenditure + 
              schooling + adult_mortality + infant_deaths + thinness_1_19_years +
             alcohol + status, data=life_exp_new, 
@@ -433,7 +434,9 @@ How do you interpret the above cross validated loss functions(eg.RMSE)?
 
 If the linear model is applied to unseen data, it will predict life expectancy about 4.6 years off from the actual life expectancy of a country. That was great. Unfortunately, the model did not satisfy the assumptions. Let's now evaluate our logistic regression
 
+
 ```{r}
+set.seed(123)
 (cv_logit <-  train(life_exp_cat ~ total_expenditure + 
              schooling + adult_mortality + infant_deaths + thinness_1_19_years +
             alcohol + status, data=life_exp_new, 
@@ -441,7 +444,7 @@ If the linear model is applied to unseen data, it will predict life expectancy a
             trControl = trainControl(method="cv", number=10)))
 ```
 
-The logistic regression model predicts the data with 83% accuracy. Ideally, we have to split the data into test and train set and perform the performance evaluation using confusion matrix functions.
+The logistic regression model predicts the data with 84.5% accuracy. Ideally, we have to split the data into test and train set and perform the performance evaluation and tabulate results using confusion matrix functions.
 
 Yes, I did it. Thank you for reading this post. In my next blog post, will write about more advanced generalized linear models(Lasso, ridge and elastic net).
 
