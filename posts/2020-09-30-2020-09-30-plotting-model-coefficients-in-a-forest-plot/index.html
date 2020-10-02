@@ -2818,11 +2818,13 @@ plot_logit_model &lt;- or_CI[-1,] %&gt;%  #remove row number 1 (The intercept)
   coord_flip(ylim = c(0, 2.5)) + 
   geom_hline(yintercept = 1, color = &quot;red&quot;, size = 1) +
    theme(axis.title = element_text(size = 17)) + 
-  theme(axis.text = element_text(size = 14)) </code></pre>
+  theme(axis.text = element_text(size = 14)) 
+plot_logit_model</code></pre>
+<p><img src="2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-28-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="r"><code>
-plot_lm + scale_x_discrete(breaks = c(&quot;statusDeveloping&quot;, &quot;alcohol&quot;,
+plot_logit_model + scale_x_discrete(breaks = c(&quot;statusDeveloping&quot;, &quot;alcohol&quot;,
                                     &quot;thinness_1_19_years&quot;, 
                                     &quot;adult_mortality&quot;,&quot;infant_deaths&quot;,
                                     &quot;total_expenditure&quot;, &quot;schooling&quot;),
