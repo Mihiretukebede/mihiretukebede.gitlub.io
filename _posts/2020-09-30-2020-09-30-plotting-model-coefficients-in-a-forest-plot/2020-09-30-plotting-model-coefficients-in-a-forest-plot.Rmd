@@ -1,0 +1,452 @@
+---
+name: "Aspire Data Solutions"
+title: "Plotting regression model coefficients in a forest plot"
+author: Mihiretu Kebede(PhD)
+url: http://www.mihiretukebede.com/ 
+google_analytics: "UA-173027539-1" 
+
+description: |
+   How to plot model coefficients in a forest plot. 
+preview: meskelflower.jpg
+
+collections:
+  posts:
+      share: [twitter, linkedin, facebook, google-plus, pinterest]
+      
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+# Motivation
+
+A friend of mine asked me to plot regression coefficients or odds ratios/risk ratios on a forest plots. Since my favorite part of data analysis is visualization, I happily took the challenge. R is a great language for powerful visualizations. As I promised in my previous blog post, I will describe how to visualize model coefficients/OR/RR in R. and their confidence intervals. For today, I will perform linear regression and logistic regression models. Then, I will extract coefficients(for linear regression) and ORs (for logistic regression). Many may prefer to present their analysis in tables. Compared to long and messy tables, plots can help us to quickly see patterns and grasp the the idea.
+
+A great novelist may use fancy words to describe the beauty of Afework Tekele's "Meskel Flower", but it can never be as memorable as the 1959's Afework Tekle's master piece.
+
+```{r, dpi=100, echo=FALSE, fig.cap="Meskel Flower by Afework Tekle, 1959"}
+knitr::include_graphics("meskelflower.jpg")
+```
+
+# Data
+
+The data that I will use for this blog post is from the Global Health Observatory (GHO) data repository. The data is publicly available data and has collected some economic and health related variables a long the years for 193 WHO member states. I will also use this data for my future post about missing value imputation methods. You are free to download a copy of this data from my GitHub repository or from the original source.
+
+I will use the `readr`package to read the csv file and use glm and lm to do the linear regression and logistic regression modeling. I will mention other relevant packages and their use along the way.
+
+# Load the data
+
+```{r setup, include=TRUE}
+library(readr) #for reading the csv file
+library(dplyr) #for data manipulation
+life_expe <- read_csv("life_expectancy.csv")
+names(life_expe) 
+```
+
+Look at the variable names. They are not syntactically valid. That is why R puts variables inside the back tick and forward tick signs. I will use my favorite data cleaning package *janitor*, to quickly clean that messy variable naming with just one magically powerful function.
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+library(janitor)
+life_expe_data <- clean_names(life_expe)
+names(life_expe_data) # All variables names are automagically cleaned!
+
+glimpse(life_expe_data)
+```
+
+The above result shows the data has about 22 columns(variables) and 2928 rows(observations). Let me do a quick exploratory data analysis .
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+library(DataExplorer)
+plot_missing(life_expe_data) 
+```
+
+The missing value exploration plot shows, we don't have missing value of more than 25% for each variable. We don't have any variable that will be dropped using a complete deletion. In fact, the missing values are tolerable and performing imputation strategies is practically possible. I will be back on another blog post to perform missing value imputations using tree-based methods or KNN algorithms. For now, I will simply drop all observations with missing values!
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+life_exp_narm <- life_expe_data[complete.cases(life_expe_data), ] # This deletes all rows with missing values
+```
+
+There is another important function from the `DataExplorer`package to do a quick grasp of the distributions of my variables.
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+plot_histogram(life_exp_narm) # Almost all variables are skewed
+```
+
+# Modeling
+
+Since, the goal of this post is to plot model coefficients and confidence intervals in a forest plot, I will not go deeper in explaining models.I will use life expectancy as a dependent variable and use some predictors to do my linear models. Before that, I will do one quick visualization.
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+library(ggplot2) #for awesome plotting
+
+# let me rename the income variable
+names(life_exp_narm)[names(life_exp_narm) == "income_composition_of_resources"] <- "income_index"
+
+
+ggplot(life_exp_narm, aes(x=income_index, y=life_expectancy, col=status)) +
+  geom_point() 
+```
+
+The plot shows, as income index increases, life expectancy increases. In addition, the developed countries have higher income level and high life expectancy. However, there is really one very important thing visible in this plot. The income\_index variable has a lot of zeros values.
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+summary(life_exp_narm$income_index)
+sum(life_exp_narm$income_index==0) 
+```
+
+See, 48 observations have 0 value on income\_index. That must be missing data. I will filter out the observations with 0 values in this variable.
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+life_exp_new <- life_exp_narm %>% 
+  filter(income_index>0) # all with 0 values on income_index variable are removed
+```
+
+Now, we can visualize again with a little more tweaking.
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+life_exp_new %>% 
+  ggplot(aes(x=income_index, y=life_expectancy, col=status)) +
+  geom_point() + geom_smooth(method="lm", col="blue") 
+```
+
+We have now somehow clean data to start our modeling process. We may need to see the relations ship of income index with other variables. For now, I will skip that and directly proceed to my modeling.
+
+# Different way, similar result
+
+One of the great things, you can enjoy with R is there are many ways of doing the same thing.
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+lm1 <- lm(life_expectancy ~ total_expenditure + log(income_index) + adult_mortality + infant_deaths + alcohol + thinness_1_19_years + thinness_5_9_years + schooling + infant_deaths + status,data=life_exp_new)
+
+# We can do the same task using glm but defining the family argument as "gaussian"
+lm2 <- glm(life_expectancy ~ total_expenditure + log(income_index) + adult_mortality + infant_deaths + alcohol + thinness_1_19_years + thinness_5_9_years + schooling + infant_deaths + status,
+           data=life_exp_new, family = gaussian)
+
+```
+
+# See the model outputs
+
+The two approach produce similar outputs. But,lm has a shorter code than glm. So, many ppl prefer to use lm() for linear regression.
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE, message=FALSE}
+library(jtools) #for nice table model output
+summ(lm1,confint = TRUE, digits = 3, vifs = TRUE) # add vif to see if variance inflation factor is greater than 2
+
+summ(lm2,confint = TRUE, digits = 3, vifs=TRUE)
+
+
+```
+
+Seeing the vif value above 2 is evidence of multicollinearity in our model. Let's just use the HMISC package to find all correlation values for the variables in the model.
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE, message=FALSE}
+dat <- life_exp_narm %>% 
+  select(total_expenditure, income_index, adult_mortality , infant_deaths ,
+             alcohol, thinness_1_19_years, thinness_5_9_years, schooling)
+
+#library(corrplot)
+library(Hmisc)
+cor <- rcorr(as.matrix(dat))
+r <- cor$r %>% as.table()
+r
+```
+
+There is a high correlation(r=.93) between thinness\_1\_19\_years and thinness\_5\_9\_years, schooling and income\_index (r=0.78), schooling and alchohol. To deal with this multicollinearity problem, I will just drop one of the collinear variables because they just add a redundenent information in my model. Ideally, one can do a stepwise regression, or best subsets regression and then choose the model that has the highest R-squared value. But, we are simply dropping one of the variables. Let me drop *thinness\_5\_9\_years* (the variable *thinness\_1\_19\_years* actually carry the other variable: *thinness\_5\_9\_years*), and *income\_index* variables from my linear model and redo my analysis.
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+lm3 <- lm(life_expectancy ~ total_expenditure + 
+             schooling + adult_mortality + infant_deaths + thinness_1_19_years +
+            alcohol + status,
+          data=life_exp_new)
+
+summ(lm3,confint = TRUE, digits = 3, vifs=TRUE) 
+
+```
+
+Now, I don't have much evidence of multicollinearity (see the vif values). BINGO!
+
+There are many ways of visualizing my model outputs.
+
+```{r, include=TRUE, echo=TRUE, message=FALSE}
+library(broom)
+model_output <- tidy(lm3)
+out_conf <- tidy(lm3, conf.int = TRUE)
+
+library(forestmangr)
+lm_model_out <- round_df(out_conf, digits=2)
+lm_model_out <- lm_model_out[-1,] #remove the intercept 
+
+# Now plot them
+ggplot(lm_model_out, aes(x=reorder(term, estimate), y=estimate)) +
+         geom_errorbar(aes(ymin=conf.low, ymax=conf.high), 
+                       width = 0.2,size  = 1,
+                       position = "dodge", color="turquoise4") +
+  geom_hline(yintercept = 0, color = "red", size = 1) +
+  geom_point() + coord_flip() 
+```
+
+**Retrieve coefficients and their 95% CI**
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+coef <- coef(lm3)
+ConfidenceInterval <- confint(lm3)
+coef_confint <- cbind(coef, ConfidenceInterval) %>% as.data.frame()
+coef_confint <- coef_confint %>% mutate(variable=rownames(coef_confint))
+
+
+library(plyr) 
+coef_confint <- rename(coef_confint,c("coef" = "Beta",
+                                      `2.5 %` = "lower_bound", 
+                                      `97.5 %` = "upper_bound"))
+
+# We don't need to plot the intercept. We can remove it from our data
+
+
+# Reorder variables
+col_order <- c("variable", "Beta", "lower_bound", "upper_bound")
+coef_confint <- coef_confint[, col_order] #reorder variables in the data frame
+
+coef_confint <- coef_confint %>% 
+  mutate_if(is.numeric, round, digits = 2) # round numeric into two significant digits 
+```
+
+# Vizualize the coefficients once again
+
+Now, I have everything to visualize my coefficients and their respective confidence intervals in a forest plot.
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+plot_lm <- coef_confint[-1,] %>%  #remove row number 1 (The intercept) 
+  ggplot(aes(x=reorder(variable, Beta), y=Beta)) +
+  geom_point(shape = 15,
+             size  = 4, width = 0.1,
+             position = "dodge", color="black") + 
+  geom_errorbar(aes(ymin  = lower_bound,
+                    ymax  = upper_bound),
+                width = 0.2,
+                size  = 1,
+                position = "dodge", color="turquoise4") +
+  theme(axis.title = element_text(face = "bold")) +
+  xlab("Variables") + ylab("Beta coeffecients with 95% CI") +
+  coord_flip(ylim = c(-0.5, 1.6)) + 
+  geom_hline(yintercept = 0, color = "red", size = 1) +
+   theme(axis.title = element_text(size = 17)) + 
+  theme(axis.text = element_text(size = 14)) 
+
+plot_lm
+
+
+```
+
+The y-axis tick labels can be improved to correctly define the names. I can do that by bz renaming mz axis tick-labels in my ggplot code.
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+plot_lm + scale_x_discrete(breaks = c("statusDeveloping", 
+                                    "thinness_1_19_years", "alcohol",
+                                    "adult_mortality","total_expenditure", 
+                                    "infant_deaths", "schooling"),
+                           labels = c("Developing countries", "Thinness 1-19 yrs", 
+                                      "Alcohol consumption", 
+                                      "Adult MR", "Total expenditure",
+                                      "IMR", 
+                                      "Average school yrs")) 
+```
+
+There are also a handful of specialized r packages which are dedicated to do this job with a much shorter lines of codes. In the following part, I will use some of the packages to plot my model coefficients. Of the many packages available, `broom.mixed`, and `sJPlot`, `coefplot`,`dotwhisker`, `modelsummary`, etc are some of them. I will try broom.mixed and sJPlot
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE, message=FALSE}
+library(broom.mixed)
+
+plot_summs(lm3, scale = TRUE, size=3) 
+
+plot_summs(lm1, scale = TRUE, plot.distributions = TRUE, 
+           inner_ci_level = .9,
+           color.class = "darkgreen") 
+```
+
+One advantage of `broom.mixed`is it helps you visualize the distribution of the variable and besides the coefficient and the confidence interval. That helps to have a rough overview of normality.
+
+The variable names in the plots can be edited. But, for the sake of time, I am not going to do that.
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+library(sjPlot)
+plot_model(lm3, show.values = TRUE, value.offset = 0.3,
+           axis.labels=c("Developing countries", "Alcohol consumption",
+                         "Thinness 1-19 yrs","IMR", "Adult MR","Total expenditure",
+                         "Average school yrs"))
+```
+
+With SjPlot, it is much easier to label the coefficients in the plot.
+
+But, is linear regression model the right choice for our data. Did my model pass all key assumptions. I don't think so. Before I do anything I need to check whether the linear regression assumptions are fulfilled. To reject or accept our model, it must pass all the relevant assumptions. `gvlma` is a good package for checking that.
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+library(gvlma)
+gvlma(lm3)
+```
+
+All of the linear regression assumptions are violated. The above model is incorrect. Therefore, I have to decide whether to transform my data using transformation methods or go for other models. Let me check some details about the dependent variable using the *psych* package,
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+hist(life_exp_narm$life_expectancy)
+library(psych)
+describe(life_exp_narm$life_expectancy) #skewness -0.63, negatively skewed
+```
+
+My dependent variable is negatively(left) skewed. For left(negatively) skewed distribution, square root, cube root or logarithmic transformation can help me achieve normality. I will check that one by one using qqplot. But, for a nicer version of qqplots, I prefer to use the `ggpubr` package.
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+library(ggpubr)
+ggqqplot(sqrt(life_exp_new$life_expectancy))
+```
+
+The qqplots above show many of the points fall outside the reference line indicating the data is not normally distributed. Let me transform all of them using square root, cube root and logarithm and investigate qqplots. After that, I will run shapiro wilk normality test.
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+library(ggpubr)
+library(patchwork)
+p1 <- ggqqplot(sqrt(life_exp_new$life_expectancy))
+p2 <- ggqqplot((life_exp_new$life_expectancy)^1/3)
+p3 <- ggqqplot(log(life_exp_new$life_expectancy))
+
+p1 + p2 + p3
+
+shapiro.test(sqrt(life_exp_new$life_expectancy))
+shapiro.test((life_exp_new$life_expectancy)^1/3)
+shapiro.test(log(life_exp_new$life_expectancy))
+```
+
+Apparently, the p-values for Shapiro Wilk normality test for all transformed data are rather much lower than 0.05. The null hypothesis (H0) of Shapiro test is "data is normally distributed". Therefore, we will need to reject the null hypothesis and conclude the data is not normally distributed. A pity!
+
+With that we can reject our model(lm3) and it is not relevant for our data. I am now done with linear models here. I am angry at them. What else can I do? There are many many alternatives. For example: Logistic regression. But, I should get my data ready for that.
+
+# Logistic regression
+
+I will use `glm` function to run logistic regression. However, I need to dichotomize my life expectancy variable into high and low life expectancy categories and attach numeric value label my binary category(something like: high,low/1,0. I need to split my outcome variable into two categories: high and low. Since, the data doesn't follow normal distribution as evidenced above, I should use median split which means every life expectancy value above the median will have "high" label else "low" label.
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+summary(life_exp_new$life_expectancy) #median is 71.8
+```
+
+Median split
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+life_exp_new$life_exp_cat <- ifelse(life_exp_new$life_expectancy <= 71.8, "0", "1")
+
+life_exp_new$life_exp_cat <- factor(life_exp_new$life_exp_cat, levels = c(0,1),
+                    labels = c("low", "high"))
+
+table(life_exp_new$life_exp_cat) 
+
+
+```
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+
+logistic_reg <- glm(life_exp_cat ~ total_expenditure + 
+             schooling + adult_mortality + infant_deaths + thinness_1_19_years +
+            alcohol + status, data=life_exp_new, family = binomial)
+
+summary(logistic_reg)
+```
+
+# Extract Odds ratios and confidence intervals
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+require(MASS)
+or_CI <- round(exp(cbind(coef(logistic_reg), confint(logistic_reg))), digits=3) %>% 
+  as.data.frame()
+
+or_CI <- or_CI %>% 
+  mutate(variable=rownames(or_CI)) # extract the variables from rownames
+  
+
+or_CI <- rename(or_CI, c("V1" = "AOR",
+                        `2.5 %` = "lower_bound",
+                        `97.5 %` = "upper_bound"))
+
+# We don't need to plot the intercept. We can remove it from our data
+
+
+# Reorder variables
+col_order <- c("variable", "AOR", "lower_bound", "upper_bound")
+or_CI <- or_CI[, col_order] #reorder variables in the data frame
+
+```
+
+Now, I can plot the odds ratios and confidence intervals exactly as I did for my linear model coefficients.
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+plot_logit_model <- or_CI[-1,] %>%  #remove row number 1 (The intercept) 
+  ggplot(aes(x = reorder(variable, AOR), y = AOR)) +
+  geom_point(shape = 15,
+             size  = 4, width = 0.1,
+             position = "dodge", color="black") + 
+  geom_errorbar(aes(ymin  = lower_bound,
+                    ymax  = upper_bound),
+                width = 0.2,
+                size  = 0.7,
+                position = "dodge", color="turquoise4") +
+  theme(axis.title = element_text(face = "bold")) +
+  xlab("Variables") + ylab("Adjusted odds ratios with 95% CI") +
+  coord_flip(ylim = c(0, 2.5)) + 
+  geom_hline(yintercept = 1, color = "red", size = 1) +
+   theme(axis.title = element_text(size = 17)) + 
+  theme(axis.text = element_text(size = 14)) 
+```
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+plot_lm + scale_x_discrete(breaks = c("statusDeveloping", "alcohol",
+                                    "thinness_1_19_years", 
+                                    "adult_mortality","infant_deaths",
+                                    "total_expenditure", "schooling"),
+                           
+                           labels = c("Developing countries", "Alcohol consumption",
+                                      "Thinness 1-19 yrs", 
+                                      "Adult mortality", "Infant mortality", 
+                                      "Total expenditure",
+                                      "Average school yrs")) 
+```
+
+Or just simply using the *sjPlot* package
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+plot_model(logistic_reg, show.values = TRUE, value.offset = .3, vline.color = "red")
+
+```
+
+# Evaluation of model performance
+
+A widely approach to assess model performance is to assess prediction accuracy via *loss functions* in cross-validated samples.
+
+We can use the models for predictions.
+
+```{r}
+library(caret)
+(cv_lm <-  train(life_expectancy ~ total_expenditure + 
+             schooling + adult_mortality + infant_deaths + thinness_1_19_years +
+            alcohol + status, data=life_exp_new, 
+            method="lm", 
+            trControl = trainControl(method="cv", number=10)))
+```
+
+How do you interpret the above cross validated loss functions(eg.RMSE)?
+
+If the linear model is applied to unseen data, it will predict life expectancy about 4.6 years off from the actual life expectancy of a country. That was great. Unfortunately, the model did not satisfy the assumptions. Let's now evaluate our logistic regression
+
+```{r}
+(cv_logit <-  train(life_exp_cat ~ total_expenditure + 
+             schooling + adult_mortality + infant_deaths + thinness_1_19_years +
+            alcohol + status, data=life_exp_new, 
+            method="glm", 
+            trControl = trainControl(method="cv", number=10)))
+```
+
+The logistic regression model predicts the data with 83% accuracy. Ideally, we have to split the data into test and train set and perform the performance evaluation using confusion matrix functions.
+
+Yes, I did it. Thank you for reading this post. In my next blog post, will write about more advanced generalized linear models(Lasso, ridge and elastic net).
+
+![Trains GIFs \| Tenor](https://media.tenor.com/images/ed15fe5ceca132793f32df5b383a30ed/tenor.gif){width="478"}
+
+# Contact
+
+[\@MihiretuKebede1](https://twitter.com/MihiretuKebede1)
