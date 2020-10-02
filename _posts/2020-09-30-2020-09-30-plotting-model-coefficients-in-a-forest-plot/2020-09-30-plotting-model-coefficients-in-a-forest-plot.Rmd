@@ -277,6 +277,31 @@ plot_model(lm3, show.values = TRUE, value.offset = 0.3,
 
 With SjPlot, it is much easier to label the coefficients in the plot.
 
+# One more tip 
+This is not the same regression as we did above. I used a new set of predictors.
+The following package can do the modeling calculation, tabulation and plotting all together. For linear regression, you can use coef_plot, for logistic regression or_plot, and hr_plot for hazard ratios, etc. I recently discovered this package in stack overflow. 
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE, message=FALSE}
+
+library(finalfit) 
+
+explanatory = c( "alcohol",
+                "thinness_1_19_years", 
+                "hiv_aids", 
+                "total_expenditure", "schooling")
+
+dependent = "life_expectancy"
+
+
+life_exp_new %>%
+ coefficient_plot(dependent, explanatory, table_text_size=3, 
+                  title_text_size=12,
+                   plot_opts=list(xlab("Beta, 95% CI"), 
+                                  theme(axis.title = element_text(size=12))))
+
+```
+
+
 But, is linear regression model the right choice for our data. Did my model pass all key assumptions. I don't think so. Before I do anything I need to check whether the linear regression assumptions are fulfilled. To reject or accept our model, it must pass all the relevant assumptions. `gvlma` is a good package for checking that.
 
 ```{r, include=TRUE, echo=TRUE, warning=FALSE}
