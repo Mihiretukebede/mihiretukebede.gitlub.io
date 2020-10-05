@@ -112,7 +112,7 @@ life_exp_new %>%
 
 We have now somehow clean data to start our modeling process. We may need to see the relations ship of income index with other variables. For now, I will skip that and directly proceed to my modeling.
 
-# Different ways, similar result
+# Different ways, similar results
 
 One of the great things, you can enjoy with R is there are many ways of doing the same thing.
 
