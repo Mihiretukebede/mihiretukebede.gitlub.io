@@ -1,5 +1,21 @@
 [
   {
+    "path": "posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot/",
+    "title": "Plotting regression model coefficients in a forest plot",
+    "description": "How to plot model coefficients in a forest plot.",
+    "author": [
+      {
+        "name": "Mihiretu Kebede(PhD)",
+        "url": {}
+      }
+    ],
+    "date": "2020-10-05",
+    "categories": [],
+    "preview": "posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot/meskelflower.jpg",
+    "last_modified": "2020-10-05T19:29:55+02:00",
+    "input_file": "2020-09-30-plotting-model-coefficients-in-a-forest-plot.utf8.md"
+  },
+  {
     "path": "posts/2020-08-27-text-machine-learning/",
     "title": "XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts",
     "description": "Machine learning methods for document classification.",
@@ -14,22 +30,6 @@
     "preview": "posts/2020-08-27-text-machine-learning/previewwordcloud.jpg",
     "last_modified": "2020-10-02T20:52:14+02:00",
     "input_file": "2020-08-27-text-machine-learning.utf8.md"
-  },
-  {
-    "path": "posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot/",
-    "title": "Plotting regression model coefficients in a forest plot",
-    "description": "How to plot model coefficients in a forest plot.",
-    "author": [
-      {
-        "name": "Mihiretu Kebede(PhD)",
-        "url": {}
-      }
-    ],
-    "date": "2020-10-03",
-    "categories": [],
-    "preview": "posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot/meskelflower.jpg",
-    "last_modified": "2020-10-03T08:20:25+02:00",
-    "input_file": "2020-09-30-plotting-model-coefficients-in-a-forest-plot.utf8.md"
   },
   {
     "path": "posts/2020-08-10-2020-08-10-text-analysis-of-covid-publications/",
