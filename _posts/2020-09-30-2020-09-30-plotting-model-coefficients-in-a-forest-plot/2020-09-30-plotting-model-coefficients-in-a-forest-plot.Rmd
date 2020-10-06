@@ -151,6 +151,13 @@ cor <- rcorr(as.matrix(dat))
 r <- cor$r %>% as.table()
 r
 ```
+Or more beautifully we can plot he correlation values using the *`pairs.panels`* function from the `psych` package. We can have a good correlation matrix of our variables.
+
+```{r}
+library(psych)
+pairs.panels(dat)
+```
+
 
 There is a high correlation(r=.93) between thinness\_1\_19\_years and thinness\_5\_9\_years, schooling and income\_index (r=0.78), schooling and alchohol. To deal with this multicollinearity problem, I will just drop one of the collinear variables because they just add a redundenent information in my model. Ideally, one can do a stepwise regression, or best subsets regression and then choose the model that has the highest R-squared value. But, we are simply dropping one of the variables. Let me drop *thinness\_5\_9\_years* (the variable *thinness\_1\_19\_years* actually carry the other variable: *thinness\_5\_9\_years*), and *income\_index* variables from my linear model and redo my analysis.
 
