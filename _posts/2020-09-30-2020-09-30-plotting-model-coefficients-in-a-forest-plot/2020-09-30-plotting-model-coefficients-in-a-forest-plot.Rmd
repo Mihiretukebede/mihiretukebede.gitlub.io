@@ -7,8 +7,6 @@ google_analytics: "UA-173027539-1"
 
 description: |
    How to plot model coefficients in a forest plot. 
-preview: meskelflower.jpg
-
 collections:
   posts:
       share: [twitter, linkedin, facebook, google-plus, pinterest]
@@ -275,7 +273,7 @@ One advantage of `broom.mixed`is it helps you visualize the distribution of the 
 
 The variable names in the plots can be edited. But, for the sake of time, I am not going to do that.
 
-```{r, include=TRUE, echo=TRUE, warning=FALSE}
+```{r, include=TRUE, echo=TRUE, warning=FALSE, preview=TRUE}
 library(sjPlot)
 plot_model(lm3, show.values = TRUE, value.offset = 0.3,
            axis.labels=c("Developing countries", "Alcohol consumption",
