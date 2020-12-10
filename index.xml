@@ -7,14 +7,22 @@
     <description>This is Mihiretu Kebede(PhD)'s personal website. 
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 16 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 09 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>2020-12-09-Classifying-abstracts-using-regularized-models</title>
+      <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
+      <link>http://www.mihiretukebede.com/posts/2020-12-09-2020-12-09-documentclassification-using-regularized-models</link>
+      <description>Classifying abstracts using regularized models: covid-19 or sars-2003?</description>
+      <guid>http://www.mihiretukebede.com/posts/2020-12-09-2020-12-09-documentclassification-using-regularized-models</guid>
+      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Plotting regression model coefficients in a forest plot</title>
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
       <link>http://www.mihiretukebede.com/posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot</link>
       <description>How to plot model coefficients in a forest plot.</description>
       <guid>http://www.mihiretukebede.com/posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot</guid>
-      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 17 Oct 2020 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot/meskelflower.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
