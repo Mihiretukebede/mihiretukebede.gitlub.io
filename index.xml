@@ -7,14 +7,14 @@
     <description>This is Mihiretu Kebede(PhD)'s personal website. 
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 09 Dec 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 10 Dec 2020 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Classifying-abstracts-using-regularized-models</title>
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
       <link>http://www.mihiretukebede.com/posts/2020-12-09-2020-12-09-documentclassification-using-regularized-models</link>
       <description>Classifying abstracts using regularized models: covid-19 or sars-2003?</description>
       <guid>http://www.mihiretukebede.com/posts/2020-12-09-2020-12-09-documentclassification-using-regularized-models</guid>
-      <pubDate>Wed, 09 Dec 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>Plotting regression model coefficients in a forest plot</title>
