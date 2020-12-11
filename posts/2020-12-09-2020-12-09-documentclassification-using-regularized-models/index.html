@@ -125,7 +125,7 @@ code span.wa { color: #545454; font-weight: bold; font-style: italic; } /* Warni
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["~$covidsars.xlsx","2020-12-09-documentclassification-using-regularized-models_files/anchor-4.2.2/anchor.min.js","2020-12-09-documentclassification-using-regularized-models_files/bowser-1.9.3/bowser.min.js","2020-12-09-documentclassification-using-regularized-models_files/distill-2.2.21/template.v2.js","2020-12-09-documentclassification-using-regularized-models_files/figure-html5/unnamed-chunk-10-1.png","2020-12-09-documentclassification-using-regularized-models_files/figure-html5/unnamed-chunk-11-1.png","2020-12-09-documentclassification-using-regularized-models_files/figure-html5/unnamed-chunk-14-1.png","2020-12-09-documentclassification-using-regularized-models_files/figure-html5/unnamed-chunk-16-1.png","2020-12-09-documentclassification-using-regularized-models_files/figure-html5/unnamed-chunk-17-1.png","2020-12-09-documentclassification-using-regularized-models_files/figure-html5/unnamed-chunk-19-1.png","2020-12-09-documentclassification-using-regularized-models_files/figure-html5/unnamed-chunk-8-1.png","2020-12-09-documentclassification-using-regularized-models_files/header-attrs-2.5/header-attrs.js","2020-12-09-documentclassification-using-regularized-models_files/jquery-1.11.3/jquery.min.js","2020-12-09-documentclassification-using-regularized-models_files/webcomponents-2.0.0/webcomponents.js","covidsars.xlsx","lasso.JPG"]}
+  {"type":"character","attributes":{},"value":["~$covidsars.xlsx","2020-12-09-documentclassification-using-regularized-models_files/anchor-4.2.2/anchor.min.js","2020-12-09-documentclassification-using-regularized-models_files/bowser-1.9.3/bowser.min.js","2020-12-09-documentclassification-using-regularized-models_files/distill-2.2.21/template.v2.js","2020-12-09-documentclassification-using-regularized-models_files/figure-html5/unnamed-chunk-10-1.png","2020-12-09-documentclassification-using-regularized-models_files/figure-html5/unnamed-chunk-11-1.png","2020-12-09-documentclassification-using-regularized-models_files/figure-html5/unnamed-chunk-14-1.png","2020-12-09-documentclassification-using-regularized-models_files/figure-html5/unnamed-chunk-16-1.png","2020-12-09-documentclassification-using-regularized-models_files/figure-html5/unnamed-chunk-17-1.png","2020-12-09-documentclassification-using-regularized-models_files/figure-html5/unnamed-chunk-19-1.png","2020-12-09-documentclassification-using-regularized-models_files/figure-html5/unnamed-chunk-20-1.png","2020-12-09-documentclassification-using-regularized-models_files/figure-html5/unnamed-chunk-8-1.png","2020-12-09-documentclassification-using-regularized-models_files/header-attrs-2.5/header-attrs.js","2020-12-09-documentclassification-using-regularized-models_files/jquery-1.11.3/jquery.min.js","2020-12-09-documentclassification-using-regularized-models_files/webcomponents-2.0.0/webcomponents.js","covidsars.xlsx","lasso.JPG"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2779,15 +2779,23 @@ predicted_class.lasso_tfidf covid sars
 </div>
 <p><img src="2020-12-09-documentclassification-using-regularized-models_files/figure-html5/unnamed-chunk-19-1.png" width="1300" /></p>
 </div>
+<p>Let’s see if this this variables are also the main features in the ridge model.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre><code><span class='fu'>vip</span><span class='op'>(</span><span class='va'>ridge_min_tfidf</span>, <span class='fl'>10</span><span class='op'>)</span>
+</code></pre>
+</div>
+<p><img src="2020-12-09-documentclassification-using-regularized-models_files/figure-html5/unnamed-chunk-20-1.png" width="1300" /></p>
+</div>
 <h1 id="elastic-net">Elastic net</h1>
 <p>In my experience with text data, I found elastic net regression having problems with the matrix format of the dfm objects resulted from quanteda. I will have to convert the matrix formats to data frames.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre><code><span class='va'>da_train</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span>category<span class='op'>=</span><span class='va'>train</span><span class='op'>$</span><span class='va'>category</span>, 
-                  <span class='fu'><a href='https://quanteda.io/reference/convert.html'>convert</a></span><span class='op'>(</span><span class='va'>dfmat_train</span>, to<span class='op'>=</span><span class='st'>"data.frame"</span><span class='op'>)</span><span class='op'>)</span> 
+                  <span class='fu'>convert</span><span class='op'>(</span><span class='va'>dfmat_train</span>, to<span class='op'>=</span><span class='st'>"data.frame"</span><span class='op'>)</span><span class='op'>)</span> 
 
 <span class='va'>da_train_tfidf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span>category<span class='op'>=</span><span class='va'>train</span><span class='op'>$</span><span class='va'>category</span>, 
-                        <span class='fu'><a href='https://quanteda.io/reference/convert.html'>convert</a></span><span class='op'>(</span><span class='va'>dfmat_train_tfidf</span>, to<span class='op'>=</span><span class='st'>"data.frame"</span><span class='op'>)</span><span class='op'>)</span> 
+                        <span class='fu'>convert</span><span class='op'>(</span><span class='va'>dfmat_train_tfidf</span>, to<span class='op'>=</span><span class='st'>"data.frame"</span><span class='op'>)</span><span class='op'>)</span> 
 </code></pre>
 </div>
 </div>
@@ -2841,7 +2849,7 @@ predicted_class.lasso_tfidf covid sars
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre><code><span class='va'>da_test_match</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span>category<span class='op'>=</span><span class='va'>test</span><span class='op'>$</span><span class='va'>category</span>, <span class='fu'><a href='https://quanteda.io/reference/convert.html'>convert</a></span><span class='op'>(</span><span class='va'>dfmat_matched</span>, to<span class='op'>=</span><span class='st'>"data.frame"</span><span class='op'>)</span><span class='op'>)</span> 
+<pre><code><span class='va'>da_test_match</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span>category<span class='op'>=</span><span class='va'>test</span><span class='op'>$</span><span class='va'>category</span>, <span class='fu'>convert</span><span class='op'>(</span><span class='va'>dfmat_matched</span>, to<span class='op'>=</span><span class='st'>"data.frame"</span><span class='op'>)</span><span class='op'>)</span> 
 
 <span class='va'>da_test_match</span> <span class='op'>&lt;-</span> <span class='va'>da_test_match</span><span class='op'>[</span>,<span class='op'>-</span><span class='fl'>2</span><span class='op'>]</span> 
 <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>ncol</a></span><span class='op'>(</span><span class='va'>da_test_match</span><span class='op'>)</span>
@@ -2862,7 +2870,7 @@ predicted_class.lasso_tfidf covid sars
 <div class="sourceCode">
 <pre><code><span class='co'># Do the same for the tfidf data</span>
 
-<span class='va'>da_test_match_tfidf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span>category<span class='op'>=</span><span class='va'>test</span><span class='op'>$</span><span class='va'>category</span>, <span class='fu'><a href='https://quanteda.io/reference/convert.html'>convert</a></span><span class='op'>(</span><span class='va'>dfmat_matched_tfidf</span>, to<span class='op'>=</span><span class='st'>"data.frame"</span><span class='op'>)</span><span class='op'>)</span> 
+<span class='va'>da_test_match_tfidf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span>category<span class='op'>=</span><span class='va'>test</span><span class='op'>$</span><span class='va'>category</span>, <span class='fu'>convert</span><span class='op'>(</span><span class='va'>dfmat_matched_tfidf</span>, to<span class='op'>=</span><span class='st'>"data.frame"</span><span class='op'>)</span><span class='op'>)</span> 
 
 <span class='va'>da_test_match_tfidf</span> <span class='op'>&lt;-</span> <span class='va'>da_test_match_tfidf</span><span class='op'>[</span>,<span class='op'>-</span><span class='fl'>2</span><span class='op'>]</span> <span class='co'>#the document identifier variable should be removed</span>
 <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>ncol</a></span><span class='op'>(</span><span class='va'>da_test_match_tfidf</span><span class='op'>)</span>
@@ -2891,33 +2899,33 @@ predicted_class.lasso_tfidf covid sars
 <span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>223</span><span class='op'>)</span>
 <span class='va'>y</span><span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>da_train_xdf</span><span class='op'>$</span><span class='va'>category</span><span class='op'>==</span><span class='st'>"covid"</span>, <span class='st'>"1"</span>, <span class='st'>"0"</span><span class='op'>)</span> <span class='co'># convert to numeric labels</span>
                        
-<span class='va'>cv_glmnet_10_roc</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/train.html'>train</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>da_train_xdf</span><span class='op'>[</span>,<span class='op'>-</span><span class='fl'>1</span><span class='op'>]</span>, 
+<span class='va'>cv_glmnet_10_roc</span> <span class='op'>&lt;-</span> <span class='fu'>train</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>da_train_xdf</span><span class='op'>[</span>,<span class='op'>-</span><span class='fl'>1</span><span class='op'>]</span>, 
                           y <span class='op'>=</span> <span class='va'>y</span>, type.measure<span class='op'>=</span><span class='st'>"auc"</span>, method<span class='op'>=</span><span class='st'>"glmnet"</span>,
                           family<span class='op'>=</span><span class='st'>"binomial"</span>, 
-                          traControl<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/pkg/caret/man/trainControl.html'>trainControl</a></span><span class='op'>(</span>method<span class='op'>=</span><span class='st'>"cv"</span>, number<span class='op'>=</span><span class='fl'>10</span><span class='op'>)</span>,
+                          traControl<span class='op'>=</span><span class='fu'>trainControl</span><span class='op'>(</span>method<span class='op'>=</span><span class='st'>"cv"</span>, number<span class='op'>=</span><span class='fl'>10</span><span class='op'>)</span>,
                           parallel<span class='op'>=</span><span class='cn'>TRUE</span>,
                           tuneLength<span class='op'>=</span><span class='fl'>10</span><span class='op'>)</span> <span class='co'># I will use 10 different alpha values between 0 and 1</span>
 
 <span class='va'>x</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.time</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code>Time difference of -21.82141 mins</code></pre>
+<pre><code>Time difference of -12.0762 mins</code></pre>
 <div class="sourceCode">
 <pre><code><span class='co'>#tfidf</span>
 <span class='va'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.time</a></span><span class='op'>(</span><span class='op'>)</span>
 
 <span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>223</span><span class='op'>)</span>
-<span class='va'>cv_glmnet_10_roc_tfidf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/train.html'>train</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>da_train_xdf_tfidf</span><span class='op'>[</span>,<span class='op'>-</span><span class='fl'>1</span><span class='op'>]</span>, 
+<span class='va'>cv_glmnet_10_roc_tfidf</span> <span class='op'>&lt;-</span> <span class='fu'>train</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>da_train_xdf_tfidf</span><span class='op'>[</span>,<span class='op'>-</span><span class='fl'>1</span><span class='op'>]</span>, 
                                 y <span class='op'>=</span> <span class='va'>y</span>, type.measure<span class='op'>=</span><span class='st'>"auc"</span>, method<span class='op'>=</span><span class='st'>"glmnet"</span>,
                                 family<span class='op'>=</span><span class='st'>"binomial"</span>,
-                              traControl<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/pkg/caret/man/trainControl.html'>trainControl</a></span><span class='op'>(</span>method<span class='op'>=</span><span class='st'>"cv"</span>,number<span class='op'>=</span><span class='fl'>10</span><span class='op'>)</span>, 
+                              traControl<span class='op'>=</span><span class='fu'>trainControl</span><span class='op'>(</span>method<span class='op'>=</span><span class='st'>"cv"</span>,number<span class='op'>=</span><span class='fl'>10</span><span class='op'>)</span>, 
                                 parallel<span class='op'>=</span><span class='cn'>TRUE</span>,
                                 tuneLength<span class='op'>=</span><span class='fl'>10</span><span class='op'>)</span> 
 
 <span class='va'>x</span><span class='op'>-</span><span class='fu'><a href='https://rdrr.io/r/base/Sys.time.html'>Sys.time</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
-<pre><code>Time difference of -24.37006 mins</code></pre>
+<pre><code>Time difference of -11.85556 mins</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2929,7 +2937,7 @@ predicted_class.lasso_tfidf covid sars
 <span class='va'>predicted_class.elastic_10</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>predicted_class.elastic_10</span><span class='op'>==</span><span class='fl'>0</span>, 
                                                <span class='st'>"sars"</span>, <span class='st'>"covid"</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='va'>confusion_mat_elastic_net</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/confusionMatrix.html'>confusionMatrix</a></span><span class='op'>(</span><span class='va'>predicted_class.elastic_10</span>, 
+<span class='va'>confusion_mat_elastic_net</span> <span class='op'>&lt;-</span> <span class='fu'>confusionMatrix</span><span class='op'>(</span><span class='va'>predicted_class.elastic_10</span>, 
                                       <span class='va'>actual_class</span>, mode<span class='op'>=</span><span class='st'>"everything"</span>,
                                       positive<span class='op'>=</span><span class='st'>"covid"</span><span class='op'>)</span> 
 
@@ -2941,7 +2949,7 @@ predicted_class.lasso_tfidf covid sars
                                             type<span class='op'>=</span><span class='st'>"raw"</span><span class='op'>)</span>
 
 <span class='va'>predicted_class.elastic_10_tfidf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>predicted_class.elastic_10_tfidf</span><span class='op'>==</span><span class='fl'>0</span>, <span class='st'>"sars"</span>, <span class='st'>"covid"</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>confusion_mat_elastic_net_tfidf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/confusionMatrix.html'>confusionMatrix</a></span><span class='op'>(</span><span class='va'>predicted_class.elastic_10_tfidf</span>, 
+<span class='va'>confusion_mat_elastic_net_tfidf</span> <span class='op'>&lt;-</span> <span class='fu'>confusionMatrix</span><span class='op'>(</span><span class='va'>predicted_class.elastic_10_tfidf</span>, 
                                             <span class='va'>actual_class</span>, 
                                             mode<span class='op'>=</span><span class='st'>"everything"</span>, positive<span class='op'>=</span><span class='st'>"covid"</span><span class='op'>)</span> 
 
@@ -3013,8 +3021,9 @@ Prediction covid sars
        &#39;Positive&#39; Class : covid           
                                           </code></pre>
 </div>
-<p>Notice, elastic net models gave us superior prediction performances. A model with sensitivity of 99%, and a specificity of 88%, and precision of more than 90% is extraordinarily superior to me! Sensitivity and specificity are not affected by prevalence. But, precision(positive predictive value) and negative predictive values are influenced by prevalence.</p>
-<p><a href="https://bradleyboehmke.github.io/HOML/">This book</a> by <em>Bradley Boehmke &amp; Brandon Greenwell is a good reference to learn about machine learning</em></p>
+<h1 id="final-remarks">Final remarks</h1>
+<p>Notice, Lasso and Elastic net models gave us superior prediction performances. A model with a sensitivity of 99%, and a specificity of 88%, and precision of more than 90% is extraordinarily superior to me! Sensitivity and specificity are not affected by prevalence. But, precision(positive predictive value) and negative predictive values are influenced by prevalence.It is possible to calculate confidence intervals for sensitivity and specificity. But, I will not do that here. Since the prevalence of covid abstracts is high(52%), the precission of my predictive models are all high. This may not be the case if your model is dealing with rare cases.</p>
+<p><a href="https://bradleyboehmke.github.io/HOML/">This book</a> by <em>Bradley Boehmke &amp; Brandon Greenwell is a good reference to learn about machine learning</em>. It is freely available. But, you can also buy a hard copy. It is one of my favorite machine learning books.</p>
 <h1 id="contact">Contact</h1>
 <p><a href="https://twitter.com/MihiretuKebede1">@MihiretuKebede1</a></p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
