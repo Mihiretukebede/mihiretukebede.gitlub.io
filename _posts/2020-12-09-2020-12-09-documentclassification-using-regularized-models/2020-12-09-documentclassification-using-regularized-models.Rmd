@@ -63,7 +63,7 @@ round(table(covid_sars$category) %>% prop.table()*100, 1)
 
 Before we do any steps in a text analysis, it is recommended to split the data. Splitting the data after tokenization is not a good approach. So, we will instead split the data into train and test set, tokenize the train and test sets separately, build models, match the variables of the test data set with the train. Finally, we will predict the test data and then evaluate our predictions.
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 library(caret) #For splitting 
 
 set.seed(1234)
@@ -86,7 +86,7 @@ If you are interested in text analysis, I reccommend visiting Quanteda website. 
 
 ## Create Corpus
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 require(quanteda)
 
 #Train data
@@ -115,7 +115,7 @@ summary(traincorpus, 4)
 
 # Tokenize
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 traintokens <- tokens(traincorpus,
                       remove_punct = TRUE,
                       remove_url = TRUE,
@@ -136,7 +136,7 @@ testtokens <- tokens_remove(testtokens,
 
 # Construct the DFM objects
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 dfmat_train <- dfm(traintokens)
 
 dfmat_test <- dfm(testtokens)
@@ -149,14 +149,14 @@ The training data has 12,119 features and is 99.2% sparse, while the test data h
 
 TF-IDF weighting is known to improve prediction performance. I will use that here too.
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 dfmat_train_tfidf <- dfm_tfidf(dfmat_train)
 dfmat_test_tfidf <- dfm_tfidf(dfmat_test)
 ```
 
 Let's inspect the two tfidf data that were created above.
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 head(dfmat_train_tfidf, 2)
 head(dfmat_test_tfidf,2)
 ```
@@ -191,7 +191,7 @@ All models require the data to be in a matrix form. The good thing with quanteda
 
 # Ridge
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 # Ridge regression
 library(glmnet)
 ridge_1 <- glmnet(x = dfmat_train, y = train$category, 
@@ -206,7 +206,7 @@ plot(ridge_1_tfidf, xvar="lambda", main="Ridge penalty tfidf\n\n")
 
 ```
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 x <- Sys.time()
 
 set.seed(123)
@@ -221,7 +221,7 @@ ridge_min <- cv.glmnet(x=dfmat_train,
 
 Again using the tf-idf weighted data
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 set.seed(123)
 ridge_min_tfidf <- cv.glmnet(x=dfmat_train_tfidf,
                    y=train$category,
@@ -238,7 +238,7 @@ Sys.time() - x
 
 Let's plot the results
 
-```{r echo=T, preview=TRUE, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, preview=TRUE, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 par(mfrow = c(1, 2))
 plot(ridge_1, xvar = "lambda", main = "Ridge penalty\n\n") 
 abline(v=log(ridge_min$lambda.min), col = "red", lty = "dashed")
@@ -253,7 +253,7 @@ abline(v=log(ridge_min_tfidf$lambda.1se), col = "blue", lty = "dashed")
 
 Before we predict the test data, we need to do one very key step. We will predict the test data based on the data that the model was trained. So, features on the test data should match with the features on the training data. Otherwise, the prediction will not work. The model cannot understand anything outside of the features that were in the training data. This is very key step in text prediction. Quanteda provides a nice function for that: dfm_match(). It subsets the features of the test data that were part of the training data.
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 dfmat_matched <- dfm_match(dfmat_test, 
                            features = featnames(dfmat_train))
 # Match the tfi-idf
@@ -264,7 +264,7 @@ dfmat_matched_tfidf <- dfm_match(dfmat_test_tfidf,
 
 For prediction, I will use the best model from the cross validated models. The best model lies between the model having the minimum lamda value and the model that has a lambda value within 1 se. Here, I will use the minimum lamda value.
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 # Predict 
 ridge_min
 ridge_min$lambda.1se
@@ -297,7 +297,7 @@ See, all features are retained in the final models. Looking at the prediction pe
 
 # Lasso penalty
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 ## Lasso model
 lasso_1 <- glmnet(x = dfmat_train, y = train$category, 
                     alpha = 1, family = "binomial", type.measure="class") 
@@ -312,7 +312,7 @@ plot(lasso_1_tfidf, xvar="lambda", main="Lasso penalty tfidf\n\n")
 
 ```
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 
 x <- Sys.time()
 #registerDoMC(cores=2) # parallelize to speed up
@@ -339,7 +339,7 @@ lasso_tfidf
 
 ```
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 # Plot lasso without cv and with cv to mark lamda.min and lamda.1se
 
 par(mfrow=c(1,2))
@@ -353,14 +353,14 @@ abline(v=log(lasso_tfidf$lambda.1se), col="blue", lty="dashed")
 
 ```
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 par(mfrow=c(1,2))
 plot(lasso,main="Lasso penalty\n\n")
 plot(lasso_tfidf,main="Lasso penalty tfidf\n\n")
 
 ```
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 # Predict 
 lasso
 lasso_tfidf
@@ -392,14 +392,14 @@ confusion_matrix_lasso_tfidf
 
 The best model in the end retains 65 variables. If we used tf-idf weighting, the best model retains 69 of the 1219 variables. That is great way to reduce the irrelevant features. We can have a look at some of these variables using the `vip`package. VIP ranks based on their importance scores.
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 library(vip)
 vip(lasso_tfidf, 10)
 ```
 
 Let's see if this this variables are also the main features in the ridge model. 
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 vip(ridge_min_tfidf, 10)
 ```
 
@@ -408,7 +408,7 @@ vip(ridge_min_tfidf, 10)
 
 In my experience with text data, I found elastic net regression having problems with the matrix format of the dfm objects resulted from quanteda. I will have to convert the matrix formats to data frames.
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 da_train <- cbind(category=train$category, 
                   convert(dfmat_train, to="data.frame")) 
 
@@ -416,7 +416,7 @@ da_train_tfidf <- cbind(category=train$category,
                         convert(dfmat_train_tfidf, to="data.frame")) 
 ```
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 ncol(dfmat_train)
 ncol(da_train)
 
@@ -432,7 +432,7 @@ ncol(da_train_tfidf)
 
 ```
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 da_train_xmatrix <- da_train[,-1]  %>% as.data.frame() %>% as.matrix() 
 da_train_xdf <- da_train  %>% as.data.frame()
 
@@ -444,7 +444,7 @@ da_train_xdf_tfidf <- da_train_tfidf  %>% as.data.frame()
 
 ```
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 da_test_match <- cbind(category=test$category, convert(dfmat_matched, to="data.frame")) 
 
 da_test_match <- da_test_match[,-2] 
@@ -466,7 +466,7 @@ ncol(dfmat_matched_tfidf)
 ncol(da_test_xmatrix_tfidf)
 ```
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 # Fit elastic net regression with 10 different alpha values from 0 to 1
 
 x <- Sys.time()
@@ -499,7 +499,7 @@ x-Sys.time()
 ```
 
 Let's visualize the two models 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 library(ggplot2)
 
 ggplot(cv_glmnet_10_roc)
@@ -509,7 +509,7 @@ ggplot(cv_glmnet_10_roc_tfidf)
 ```
 
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=200, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 ## Predict using the belastic model cv_glmnet_50
 predicted_class.elastic_10 <- predict(cv_glmnet_10_roc, 
                                       da_test_xmatrix, 
