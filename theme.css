@@ -44,7 +44,7 @@ d-byline {
 /*-- ARTICLE TABLE OF CONTENTS --*/
 .d-contents {
   --heading-size:    18px;
-  --contents-size:   16px;
+  --contents-size:   18px;
 }
 
 /*-- ARTICLE APPENDIX --*/
@@ -61,9 +61,9 @@ d-appendix {
 .distill-site-header {
   --title-size:       18px;
   --text-color:       rgba(255, 255, 255, 0.8);
-  --text-size:        17px;
+  --text-size:        19px;
   --hover-color:      white;
-  --bkgd-color:       black;
+  --bkgd-color:       #0F2E3D;
 }
 
 .distill-site-footer {
@@ -77,3 +77,7 @@ d-appendix {
 /* Add any additional CSS rules below                      */
 
 
+.d-article pre code {
+	font-family: 'Fira Code', monospace;
+	font-size: 1.2rem;
+}
