@@ -5,6 +5,8 @@ theme: theme.css
 author: Mihiretu Kebede(PhD)
 url: http://www.mihiretukebede.com/ 
 google_analytics: "UA-173027539-1" 
+preview: previewwordcloud.jpg
+
 
 description: |
    Machine learning methods for document classification. 
@@ -386,7 +388,7 @@ textplot_wordcloud(train_dfmat, min_count = 40,max_words = 400,
 
 Similarly, for the test\_dfmat
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE, preview=TRUE}
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
  textplot_wordcloud(test_dfmat, min_count = 20,max_words = 400,
      color = pal)
 
