@@ -23,7 +23,7 @@ Classifying documents to a certain list of categories can provide valuable insig
 
 There are handful of very good algorithms that can automagically handle text data. In this blog post, I would like to experiment regularized logistic regression machine learning models for classifying abstracts.
 
-I am interested in predicting abstracts that will fall into "SARS\_2003" and "COVID\_19" categories. For this task, I will use the same data sets that I have used in my previous blog posts. I saved the references files in excel from my previous post. I will simply load this excel file and play with the abstract using `qunateda` and `glmnet` packages. 😍
+I am interested in predicting abstracts that will fall into "SARS_2003" and "COVID_19" categories. For this task, I will use the same data sets that I have used in my previous blog posts. I saved the references files in excel from my previous post. I will simply load this excel file and play with the abstract using `qunateda` and `glmnet` packages. 😍
 
 # Data
 
@@ -145,7 +145,7 @@ head(dfmat_train,2)
 head(dfmat_test,2)
 ```
 
-The training data has 12,119 features and is 99.2% sparse, while the test data has 5,484 features and 97% sparsity. I will not do anything to reduce the sparsity. But, you may have to do it if you have a large number of observations. Quanteda's dfm\_trim() can do that for you.
+The training data has 12,119 features and is 99.2% sparse, while the test data has 5,484 features and 97% sparsity. I will not do anything to reduce the sparsity. But, you may have to do it if you have a large number of observations. Quanteda's dfm_trim() can do that for you.
 
 TF-IDF weighting is known to improve prediction performance. I will use that here too.
 
@@ -174,7 +174,7 @@ In Ridge penalty, the estimated model coefficients are penalized by adding the f
 $$\begin{equation} \ SSE + \lambda \sum^p_{j=1} \beta_j^2 \
 \end{equation}$$
 
-This is called L\^2 norm. From the above equation if lambda equals 0, the model will be equal to the ordinary least squares model. As  approaches to infinity, the penalty will force the model coefficients to be closer to zero but not completely to 0. Ridge penalty is known to systematically handling highly correlated features. In Lasso penalty the model coefficients are penalized by a L1 norm as follows. $$\begin{equation}SSE + \lambda \sum^p_{j=1} | \beta_j |
+This is called L\^2 norm. From the above equation if lambda equals 0, the model will be equal to the ordinary least squares model. As approaches to infinity, the penalty will force the model coefficients to be closer to zero but not completely to 0. Ridge penalty is known to systematically handling highly correlated features. In Lasso penalty the model coefficients are penalized by a L1 norm as follows. $$\begin{equation}SSE + \lambda \sum^p_{j=1} | \beta_j |
 \end{equation}$$
 
 Lasso penalty unlike ridge pushes all the coefficients all the way to zero. The advantage of Lasso is it improves model performance while also automating feature selection. Only the features that are important will be retianed on the final model.
@@ -187,7 +187,7 @@ Probably the most popular package to implement regualrized models is the `glmnet
 
 For regularized models, we have two main tuning parameters: alpha and lambda. In ridge and Lasso the lambda is the only tuning parameter but alpha is set to be 0 and 1, respectively. For tuning lambda, the cv.glmnet() function provides 100 different data driven lambda values and there is no need to do anything else. Since elastic net combines both Lasso and Ridge penalty, we will have two tuning parameters: alpha and lambda. Alpha can take a number values between between 0 and 1, while lambda can have 100 different data driven lambda values by just using `cv.glmnet()` function.
 
-All models require the data to be in a matrix form. The good thing with quanteda is the document feature matrix is already a matrix object we don't need to change the structure of our data. Notice the time required to tune the cross-validated algorithms.  
+All models require the data to be in a matrix form. The good thing with quanteda is the document feature matrix is already a matrix object we don't need to change the structure of our data. Notice the time required to tune the cross-validated algorithms.
 
 # Ridge
 
@@ -238,7 +238,7 @@ Sys.time() - x
 
 Let's plot the results
 
-```{r echo=T, preview=TRUE, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 par(mfrow = c(1, 2))
 plot(ridge_1, xvar = "lambda", main = "Ridge penalty\n\n") 
 abline(v=log(ridge_min$lambda.min), col = "red", lty = "dashed")
@@ -397,12 +397,11 @@ library(vip)
 vip(lasso_tfidf, 10)
 ```
 
-Let's see if this this variables are also the main features in the ridge model. 
+Let's see if this this variables are also the main features in the ridge model.
 
 ```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 vip(ridge_min_tfidf, 10)
 ```
-
 
 # Elastic net
 
@@ -498,7 +497,8 @@ x-Sys.time()
 
 ```
 
-Let's visualize the two models 
+Let's visualize the two models
+
 ```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 library(ggplot2)
 
@@ -507,7 +507,6 @@ ggplot(cv_glmnet_10_roc)
 ggplot(cv_glmnet_10_roc_tfidf)
 
 ```
-
 
 ```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
 ## Predict using the belastic model cv_glmnet_50
@@ -541,10 +540,9 @@ confusion_mat_elastic_net_tfidf
 
 # Final remarks
 
-Notice, Lasso and Elastic net models gave us superior prediction performances. A model with a sensitivity of 99%, and a specificity of 88%, and precision of more than 90% is extraordinarily superior to me! Sensitivity and specificity are not affected by prevalence. But, precision(positive predictive value) and negative predictive values are influenced by prevalence.It is possible to calculate confidence intervals for sensitivity and specificity. But, I will not do that here. Since the prevalence of covid abstracts is high(52%), the precission of my predictive models are all high. This may not be the case if your model is dealing with rare cases. 
+Notice, Lasso and Elastic net models gave us superior prediction performances. A model with a sensitivity of 99%, and a specificity of 88%, and precision of more than 90% is extraordinarily superior to me! Sensitivity and specificity are not affected by prevalence. But, precision(positive predictive value) and negative predictive values are influenced by prevalence.It is possible to calculate confidence intervals for sensitivity and specificity. But, I will not do that here. Since the prevalence of covid abstracts is high(52%), the precission of my predictive models are all high. This may not be the case if your model is dealing with rare cases.
 
-
-[This book](<https://bradleyboehmke.github.io/HOML/>) by *Bradley Boehmke & Brandon Greenwell is a good reference to learn about machine learning*. It is freely available. But, you can also buy a hard copy. It is one of my favorite machine learning books. 
+[This book](https://bradleyboehmke.github.io/HOML/) by *Bradley Boehmke & Brandon Greenwell is a good reference to learn about machine learning*. It is freely available. But, you can also buy a hard copy. It is one of my favorite machine learning books.
 
 # Contact
 
