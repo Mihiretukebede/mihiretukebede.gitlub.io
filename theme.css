@@ -16,9 +16,9 @@
 html {
   /*-- Main font sizes --*/
   --title-size:      50px;
-  --body-size:       1.8rem;
-  --code-size:       15px;
-  --aside-size:      14px;
+  --body-size:       1.06rem;
+  --code-size:       14px;
+  --aside-size:      12px;
   --fig-cap-size:    13px;
   /*-- Main font colors --*/
   --title-color:     #000000;
@@ -37,7 +37,7 @@ html {
 d-byline {
   --heading-size:    0.6rem;
   --heading-color:   rgba(0, 0, 0, 0.5);
-  --body-size:       0.8rem;
+  --body-size:       0.9rem;
   --body-color:      rgba(0, 0, 0, 0.8);
 }
 
