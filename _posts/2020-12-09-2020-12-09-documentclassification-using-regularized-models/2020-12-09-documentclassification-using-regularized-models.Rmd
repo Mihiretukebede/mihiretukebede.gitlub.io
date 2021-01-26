@@ -7,7 +7,6 @@ google_analytics: "UA-173027539-1"
 
 description: |
    Classifying abstracts using regularized models: covid-19 or sars-2003? 
-preview: lasso.jpeg   
 collections:
   posts:
       share: [twitter, linkedin, facebook, google-plus, pinterest]
@@ -340,7 +339,7 @@ lasso_tfidf
 
 ```
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T, preview=T}
 # Plot lasso without cv and with cv to mark lamda.min and lamda.1se
 
 par(mfrow=c(1,2))
