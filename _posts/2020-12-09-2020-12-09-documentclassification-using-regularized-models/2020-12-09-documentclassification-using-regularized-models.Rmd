@@ -1,5 +1,6 @@
 ---
 title: "Classifying abstracts using regularized models: covid-19 or sars-2003?"
+theme: theme.css
 author: Mihiretu Kebede(PhD)
 url: http://www.mihiretukebede.com/ 
 google_analytics: "UA-173027539-1" 

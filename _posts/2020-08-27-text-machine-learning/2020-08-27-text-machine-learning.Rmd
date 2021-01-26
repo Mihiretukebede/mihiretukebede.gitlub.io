@@ -1,6 +1,7 @@
 ---
 name: "Aspire Data Solutions"
 title: "XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts"
+theme: theme.css
 author: Mihiretu Kebede(PhD)
 url: http://www.mihiretukebede.com/ 
 google_analytics: "UA-173027539-1" 
