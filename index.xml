@@ -9,15 +9,6 @@
     <generator>Distill</generator>
     <lastBuildDate>Tue, 26 Jan 2021 00:00:00 +0000</lastBuildDate>
     <item>
-      <title>XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts</title>
-      <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
-      <link>http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning</link>
-      <description>Machine learning methods for document classification.</description>
-      <guid>http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning</guid>
-      <pubDate>Tue, 26 Jan 2021 00:00:00 +0000</pubDate>
-      <media:content url="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/previewwordcloud.jpg" medium="image" type="image/jpeg"/>
-    </item>
-    <item>
       <title>Plotting regression model coefficients in a forest plot</title>
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
       <link>http://www.mihiretukebede.com/posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot</link>
@@ -25,6 +16,14 @@
       <guid>http://www.mihiretukebede.com/posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot</guid>
       <pubDate>Tue, 26 Jan 2021 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot/2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-20-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts</title>
+      <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
+      <link>http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning</link>
+      <description>Machine learning methods for document classification.</description>
+      <guid>http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning</guid>
+      <pubDate>Tue, 26 Jan 2021 00:00:00 +0000</pubDate>
     </item>
     <item>
       <title>Classifying abstracts using regularized models: covid-19 or sars-2003?</title>

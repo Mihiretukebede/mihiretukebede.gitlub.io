@@ -8,8 +8,6 @@ google_analytics: "UA-173027539-1"
 
 description: |
    Machine learning methods for document classification. 
-preview: previewwordcloud.jpg
-
 collections:
   posts:
       share: [twitter, linkedin, facebook, google-plus, pinterest]
@@ -378,7 +376,7 @@ nfeat(test_dfmat)
 
 Vizualizing the data is very importnat. Let's see how the wordclouds look for train and test abstracts.
 
-```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r dpi=200, cache=T, include=T, echo=T, message=FALSE, warning=FALSE, preview=TRUE}
 library(RColorBrewer)
 pal <- brewer.pal(5, "Dark2")
 

@@ -339,7 +339,7 @@ lasso_tfidf
 
 ```
 
-```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T, preview=T}
+```{r echo=T, message=FALSE, warning=FALSE, cache=TRUE, dpi=150, include=T, preview=TRUE}
 # Plot lasso without cv and with cv to mark lamda.min and lamda.1se
 
 par(mfrow=c(1,2))
