@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
     <loc>http://www.mihiretukebede.com/about.html</loc>
-    <lastmod>2020-08-27T23:07:24+02:00</lastmod>
+    <lastmod>2021-01-26T19:03:10+01:00</lastmod>
   </url>
   <url>
     <loc>http://www.mihiretukebede.com/blog1.html</loc>
@@ -41,16 +41,16 @@
     <lastmod>2020-08-27T23:07:23+02:00</lastmod>
   </url>
   <url>
+    <loc>http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/</loc>
+    <lastmod>2021-01-26T16:58:05+01:00</lastmod>
+  </url>
+  <url>
     <loc>http://www.mihiretukebede.com/posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot/</loc>
-    <lastmod>2021-01-26T16:37:03+01:00</lastmod>
+    <lastmod>2021-01-26T16:37:04+01:00</lastmod>
   </url>
   <url>
     <loc>http://www.mihiretukebede.com/posts/2020-12-09-2020-12-09-documentclassification-using-regularized-models/</loc>
-    <lastmod>2021-01-26T16:45:21+01:00</lastmod>
-  </url>
-  <url>
-    <loc>http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/</loc>
-    <lastmod>2021-01-26T16:58:04+01:00</lastmod>
+    <lastmod>2021-01-26T16:45:23+01:00</lastmod>
   </url>
   <url>
     <loc>http://www.mihiretukebede.com/posts/2020-08-10-2020-08-10-text-analysis-of-covid-publications/</loc>
