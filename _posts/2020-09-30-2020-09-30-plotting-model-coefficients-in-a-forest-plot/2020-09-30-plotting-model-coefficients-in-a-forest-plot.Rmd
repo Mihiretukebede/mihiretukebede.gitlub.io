@@ -1,6 +1,7 @@
 ---
 name: "Aspire Data Solutions"
 title: "Plotting regression model coefficients in a forest plot"
+theme: theme.css
 author: Mihiretu Kebede(PhD)
 url: http://www.mihiretukebede.com/ 
 google_analytics: "UA-173027539-1" 
@@ -23,7 +24,7 @@ A friend of mine asked me to plot regression coefficients or odds ratios/risk ra
 
 A great novelist may use fancy words to describe the beauty of Afework Tekele's "Meskel Flower", but it can never be as memorable as the 1959's Afework Tekle's master piece.
 
-```{r, dpi=100, echo=FALSE, fig.cap="Meskel Flower by Afework Tekle, 1959"}
+```{r, dpi=50, echo=FALSE, fig.cap="Meskel Flower by Afework Tekle, 1959"}
 knitr::include_graphics("meskelflower.jpg")
 ```
 
