@@ -75,4 +75,10 @@ d-appendix {
 
 /*-- Additional custom styles --*/
 /* Add any additional CSS rules below                      */
-
+aside { 
+  width: 250px; 
+  position: absolute;
+  top: 60px;    # to position after the header 
+  bottom: 30px; # to end before the footer
+  left: 0px;    # to position in the left side..Use right: 0px to position aside in the right side
+}  
