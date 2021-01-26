@@ -18,6 +18,72 @@
  <!--radix_placeholder_import_source-->
  <!--/radix_placeholder_import_source-->
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #20794d; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007ba5; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #007ba5; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #007ba5; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #20794d; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
   <!--radix_placeholder_meta_tags-->
 <title>Aspire Data Solutions: XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts</title>
 
@@ -26,8 +92,8 @@
 <link rel="canonical" href="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2020-10-02"/>
-<meta property="article:created" itemprop="dateCreated" content="2020-10-02"/>
+<meta property="article:published" itemprop="datePublished" content="2021-01-26"/>
+<meta property="article:created" itemprop="dateCreated" content="2021-01-26"/>
 <meta name="article:author" content="Mihiretu Kebede(PhD)"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -49,14 +115,14 @@
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
 <meta name="citation_title" content="Aspire Data Solutions: XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts"/>
 <meta name="citation_fulltext_html_url" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/"/>
-<meta name="citation_online_date" content="2020/10/02"/>
-<meta name="citation_publication_date" content="2020/10/02"/>
+<meta name="citation_online_date" content="2021/01/26"/>
+<meta name="citation_publication_date" content="2021/01/26"/>
 <meta name="citation_author" content="Mihiretu Kebede(PhD)"/>
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","title","author","url","google_analytics","description","preview","collections","output","date","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Aspire Data Solutions"]},{"type":"character","attributes":{},"value":["XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Mihiretu Kebede(PhD)"]}]}]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/"]},{"type":"character","attributes":{},"value":["UA-173027539-1"]},{"type":"character","attributes":{},"value":["Machine learning methods for document classification."]},{"type":"character","attributes":{},"value":["previewwordcloud.jpg"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["posts"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["share"]}},"value":[{"type":"character","attributes":{},"value":["twitter","linkedin","facebook","google-plus","pinterest"]}]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","widerscreen"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["10-02-2020"]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/"]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","title","author","url","google_analytics","description","preview","collections","output","date","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Aspire Data Solutions"]},{"type":"character","attributes":{},"value":["XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Mihiretu Kebede(PhD)"]}]}]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/"]},{"type":"character","attributes":{},"value":["UA-173027539-1"]},{"type":"character","attributes":{},"value":["Machine learning methods for document classification."]},{"type":"character","attributes":{},"value":["previewwordcloud.jpg"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["posts"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["share"]}},"value":[{"type":"character","attributes":{},"value":["twitter","linkedin","facebook","google-plus","pinterest"]}]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","widerscreen"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["01-26-2021"]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/"]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1985,11 +2051,16 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.3/header-attrs.js"></script>
-  <script src="../../site_libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+  <script src="../../site_libs/header-attrs-2.6.6/header-attrs.js"></script>
+  <script src="../../site_libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
   <link href="../../site_libs/plot_text_explanations-0.1.0/plot_text_explanations.css" rel="stylesheet" />
   <script src="../../site_libs/plot_text_explanations-binding-0.5.1/plot_text_explanations.js"></script>
   <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="../../site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="../../site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="../../site_libs/anchor-4.2.2/anchor.min.js"></script>
   <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
   <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
   <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
@@ -2011,7 +2082,7 @@ gtag('config', 'UA-173027539-1');
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts","description":"Machine learning methods for document classification.","authors":[{"author":"Mihiretu Kebede(PhD)","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2020-10-02T00:00:00.000+02:00","citationText":"Kebede(PhD), 2020"}
+{"title":"XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts","description":"Machine learning methods for document classification.","authors":[{"author":"Mihiretu Kebede(PhD)","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2021-01-26T00:00:00.000+01:00","citationText":"Kebede(PhD), 2021"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2053,6 +2124,8 @@ gtag('config', 'UA-173027539-1');
 
 <div class="d-title">
 <h1>XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
 <p><p>Machine learning methods for document classification.</p></p>
 </div>
 
@@ -2060,10 +2133,11 @@ gtag('config', 'UA-173027539-1');
   
   Mihiretu Kebede(PhD)
   
-<br/>10-02-2020
+<br/>01-26-2021
 </div>
 
 <div class="d-article">
+<p>&lt;.posts-list .post-preview .thumbnail img { width: 100%; display: block; }&gt;</p>
 <h1 id="introduction">Introduction</h1>
 <p>Several thousands of papers are being published everyday. A paper published about a decade ago wrote “the total number of science papers published since 1665 passed 50 million. About 2.5 million new scientific papers are published each year.” In the introduction section of one of <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6305167/">my previous systematic review</a>, I wrote “The number of published research doubles every 9 years and its growth particularly in medicine and health care is exponential.”</p>
 <p>Doing systematic reviews on a certain topic requires an extensive database search, title/abstract screening, full-text screening, quality assessment, data extraction, qualitative, quantitative synthesis and other important steps. Of these steps, at least title/abstract screening and full text reviews is required to be done by two review authors.</p>
@@ -2071,63 +2145,75 @@ gtag('config', 'UA-173027539-1');
 <p>In a paper <a href="https://arxiv.org/abs/1602.04938">“Why Should I Trust You?”: Explaining the Predictions of Any Classifier"</a>, Riberio TL et.al described machine learning models as mostly “black boxes”. The biggest challenge of machine learning is interpretability and applying it to local context or simply to an individual or observation with a specific characteristics. They developed LIME which was later changed into Python and R packages. Lime can help explain several models implemented in about six different packages including caret, h2o, and xgboost.</p>
 <p>In this blog post, I want to try one of the many available methods available to check whether machine learning methods correctly discriminates SARS papers from COVID19 papers. I know the two viruses are highly related. I am only using the SARS and COVID for demonstrations.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(dplyr) #for data management
-library(ggplot2) #for plotting
-library(bib2df) #for converting bib file to data frame
-library(xgboost) # for building extreme gradient boosting 
-library(lime) #for explaining the machine learning models</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span> <span class='co'>#for data management</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span> <span class='co'>#for plotting</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://docs.ropensci.org/bib2df'>bib2df</a></span><span class='op'>)</span> <span class='co'>#for converting bib file to data frame</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/dmlc/xgboost'>xgboost</a></span><span class='op'>)</span> <span class='co'># for building extreme gradient boosting </span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://lime.data-imaginist.com'>lime</a></span><span class='op'>)</span> <span class='co'>#for explaining the machine learning models</span>
+</code></pre>
+</div>
 </div>
 <h1 id="data">Data</h1>
 <p>I used the covid19 data that I used in my previous <a href="http://www.mihiretukebede.com/posts/2020-08-03-2020-08-03-covid19/">blog post</a>. In addition, I have added new reference data by searching SARS papers published from January 1/2003 until September 12/2003.</p>
 <p>As I did in my last blog, I read my files using the beautiful bib2df package. You can also use <strong><code>bibliometrix</code></strong> or <strong><code>revtools</code></strong> packages to convert bibtex files to data frame in R. With <strong><code>revtools</code></strong>, you can also convert <em>.ris</em> files to data frame. Awesome! 😍</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# library(bib2df)
-# library(dplyr)
-# 
-# covid &lt;- bib2df(&quot;covid19.bib&quot;) %&gt;% # import references
-#   filter(!is.na(ABSTRACT)) %&gt;% # select only papers with no missing abstract
-#   select(&quot;TITLE&quot;, &quot;ABSTRACT&quot;, &quot;KEYWORDS&quot;, &quot;AUTHOR&quot;, &quot;BIBTEXKEY&quot;) # Select few variables 
-#   
-# 
-# # 2003 corona virus
-# covexclude &lt;- bib2df(&quot;covexclude.bib&quot;) %&gt;% 
-#   filter(!is.na(ABSTRACT)) %&gt;% 
-#   select(&quot;TITLE&quot;, &quot;ABSTRACT&quot;, &quot;KEYWORDS&quot;, &quot;AUTHOR&quot;, &quot;BIBTEXKEY&quot;)
-# 
-# cov2003 &lt;- bib2df(&quot;cov2003.bib&quot;) %&gt;% 
-#   filter(!is.na(ABSTRACT)) %&gt;% 
-#   select(&quot;TITLE&quot;, &quot;ABSTRACT&quot;, &quot;KEYWORDS&quot;, &quot;AUTHOR&quot;, &quot;BIBTEXKEY&quot;)
-# 
-# # Now import the TB data
-# sars &lt;- bib2df(&quot;sars.bib&quot;) %&gt;% 
-#   filter(!is.na(ABSTRACT)) %&gt;% 
-#   select(&quot;TITLE&quot;, &quot;ABSTRACT&quot;, &quot;KEYWORDS&quot;, &quot;AUTHOR&quot;, &quot;BIBTEXKEY&quot;)</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># library(bib2df)</span>
+<span class='co'># library(dplyr)</span>
+<span class='co'># </span>
+<span class='co'># covid &lt;- bib2df("covid19.bib") %&gt;% # import references</span>
+<span class='co'>#   filter(!is.na(ABSTRACT)) %&gt;% # select only papers with no missing abstract</span>
+<span class='co'>#   select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY") # Select few variables </span>
+<span class='co'>#   </span>
+<span class='co'># </span>
+<span class='co'># # 2003 corona virus</span>
+<span class='co'># covexclude &lt;- bib2df("covexclude.bib") %&gt;% </span>
+<span class='co'>#   filter(!is.na(ABSTRACT)) %&gt;% </span>
+<span class='co'>#   select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY")</span>
+<span class='co'># </span>
+<span class='co'># cov2003 &lt;- bib2df("cov2003.bib") %&gt;% </span>
+<span class='co'>#   filter(!is.na(ABSTRACT)) %&gt;% </span>
+<span class='co'>#   select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY")</span>
+<span class='co'># </span>
+<span class='co'># # Now import the TB data</span>
+<span class='co'># sars &lt;- bib2df("sars.bib") %&gt;% </span>
+<span class='co'>#   filter(!is.na(ABSTRACT)) %&gt;% </span>
+<span class='co'>#   select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR", "BIBTEXKEY")</span>
+</code></pre>
+</div>
 </div>
 <p>Assume we are only looking for COVID19 papers to include in our review. That means we will need to exclude all SARS papers published in 2003. I used a simple include/exclude decisions.</p>
 <p>We will now create a new binary factor factor variable called “Include”. We will then assign 1 for all covid papers and 0 for all SARS papers. To make the decisions look more in real world setting, I excluded 40 COVID papers published in August 22/2020. This has nothing to do with the contents of the papers. I am arbitrarily excluding the papers to make it look like a real world title/abstract screening process rather than a random decision.</p>
 <p>After that I merged the two data frames with a simple rbind() code. I had a problem rendering UTF-8 characters in my github page for this blog post. So I have instead read everything using bib2df and then from there I wrote them in xlsx file. After that I simply read my excel file in R and did the whole analysis using the excel file.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# Exclude all covid papers
-# covid$Include &lt;- 1 # coded them as included
-# 
-# covexclude$Include &lt;- 0 # excluded
-# 
-# cov2003$Include &lt;- 1 # included
-# sars$Include &lt;- 0 # excluded
-# 
-# # Now merge the tw data frames
-# covid_sars &lt;- rbind(covid, covexclude, sars, cov2003) # combine
-# 
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Exclude all covid papers</span>
+<span class='co'># covid$Include &lt;- 1 # coded them as included</span>
+<span class='co'># </span>
+<span class='co'># covexclude$Include &lt;- 0 # excluded</span>
+<span class='co'># </span>
+<span class='co'># cov2003$Include &lt;- 1 # included</span>
+<span class='co'># sars$Include &lt;- 0 # excluded</span>
+<span class='co'># </span>
+<span class='co'># # Now merge the tw data frames</span>
+<span class='co'># covid_sars &lt;- rbind(covid, covexclude, sars, cov2003) # combine</span>
+<span class='co'># </span>
 
-# write.xlsx(covid_sars, file = &quot;covidsars.xlsx&quot;,
-#            sheetName = &quot;covidsars&quot;, append = FALSE) </code></pre>
+<span class='co'># write.xlsx(covid_sars, file = "covidsars.xlsx",</span>
+<span class='co'>#            sheetName = "covidsars", append = FALSE) </span>
+</code></pre>
+</div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<pre><code>
-Rows: 983
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readxl.tidyverse.org'>readxl</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
+<span class='va'>covid_sars</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_excel</a></span><span class='op'>(</span><span class='st'>"covidsars.xlsx"</span><span class='op'>)</span>
+<span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>covid_sars</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Rows: 983
 Columns: 7
 $ ...1     &lt;chr&gt; &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;, &quot;10...
 $ title    &lt;chr&gt; &quot;Factors determining the diffusion of COVID-19 a...
@@ -2136,272 +2222,327 @@ $ keywords &lt;chr&gt; &quot;Air Pollutants,Air Pollution,Betacoronavirus,Ci...
 $ author   &lt;chr&gt; &quot;Coccia, Mario&quot;, &quot;Ataguba, Ochega A and Ataguba,...
 $ label    &lt;chr&gt; &quot;Coccia2020&quot;, &quot;Ataguba2020&quot;, &quot;Sigala2020&quot;, &quot;Lech...
 $ Include  &lt;chr&gt; &quot;included&quot;, &quot;included&quot;, &quot;included&quot;, &quot;included&quot;, ...</code></pre>
-<pre><code>
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'>#of characters</span>
+<span class='va'>covid_sars</span><span class='op'>$</span><span class='va'>abstract_length</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/nchar.html'>nchar</a></span><span class='op'>(</span><span class='va'>covid_sars</span><span class='op'>$</span><span class='va'>abstract</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>covid_sars</span><span class='op'>$</span><span class='va'>abstract_length</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
      11     812    1239    1244    1620    4259 </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Select only records with more than 300 characters </span>
+
+<span class='va'>covid_sars</span> <span class='op'>&lt;-</span> <span class='va'>covid_sars</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>abstract_length</span> <span class='op'>&gt;</span> <span class='fl'>200</span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <h1 id="check-number-of-includedexcluded-papers">Check number of included/excluded papers</h1>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(dplyr)
-table(covid_sars$Include)</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>covid_sars</span><span class='op'>$</span><span class='va'>Include</span><span class='op'>)</span>
+</code></pre>
+</div>
 <pre><code>
     included not included 
          506          464 </code></pre>
-<pre class="r"><code>
-# check the type of this variable and convert it to factor 
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># check the type of this variable and convert it to factor </span>
 
-typeof(covid_sars$Include) # it is double. We have to convert it to factor variable</code></pre>
-<pre><code>
-[1] &quot;character&quot;</code></pre>
-<pre class="r"><code>
-covid_sars$Include[covid_sars$Include==&quot;1&quot;]&lt;-&quot;included&quot;
-covid_sars$Include[covid_sars$Include==&quot;0&quot;]&lt;-&quot;not included&quot;
+<span class='fu'><a href='https://rdrr.io/r/base/typeof.html'>typeof</a></span><span class='op'>(</span><span class='va'>covid_sars</span><span class='op'>$</span><span class='va'>Include</span><span class='op'>)</span> <span class='co'># it is double. We have to convert it to factor variable</span>
+</code></pre>
+</div>
+<pre><code>[1] &quot;character&quot;</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>covid_sars</span><span class='op'>$</span><span class='va'>Include</span><span class='op'>[</span><span class='va'>covid_sars</span><span class='op'>$</span><span class='va'>Include</span><span class='op'>==</span><span class='st'>"1"</span><span class='op'>]</span><span class='op'>&lt;-</span><span class='st'>"included"</span>
+<span class='va'>covid_sars</span><span class='op'>$</span><span class='va'>Include</span><span class='op'>[</span><span class='va'>covid_sars</span><span class='op'>$</span><span class='va'>Include</span><span class='op'>==</span><span class='st'>"0"</span><span class='op'>]</span><span class='op'>&lt;-</span><span class='st'>"not included"</span>
 
-table(covid_sars$Include) %&gt;% prop.table() #51% excluded, 49% included</code></pre>
+<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>covid_sars</span><span class='op'>$</span><span class='va'>Include</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/base/proportions.html'>prop.table</a></span><span class='op'>(</span><span class='op'>)</span> <span class='co'>#51% excluded, 49% included</span>
+</code></pre>
+</div>
 <pre><code>
     included not included 
    0.5216495    0.4783505 </code></pre>
 </div>
 <h1 id="split-the-data">Split the data</h1>
 <figure>
-<img src="datasplit.JPG" alt="" /><figcaption>image</figcaption>
+<img src="datasplit.JPG" alt="image" /><figcaption aria-hidden="true">image</figcaption>
 </figure>
 <p>Machine learning algorithms require our data to be split into training and testing. The training data will be used to train the model and the testing data sets will be used to make predictions by deploying the model developed using the training sets. There are different ways of splitting our data to training and testing split. You may use <em>base R</em>, <em>Resample</em> or <em>Caret</em> package to easily perform this task. Here, I will use my favorite R packager: the <strong><em><code>Caret</code></em></strong> package. We will use 70/30 split which means 70% of my data will be assigned to the training set and 30% the data will be used for test sets.</p>
 <p>I will need to stratify my data split by my dependent variable. That means my train and test data will have exactly similar proportion for the outcome variable responses as the original data sets. That is 51% for excluded (coded as 0) and 49% for included (coded as 1). The data is nearly balanced. We don’t have the curse of class imbalance here, awesome!</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(caret)
-set.seed(3456) # for reproducibility
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/topepo/caret/'>caret</a></span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>3456</span><span class='op'>)</span> <span class='co'># for reproducibility</span>
 
-trainIndex &lt;- createDataPartition(covid_sars$Include, p = .7, 
-                                  list = FALSE, 
-                                  times = 1)
-train &lt;- covid_sars[ trainIndex,]
-test  &lt;- covid_sars[-trainIndex,]
+<span class='va'>trainIndex</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/createDataPartition.html'>createDataPartition</a></span><span class='op'>(</span><span class='va'>covid_sars</span><span class='op'>$</span><span class='va'>Include</span>, p <span class='op'>=</span> <span class='fl'>.7</span>, 
+                                  list <span class='op'>=</span> <span class='cn'>FALSE</span>, 
+                                  times <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span>
+<span class='va'>train</span> <span class='op'>&lt;-</span> <span class='va'>covid_sars</span><span class='op'>[</span> <span class='va'>trainIndex</span>,<span class='op'>]</span>
+<span class='va'>test</span>  <span class='op'>&lt;-</span> <span class='va'>covid_sars</span><span class='op'>[</span><span class='op'>-</span><span class='va'>trainIndex</span>,<span class='op'>]</span>
 
 
-prop.table(table(covid_sars$Include)) # outcome proportion for th original data</code></pre>
+<span class='fu'><a href='https://rdrr.io/r/base/proportions.html'>prop.table</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>covid_sars</span><span class='op'>$</span><span class='va'>Include</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># outcome proportion for th original data</span>
+</code></pre>
+</div>
 <pre><code>
     included not included 
-   0.5188199    0.4811801 </code></pre>
-<pre class="r"><code>
-prop.table(table(train$Include)) # outcome proportion for training data</code></pre>
+   0.5216495    0.4783505 </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/proportions.html'>prop.table</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>train</span><span class='op'>$</span><span class='va'>Include</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># outcome proportion for training data</span>
+</code></pre>
+</div>
 <pre><code>
     included not included 
-   0.5181422    0.4818578 </code></pre>
-<pre class="r"><code>
-prop.table(table(test$Include)) # outcome proportion for testing data</code></pre>
+   0.5220588    0.4779412 </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/proportions.html'>prop.table</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>test</span><span class='op'>$</span><span class='va'>Include</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># outcome proportion for testing data</span>
+</code></pre>
+</div>
 <pre><code>
     included not included 
-   0.5204082    0.4795918 </code></pre>
-<pre class="r"><code>
-# Cool! They have exactly similar proportions with respect to the outcome variable. </code></pre>
+   0.5206897    0.4793103 </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Cool! They have exactly similar proportions with respect to the outcome variable. </span>
+</code></pre>
+</div>
 </div>
 <h1 id="the-nice-part">The nice part</h1>
 <p><img src="machinelearning.JPG" /></p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(text2vec)
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://text2vec.org'>text2vec</a></span><span class='op'>)</span>
 
-get_matrix &lt;- function(text) {
-  it &lt;- itoken(text, progressbar = FALSE)
-  create_dtm(it, vectorizer = hash_vectorizer())
-}
+<span class='va'>get_matrix</span> <span class='op'>&lt;-</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>text</span><span class='op'>)</span> <span class='op'>{</span>
+  <span class='va'>it</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/text2vec/man/itoken.html'>itoken</a></span><span class='op'>(</span><span class='va'>text</span>, progressbar <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span>
+  <span class='fu'><a href='https://rdrr.io/pkg/text2vec/man/create_dtm.html'>create_dtm</a></span><span class='op'>(</span><span class='va'>it</span>, vectorizer <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/text2vec/man/vectorizers.html'>hash_vectorizer</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span>
+<span class='op'>}</span>
 
-dtm_train = get_matrix(train$abstract)
-dtm_test = get_matrix(test$abstract)</code></pre>
+<span class='va'>dtm_train</span> <span class='op'>=</span> <span class='fu'>get_matrix</span><span class='op'>(</span><span class='va'>train</span><span class='op'>$</span><span class='va'>abstract</span><span class='op'>)</span>
+<span class='va'>dtm_test</span> <span class='op'>=</span> <span class='fu'>get_matrix</span><span class='op'>(</span><span class='va'>test</span><span class='op'>$</span><span class='va'>abstract</span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# Create boosting model for binary classification (-&gt; logistic loss)
-# Other parameters are quite standard
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Create boosting model for binary classification (-&gt; logistic loss)</span>
+<span class='co'># Other parameters are quite standard</span>
 
-library(xgboost) # I will use extreme gradient boosting algorithm for building the model. But, I will also try other algorithms in the future. 
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/dmlc/xgboost'>xgboost</a></span><span class='op'>)</span> <span class='co'># I will use extreme gradient boosting algorithm for building the model. But, I will also try other algorithms in the future. </span>
 
-param &lt;- list(max_depth = 10, 
-              eta = 0.1, 
-              objective = &quot;binary:logistic&quot;, 
-              eval_metric = &quot;error&quot;, 
-              nthread = 1) # I will set the paprametres nearly similarly as it was described in the example from the package description. 
+<span class='va'>param</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span>max_depth <span class='op'>=</span> <span class='fl'>10</span>, 
+              eta <span class='op'>=</span> <span class='fl'>0.1</span>, 
+              objective <span class='op'>=</span> <span class='st'>"binary:logistic"</span>, 
+              eval_metric <span class='op'>=</span> <span class='st'>"error"</span>, 
+              nthread <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='co'># I will set the paprametres nearly similarly as it was described in the example from the package description. </span>
 
-xgb_model &lt;- xgb.train(
-  param, 
-  xgb.DMatrix(dtm_train, label = train$Include==&quot;included&quot;),
-  nrounds = 50
-)</code></pre>
+<span class='va'>xgb_model</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/xgboost/man/xgb.train.html'>xgb.train</a></span><span class='op'>(</span>
+  <span class='va'>param</span>, 
+  <span class='fu'><a href='https://rdrr.io/pkg/xgboost/man/xgb.DMatrix.html'>xgb.DMatrix</a></span><span class='op'>(</span><span class='va'>dtm_train</span>, label <span class='op'>=</span> <span class='va'>train</span><span class='op'>$</span><span class='va'>Include</span><span class='op'>==</span><span class='st'>"included"</span><span class='op'>)</span>,
+  nrounds <span class='op'>=</span> <span class='fl'>50</span>
+<span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <p>Use the model to predict the test set</p>
 <figure>
-<img src="https://media1.tenor.com/images/cf0a345aeb412c875330ae58362b63af/tenor.gif?itemid=15335500" alt="" /><figcaption>We Can Predict The Future Prediction GIF - WeCanPredictTheFuture Future Prediction - Discover &amp; Share GIFs</figcaption>
+<img src="https://media1.tenor.com/images/cf0a345aeb412c875330ae58362b63af/tenor.gif?itemid=15335500" alt="We Can Predict The Future Prediction GIF - WeCanPredictTheFuture Future Prediction - Discover &amp; Share GIFs" /><figcaption aria-hidden="true">We Can Predict The Future Prediction GIF - WeCanPredictTheFuture Future Prediction - Discover &amp; Share GIFs</figcaption>
 </figure>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(caret)
-predictions &lt;- predict(xgb_model, dtm_test) 
-# prediction probabilities
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/topepo/caret/'>caret</a></span><span class='op'>)</span>
+<span class='va'>predictions</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>xgb_model</span>, <span class='va'>dtm_test</span><span class='op'>)</span> 
+<span class='co'># prediction probabilities</span>
 
-predict &lt;- ifelse(predictions &gt; 0.5, &quot;included&quot;, &quot;not included&quot;) # assign prediction probabilities greater than 0.5 as included and less than 0.5 as not included
+<span class='va'>predict</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>predictions</span> <span class='op'>&gt;</span> <span class='fl'>0.5</span>, <span class='st'>"included"</span>, <span class='st'>"not included"</span><span class='op'>)</span> <span class='co'># assign prediction probabilities greater than 0.5 as included and less than 0.5 as not included</span>
 
 
-confusionMatrix(as.factor(predict), as.factor(test$Include))</code></pre>
-<pre><code>
-Confusion Matrix and Statistics
+<span class='fu'><a href='https://rdrr.io/pkg/caret/man/confusionMatrix.html'>confusionMatrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='va'>predict</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>as.factor</a></span><span class='op'>(</span><span class='va'>test</span><span class='op'>$</span><span class='va'>Include</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Confusion Matrix and Statistics
 
               Reference
 Prediction     included not included
-  included          145           10
-  not included        8          131
-                                         
-               Accuracy : 0.9388         
-                 95% CI : (0.905, 0.9633)
-    No Information Rate : 0.5204         
-    P-Value [Acc &gt; NIR] : &lt;2e-16         
-                                         
-                  Kappa : 0.8773         
-                                         
- Mcnemar&#39;s Test P-Value : 0.8137         
-                                         
-            Sensitivity : 0.9477         
-            Specificity : 0.9291         
-         Pos Pred Value : 0.9355         
-         Neg Pred Value : 0.9424         
-             Prevalence : 0.5204         
-         Detection Rate : 0.4932         
-   Detection Prevalence : 0.5272         
-      Balanced Accuracy : 0.9384         
-                                         
-       &#39;Positive&#39; Class : included       
-                                         </code></pre>
+  included          143            9
+  not included        8          130
+                                          
+               Accuracy : 0.9414          
+                 95% CI : (0.9078, 0.9655)
+    No Information Rate : 0.5207          
+    P-Value [Acc &gt; NIR] : &lt;2e-16          
+                                          
+                  Kappa : 0.8825          
+                                          
+ Mcnemar&#39;s Test P-Value : 1               
+                                          
+            Sensitivity : 0.9470          
+            Specificity : 0.9353          
+         Pos Pred Value : 0.9408          
+         Neg Pred Value : 0.9420          
+             Prevalence : 0.5207          
+         Detection Rate : 0.4931          
+   Detection Prevalence : 0.5241          
+      Balanced Accuracy : 0.9411          
+                                          
+       &#39;Positive&#39; Class : included        
+                                          </code></pre>
 </div>
 <p>It resulted 93.5% accuracy. In real world setting this may not happen because we will work on highly related titles and abstracts. My experiment brings two somehow related documents (SARS and covid19). ALthough we are explcitly looking for covid papers, I assigned some of the covid papers to be excluded just to add some confusion.</p>
 <p>Let’s pick two abstracts(Abstract #89 and #271) and see what are the most important terms of the abstract that xgboost used for its predictions. We will use <em>lime</em> package to explain the predictions</p>
 <h2 id="abstract-number-89">Abstract number 89</h2>
 <p>We need to use <em><code>lime::</code></em> to avoid conflicts with <code>dplyr</code>package</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-ab_to_explain89 &lt;- head(test[89,]$abstract, 6)
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>ab_to_explain89</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>test</span><span class='op'>[</span><span class='fl'>89</span>,<span class='op'>]</span><span class='op'>$</span><span class='va'>abstract</span>, <span class='fl'>6</span><span class='op'>)</span>
 
-explainer89 &lt;- lime::lime(ab_to_explain89, model = xgb_model, 
-                  preprocess = get_matrix)
+<span class='va'>explainer89</span> <span class='op'>&lt;-</span> <span class='fu'>lime</span><span class='fu'>::</span><span class='fu'><a href='https://lime.data-imaginist.com/reference/lime.html'>lime</a></span><span class='op'>(</span><span class='va'>ab_to_explain89</span>, model <span class='op'>=</span> <span class='va'>xgb_model</span>, 
+                  preprocess <span class='op'>=</span> <span class='va'>get_matrix</span><span class='op'>)</span>
 
-explanation89 &lt;- lime::explain(ab_to_explain89, explainer89, n_labels=1,
-                       n_features = 7) # Set number most important features to 7</code></pre>
+<span class='va'>explanation89</span> <span class='op'>&lt;-</span> <span class='fu'>lime</span><span class='fu'>::</span><span class='fu'><a href='https://lime.data-imaginist.com/reference/explain.html'>explain</a></span><span class='op'>(</span><span class='va'>ab_to_explain89</span>, <span class='va'>explainer89</span>, n_labels<span class='op'>=</span><span class='fl'>1</span>,
+                       n_features <span class='op'>=</span> <span class='fl'>7</span><span class='op'>)</span> <span class='co'># Set number most important features to 7</span>
+</code></pre>
+</div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-explanation89[, 2:10]</code></pre>
-<pre><code>
-# A tibble: 7 x 9
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>explanation89</span><span class='op'>[</span>, <span class='fl'>2</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>]</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 7 x 9
    case label label_prob model_r2 model_intercept model_prediction
   &lt;int&gt; &lt;chr&gt;      &lt;dbl&gt;    &lt;dbl&gt;           &lt;dbl&gt;            &lt;dbl&gt;
-1     1 0          0.954    0.922           0.989            0.957
-2     1 0          0.954    0.922           0.989            0.957
-3     1 0          0.954    0.922           0.989            0.957
-4     1 0          0.954    0.922           0.989            0.957
-5     1 0          0.954    0.922           0.989            0.957
-6     1 0          0.954    0.922           0.989            0.957
-7     1 0          0.954    0.922           0.989            0.957
+1     1 0          0.950    0.962           0.989            0.951
+2     1 0          0.950    0.962           0.989            0.951
+3     1 0          0.950    0.962           0.989            0.951
+4     1 0          0.950    0.962           0.989            0.951
+5     1 0          0.950    0.962           0.989            0.951
+6     1 0          0.950    0.962           0.989            0.951
+7     1 0          0.950    0.962           0.989            0.951
 # ... with 3 more variables: feature &lt;chr&gt;, feature_value &lt;chr&gt;,
 #   feature_weight &lt;dbl&gt;</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-lime::plot_features(explanation89)</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>lime</span><span class='fu'>::</span><span class='fu'><a href='https://lime.data-imaginist.com/reference/plot_features.html'>plot_features</a></span><span class='op'>(</span><span class='va'>explanation89</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-12-1.png" width="624" /></p>
 </div>
 <p>The word <strong>sars</strong> is most important word that xgb model used to predict the exclusion of this this abstract.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-lime::plot_text_explanations(explanation89)</code></pre>
-<div id="htmlwidget-3e4d97d8faa1a643356d" style="width:100%;height:auto;" class="plot_text_explanations html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3e4d97d8faa1a643356d">{"x":{"html":"<div style=\"overflow-y:scroll;font-family:sans-serif;height:100%\"> <p> <span class='negative_1'>The<\/span> world health organization (WHO) guidelines needs <span class='positive_1'>to<\/span> <span class='negative_2'>be<\/span> empirically examined.   <span class='negative_1'>The<\/span> study sought <span class='positive_1'>to<\/span> look <span class='negative_1'>at<\/span> the <span class='negative_1'>recommended<\/span> <span class='negative_1'>and<\/span> non-<span class='negative_1'>recommended<\/span> behaviors.  <span class='negative_1'>The<\/span> results of the study show that psychological distress was negatively associated <span class='negative_2'>with<\/span> <span class='negative_1'>recommended<\/span> behaviors <span class='negative_1'>and<\/span> positively <span class='negative_2'>with<\/span> non-<span class='negative_1'>recommended<\/span> behaviors. <\/br> <sub>Label predicted: 0 (95.42%)<br/>Explainer fit: 0.92<\/sub> <\/p> <\/div>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'>lime</span><span class='fu'>::</span><span class='fu'><a href='https://lime.data-imaginist.com/reference/text_explanations.html'>plot_text_explanations</a></span><span class='op'>(</span><span class='va'>explanation89</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div id="htmlwidget-d18cc91161786f238275" style="width:100%;height:auto;" class="plot_text_explanations html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d18cc91161786f238275">{"x":{"html":"<div style=\"overflow-y:scroll;font-family:sans-serif;height:100%\"> <p> The COVID-19 pandemic, which has led <span class='negative_1'>to<\/span> a flood <span class='negative_1'>of<\/span> papers <span class='negative_1'>and<\/span> preprints, has placed  multiple challenges on academic publishing, the most obvious one being sustained integrity under the pressure <span class='negative_1'>to<\/span> publish quickly. There <span class='negative_1'>are<\/span> risks <span class='negative_1'>of<\/span> this high volume-<span class='negative_1'>to<\/span>-speed ratio. Many letters, editorials, <span class='negative_1'>and<\/span> supposedly \"peer reviewed\" papers in ranked <span class='negative_1'>and<\/span> indexed journals were published in a matter <span class='negative_1'>of<\/span> days, suggesting that peer review was either fleeting or non-existential, or that papers were rapidly approved <span class='negative_2'>by<\/span> editors based on <span class='negative_1'>their<\/span> perceived interest <span class='negative_1'>and<\/span> topicality, rather than on <span class='negative_1'>their<\/span> intrinsic academic value. In academic publishing circles, the claim <span class='negative_1'>of<\/span> \"peer review\", when in fact it has not been conducted, <span class='negative_1'>is<\/span> a core characteristic <span class='negative_1'>of<\/span> \"predatory publishing\", <span class='negative_1'>and<\/span> <span class='negative_1'>is<\/span> also a \"fake\" element that may undermine efforts in recent years <span class='negative_1'>to<\/span> build trust in science's budding serials crisis. While the world <span class='negative_1'>is<\/span> still centrally focused on COVID-19, the issue <span class='negative_1'>of<\/span> \"predatory publishing\" <span class='negative_1'>is<\/span> being ignored, or not being given sufficient attention. The risks <span class='negative_1'>to<\/span> the scholarly community, academic publishing <span class='negative_1'>and<\/span> ultimately public health <span class='negative_1'>are<\/span> at stake when exploitative <span class='negative_1'>and<\/span> predatory publishing <span class='negative_1'>are<\/span> left unchallenged. <\/br> <sub>Label predicted: 0 (94.96%)<br/>Explainer fit: 0.96<\/sub> <\/p> <\/div>"},"evals":[],"jsHooks":[]}</script>
 </div>
 <h2 id="abstract-283">Abstract 283</h2>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(lime)
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://lime.data-imaginist.com'>lime</a></span><span class='op'>)</span>
 
-ab_to_explain &lt;- head(test[283,]$abstract, 6)
+<span class='va'>ab_to_explain</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>test</span><span class='op'>[</span><span class='fl'>283</span>,<span class='op'>]</span><span class='op'>$</span><span class='va'>abstract</span>, <span class='fl'>6</span><span class='op'>)</span>
 
-explainer &lt;- lime(ab_to_explain, model = xgb_model, 
-                  preprocess = get_matrix, 
-                  tokenization =default_tokenize)
+<span class='va'>explainer</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://lime.data-imaginist.com/reference/lime.html'>lime</a></span><span class='op'>(</span><span class='va'>ab_to_explain</span>, model <span class='op'>=</span> <span class='va'>xgb_model</span>, 
+                  preprocess <span class='op'>=</span> <span class='va'>get_matrix</span>, 
+                  tokenization <span class='op'>=</span><span class='va'>default_tokenize</span><span class='op'>)</span>
 
-explanation &lt;- explain(ab_to_explain, explainer, n_labels=1,
-                       n_features = 7) # Set number most important features to 7</code></pre>
+<span class='va'>explanation</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://lime.data-imaginist.com/reference/explain.html'>explain</a></span><span class='op'>(</span><span class='va'>ab_to_explain</span>, <span class='va'>explainer</span>, n_labels<span class='op'>=</span><span class='fl'>1</span>,
+                       n_features <span class='op'>=</span> <span class='fl'>7</span><span class='op'>)</span> <span class='co'># Set number most important features to 7</span>
+</code></pre>
+</div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-explanation[, 2:10]</code></pre>
-<pre><code>
-# A tibble: 7 x 9
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>explanation</span><span class='op'>[</span>, <span class='fl'>2</span><span class='op'>:</span><span class='fl'>10</span><span class='op'>]</span>
+</code></pre>
+</div>
+<pre><code># A tibble: 7 x 9
    case label label_prob model_r2 model_intercept model_prediction
   &lt;int&gt; &lt;chr&gt;      &lt;dbl&gt;    &lt;dbl&gt;           &lt;dbl&gt;            &lt;dbl&gt;
-1     1 0          0.990    0.778           0.978            0.985
-2     1 0          0.990    0.778           0.978            0.985
-3     1 0          0.990    0.778           0.978            0.985
-4     1 0          0.990    0.778           0.978            0.985
-5     1 0          0.990    0.778           0.978            0.985
-6     1 0          0.990    0.778           0.978            0.985
-7     1 0          0.990    0.778           0.978            0.985
+1     1 1          0.935    0.997         -0.0123            0.931
+2     1 1          0.935    0.997         -0.0123            0.931
+3     1 1          0.935    0.997         -0.0123            0.931
+4     1 1          0.935    0.997         -0.0123            0.931
+5     1 1          0.935    0.997         -0.0123            0.931
+6     1 1          0.935    0.997         -0.0123            0.931
+7     1 1          0.935    0.997         -0.0123            0.931
 # ... with 3 more variables: feature &lt;chr&gt;, feature_value &lt;chr&gt;,
 #   feature_weight &lt;dbl&gt;</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-plot_features(explanation)</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://lime.data-imaginist.com/reference/plot_features.html'>plot_features</a></span><span class='op'>(</span><span class='va'>explanation</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-plot_text_explanations(explanation)</code></pre>
-<div id="htmlwidget-8ed9bdb8acad6f3f18b9" style="width:100%;height:auto;" class="plot_text_explanations html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8ed9bdb8acad6f3f18b9">{"x":{"html":"<div style=\"overflow-y:scroll;font-family:sans-serif;height:100%\"> <p> Infectious diseases are a global hazard that puts every nation and every person at risk. The recent <span class='positive_3'>SARS<\/span> outbreak <span class='negative_1'>is<\/span> a prime example. Knowing neither geographic nor political borders, often arriving silently and lethally, microbial pathogens constitute a grave threat <span class='negative_1'>to<\/span> the health of humans. Indeed, a majority of countries recently identified the spread of infectious disease as the greatest global problem they confront. Throughout history, humans have struggled <span class='negative_1'>to<\/span> control <span class='negative_1'>both<\/span> the <span class='negative_1'>causes<\/span> and consequences of infectious diseases and we will continue <span class='negative_1'>to<\/span> do so into the foreseeable future. Following up on a high-profile 1992 report <span class='negative_1'>from<\/span> the Institute of Medicine, Microbial Threats <span class='negative_1'>to<\/span> Health examines the current state of knowledge and policy pertaining <span class='negative_1'>to<\/span> emerging and re-emerging infectious diseases <span class='negative_1'>from<\/span> <span class='negative_1'>around<\/span> the globe. It examines the spectrum of microbial threats, factors in disease emergence, and the ultimate capacity of the United States <span class='negative_1'>to<\/span> meet the challenges posed by microbial threats <span class='negative_1'>to<\/span> human health. From the impact of war or technology on disease emergence <span class='negative_1'>to<\/span> the development of enhanced disease surveillance and vaccine strategies, Microbial Threats <span class='negative_1'>to<\/span> Health contains valuable information for researchers, students, health care providers, policymakers, public health officials. and the interested public. <\/br> <sub>Label predicted: 0 (99%)<br/>Explainer fit: 0.78<\/sub> <\/p> <\/div>"},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://lime.data-imaginist.com/reference/text_explanations.html'>plot_text_explanations</a></span><span class='op'>(</span><span class='va'>explanation</span><span class='op'>)</span>
+</code></pre>
+</div>
+<div id="htmlwidget-247c039365c61450f0a6" style="width:100%;height:auto;" class="plot_text_explanations html-widget"></div>
+<script type="application/json" data-for="htmlwidget-247c039365c61450f0a6">{"x":{"html":"<div style=\"overflow-y:scroll;font-family:sans-serif;height:100%\"> <p> Background: A sound knowledge <span class='positive_1'>of<\/span> retropubic pelvic vascular anatomy <span class='positive_1'>is<\/span> pivotal to the successful performance <span class='positive_1'>of<\/span> endoscopic <span class='negative_1'>total<\/span> extraperitoneal (TEP) inguinal hernioplasty. The objective <span class='positive_1'>of<\/span> the current study was to evaluate the incidence <span class='positive_1'>and<\/span> anatomy <span class='positive_1'>of<\/span> iliopubic <span class='positive_1'>and<\/span> aberrant obturator vessels. Methods: Between July 2001 <span class='positive_1'>and<\/span> March 2002, a prospective endoscopic evaluation <span class='positive_1'>of<\/span> retropubic vascular anatomy was performed on patients who underwent TEP. Endoscopic photographs <span class='positive_1'>of<\/span> the vasculature over-lying the superior pubic ramus in the recruited patients <span class='positive_1'>were<\/span> captured on a computer. Results: The retropubic vascular anatomy <span class='positive_1'>of<\/span> 121 patients, who underwent either unilateral (n = 100) or bilateral (n = 21) TEP was examined. The iliopubic artery <span class='positive_1'>and<\/span> vein <span class='positive_1'>were<\/span> invariably present in every patient, <span class='positive_1'>and<\/span> traversed along the iliopubic tract toward the pubic symphysis. The aberrant obturator artery was present in 31 pelvic halves, giving <span class='positive_1'>an<\/span> overall incidence <span class='positive_1'>of<\/span> 22{\\%}. The aberrant obturator vein existed between the external iliac <span class='positive_1'>and<\/span> obturator venous system in 27{\\%} (n = 38) <span class='positive_1'>of<\/span> the 141 pelvic halves examined. The overall incidence <span class='positive_1'>of<\/span> <span class='positive_5'>corona<\/span> mortis, in the form <span class='positive_1'>of<\/span> either <span class='positive_1'>an<\/span> aberrant obturator vein or artery, was 40{\\%} (n = 56). Conclusions: Iliopubic vein <span class='positive_1'>and<\/span> artery are universal findings in every patient. Both aberrant obturator artery <span class='positive_1'>and<\/span> vein cross the superior pubic rami, <span class='positive_1'>and<\/span> are therefore susceptible to injuries during dissection <span class='positive_1'>of<\/span> the Bogros space <span class='positive_1'>and<\/span> stapling <span class='positive_1'>of<\/span> the mesh onto Cooper's ligament. Awareness <span class='positive_1'>of<\/span> these aberrant vessels will help to reduce bleeding <span class='positive_1'>and<\/span> subsequent morbidity. Tracing along the aberrant vessel can easily identify the obturator fora-men, which <span class='positive_1'>is<\/span> <span class='positive_1'>an<\/span> anatomic landmark that indicates <span class='positive_1'>an<\/span> adequate inferior dissection <span class='positive_1'>of<\/span> the preperitoneal space. <\/br> <sub>Label predicted: 1 (93.54%)<br/>Explainer fit: 1<\/sub> <\/p> <\/div>"},"evals":[],"jsHooks":[]}</script>
 </div>
 <p>The word <strong>corona</strong> is used for predicting “Include” with 87% prediction probability.</p>
 <p>The above modelling is dirty.It didn’t use only the relevant words. I will use <em>quanteda</em> package to remove all irrelavnt words.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library (quanteda)</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span> <span class='op'>(</span><span class='va'><a href='https://quanteda.io'>quanteda</a></span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <h1 id="create-corpus">Create corpus</h1>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-names(train) </code></pre>
-<pre><code>
-[1] &quot;...1&quot;     &quot;title&quot;    &quot;abstract&quot; &quot;keywords&quot; &quot;author&quot;   &quot;label&quot;   
-[7] &quot;Include&quot; </code></pre>
-<pre class="r"><code>
-train_data &lt;- train[, 6]  # I need only some of my variables: title, include, and label variable I don&#39;t need the rest of the variables for now. The label variable helps me to identify the papers it is written like Authoryyyy. I will use it to attach as a document identifier. 
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>train</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<pre><code>[1] &quot;...1&quot;            &quot;title&quot;           &quot;abstract&quot;       
+[4] &quot;keywords&quot;        &quot;author&quot;          &quot;label&quot;          
+[7] &quot;Include&quot;         &quot;abstract_length&quot;</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>train_data</span> <span class='op'>&lt;-</span> <span class='va'>train</span><span class='op'>[</span>, <span class='fl'>6</span><span class='op'>]</span>  <span class='co'># I need only some of my variables: title, include, and label variable I don't need the rest of the variables for now. The label variable helps me to identify the papers it is written like Authoryyyy. I will use it to attach as a document identifier. </span>
 
-# Now build the corpus using abstracts of the papers
-train_corpus &lt;- corpus(train$abstract, 
-                     docvars = data.frame(abstract_label = names(train_data))) # I added the docvars to save the additional variables other than the abstract</code></pre>
+<span class='co'># Now build the corpus using abstracts of the papers</span>
+<span class='va'>train_corpus</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://quanteda.io/reference/corpus.html'>corpus</a></span><span class='op'>(</span><span class='va'>train</span><span class='op'>$</span><span class='va'>abstract</span>, 
+                     docvars <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span>abstract_label <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>train_data</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># I added the docvars to save the additional variables other than the abstract</span>
+</code></pre>
+</div>
 </div>
 <p>Similarly for the test set</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-names(test) </code></pre>
-<pre><code>
-[1] &quot;...1&quot;     &quot;title&quot;    &quot;abstract&quot; &quot;keywords&quot; &quot;author&quot;   &quot;label&quot;   
-[7] &quot;Include&quot; </code></pre>
-<pre class="r"><code>
-test1 &lt;- test %&gt;% 
-  filter(label!=&quot;NA&quot;)
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>test</span><span class='op'>)</span> 
+</code></pre>
+</div>
+<pre><code>[1] &quot;...1&quot;            &quot;title&quot;           &quot;abstract&quot;       
+[4] &quot;keywords&quot;        &quot;author&quot;          &quot;label&quot;          
+[7] &quot;Include&quot;         &quot;abstract_length&quot;</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>test1</span> <span class='op'>&lt;-</span> <span class='va'>test</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>label</span><span class='op'>!=</span><span class='st'>"NA"</span><span class='op'>)</span>
 
-test_data &lt;- test1[,6] 
+<span class='va'>test_data</span> <span class='op'>&lt;-</span> <span class='va'>test1</span><span class='op'>[</span>,<span class='fl'>6</span><span class='op'>]</span> 
 
-test_corpus &lt;- corpus(test1$abstract)</code></pre>
+<span class='va'>test_corpus</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://quanteda.io/reference/corpus.html'>corpus</a></span><span class='op'>(</span><span class='va'>test1</span><span class='op'>$</span><span class='va'>abstract</span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <p>Add document identifier for both test and training set data</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-docid &lt;- paste(train$label)
-docnames(train_corpus) &lt;- docid
-print(train_corpus)</code></pre>
-<pre><code>
-Corpus consisting of 689 documents and 1 docvar.
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>docid</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='va'>train</span><span class='op'>$</span><span class='va'>label</span><span class='op'>)</span>
+<span class='fu'><a href='https://quanteda.io/reference/docnames.html'>docnames</a></span><span class='op'>(</span><span class='va'>train_corpus</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='va'>docid</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>train_corpus</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Corpus consisting of 680 documents and 1 docvar.
 Ataguba2020.1 :
 &quot;The coronavirus disease 2019 (COVID-19) pandemic has affecte...&quot;
 
@@ -2420,16 +2561,17 @@ Barilla2020.1 :
 Zhang2020d.1 :
 &quot;The nucleocapsid protein is significant in the formation of ...&quot;
 
-[ reached max_ndoc ... 683 more documents ]</code></pre>
+[ reached max_ndoc ... 674 more documents ]</code></pre>
 </div>
 <p>Attach the document identifier also for the test set</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-docidtest &lt;- paste(test1$label)
-docnames(test_corpus) &lt;- docidtest
-print(test_corpus)</code></pre>
-<pre><code>
-Corpus consisting of 294 documents.
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>docidtest</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='va'>test1</span><span class='op'>$</span><span class='va'>label</span><span class='op'>)</span>
+<span class='fu'><a href='https://quanteda.io/reference/docnames.html'>docnames</a></span><span class='op'>(</span><span class='va'>test_corpus</span><span class='op'>)</span> <span class='op'>&lt;-</span> <span class='va'>docidtest</span>
+<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='va'>test_corpus</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Corpus consisting of 290 documents.
 Coccia2020.1 :
 &quot;This study has two goals. The first is to explain the geo-en...&quot;
 
@@ -2448,145 +2590,159 @@ Wister2020.1 :
 Acter2020.1 :
 &quot;According to data compiled by researchers at Johns Hopkins U...&quot;
 
-[ reached max_ndoc ... 288 more documents ]</code></pre>
+[ reached max_ndoc ... 284 more documents ]</code></pre>
 </div>
 <h1 id="tokenize">Tokenize</h1>
 <p>I will create tokens and then later document feature matrix for both train and test abstract copuses. We do the same tokenization process as we did in my previous <a href="http://www.mihiretukebede.com/posts/2020-08-10-2020-08-10-text-analysis-of-covid-publications/">blog post</a>. We will remove numbers, remove punctuation, or remove a customized list of stop words</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-custom_stop_words &lt;- c(&quot;background&quot;, &quot;introduction&quot;,&quot;aims&quot;, &quot;objectives&quot;, &quot;materials&quot;, &quot;methods&quot;, &quot;results&quot;, &quot;conclusions&quot;,&quot;textless&quot;, &quot;study&quot;) 
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>custom_stop_words</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"background"</span>, <span class='st'>"introduction"</span>,<span class='st'>"aims"</span>, <span class='st'>"objectives"</span>, <span class='st'>"materials"</span>, <span class='st'>"methods"</span>, <span class='st'>"results"</span>, <span class='st'>"conclusions"</span>,<span class='st'>"textless"</span>, <span class='st'>"study"</span><span class='op'>)</span> 
                                       
-train_tokens &lt;- tokens(train_corpus, remove_punct = TRUE,
-                  remove_numbers = TRUE)
-train_tokens &lt;- tokens_select(train_tokens, pattern = stopwords(&#39;en&#39;), selection = &#39;remove&#39;) # remove irrelevant words
+<span class='va'>train_tokens</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://quanteda.io/reference/tokens.html'>tokens</a></span><span class='op'>(</span><span class='va'>train_corpus</span>, remove_punct <span class='op'>=</span> <span class='cn'>TRUE</span>,
+                  remove_numbers <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='va'>train_tokens</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://quanteda.io/reference/tokens_select.html'>tokens_select</a></span><span class='op'>(</span><span class='va'>train_tokens</span>, pattern <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/stopwords/man/stopwords.html'>stopwords</a></span><span class='op'>(</span><span class='st'>'en'</span><span class='op'>)</span>, selection <span class='op'>=</span> <span class='st'>'remove'</span><span class='op'>)</span> <span class='co'># remove irrelevant words</span>
 
-train_tokens &lt;- tokens_select(train_tokens, pattern = custom_stop_words, selection = &#39;remove&#39;) # remove customized list of stop words</code></pre>
+<span class='va'>train_tokens</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://quanteda.io/reference/tokens_select.html'>tokens_select</a></span><span class='op'>(</span><span class='va'>train_tokens</span>, pattern <span class='op'>=</span> <span class='va'>custom_stop_words</span>, selection <span class='op'>=</span> <span class='st'>'remove'</span><span class='op'>)</span> <span class='co'># remove customized list of stop words</span>
+</code></pre>
+</div>
 </div>
 <p>I do the same for the test abstract corpuses</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-test_tokens &lt;- tokens(test_corpus, remove_punct = TRUE,
-                  remove_numbers = TRUE)
-test_tokens &lt;- tokens_select(test_tokens, pattern = stopwords(&#39;en&#39;), selection = &#39;remove&#39;) # remove irrelevant words
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>test_tokens</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://quanteda.io/reference/tokens.html'>tokens</a></span><span class='op'>(</span><span class='va'>test_corpus</span>, remove_punct <span class='op'>=</span> <span class='cn'>TRUE</span>,
+                  remove_numbers <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
+<span class='va'>test_tokens</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://quanteda.io/reference/tokens_select.html'>tokens_select</a></span><span class='op'>(</span><span class='va'>test_tokens</span>, pattern <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/stopwords/man/stopwords.html'>stopwords</a></span><span class='op'>(</span><span class='st'>'en'</span><span class='op'>)</span>, selection <span class='op'>=</span> <span class='st'>'remove'</span><span class='op'>)</span> <span class='co'># remove irrelevant words</span>
 
-test_tokens &lt;- tokens_select(test_tokens, pattern = custom_stop_words, selection = &#39;remove&#39;) # remove customized list of stop words</code></pre>
+<span class='va'>test_tokens</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://quanteda.io/reference/tokens_select.html'>tokens_select</a></span><span class='op'>(</span><span class='va'>test_tokens</span>, pattern <span class='op'>=</span> <span class='va'>custom_stop_words</span>, selection <span class='op'>=</span> <span class='st'>'remove'</span><span class='op'>)</span> <span class='co'># remove customized list of stop words</span>
+</code></pre>
+</div>
 </div>
 <h1 id="construct-document-feature-matrix-for-both-train-and-test-abstract-tokens">Construct document feature matrix for both train and test abstract tokens</h1>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-train_dfmat &lt;- dfm(train_tokens) 
-test_dfmat &lt;- dfm(test_tokens)</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>train_dfmat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://quanteda.io/reference/dfm.html'>dfm</a></span><span class='op'>(</span><span class='va'>train_tokens</span><span class='op'>)</span> 
+<span class='va'>test_dfmat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://quanteda.io/reference/dfm.html'>dfm</a></span><span class='op'>(</span><span class='va'>test_tokens</span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <h1 id="have-a-quick-look-of-the-two-document-feature-matrices">Have a quick look of the two document feature matrices</h1>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-head(train_dfmat)</code></pre>
-<pre><code>
-Document-feature matrix of: 6 documents, 11,261 features (99.1% sparse) and 1 docvar.
-               features
-docs            coronavirus disease covid-19 pandemic affected many
-  Ataguba2020.1           2       2        6        3        1    7
-  Sigala2020.1            0       0        4        1        0    0
-  Lechner2020.1           2       0        0        2        0    0
-  VanDorp2020.1           1       0        1        1        0    0
-  Barilla2020.1           1       1        2        1        0    1
-  Zhang2020d.1            1       0        1        0        0    0
-               features
-docs            countries increasing morbidity mortality
-  Ataguba2020.1         7          1         2         1
-  Sigala2020.1          0          0         0         0
-  Lechner2020.1         0          0         0         0
-  VanDorp2020.1         1          0         0         0
-  Barilla2020.1         0          0         0         0
-  Zhang2020d.1          0          0         0         0
-[ reached max_nfeat ... 11,251 more features ]</code></pre>
-<pre class="r"><code>
-head(test_dfmat)</code></pre>
-<pre><code>
-Document-feature matrix of: 6 documents, 7,010 features (98.4% sparse).
-                features
-docs             two goals first explain geo-environmental
-  Coccia2020.1     1     1     1       1                 1
-  Cagliani2020.1   0     0     0       0                 0
-  Okba2020.1       0     0     0       0                 0
-  Donthu2020.1     0     0     0       0                 0
-  Wister2020.1     0     0     0       0                 0
-  Acter2020.1      1     0     0       0                 0
-                features
-docs             determinants accelerated diffusion covid-19
-  Coccia2020.1              1           3         3        9
-  Cagliani2020.1            0           0         0        0
-  Okba2020.1                0           0         0        0
-  Donthu2020.1              0           0         0        1
-  Wister2020.1              0           0         0        4
-  Acter2020.1               0           0         0        1
-                features
-docs             generating
-  Coccia2020.1            1
-  Cagliani2020.1          0
-  Okba2020.1              0
-  Donthu2020.1            0
-  Wister2020.1            0
-  Acter2020.1             0
-[ reached max_nfeat ... 7,000 more features ]</code></pre>
-<pre class="r"><code>
-dim(train_dfmat) # 646 abstracts 11191 features/terms</code></pre>
-<pre><code>
-[1]   689 11261</code></pre>
-<pre class="r"><code>
-dim(test_dfmat) # 276 abstracts 6668 features/terms</code></pre>
-<pre><code>
-[1]  294 7010</code></pre>
-<pre class="r"><code>
-# Or simply pass the dfm object in ndoc() or nfeat() functions
-ndoc(train_dfmat)</code></pre>
-<pre><code>
-[1] 689</code></pre>
-<pre class="r"><code>
-nfeat(train_dfmat)</code></pre>
-<pre><code>
-[1] 11261</code></pre>
-<pre class="r"><code>
-ndoc(test_dfmat)</code></pre>
-<pre><code>
-[1] 294</code></pre>
-<pre class="r"><code>
-nfeat(test_dfmat)</code></pre>
-<pre><code>
-[1] 7010</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>train_dfmat</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Document-feature matrix of: 6 documents, 11,352 features (99.1% sparse) and 1 docvar.
+             features
+docs          coronavirus disease covid-19 pandemic affected many
+  Ataguba2020           2       2        6        3        1    7
+  Sigala2020            0       0        4        1        0    0
+  Lechner2020           2       0        0        2        0    0
+  VanDorp2020           1       0        1        1        0    0
+  Barilla2020           1       1        2        1        0    1
+  Zhang2020d            1       0        1        0        0    0
+             features
+docs          countries increasing morbidity mortality
+  Ataguba2020         7          1         2         1
+  Sigala2020          0          0         0         0
+  Lechner2020         0          0         0         0
+  VanDorp2020         1          0         0         0
+  Barilla2020         0          0         0         0
+  Zhang2020d          0          0         0         0
+[ reached max_nfeat ... 11,342 more features ]</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>test_dfmat</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Document-feature matrix of: 6 documents, 6,869 features (98.4% sparse).
+              features
+docs           two goals first explain geo-environmental determinants
+  Coccia2020     1     1     1       1                 1            1
+  Cagliani2020   0     0     0       0                 0            0
+  Okba2020       0     0     0       0                 0            0
+  Donthu2020     0     0     0       0                 0            0
+  Wister2020     0     0     0       0                 0            0
+  Acter2020      1     0     0       0                 0            0
+              features
+docs           accelerated diffusion covid-19 generating
+  Coccia2020             3         3        9          1
+  Cagliani2020           0         0        0          0
+  Okba2020               0         0        0          0
+  Donthu2020             0         0        1          0
+  Wister2020             0         0        4          0
+  Acter2020              0         0        1          0
+[ reached max_nfeat ... 6,859 more features ]</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>train_dfmat</span><span class='op'>)</span> <span class='co'># 646 abstracts 11191 features/terms</span>
+</code></pre>
+</div>
+<pre><code>[1]   680 11352</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>test_dfmat</span><span class='op'>)</span> <span class='co'># 276 abstracts 6668 features/terms</span>
+</code></pre>
+</div>
+<pre><code>[1]  290 6869</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># Or simply pass the dfm object in ndoc() or nfeat() functions</span>
+<span class='fu'><a href='https://quanteda.io/reference/ndoc.html'>ndoc</a></span><span class='op'>(</span><span class='va'>train_dfmat</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 680</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://quanteda.io/reference/ndoc.html'>nfeat</a></span><span class='op'>(</span><span class='va'>train_dfmat</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 11352</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://quanteda.io/reference/ndoc.html'>ndoc</a></span><span class='op'>(</span><span class='va'>test_dfmat</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 290</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://quanteda.io/reference/ndoc.html'>nfeat</a></span><span class='op'>(</span><span class='va'>test_dfmat</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>[1] 6869</code></pre>
 </div>
 <h1 id="vizualize-the-test-and-train-document-feature-matrices">Vizualize the test and train document feature matrices</h1>
 <p><strong><em>"When you visualize, then you materialize." Denis Waitley</em></strong></p>
 <p>Vizualizing the data is very importnat. Let’s see how the wordclouds look for train and test abstracts.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(RColorBrewer)
-pal &lt;- brewer.pal(5, &quot;Dark2&quot;)
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>RColorBrewer</span><span class='op'>)</span>
+<span class='va'>pal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/RColorBrewer/man/ColorBrewer.html'>brewer.pal</a></span><span class='op'>(</span><span class='fl'>5</span>, <span class='st'>"Dark2"</span><span class='op'>)</span>
 
-textplot_wordcloud(train_dfmat, min_count = 40,max_words = 400,
-     color = pal)</code></pre>
+<span class='fu'><a href='https://quanteda.io/reference/textplot_wordcloud.html'>textplot_wordcloud</a></span><span class='op'>(</span><span class='va'>train_dfmat</span>, min_count <span class='op'>=</span> <span class='fl'>40</span>,max_words <span class='op'>=</span> <span class='fl'>400</span>,
+     color <span class='op'>=</span> <span class='va'>pal</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-27-1.png" width="1300" /></p>
 </div>
 <p>Similarly, for the test_dfmat</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
- textplot_wordcloud(test_dfmat, min_count = 20,max_words = 400,
-     color = pal)</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"> <span class='fu'><a href='https://quanteda.io/reference/textplot_wordcloud.html'>textplot_wordcloud</a></span><span class='op'>(</span><span class='va'>test_dfmat</span>, min_count <span class='op'>=</span> <span class='fl'>20</span>,max_words <span class='op'>=</span> <span class='fl'>400</span>,
+     color <span class='op'>=</span> <span class='va'>pal</span><span class='op'>)</span>
+</code></pre>
+</div>
 <p><img src="2020-08-27-text-machine-learning_files/figure-html5/unnamed-chunk-28-1.png" width="1300" /></p>
 </div>
 <p>Both plots of the test and train data are comparable.</p>
 <h1 id="prediction-using-naive-bayes-model">Prediction using Naive Bayes model</h1>
 <p>I need the following packages</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(quanteda)
-library(quanteda.textmodels)
-library(caret)</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://quanteda.io'>quanteda</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/quanteda/quanteda.textmodels'>quanteda.textmodels</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/topepo/caret/'>caret</a></span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-naive_bayes &lt;- textmodel_nb(train_dfmat,train$Include)
-summary(naive_bayes)</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>naive_bayes</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/quanteda.textmodels/man/textmodel_nb.html'>textmodel_nb</a></span><span class='op'>(</span><span class='va'>train_dfmat</span>,<span class='va'>train</span><span class='op'>$</span><span class='va'>Include</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>naive_bayes</span><span class='op'>)</span>
+</code></pre>
+</div>
 <pre><code>
 Call:
 textmodel_nb.dfm(x = train_dfmat, y = train$Include)
@@ -2598,126 +2754,134 @@ Class Priors:
 
 Estimated Feature Scores:
              coronavirus  disease  covid-19  pandemic  affected
-included        0.003991 0.004701 0.0151198 0.0042788 0.0006140
-not included    0.004181 0.004267 0.0006433 0.0004074 0.0006219
+included        0.003960 0.004630 0.0138695 0.0043808 0.0005356
+not included    0.003552 0.004461 0.0006497 0.0004331 0.0006281
                   many countries increasing morbidity mortality
-included     0.0007675 0.0009978  0.0005373 0.0002303 0.0005181
-not included 0.0006648 0.0004289  0.0001715 0.0001287 0.0006219
+included     0.0008609 0.0011478  0.0005165 0.0002104 0.0006887
+not included 0.0007797 0.0005847  0.0001299 0.0001083 0.0007797
              interestingly   actions  policies   adopted    linked
-included         1.343e-04 1.919e-04 2.686e-04 1.727e-04 0.0002303
-not included     4.289e-05 4.289e-05 2.144e-05 4.289e-05 0.0002788
+included         9.565e-05 1.530e-04 2.678e-04 1.530e-04 0.0002487
+not included     4.331e-05 8.663e-05 2.166e-05 2.166e-05 0.0001733
                 social determinants   health       sdh  critical
-included     0.0007291    9.594e-05 0.003895 1.151e-04 0.0008634
-not included 0.0001287    1.072e-04 0.003238 2.144e-05 0.0004074
+included     0.0008035    7.652e-05 0.003539 1.148e-04 0.0007652
+not included 0.0001949    1.083e-04 0.003617 2.166e-05 0.0004765
              inequalities  directly    within    sector distancing
-included        3.838e-05 0.0002494 0.0006332 1.727e-04  2.686e-04
-not included    2.144e-05 0.0001501 0.0007934 6.433e-05  6.433e-05
+included        3.826e-05 0.0002296 0.0005739 1.722e-04  2.870e-04
+not included    2.166e-05 0.0001733 0.0009529 6.497e-05  6.497e-05
                   good   hygiene  avoiding     large gatherings
-included     0.0003262 0.0001727 1.535e-04 0.0006140  3.838e-05
-not included 0.0001287 0.0001501 2.144e-05 0.0008149  2.144e-05</code></pre>
+included     0.0002487 0.0001722 1.339e-04 0.0006887  3.826e-05
+not included 0.0002166 0.0001299 2.166e-05 0.0005847  2.166e-05</code></pre>
 </div>
 <p>Since we have already our model, we can use it for predicting the test sets. Unfortunately, the features in test_dfmat which are also in train_dfmat. <em>Quanteda</em> package has one really nice function called <em>dfm_match()</em> to select only features of the testing set that also occur in the training set.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-matched_dfmat &lt;- dfm_match(test_dfmat, features = featnames(train_dfmat))</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>matched_dfmat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://quanteda.io/reference/dfm_match.html'>dfm_match</a></span><span class='op'>(</span><span class='va'>test_dfmat</span>, features <span class='op'>=</span> <span class='fu'><a href='https://quanteda.io/reference/featnames.html'>featnames</a></span><span class='op'>(</span><span class='va'>train_dfmat</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-actual_class &lt;- test$Include
-predicted_class &lt;- predict(naive_bayes, newdata = matched_dfmat)
-tab_class &lt;- table(predicted_class, actual_class )
-tab_class</code></pre>
-<pre><code>
-               actual_class
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>actual_class</span> <span class='op'>&lt;-</span> <span class='va'>test</span><span class='op'>$</span><span class='va'>Include</span>
+<span class='va'>predicted_class</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>naive_bayes</span>, newdata <span class='op'>=</span> <span class='va'>matched_dfmat</span><span class='op'>)</span>
+<span class='va'>tab_class</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>predicted_class</span>, <span class='va'>actual_class</span> <span class='op'>)</span>
+<span class='va'>tab_class</span>
+</code></pre>
+</div>
+<pre><code>               actual_class
 predicted_class included not included
-   included          137           15
-   not included       16          126</code></pre>
+   included          134           13
+   not included       17          126</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-confusionMatrix(tab_class, mode = &quot;everything&quot;)</code></pre>
-<pre><code>
-Confusion Matrix and Statistics
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/caret/man/confusionMatrix.html'>confusionMatrix</a></span><span class='op'>(</span><span class='va'>tab_class</span>, mode <span class='op'>=</span> <span class='st'>"everything"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Confusion Matrix and Statistics
 
                actual_class
 predicted_class included not included
-   included          137           15
-   not included       16          126
+   included          134           13
+   not included       17          126
                                           
-               Accuracy : 0.8946          
-                 95% CI : (0.8537, 0.9272)
-    No Information Rate : 0.5204          
+               Accuracy : 0.8966          
+                 95% CI : (0.8556, 0.9291)
+    No Information Rate : 0.5207          
     P-Value [Acc &gt; NIR] : &lt;2e-16          
                                           
-                  Kappa : 0.7888          
+                  Kappa : 0.793           
                                           
- Mcnemar&#39;s Test P-Value : 1               
+ Mcnemar&#39;s Test P-Value : 0.5839          
                                           
-            Sensitivity : 0.8954          
-            Specificity : 0.8936          
-         Pos Pred Value : 0.9013          
-         Neg Pred Value : 0.8873          
-              Precision : 0.9013          
-                 Recall : 0.8954          
-                     F1 : 0.8984          
-             Prevalence : 0.5204          
-         Detection Rate : 0.4660          
-   Detection Prevalence : 0.5170          
-      Balanced Accuracy : 0.8945          
+            Sensitivity : 0.8874          
+            Specificity : 0.9065          
+         Pos Pred Value : 0.9116          
+         Neg Pred Value : 0.8811          
+              Precision : 0.9116          
+                 Recall : 0.8874          
+                     F1 : 0.8993          
+             Prevalence : 0.5207          
+         Detection Rate : 0.4621          
+   Detection Prevalence : 0.5069          
+      Balanced Accuracy : 0.8969          
                                           
        &#39;Positive&#39; Class : included        
                                           </code></pre>
 </div>
 <p>Our models predicted the test data set with 89.5% accuracy. This is wonderful! The other model performance parameters are also very good. How about Support Vector Machines?</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-train_svm &lt;- textmodel_svm(train_dfmat,train$Include, weight=&quot;uniform&quot;) # There are three weighting options. I don&#39;t have problem of class imbalance, let me just use the default &quot;uniform&quot;</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>train_svm</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/quanteda.textmodels/man/textmodel_svm.html'>textmodel_svm</a></span><span class='op'>(</span><span class='va'>train_dfmat</span>,<span class='va'>train</span><span class='op'>$</span><span class='va'>Include</span>, weight<span class='op'>=</span><span class='st'>"uniform"</span><span class='op'>)</span> <span class='co'># There are three weighting options. I don't have problem of class imbalance, let me just use the default "uniform"</span>
+</code></pre>
+</div>
 </div>
 <h1 id="predict-the-test-set-using-svm-model">Predict the test set using SVM model</h1>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-Actual &lt;- test$Include
-predicted_class_svm &lt;- predict(train_svm, newdata = matched_dfmat)
-tab_class_svm &lt;- table(predicted_class_svm, Actual )
-tab_class_svm</code></pre>
-<pre><code>
-                   Actual
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>Actual</span> <span class='op'>&lt;-</span> <span class='va'>test</span><span class='op'>$</span><span class='va'>Include</span>
+<span class='va'>predicted_class_svm</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/predict.html'>predict</a></span><span class='op'>(</span><span class='va'>train_svm</span>, newdata <span class='op'>=</span> <span class='va'>matched_dfmat</span><span class='op'>)</span>
+<span class='va'>tab_class_svm</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>predicted_class_svm</span>, <span class='va'>Actual</span> <span class='op'>)</span>
+<span class='va'>tab_class_svm</span>
+</code></pre>
+</div>
+<pre><code>                   Actual
 predicted_class_svm included not included
-       included          142           11
-       not included       11          130</code></pre>
+       included          146           13
+       not included        5          126</code></pre>
 </div>
 <h1 id="now-the-confusion-matrix">Now the confusion matrix</h1>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-confusionMatrix(tab_class_svm, mode = &quot;everything&quot;)</code></pre>
-<pre><code>
-Confusion Matrix and Statistics
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/pkg/caret/man/confusionMatrix.html'>confusionMatrix</a></span><span class='op'>(</span><span class='va'>tab_class_svm</span>, mode <span class='op'>=</span> <span class='st'>"everything"</span><span class='op'>)</span>
+</code></pre>
+</div>
+<pre><code>Confusion Matrix and Statistics
 
                    Actual
 predicted_class_svm included not included
-       included          145           14
-       not included        7          117
+       included          146           13
+       not included        5          126
                                           
-               Accuracy : 0.9258          
-                 95% CI : (0.8888, 0.9535)
-    No Information Rate : 0.5371          
-    P-Value [Acc &gt; NIR] : &lt;2e-16          
+               Accuracy : 0.9379          
+                 95% CI : (0.9037, 0.9628)
+    No Information Rate : 0.5207          
+    P-Value [Acc &gt; NIR] : &lt; 2e-16         
                                           
-                  Kappa : 0.8502          
+                  Kappa : 0.8754          
                                           
- Mcnemar&#39;s Test P-Value : 0.1904          
+ Mcnemar&#39;s Test P-Value : 0.09896         
                                           
-            Sensitivity : 0.9539          
-            Specificity : 0.8931          
-         Pos Pred Value : 0.9119          
-         Neg Pred Value : 0.9435          
-              Precision : 0.9119          
-                 Recall : 0.9539          
-                     F1 : 0.9325          
-             Prevalence : 0.5371          
-         Detection Rate : 0.5124          
-   Detection Prevalence : 0.5618          
-      Balanced Accuracy : 0.9235          
+            Sensitivity : 0.9669          
+            Specificity : 0.9065          
+         Pos Pred Value : 0.9182          
+         Neg Pred Value : 0.9618          
+              Precision : 0.9182          
+                 Recall : 0.9669          
+                     F1 : 0.9419          
+             Prevalence : 0.5207          
+         Detection Rate : 0.5034          
+   Detection Prevalence : 0.5483          
+      Balanced Accuracy : 0.9367          
                                           
        &#39;Positive&#39; Class : included        
                                           </code></pre>
@@ -2729,10 +2893,11 @@ predicted_class_svm included not included
 <h1 id="next-stop">Next stop</h1>
 <p>Visualizing odds ratios/risk ratios in forest plots. See you! 👍</p>
 <figure>
-<img src="https://media.tenor.com/images/ed15fe5ceca132793f32df5b383a30ed/tenor.gif" width="478" alt="" /><figcaption>Trains GIFs | Tenor</figcaption>
+<img src="https://media.tenor.com/images/ed15fe5ceca132793f32df5b383a30ed/tenor.gif" width="478" alt="Trains GIFs | Tenor" /><figcaption aria-hidden="true">Trains GIFs | Tenor</figcaption>
 </figure>
 <h1 id="contact">Contact</h1>
 <p><a href="https://twitter.com/MihiretuKebede1">@MihiretuKebede1</a></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">
@@ -2769,13 +2934,13 @@ predicted_class_svm included not included
 <div class="appendix-bottom">
   <h3 id="citation">Citation</h3>
   <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">Kebede(PhD) (2020, Oct. 2). Aspire Data Solutions: XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts. Retrieved from http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/</pre>
+  <pre class="citation-appendix short">Kebede(PhD) (2021, Jan. 26). Aspire Data Solutions: XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts. Retrieved from http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/</pre>
   <p>BibTeX citation</p>
-  <pre class="citation-appendix long">@misc{kebede(phd)2020xgboost,,
+  <pre class="citation-appendix long">@misc{kebede(phd)2021xgboost,,
   author = {Kebede(PhD), Mihiretu},
   title = {Aspire Data Solutions: XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts},
   url = {http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/},
-  year = {2020}
+  year = {2021}
 }</pre>
 </div>
 <!--/radix_placeholder_appendices-->

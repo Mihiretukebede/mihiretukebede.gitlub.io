@@ -19,6 +19,8 @@ output:
     widerscreen: true
 ---
 
+<.posts-list .post-preview .thumbnail img { width: 100%; display: block; }>
+
 # Introduction
 
 Several thousands of papers are being published everyday. A paper published about a decade ago wrote "the total number of science papers published since 1665 passed 50 million. About 2.5 million new scientific papers are published each year." In the introduction section of one of [my previous systematic review](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6305167/), I wrote "The number of published research doubles every 9 years and its growth particularly in medicine and health care is exponential."
@@ -31,7 +33,7 @@ In a paper ["Why Should I Trust You?": Explaining the Predictions of Any Classif
 
 In this blog post, I want to try one of the many available methods available to check whether machine learning methods correctly discriminates SARS papers from COVID19 papers. I know the two viruses are highly related. I am only using the SARS and COVID for demonstrations.
 
-```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
+```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE }
 library(dplyr) #for data management
 library(ggplot2) #for plotting
 library(bib2df) #for converting bib file to data frame
