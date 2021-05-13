@@ -12,12 +12,11 @@ description: |
 collections:
   posts:
       share: [twitter, linkedin, facebook, google-plus, pinterest]
+      
 output:
   distill::distill_article:
     self_contained: false
-    widerscreen: false
-    toc: true
-    toc_depth: 2
+    widerscreen: true
 ---
 
 # Introduction

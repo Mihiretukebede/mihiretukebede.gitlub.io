@@ -110,7 +110,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","title","theme","author","url","google_analytics","date","preview","description","collections","output"]}},"value":[{"type":"character","attributes":{},"value":["Aspire Data Solutions"]},{"type":"character","attributes":{},"value":["Corr plot and Pair plots matrix: Python vs R"]},{"type":"character","attributes":{},"value":["theme.css"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Mihiretu Kebede(PhD)"]}]}]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/"]},{"type":"character","attributes":{},"value":["UA-173027539-1"]},{"type":"character","attributes":{},"value":["2021-05-13"]},{"type":"character","attributes":{},"value":["py.png"]},{"type":"character","attributes":{},"value":["Correlation heat map in R and Python\n"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["posts"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["share"]}},"value":[{"type":"character","attributes":{},"value":["twitter","linkedin","facebook","google-plus","pinterest"]}]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","widerscreen","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","title","theme","author","url","google_analytics","date","preview","description","collections","output"]}},"value":[{"type":"character","attributes":{},"value":["Aspire Data Solutions"]},{"type":"character","attributes":{},"value":["Corr plot and Pair plots matrix: Python vs R"]},{"type":"character","attributes":{},"value":["theme.css"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Mihiretu Kebede(PhD)"]}]}]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/"]},{"type":"character","attributes":{},"value":["UA-173027539-1"]},{"type":"character","attributes":{},"value":["2021-05-13"]},{"type":"character","attributes":{},"value":["py.png"]},{"type":"character","attributes":{},"value":["Correlation heat map in R and Python\n"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["posts"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["share"]}},"value":[{"type":"character","attributes":{},"value":["twitter","linkedin","facebook","google-plus","pinterest"]}]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","widerscreen"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1478,15 +1478,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 
 <div class="d-article">
-<div class="d-contents d-contents-float">
-<nav class="l-text toc figcaption" id="TOC">
-<h3>Contents</h3>
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
-</div>
 <h1 id="introduction">Introduction</h1>
 <p>Correlation is often used to test the relationship between two or more variables. Pearson product moment correlation is the most commonly used method of calculating correlation coefficient. It mainly measures the linear relationship between variables. Spearman and Kendal rank correlations are a non-parametric measures of correlation.</p>
 <p>Pearson correlation requires few assumptions to be met: linearity, normality, and absence of outliers. These assumptions should be met before doing the correlation. You can use Shapiro wilk test to to check whether a variable is normally is distributed using a simple command in r: <strong><em>shapiro.test(data$var).</em></strong> This test gives you <em>W</em> statistic and a p value. A <em>p</em> value of greater than 0.05 means you can assume “normally” in your variable.</p>
