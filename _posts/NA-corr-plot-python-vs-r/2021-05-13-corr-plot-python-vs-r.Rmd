@@ -5,7 +5,7 @@ theme: theme.css
 author: Mihiretu Kebede(PhD)
 url: http://www.mihiretukebede.com/ 
 google_analytics: "UA-173027539-1"
-date: "2021-05-13`"
+date: "2021-05-13"
 preview: py.png
 description: |
   Correlation heat map in R and Python
