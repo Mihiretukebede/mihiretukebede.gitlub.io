@@ -7,7 +7,16 @@
     <description>This is Mihiretu Kebede(PhD)'s personal website. 
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 26 Jan 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 May 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Corr plot and Pair plots matrix: Python vs R</title>
+      <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
+      <link>http://www.mihiretukebede.com/posts/NA-corr-plot-python-vs-r</link>
+      <description>Correlation heat map in R and Python</description>
+      <guid>http://www.mihiretukebede.com/posts/NA-corr-plot-python-vs-r</guid>
+      <pubDate>Wed, 12 May 2021 00:00:00 +0000</pubDate>
+      <media:content url="http://www.mihiretukebede.com/posts/NA-corr-plot-python-vs-r/corr-plot-python-vs-r_files/figure-html5/unnamed-chunk-6-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
     <item>
       <title>Plotting regression model coefficients in a forest plot</title>
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
@@ -32,7 +41,7 @@
       <link>http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning</link>
       <description>Machine learning methods for document classification.</description>
       <guid>http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning</guid>
-      <pubDate>Mon, 25 Jan 2021 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 26 Jan 2021 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/machinelearning.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
