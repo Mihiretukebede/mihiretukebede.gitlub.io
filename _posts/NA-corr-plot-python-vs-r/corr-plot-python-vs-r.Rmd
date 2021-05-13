@@ -39,7 +39,7 @@ Without spending much time on the theory, let's go directly to creating a correl
 
 For detail explanations. Please check the following video.
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=Z7ggbnj0dM0&t=2s" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=Z7ggbnj0dM0&t=2s" frameborder="0" allowfullscreen></iframe> 
 
 ```{r setup, include=T, echo=T}
 r_data  <- read.csv("cancer_classification.csv")
