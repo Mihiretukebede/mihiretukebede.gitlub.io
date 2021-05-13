@@ -9,7 +9,7 @@ date: "2021-05-13"
 preview: py.png
 description: |
   Correlation heat map in R and Python
-collections:
+collections: 
   posts:
       share: [twitter, linkedin, facebook, google-plus, pinterest]
 output:
