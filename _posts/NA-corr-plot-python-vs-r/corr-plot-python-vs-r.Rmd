@@ -24,7 +24,7 @@ output:
 
 Correlation is often used to test the relationship between two or more variables. Pearson product moment correlation is the most commonly used method of calculating correlation coefficient. It mainly measures the linear relationship between variables. Spearman and Kendal rank correlations are a non-parametric measures of correlation.
 
-Pearson correlation requires few assumptions to be met: linearity, normality, and absence of outliers. These assumptions should be met before doing the correlation. You can use Shapiro wilk test to to check whether a variable is normally is distributed using a simple command in r: ***shapiro.test(data\$var).*** This test gives you *W* statistic and a p value. A *p* value of greater than 0.05 means you can assume "normally" in your variable.
+Pearson correlation requires few assumptions to be met: linearity, normality, and absence of outliers. These assumptions should be met before doing the correlation. You can use Shapiro wilk test to to check whether a variable is normally is distributed using a simple command in r: ***shapiro.test(data$var).*** This test gives you *W* statistic and a p value. A *p* value of greater than 0.05 means you can assume "normally" in your variable.
 
 $$
 r_{x y}=\frac{n \sum x_{i} y_{i}-\sum x_{i} \sum y_{i}}{\sqrt{n \sum x_{i}^{2}-\left(\sum x_{i}\right)^{2}} \sqrt{n \sum y_{i}^{2}-\left(\sum y_{i}\right)^{2}}}
