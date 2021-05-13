@@ -35,7 +35,7 @@ $$ *rxy = Pearson r correlation coefficient between ,*
 *x~i~ = observed value of x for ith observation,
 y~i~ = observed value of y or ith observation*
 
-Without spending much time on the theory, let's go directly to creating a correlation matrix and then we will visualize with a heat map in R and Python. Let's use the cancer classification data.
+Without spending much time on the theory, let's go directly to creating a correlation matrix and then we will visualize with a heat map in R and Python. Let's use the cancer classification data. 
 
 For detail explanations. Please check the following video.
 
