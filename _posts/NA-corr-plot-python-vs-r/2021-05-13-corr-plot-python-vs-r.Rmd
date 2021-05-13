@@ -8,7 +8,6 @@ google_analytics: "UA-173027539-1"
 preview: py.png
 description: |
   Correlation heat map in R and Python
-date: "2021-05-13"
 collections:
   posts:
       share: [twitter, linkedin, facebook, google-plus, pinterest]
