@@ -1,0 +1,122 @@
+---
+name: "Aspire Data Solutions"
+title: "Corr plot and Pair plots matrix: Python vs R"
+theme: theme.css
+author: Mihiretu Kebede(PhD)
+url: http://www.mihiretukebede.com/ 
+google_analytics: "UA-173027539-1"
+date: "2021-05-13"
+preview: py.png
+description: |
+  Correlation heat map in R and Python
+collections:
+  posts:
+      share: [twitter, linkedin, facebook, google-plus, pinterest]
+output:
+  distill::distill_article:
+    self_contained: false
+    widerscreen: false
+    toc: true
+    toc_depth: 2
+---
+
+# Introduction
+
+Correlation is often used to test the relationship between two or more variables. Pearson product moment correlation is the most commonly used method of calculating correlation coefficient. It mainly measures the linear relationship between variables. Spearman and Kendal rank correlations are a non-parametric measures of correlation.
+
+Pearson correlation requires few assumptions to be met: linearity, normality, and absence of outliers. These assumptions should be met before doing the correlation. You can use Shapiro wilk test to to check whether a variable is normally is distributed using a simple command in r: ***shapiro.test(data\$var).*** This test gives you *W* statistic and a p value. A *p* value of greater than 0.05 means you can assume "normally" in your variable.
+
+$$
+r_{x y}=\frac{n \sum x_{i} y_{i}-\sum x_{i} \sum y_{i}}{\sqrt{n \sum x_{i}^{2}-\left(\sum x_{i}\right)^{2}} \sqrt{n \sum y_{i}^{2}-\left(\sum y_{i}\right)^{2}}}
+$$ *rxy = Pearson r correlation coefficient between ,*
+
+*n = number of observations*
+
+*x~i~ = observed value of x for ith observation, y~i~ = observed value of y or ith observation*
+
+Without spending much time on the theory, let's go directly to creating a correlation matrix and then we will visualize with a heat map in R and Python. Let's use the cancer classification data.
+
+For detail explanations. Please check the following video.
+
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=Z7ggbnj0dM0&amp;t=2s" frameborder="0" allowfullscreen>
+
+</iframe>
+
+```{r setup, include=T, echo=T}
+r_data  <- read.csv("cancer_classification.csv")
+dim(r_data)
+colnames(r_data) 
+
+```
+
+Now, let's read this in Python. I am using reticulate package to run r and python scripts in one RMD file.
+
+```{python, include=T, echo=T}
+import pandas as pd
+py_data  = pd.read_csv("cancer_classification.csv")
+
+```
+
+The data has 31 variables and 569 observations. I will only select the first six variables for my correlation plot.
+
+Notice in R counting starts from 1 while in Python it starts from 0.
+
+```{r, include=T, echo=T}
+filter_r_data  <- r_data[, c(1:6)]
+length(filter_r_data)
+dim(filter_r_data)
+
+```
+
+Now in Python:
+
+```{python,include=T, echo=T}
+filter_py_data = py_data.iloc[:,0:6]
+len(filter_py_data)
+filter_py_data.shape
+
+```
+
+Next is producing the pearson correlation matrix in R and Python
+
+```{r, include=TRUE, echo=TRUE, warning=FALSE}
+
+r_corr_matrix <-  cor(filter_r_data, method="pearson")
+r_corr_matrix
+```
+
+Now, in Python
+
+```{python, include=T, echo=T, warning=FALSE, cache=TRUE}
+py_cor_matrix = filter_py_data.corr(method="pearson")
+```
+
+We have now produced our pearson correlation matrix in both R and Python. Next is visualizing them using corr heat maps. I use ***correplot*** package in R and ***matplotlib*** and ***seaborn*** libraries for producing for producing the correlation heatmaps in both languages
+
+The ***corrplot()*** function has numerous additional arguments which you can play with. I will use few of them here.
+
+```{r, include=TRUE, echo=TRUE, cache=TRUE}
+library(corrplot)
+corrplot(r_corr_matrix, method ="shade", addCoef.col=TRUE )
+
+```
+
+Now, in Python
+
+```{python,eval=FALSE, include=T, echo=T, message=F,cache=TRUE, warnings=F}
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
+
+```{python,eval=FALSE, include=T, echo=T}
+sns.heatmap(py_cor_matrix, annot=True, cmap="viridis")
+plt.show()
+```
+
+![](py-01.png)
+
+I personally like the plot by seaborn. But, it is a personal taste.
+
+# Contact
+
+Please mention \@[MihiretuKebede1](https://twitter.com/MihiretuKebede1) if you tweet this post.
