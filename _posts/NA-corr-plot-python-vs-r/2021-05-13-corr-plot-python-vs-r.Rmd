@@ -39,7 +39,7 @@ Without spending much time on the theory, let's go directly to creating a correl
 
 For detail explanations. Please check the following video. 
 
-![](https://www.youtube.com/watch?v=Z7ggbnj0dM0&t=2s){width="90%"}
+![](https://www.youtube.com/watch?v=Z7ggbnj0dM0&t=2s){width="560" height="315"}
 
 
 ```{r setup, include=T, echo=T}
