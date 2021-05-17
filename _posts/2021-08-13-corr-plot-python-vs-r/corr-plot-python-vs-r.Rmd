@@ -115,7 +115,7 @@ plt.show()
 
 ![](py-01.png)
 
-I personally like the plot by seaborn. But, it is a personal taste.
+I personally like the plot by *seaborn*. But, it is a personal taste.
 
 # Contact
 
