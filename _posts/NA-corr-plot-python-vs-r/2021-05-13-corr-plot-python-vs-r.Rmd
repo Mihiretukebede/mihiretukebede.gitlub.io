@@ -39,7 +39,15 @@ Without spending much time on the theory, let's go directly to creating a correl
 
 For detail explanations. Please check the following video. https://www.youtube.com/watch?v=Z7ggbnj0dM0&t=2s 
 
-![](https://www.youtube.com/watch?v=Z7ggbnj0dM0&t=2s){width="90%"}
+```{r, eval=knitr::is_html_output(excludes = "epub"), results = 'asis', echo = F}
+cat(
+'<iframe width="560" height="315" 
+  src="https://www.youtube.com/watch?v=Z7ggbnj0dM0&t=2s"
+  frameborder="0" allow="accelerometer; autoplay; encrypted-media;
+  gyroscope; picture-in-picture" allowfullscreen>
+  </iframe>'
+)
+```
 
 
 ```{r setup, include=T, echo=T}
