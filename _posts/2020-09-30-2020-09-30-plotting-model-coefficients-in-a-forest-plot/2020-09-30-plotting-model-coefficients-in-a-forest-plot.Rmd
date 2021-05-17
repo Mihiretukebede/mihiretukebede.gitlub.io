@@ -126,7 +126,7 @@ lm2 <- glm(life_expectancy ~ total_expenditure + log(income_index) + adult_morta
 
 # See the model outputs
 
-The two approach produce similar outputs. But,lm has a shorter code than glm. So, many ppl prefer to use lm() for linear regression.
+The two approach produce similar outputs. But,**lm** has a shorter code than glm. So, many ppl prefer to use lm() for linear regression.
 
 ```{r, include=TRUE, echo=TRUE, warning=FALSE, message=FALSE}
 library(jtools) #for nice table model output

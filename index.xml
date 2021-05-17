@@ -7,15 +7,24 @@
     <description>This is Mihiretu Kebede(PhD)'s personal website. 
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 16 May 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 17 May 2021 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Corr plot and Pair plots matrix: Python vs R</title>
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
       <link>http://www.mihiretukebede.com/posts/NA-corr-plot-python-vs-r</link>
       <description>Correlation heat map in R and Python</description>
       <guid>http://www.mihiretukebede.com/posts/NA-corr-plot-python-vs-r</guid>
-      <pubDate>Sun, 16 May 2021 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 17 May 2021 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/NA-corr-plot-python-vs-r/2021-05-13-corr-plot-python-vs-r_files/figure-html5/unnamed-chunk-6-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
+      <title>Plotting regression model coefficients in a forest plot</title>
+      <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
+      <link>http://www.mihiretukebede.com/posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot</link>
+      <description>How to plot model coefficients in a forest plot.</description>
+      <guid>http://www.mihiretukebede.com/posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot</guid>
+      <pubDate>Sun, 16 May 2021 00:00:00 +0000</pubDate>
+      <media:content url="http://www.mihiretukebede.com/posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot/2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-20-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Corr plot and Pair plots matrix: Python vs R</title>
@@ -25,15 +34,6 @@
       <guid>http://www.mihiretukebede.com/posts/2021-08-13-corr-plot-python-vs-r</guid>
       <pubDate>Thu, 13 May 2021 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2021-08-13-corr-plot-python-vs-r/corr-plot-python-vs-r_files/figure-html5/unnamed-chunk-6-1.png" medium="image" type="image/png" width="1248" height="768"/>
-    </item>
-    <item>
-      <title>Plotting regression model coefficients in a forest plot</title>
-      <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
-      <link>http://www.mihiretukebede.com/posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot</link>
-      <description>How to plot model coefficients in a forest plot.</description>
-      <guid>http://www.mihiretukebede.com/posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot</guid>
-      <pubDate>Tue, 26 Jan 2021 00:00:00 +0000</pubDate>
-      <media:content url="http://www.mihiretukebede.com/posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot/2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-20-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Classifying abstracts using regularized models: covid-19 or sars-2003?</title>
