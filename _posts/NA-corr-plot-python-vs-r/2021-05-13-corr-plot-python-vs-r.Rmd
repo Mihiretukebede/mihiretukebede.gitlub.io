@@ -37,9 +37,10 @@ y~i~ = observed value of y or ith observation*
 
 Without spending much time on the theory, let's go directly to creating a correlation matrix and then we will visualize with a heat map in R and Python. Let's use the cancer classification data. 
 
-For detail explanations. Please check the following video. https://www.youtube.com/watch?v=Z7ggbnj0dM0&t=2s 
+For detail explanations. Please check the following video. 
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=Z7ggbnj0dM0&t=2s" frameborder="0" allowfullscreen></iframe> 
+![](https://www.youtube.com/watch?v=Z7ggbnj0dM0&t=2s){width="90%"}
+
 
 ```{r setup, include=T, echo=T}
 r_data  <- read.csv("cancer_classification.csv")
