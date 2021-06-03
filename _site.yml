@@ -19,7 +19,7 @@ navbar:
       href: about.html
 
   right:
-    - text: YouTube
+    - text: "YouTube"
       href: https://www.youtube.com/channel/UCpHd6O1Yqz4YgcYUBfyRqKg  
     - icon: fa-envelope fa-lg
       href: contact.html
