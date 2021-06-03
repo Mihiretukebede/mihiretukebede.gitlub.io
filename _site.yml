@@ -19,8 +19,10 @@ navbar:
       href: about.html
 
   right:
-    - icon: YouTube
+    - text: YouTube
       href: https://www.youtube.com/channel/UCpHd6O1Yqz4YgcYUBfyRqKg  
+    - icon: fa-envelope fa-lg
+      href: contact.html
     - icon: fa-github fa-lg
       href: https://github.com/Mihiretukebede/mihiretukebede.gitlub.io
     - icon: fa-twitter fa-lg
