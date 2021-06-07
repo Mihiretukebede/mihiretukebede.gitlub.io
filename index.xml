@@ -27,6 +27,15 @@
       <media:content url="http://www.mihiretukebede.com/posts/NA-corr-plot-python-vs-r/2021-05-13-corr-plot-python-vs-r_files/figure-html5/unnamed-chunk-7-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
+      <title>Scraping individual participant data from scatter plots</title>
+      <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
+      <link>http://www.mihiretukebede.com/posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots</link>
+      <description>In this blog post, I demonstrated how to easily scrap individual participant data by digitizing a scatter plot of an old publication.</description>
+      <guid>http://www.mihiretukebede.com/posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots</guid>
+      <pubDate>Mon, 17 May 2021 00:00:00 +0000</pubDate>
+      <media:content url="http://www.mihiretukebede.com/posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/digitize.jpg" medium="image" type="image/jpeg"/>
+    </item>
+    <item>
       <title>Corr plot and Pair plots matrix: Python vs R</title>
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
       <link>http://www.mihiretukebede.com/posts/2021-08-13-corr-plot-python-vs-r</link>
