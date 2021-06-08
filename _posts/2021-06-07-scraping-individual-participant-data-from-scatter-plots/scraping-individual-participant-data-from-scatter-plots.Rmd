@@ -25,7 +25,7 @@ A scatter plot aka scatter diagram is one of the most commonly used graph to dis
 
 Scatter plots are often reported in scientific publications. Though many scientific publications report scatter plots to display relationships, correlation statistics may not be reported along with the scatter plots. Fortunately, scatter plots opens door to open science. With the help of new tools such as [*WebPlotDigitizer*](https://automeris.io/WebPlotDigitizer/) web based point and click software, [*plotdigitizer python*](https://pypi.org/project/plotdigitizer/) python package or the [digitize](https://github.com/tpoisot/digitize) R packages, we can easily digitize scatter plots, scrap individual participant data and estimate correlation values. If you are working in systematic reviews, you may not find all relevant data from the reported papers. You either need to contact the authors or find out mechanisms of estimating values from reported data. I will be back on another blog post on estimating some values from reported data.
 
-# How do we extract values? 
+# How do we extract values?
 
 I will step by step demonstrate how you can easily extract individual participant data from a scatter plot of an old publication. For detail explanations, please check the following YouTube video. [\<https://www.youtube.com/watch?v=3NI4CyJzJhM&t=344s\>](https://www.youtube.com/watch?v=3NI4CyJzJhM&t=344s){.uri}. I often do R or Python data science tutorials and live coding sessions in my YouTube channel. Please consider subscribing. That will encourage me for sharing more contents.
 
@@ -93,7 +93,7 @@ I estimated the correlation value to be 0.709 and the β coefficient to be about
 
 ![](lm.png)
 
-Thank you for reading this post. I hope you find this helpful. For more,  subscribe to my [YouTube channel](https://www.youtube.com/channel/UCpHd6O1Yqz4YgcYUBfyRqKg) and follow me on Twitter \@[RPy_DataScience](https://twitter.com/RPy_DataScience).
+Thank you for reading this post. I hope you find this helpful. For more, subscribe to my [YouTube channel](https://www.youtube.com/channel/UCpHd6O1Yqz4YgcYUBfyRqKg) and follow me on Twitter \@[RPy_DataScience](https://twitter.com/RPy_DataScience).You can also follow me by liking [R_Py Data Science](https://web.facebook.com/R_Py-Data-Science-105325938441990/news_feed) Facebook page.
 
 # Contact
 
