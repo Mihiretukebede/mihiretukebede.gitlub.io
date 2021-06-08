@@ -6,7 +6,7 @@ theme: theme.css
 author: Mihiretu Kebede(PhD)
 url: http://www.mihiretukebede.com/ 
 google_analytics: "UA-173027539-1"
-date: May 18, 2021
+date: June 08, 2021
 preview: digitize.jpg
 collections:
   posts:

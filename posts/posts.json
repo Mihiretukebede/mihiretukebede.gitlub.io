@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/",
+    "title": "Scraping individual participant data from scatter plots",
+    "description": "In this blog post, I demonstrated how to easily scrap individual participant data by digitizing a scatter plot of an old publication.",
+    "author": [
+      {
+        "name": "Mihiretu Kebede(PhD)",
+        "url": {}
+      }
+    ],
+    "date": "2021-06-08",
+    "categories": [],
+    "contents": "\r\n\r\nContents\r\nIntroduction\r\nHow do we extract values?\r\nContact\r\n\r\nIntroduction\r\nA scatter plot aka scatter diagram is one of the most commonly used graph to display the relationship between two or more variables. By looking at scatter plots, we can quickly have an insight on whether two or more variables are linearly, negatively/positively or how strongly they are correlated to each other.\r\nScatter plots are often reported in scientific publications. Though many scientific publications report scatter plots to display relationships, correlation statistics may not be reported along with the scatter plots. Fortunately, scatter plots opens door to open science. With the help of new tools such as WebPlotDigitizer web based point and click software, plotdigitizer python python package or the digitize R packages, we can easily digitize scatter plots, scrap individual participant data and estimate correlation values. If you are working in systematic reviews, you may not find all relevant data from the reported papers. You either need to contact the authors or find out mechanisms of estimating values from reported data. I will be back on another blog post on estimating some values from reported data.\r\nHow do we extract values?\r\nI will step by step demonstrate how you can easily extract individual participant data from a scatter plot of an old publication. For detail explanations, please check the following YouTube video. <https://www.youtube.com/watch?v=3NI4CyJzJhM&t=344s>. I often do R or Python data science tutorials and live coding sessions in my YouTube channel. Please consider subscribing. That will encourage me for sharing more contents.\r\n\r\n\r\n\r\n\r\nThe scatter plot that I will use is from the 1994 publication by Strain G. and colleagues. The results are interesting and I invite you reading the paper.\r\n\r\nFor this blog post, I will be using Fig 1 which shows the relationship of fasting insulin level to BMI in non-dieting weight-stable subjects.\r\n\r\nNow, we have what we need and let’s go straight to extracting individual participant data from the scatter plot.\r\nWhat we need to do is take a screen shot of the scatter plot, save it as png or JPG, read it in R, calibrate the x and y axes .\r\nRead and calibrate the figure (mark the beginning and the end of x and y axis)\r\n\r\n\r\nlibrary(digitize)\r\nfig <- ReadAndCal(\"scatterPlotdigitize.JPG\")\r\n\r\n\r\n\r\n\r\n\r\nMark data points\r\n\r\n\r\ndata.points = DigitData(col=\"red\")\r\n\r\n\r\n\r\n\r\nExtract the data point in a data frame\r\n\r\n\r\ndf <- Calibrate(data.points, fig, 0, 100, 0, 100) #determin where x and y axis values start and end\r\n\r\n\r\n\r\nNow we have extracted the x which was BMI and the y (insulin level). We can easily recalculate the correlation and β coefficient values.\r\n\r\n\r\ncor(df$x, df$y, method = \"pearson\")\r\n\r\n\r\n\r\n\r\nEstimate the regression coefficient and compare with the reported value.\r\n\r\n\r\nsummary(lm(y~x, data=df))\r\n\r\n\r\n\r\nI estimated the correlation value to be 0.709 and the β coefficient to be about 0.9605. The tiny difference is due to my calibration. If you zoom and carefully calibrate, you can have approximately similar values.\r\n\r\nThank you for reading this post. I hope you find this helpful. Pls consider subscribing to my YouTube channel and follow me on Twitter @RPy_DataScience.\r\nContact\r\nPlease mention @RPy_DataScience if you tweet this post.\r\n\r\n\r\n\r\n",
+    "preview": "posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/digitize.jpg",
+    "last_modified": "2021-06-08T07:23:54+02:00",
+    "input_file": "scraping-individual-participant-data-from-scatter-plots.utf8.md"
+  },
+  {
     "path": "posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot/",
     "title": "Plotting regression model coefficients in a forest plot",
     "description": "How to plot model coefficients in a forest plot.",
@@ -36,23 +53,6 @@
     "input_file": {},
     "preview_width": 1248,
     "preview_height": 768
-  },
-  {
-    "path": "posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/",
-    "title": "Scraping individual participant data from scatter plots",
-    "description": "In this blog post, I demonstrated how to easily scrap individual participant data by digitizing a scatter plot of an old publication.",
-    "author": [
-      {
-        "name": "Mihiretu Kebede(PhD)",
-        "url": {}
-      }
-    ],
-    "date": "2021-05-18",
-    "categories": [],
-    "contents": "\r\n\r\nContents\r\nIntroduction\r\nHow do we extract values?\r\nContact\r\n\r\nIntroduction\r\nA scatter plot aka scatter diagram is one of the most commonly used graph to display the relationship between two or more variables. By looking at scatter plots, we can quickly have an insight on whether two or more variables are linearly, negatively/positively or how strongly they are correlated to each other.\r\nScatter plots are often reported in scientific publications. Though many scientific publications report scatter plots to display relationships, correlation statistics may not be reported along with the scatter plots. Fortunately, scatter plots opens door to open science. With the help of new tools such as WebPlotDigitizer web based point and click software, plotdigitizer python python package or the digitize R packages, we can easily digitize scatter plots, scrap individual participant data and estimate correlation values. If you are working in systematic reviews, you may not find all relevant data from the reported papers. You either need to contact the authors or find out mechanisms of estimating values from reported data. I will be back on another blog post on estimating some values from reported data.\r\nHow do we extract values?\r\nI will step by step demonstrate how you can easily extract individual participant data from a scatter plot of an old publication. For detail explanations, please check the following YouTube video. <https://www.youtube.com/watch?v=3NI4CyJzJhM&t=344s>. I often do R or Python data science tutorials and live coding sessions in my YouTube channel. Please consider subscribing. That will encourage me for sharing more contents.\r\n\r\n\r\n\r\n\r\nThe scatter plot that I will use is from the 1994 publication by Strain G. and colleagues. The results are interesting and I invite you reading the paper.\r\n\r\nFor this blog post, I will be using Fig 1 which shows the relationship of fasting insulin level to BMI in non-dieting weight-stable subjects.\r\n\r\nNow, we have what we need and let’s go straight to extracting individual participant data from the scatter plot.\r\nWhat we need to do is take a screen shot of the scatter plot, save it as png or JPG, read it in R, calibrate the x and y axes .\r\nRead and calibrate the figure (mark the beginning and the end of x and y axis)\r\n\r\n\r\nlibrary(digitize)\r\nfig <- ReadAndCal(\"scatterPlotdigitize.JPG\")\r\n\r\n\r\n\r\n\r\n\r\nMark data points\r\n\r\n\r\ndata.points = DigitData(col=\"red\")\r\n\r\n\r\n\r\n\r\nExtract the data point in a data frame\r\n\r\n\r\ndf <- Calibrate(data.points, fig, 0, 100, 0, 100) #determin where x and y axis values start and end\r\n\r\n\r\n\r\nNow we have extracted the x which was BMI and the y (insulin level). We can easily recalculate the correlation and β coefficient values.\r\n\r\n\r\ncor(df$x, df$y, method = \"pearson\")\r\n\r\n\r\n\r\n\r\nEstimate the regression coefficient and compare with the reported value.\r\n\r\n\r\nsummary(lm(y~x, data=df))\r\n\r\n\r\n\r\nI estimated the correlation value to be 0.709 and the β coefficient to be about 0.9605. The tiny difference is due to my calibration. If you zoom and carefully calibrate, you can have approximately similar values.\r\n\r\nThank you for reading this post. I hope you find this helpful. Pls consider subscribing to my YouTube channel and follow me on Twitter @RPy_DataScience.\r\nContact\r\nPlease mention @RPy_DataScience if you tweet this post.\r\n\r\n\r\n\r\n",
-    "preview": "posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/digitize.jpg",
-    "last_modified": "2021-06-08T00:47:40+02:00",
-    "input_file": "scraping-individual-participant-data-from-scatter-plots.utf8.md"
   },
   {
     "path": "posts/2021-08-13-corr-plot-python-vs-r/",
