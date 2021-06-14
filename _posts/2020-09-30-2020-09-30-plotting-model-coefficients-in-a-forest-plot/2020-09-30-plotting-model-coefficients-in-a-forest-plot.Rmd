@@ -1,6 +1,7 @@
 ---
 name: "Aspire Data Solutions"
 title: "Plotting regression model coefficients in a forest plot"
+date: February 4, 2021
 theme: theme.css
 author: Mihiretu Kebede(PhD)
 url: http://www.mihiretukebede.com/ 
@@ -17,6 +18,8 @@ output:
     self_contained: false
     widerscreen: true
 ---
+
+The detail description of this blog is also available in my [YouTube channel.](https://www.youtube.com/watch?v=WgIqCRPZcZE)
 
 # Motivation
 
@@ -35,6 +38,13 @@ The data that I will use for this blog post is from the Global Health Observator
 I will use the `readr`package to read the csv file and use glm and lm to do the linear regression and logistic regression modeling. I will mention other relevant packages and their use along the way.
 
 # Load the data
+
+For more details, pls watch this [YouTube video](https://www.youtube.com/watch?v=WgIqCRPZcZE)and subscribe for more. That will of course encourage me for sharing more contents and keep me in touch with you.Enjoy R!
+
+![](https://www.youtube.com/watch?v=WgIqCRPZcZE){width="90%"}
+
+```{}
+```
 
 ```{r setup, include=TRUE}
 library(readr) #for reading the csv file
@@ -87,14 +97,14 @@ ggplot(life_exp_narm, aes(x=income_index, y=life_expectancy, col=status)) +
   geom_point() 
 ```
 
-The plot shows, as income index increases, life expectancy increases. In addition, the developed countries have higher income level and high life expectancy. However, there is really one very important thing visible in this plot. The income\_index variable has a lot of zeros values.
+The plot shows, as income index increases, life expectancy increases. In addition, the developed countries have higher income level and high life expectancy. However, there is really one very important thing visible in this plot. The income_index variable has a lot of zeros values.
 
 ```{r, include=TRUE, echo=TRUE, warning=FALSE}
 summary(life_exp_narm$income_index)
 sum(life_exp_narm$income_index==0) 
 ```
 
-See, 48 observations have 0 value on income\_index. That must be missing data. I will filter out the observations with 0 values in this variable.
+See, 48 observations have 0 value on income_index. That must be missing data. I will filter out the observations with 0 values in this variable.
 
 ```{r, include=TRUE, echo=TRUE, warning=FALSE}
 life_exp_new <- life_exp_narm %>% 
@@ -150,6 +160,7 @@ cor <- rcorr(as.matrix(dat))
 r <- cor$r %>% as.table()
 r
 ```
+
 Or more beautifully we can plot he correlation values using the *`pairs.panels`* function from the `psych` package. We can have a good correlation matrix of our variables.
 
 ```{r}
@@ -157,8 +168,7 @@ library(psych)
 pairs.panels(dat)
 ```
 
-
-There is a high correlation(r=.93) between thinness\_1\_19\_years and thinness\_5\_9\_years, schooling and income\_index (r=0.78), schooling and alchohol. To deal with this multicollinearity problem, I will just drop one of the collinear variables because they just add a redundenent information in my model. Ideally, one can do a stepwise regression, or best subsets regression and then choose the model that has the highest R-squared value. But, we are simply dropping one of the variables. Let me drop *thinness\_5\_9\_years* (the variable *thinness\_1\_19\_years* actually carry the other variable: *thinness\_5\_9\_years*), and *income\_index* variables from my linear model and redo my analysis.
+There is a high correlation(r=.93) between thinness_1\_19_years and thinness_5\_9_years, schooling and income_index (r=0.78), schooling and alchohol. To deal with this multicollinearity problem, I will just drop one of the collinear variables because they just add a redundenent information in my model. Ideally, one can do a stepwise regression, or best subsets regression and then choose the model that has the highest R-squared value. But, we are simply dropping one of the variables. Let me drop *thinness_5\_9_years* (the variable *thinness_1\_19_years* actually carry the other variable: *thinness_5\_9_years*), and *income_index* variables from my linear model and redo my analysis.
 
 ```{r, include=TRUE, echo=TRUE, warning=FALSE}
 lm3 <- lm(life_expectancy ~ total_expenditure + 
@@ -217,7 +227,7 @@ coef_confint <- coef_confint %>%
   mutate_if(is.numeric, round, digits = 2) # round numeric into two significant digits 
 ```
 
-# Vizualize the coefficients once again
+# Visualize the coefficients once again
 
 Now, I have everything to visualize my coefficients and their respective confidence intervals in a forest plot.
 
@@ -284,9 +294,9 @@ plot_model(lm3, show.values = TRUE, value.offset = 0.3,
 
 With SjPlot, it is much easier to label the coefficients in the plot.
 
-# One more tip 
-This is not the same regression as we did above. I used a new set of predictors.
-The following package can do the modeling calculation, tabulation and plotting all together. For linear regression, you can use coef_plot, for logistic regression or_plot, and hr_plot for hazard ratios, etc. I recently discovered this package in stack overflow. 
+# One more tip
+
+This is not the same regression as we did above. I used a new set of predictors. The following package can do the modeling calculation, tabulation and plotting all together. For linear regression, you can use coef_plot, for logistic regression or_plot, and hr_plot for hazard ratios, etc. I recently discovered this package in stack overflow.
 
 ```{r, include=TRUE, echo=TRUE, warning=FALSE, message=FALSE}
 
@@ -307,7 +317,6 @@ life_exp_new %>%
                                   theme(axis.title = element_text(size=12))))
 
 ```
-
 
 But, is linear regression model the right choice for our data. Did my model pass all key assumptions. I don't think so. Before I do anything I need to check whether the linear regression assumptions are fulfilled. To reject or accept our model, it must pass all the relevant assumptions. `gvlma` is a good package for checking that.
 
@@ -467,7 +476,6 @@ How do you interpret the above cross validated loss functions(eg.RMSE)?
 
 If the linear model is applied to unseen data, it will predict life expectancy about 4.6 years off from the actual life expectancy of a country. That was great. Unfortunately, the model did not satisfy the assumptions. Let's now evaluate our logistic regression
 
-
 ```{r}
 set.seed(123)
 (cv_logit <-  train(life_exp_cat ~ total_expenditure + 
@@ -483,6 +491,8 @@ Yes, I did it. Thank you for reading this post. In my next blog post, will write
 
 ![Trains GIFs \| Tenor](https://media.tenor.com/images/ed15fe5ceca132793f32df5b383a30ed/tenor.gif){width="478"}
 
-# Contact
+Thank you for reading this post. I hope you find this helpful. For more, subscribe to my [YouTube channel](https://www.youtube.com/channel/UCpHd6O1Yqz4YgcYUBfyRqKg) and follow me on Twitter \@[RPy_DataScience](https://twitter.com/RPy_DataScience).You can also follow me by liking [R_Py Data Science](https://web.facebook.com/R_Py-Data-Science-105325938441990/news_feed) Facebook page.
 
-[\@MihiretuKebede1](https://twitter.com/MihiretuKebede1)
+# **Contact**
+
+Please mention \@[RPy_DataScience](https://twitter.com/RPy_DataScience) if you tweet this post.
