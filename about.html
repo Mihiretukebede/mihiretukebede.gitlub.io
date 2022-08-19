@@ -23,6 +23,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -49,16 +50,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -72,17 +74,18 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
 code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
+
 
   <!--radix_placeholder_meta_tags-->
   <title>Aspire Data Solutions: About me</title>
@@ -451,7 +454,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   </style>
 
-  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
   <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
   <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
@@ -1023,10 +1026,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     position: relative;
     margin-bottom: 2.5em;
     margin-top: 1.5em;
-  }
-
-  .figure img {
-    width: 100%;
   }
 
   .figure .caption {
@@ -1858,7 +1857,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
+          var fn = $(this).children()[0]
+          $(this).html(fn.shadowRoot.querySelector("sup"))
+          $(this).id = fn.id
+          fn.remove()
+        }
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          return "<p>" + $('#ref-' + ref).html() + "</p>";
+        }).join("\n");
         window.tippy(this, {
           allowHTML: true,
           content: refHtml,
@@ -1869,6 +1877,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           placement: 'bottom-start'
         });
       });
+
+      // fix footnotes in tables (#411)
+      // replacing broken distill.pub feature
+      $('table d-footnote').each(function() {
+        // we replace internal showAtNode methode which is triggered when hovering a footnote
+        this.hoverBox.showAtNode = function(node) {
+          // ported from https://github.com/distillpub/template/pull/105/files
+          calcOffset = function(elem) {
+              let x = elem.offsetLeft;
+              let y = elem.offsetTop;
+              // Traverse upwards until an `absolute` element is found or `elem`
+              // becomes null.
+              while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                  x += elem.offsetLeft;
+                  y += elem.offsetTop;
+              }
+
+              return { left: x, top: y };
+          }
+          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+          const bbox = node.getBoundingClientRect();
+          const offset = calcOffset(node);
+          this.show([offset.left + bbox.width, offset.top + bbox.height]);
+        }
+      })
 
       // clear polling timer
       clearInterval(tid);
@@ -1968,6 +2001,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // mark non-body figures created by knitr chunks as 100% width
     $('.layout-chunk').each(function(i, val) {
       var figures = $(this).find('img, .html-widget');
+      // ignore leaflet img layers (#106)
+      figures = figures.filter(':not(img[class*="leaflet"])')
       if ($(this).attr('data-layout') !== "l-body") {
         figures.css('width', '100%');
       } else {
@@ -1990,7 +2025,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // get rid of index.html references in header
     if (window.location.protocol !== "file:") {
       $('.distill-site-header a[href]').each(function(i,val) {
-        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+        $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
       });
     }
 
@@ -2029,7 +2064,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.6.6/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2070,10 +2105,10 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <input id="distill-search" class="nav-search hidden" type="text" placeholder="Search..."/>
 </div>
 <div class="nav-right">
-<a href="https://www.youtube.com/channel/UCpHd6O1Yqz4YgcYUBfyRqKg">YouTube</a>
 <a href="contact.html">
 <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
 </a>
+<a href="https://www.youtube.com/channel/UCpHd6O1Yqz4YgcYUBfyRqKg">YouTube</a>
 <a href="https://github.com/Mihiretukebede/mihiretukebede.gitlub.io">
 <i class="fa fa-github fa-lg" aria-hidden="true"></i>
 </a>
@@ -2108,25 +2143,112 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="d-article">
 <p><link rel="stylesheet" href="styles.css" type="text/css"></p>
 <p><img src="myphoto.jpg" style="width:25%; border:10px solid; margin-right: 20px" align="left"/></p>
-<p><a href="https://www.youtube.com/channel/UCpHd6O1Yqz4YgcYUBfyRqKg">YouTube courses</a></p>
-<p>My name is Mihiretu M Kebede(ምህረቱ ሞላ ከበደ). I was born in Gondar, Ethiopia. In 2006, I completed my Bachelor of Science degree in Medical Laboratory Technology at Addis Ababa University. After working for four years as a medical laboratory technologist, I did my MPH in Health Informatics at the University of Gondar in 2012. In 2015, I received a scholarship from the Basel Kanton to do advanced diploma in International Health at the Swiss Tropical and Public Health Institute in Basel. After finishing my advanced diploma, I moved back to Gondar and continued working as a lecturer at the University of Gondar.</p>
-<p>In April 2016, I came back to Europe and joined the University of Bremen. I received a doctoral research fellow position from the Leibniz Institute for Prevention Research and Epidemiology (BIPS) in the department of Prevention and Evaluation headed by Professor Dr.med Hajo Zeeb.</p>
-<p>In October 2019, I defended my Ph.D. entitled <a href="https://media.suub.uni-bremen.de/handle/elib/4307"><em>“Augmenting Diabetes Care and Self-management: What can digital health offer?”</em></a>. During my time at the University of Bremen and while working at BIPS, I presented my research projects in several national and international diabetes and epidemiology conferences notably at the ADA, EASD, JBI, and DGEPI conferences. I have authored more than 30 journal articles published in several peer-reviewed international medical and public health journals.</p>
-<p>Currently, I work in the division of Cancer Epidemiology at the German Cancer Research Center in Heidelberg. My current research focuses on mechanistic pathways linking obesity to changes in sex hormone profiles, inflammation markers, changes in insulin and insulin like growth factors (IGF) which ultimately lead to increasing the risk of hormone-related cancers notably Breast, Ovarian and and Endometrial cancer.</p>
-<h1 id="selected-publications"><strong>Selected publications</strong></h1>
+<p><a
+href="https://www.youtube.com/channel/UCpHd6O1Yqz4YgcYUBfyRqKg">YouTube
+courses</a></p>
+<p>My name is Mihiretu M Kebede(ምህረቱ ሞላ ከበደ). I was born in Gondar,
+Ethiopia. In 2006, I completed my Bachelor of Science degree in Medical
+Laboratory Technology at Addis Ababa University. After working for four
+years as a medical laboratory technologist, I did my MPH in Health
+Informatics at the University of Gondar in 2012. In 2015, I received a
+scholarship from the Basel Kanton to do advanced diploma in
+International Health at the Swiss Tropical and Public Health Institute
+in Basel. After finishing my advanced diploma, I moved back to Gondar
+and continued working as a lecturer at the University of Gondar.</p>
+<p>In April 2016, I came back to Europe and joined the University of
+Bremen. I received a doctoral research fellow position from the Leibniz
+Institute for Prevention Research and Epidemiology (BIPS) in the
+department of Prevention and Evaluation headed by Professor Dr.med Hajo
+Zeeb.</p>
+<p>In October 2019, I defended my Ph.D. entitled <a
+href="https://media.suub.uni-bremen.de/handle/elib/4307"><em>“Augmenting
+Diabetes Care and Self-management: What can digital health
+offer?”</em></a>. During my time at the University of Bremen and while
+working at BIPS, I presented my research projects in several national
+and international diabetes and epidemiology conferences notably at the
+ADA, EASD, JBI, and DGEPI conferences. I have authored more than 30
+journal articles published in several peer-reviewed international
+medical and public health journals.</p>
+<p>Currently, I work in the division of Cancer Epidemiology at the
+German Cancer Research Center in Heidelberg. My current research focuses
+on mechanistic pathways linking obesity to changes in sex hormone
+profiles, inflammation markers, changes in insulin and insulin like
+growth factors (IGF) which ultimately lead to increasing the risk of
+hormone-related cancers notably Breast, Ovarian and and Endometrial
+cancer.</p>
+<h1 id="selected-publications"><strong>Selected
+publications</strong></h1>
 <ol type="1">
-<li><p><strong>Mihiretu M. Kebede</strong>, Hajo Zeeb, Manuela Peters, Thomas L. Heise, and Claudia R. Pischke. Effectiveness of Digital Interventions for Improving Glycemic Control in Persons with Poorly Controlled Type 2 Diabetes: A Systematic Review, Meta-analysis, and Meta-regression Analysis. Diabetes Technol Therapeutics. 2018 Nov;20(11):767-782. <a href="https://doi.org/10.1089/dia.2018.0216" class="uri">https://doi.org/10.1089/dia.2018.0216</a>. Epub 2018 Sep 26.</p></li>
-<li><p><strong>Mihiretu Kebede</strong>, Hajo Zeeb, Manuela Peters, Thomas H. Heisse,Claudia Pischke, Comparison of Three Meta-analytic Methods Using Data From Digital Interventions on Type 2 Diabetes, In press at Diabetes, Metabolic Syndrome and Obesity: Targets and Therapy, 2018 Dec 19;12:59-73. doi: <a href="https://doi.org/10.2147/DMSO.S180106" class="uri">https://doi.org/10.2147/DMSO.S180106</a>.</p></li>
-<li><p><strong>Mihiretu M Kebede</strong>, Claudia R Pischke, Popular diabetes apps and the impact of diabetes app use on self-care behaviour: A survey among the digital community of persons with diabetes on Social Media, Frontiers in Endocrinology 2019, 10(135) 10.3389/fendo.2019.00135, <a href="https://doi.org/10.3389/fendo.2019.00135" class="uri">https://doi.org/10.3389/fendo.2019.00135</a>.</p></li>
-<li><p><strong>Kebede M.M</strong>., Schuett C, Pischke C.R., The Role of Continuous Glucose Monitoring, Diabetes Smartphone Applications, and Self-Care Behavior in Glycemic Control: Results of a Multi-National Online Survey. J. Clinical Medicine, 2019, 8(109), <a href="https://doi.org/10.3390/jcm8010109" class="uri">https://doi.org/10.3390/jcm8010109</a>.</p></li>
-<li><p><strong>Kebede MM</strong>, Liedtke TP, Möllers T, Pischke CR: Characterizing Active Ingredients of eHealth Interventions Targeting Persons With Poorly Controlled Type 2 Diabetes Mellitus Using the Behavior Change Techniques Taxonomy: Scoping Review. Journal of medical Internet research 2017, 19(10):e348-e348, <a href="https://www.jmir.org/2017/10/e348/" class="uri">https://www.jmir.org/2017/10/e348/</a> .</p></li>
-<li><p><strong>Kebede M</strong>, Zegeye DT, Zeleke BM: Predicting CD4 count changes among patients on antiretroviral treatment: Application of data mining techniques. Computer methods and programs in biomedicine 2017, 152:149-157, doi: <a href="https://doi.org/10.1016/j.cmpb.2017.09.017" class="uri">https://doi.org/10.1016/j.cmpb.2017.09.017</a>.</p></li>
-<li><p>Astatikie G, Limenih MA, Kebede M: Maternal and fetal outcomes of uterine rupture and factors associated with maternal death secondary to uterine rupture. BMC pregnancy and childbirth 2017, 17(1):117, <a href="https://doi.org/10.1186/s12884-017-1302-z" class="uri">https://doi.org/10.1186/s12884-017-1302-z</a>.</p></li>
-<li><p><strong>Kebede M</strong>, Zeleke A, Asemahagn M, Fritz F: Willingness to receive text message medication reminders among patients on antiretroviral treatment in North West Ethiopia: A cross-sectional study. BMC medical informatics and decision making 2015, 15(1):65, <a href="https://doi.org/10.1186/s12911-015-0193-z" class="uri">https://doi.org/10.1186/s12911-015-0193-z</a>.</p></li>
-<li><p><em>GBD 2017 HIV collaborators</em>, Global, regional, and national incidence, prevalence, and mortality of HIV, 1980–2017, and forecasts to 2030, for 195 countries and territories: a systematic analysis for the Global Burden of Diseases, Injuries, and Risk Factors Study 2017, the Lancet HIV, August 2019, <a href="https://doi.org/10.1016/S2352-3018(19)30196-1" class="uri">https://doi.org/10.1016/S2352-3018(19)30196-1</a>.</p></li>
+<li><p><strong>Kebede, MM</strong>, Le Cornet, C, Fortner, RT. In-depth
+evaluation of machine learning methods for semi-automating article
+screening in a systematic review of mechanistic literature. <em>Res Syn
+Meth.</em> 2022; 1- 17. <a href="doi:10.1002/jrsm.1589"
+class="uri">doi:10.1002/jrsm.1589</a></p></li>
+<li><p><strong>Mihiretu M. Kebede</strong>, Hajo Zeeb, Manuela Peters,
+Thomas L. Heise, and Claudia R. Pischke. Effectiveness of Digital
+Interventions for Improving Glycemic Control in Persons with Poorly
+Controlled Type 2 Diabetes: A Systematic Review, Meta-analysis, and
+Meta-regression Analysis. Diabetes Technol Therapeutics. 2018
+Nov;20(11):767-782. <a href="https://doi.org/10.1089/dia.2018.0216"
+class="uri">https://doi.org/10.1089/dia.2018.0216</a>. Epub 2018 Sep
+26.</p></li>
+<li><p><strong>Mihiretu Kebede</strong>, Hajo Zeeb, Manuela Peters,
+Thomas H. Heisse,Claudia Pischke, Comparison of Three Meta-analytic
+Methods Using Data From Digital Interventions on Type 2 Diabetes, In
+press at Diabetes, Metabolic Syndrome and Obesity: Targets and Therapy,
+2018 Dec 19;12:59-73. doi: <a
+href="https://doi.org/10.2147/DMSO.S180106"
+class="uri">https://doi.org/10.2147/DMSO.S180106</a>.</p></li>
+<li><p><strong>Mihiretu M Kebede</strong>, Claudia R Pischke, Popular
+diabetes apps and the impact of diabetes app use on self-care behaviour:
+A survey among the digital community of persons with diabetes on Social
+Media, Frontiers in Endocrinology 2019, 10(135)
+10.3389/fendo.2019.00135, <a
+href="https://doi.org/10.3389/fendo.2019.00135"
+class="uri">https://doi.org/10.3389/fendo.2019.00135</a>.</p></li>
+<li><p><strong>Kebede M.M</strong>., Schuett C, Pischke C.R., The Role
+of Continuous Glucose Monitoring, Diabetes Smartphone Applications, and
+Self-Care Behavior in Glycemic Control: Results of a Multi-National
+Online Survey. J. Clinical Medicine, 2019, 8(109), <a
+href="https://doi.org/10.3390/jcm8010109"
+class="uri">https://doi.org/10.3390/jcm8010109</a>.</p></li>
+<li><p><strong>Kebede MM</strong>, Liedtke TP, Möllers T, Pischke CR:
+Characterizing Active Ingredients of eHealth Interventions Targeting
+Persons With Poorly Controlled Type 2 Diabetes Mellitus Using the
+Behavior Change Techniques Taxonomy: Scoping Review. Journal of medical
+Internet research 2017, 19(10):e348-e348, <a
+href="https://www.jmir.org/2017/10/e348/"
+class="uri">https://www.jmir.org/2017/10/e348/</a> .</p></li>
+<li><p><strong>Kebede M</strong>, Zegeye DT, Zeleke BM: Predicting CD4
+count changes among patients on antiretroviral treatment: Application of
+data mining techniques. Computer methods and programs in biomedicine
+2017, 152:149-157, doi: <a
+href="https://doi.org/10.1016/j.cmpb.2017.09.017"
+class="uri">https://doi.org/10.1016/j.cmpb.2017.09.017</a>.</p></li>
+<li><p>Astatikie G, Limenih MA, Kebede M: Maternal and fetal outcomes of
+uterine rupture and factors associated with maternal death secondary to
+uterine rupture. BMC pregnancy and childbirth 2017, 17(1):117, <a
+href="https://doi.org/10.1186/s12884-017-1302-z"
+class="uri">https://doi.org/10.1186/s12884-017-1302-z</a>.</p></li>
+<li><p><strong>Kebede M</strong>, Zeleke A, Asemahagn M, Fritz F:
+Willingness to receive text message medication reminders among patients
+on antiretroviral treatment in North West Ethiopia: A cross-sectional
+study. BMC medical informatics and decision making 2015, 15(1):65, <a
+href="https://doi.org/10.1186/s12911-015-0193-z"
+class="uri">https://doi.org/10.1186/s12911-015-0193-z</a>.</p></li>
+<li><p><em>GBD 2017 HIV collaborators</em>, Global, regional, and
+national incidence, prevalence, and mortality of HIV, 1980–2017, and
+forecasts to 2030, for 195 countries and territories: a systematic
+analysis for the Global Burden of Diseases, Injuries, and Risk Factors
+Study 2017, the Lancet HIV, August 2019, <a
+href="https://doi.org/10.1016/S2352-3018(19)30196-1"
+class="uri">https://doi.org/10.1016/S2352-3018(19)30196-1</a>.</p></li>
 </ol>
-<h3 id="more-publications-from-my-orcid-records.">More publications from my <a href="https://orcid.org/0000-0002-5599-2823">ORCID records</a>.</h3>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h3 id="more-publications-from-my-orcid-records.">More publications from
+my <a href="https://orcid.org/0000-0002-5599-2823">ORCID
+records</a>.</h3>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
