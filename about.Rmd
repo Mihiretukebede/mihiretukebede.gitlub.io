@@ -18,7 +18,9 @@ Currently, I work in the division of Cancer Epidemiology at the German Cancer Re
 
 # **Selected publications**
 
-1. **Kebede, MM**, Le Cornet, C, Fortner, RT. In-depth evaluation of machine learning methods for semi-automating article screening in a systematic review of mechanistic literature. *Res Syn Meth.* 2022; 1- 17. doi:10.1002/jrsm.1589
+1. **Kebede, MM**, Le Cornet, C, Fortner, RT. In-depth evaluation of machine learning methods for semi-automating article screening in a systematic review of mechanistic literature. *Res Syn Meth.* 2022; 1- 17. doi:https://doi.org/10.1002/jrsm.1589
+
+
 
 2. **Mihiretu M. Kebede**, Hajo Zeeb, Manuela Peters, Thomas L. Heise, and Claudia R. Pischke. Effectiveness of Digital Interventions for Improving Glycemic Control in Persons with Poorly Controlled Type 2 Diabetes: A Systematic Review, Meta-analysis, and Meta-regression Analysis. Diabetes Technol Therapeutics. 2018 Nov;20(11):767-782. <https://doi.org/10.1089/dia.2018.0216>. Epub 2018 Sep 26.
 
