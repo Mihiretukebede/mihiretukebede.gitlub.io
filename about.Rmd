@@ -18,7 +18,7 @@ Currently, I work in the division of Cancer Epidemiology at the German Cancer Re
 
 # **Selected publications**
 
-1. **Kebede, MM**, Le Cornet, C, Fortner, RT. In-depth evaluation of machine learning methods for semi-automating article screening in a systematic review of mechanistic literature. *Res Syn Meth.* 2022; 1- 17. doi:https://doi.org/10.1002/jrsm.1589
+1. **Kebede, MM**, Le Cornet, C, Fortner, RT. In-depth evaluation of machine learning methods for semi-automating article screening in a systematic review of mechanistic literature. *Res Syn Meth.* 2022; 1- 17. doi: https://doi.org/10.1002/jrsm.1589
 
 
 
