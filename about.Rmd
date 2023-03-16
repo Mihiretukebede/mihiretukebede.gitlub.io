@@ -1,7 +1,9 @@
 ---
 title: "About me"
 ---
-
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825"
+     crossorigin="anonymous"></script>
+     
 <link rel="stylesheet" href="styles.css" type="text/css">
 
 <img src="myphoto.jpg" style="width:25%; border:10px solid; margin-right: 20px" align="left"/>
