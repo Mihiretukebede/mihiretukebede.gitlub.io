@@ -2,4 +2,8 @@
 title: "Book me"
 ---
 
+\<script async src="[https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825"](https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825")
+
+crossorigin="anonymous"\>\</script\>
+
 You can contact me for a paid data science consultation. Submit your details and question [here](https://docs.google.com/forms/d/1ZXkES5edmkWEk4TTMe3394bHUjJD_VBVvBV3rVyO6V0/edit "Book me online")
