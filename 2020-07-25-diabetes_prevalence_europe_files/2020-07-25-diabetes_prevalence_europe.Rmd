@@ -17,7 +17,9 @@ output:
   distill::distill_article:
     self_contained: false
 ---
-
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825" crossorigin="anonymous"></script>
+</head>
 
 <link rel="stylesheet" href="styles.css" type="text/css">
 
@@ -50,7 +52,7 @@ library(directlabels) #for directly labeling!
 
 ```{r, include=T, echo=FALSE}
 # The data is for all countries included in GBD studies
-diabetes <- read_csv("Eurodiabetes.csv") 
+diabetes <- read_csv("F:/github/githubwebsite/_posts/2020-07-25-2020-07-25-diabetesprevalenceeurope/Eurodiabetes.csv") 
 dim(diabetes) #980 observations and 9 variables. 
 str(diabetes) 
 ```
