@@ -17,6 +17,10 @@ output:
     widerscreen: true
 ---
 
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825" crossorigin="anonymous"></script>
+</head>
+
 # Introduction
 
 Classifying documents to a certain list of categories can provide valuable insights and possibly make the documents more manageable. Document classification is one of the application areas of machine learning. Natural Language Processing(NLP) and machine learning methods can be used to automate classification of documents such as emails(ham/spam categories), articles, books, response to survey questions, sentiments, product reviews(negative/positive), etc.

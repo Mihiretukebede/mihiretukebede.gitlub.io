@@ -191,6 +191,7 @@ There are many ways of visualizing my model outputs.
 
 ```{r, include=TRUE, echo=TRUE, message=FALSE}
 library(broom)
+library(cli)
 model_output <- tidy(lm3)
 out_conf <- tidy(lm3, conf.int = TRUE)
 
