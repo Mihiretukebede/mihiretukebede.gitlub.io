@@ -1,5 +1,6 @@
 theme: jekyll-theme-cayman
 --- 
+---
 name: "Mihiretu M. Kebede"
 output_dir: "."
 title: "Aspire Data Solutions" 
@@ -10,10 +11,16 @@ base_url: http://www.mihiretukebede.com/
 date: "2020-08-06"
 collections: 
   posts:
-      share: [twitter, linkedin, facebook, google-plus, pinterest] 
-  
+    share: [twitter, linkedin, facebook, google-plus, pinterest] 
+
+output: 
+  distill::distill_article    
+---
+
+```{html}
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825"
-     crossorigin="anonymous"></script>      
+     crossorigin="anonymous"></script>
+
 navbar:
   left:
     - text: "Home"

@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" version="1.0">
   <url>
     <loc>http://www.mihiretukebede.com/about.html</loc>
-    <lastmod>2023-03-16T13:17:16+01:00</lastmod>
+    <lastmod>2023-03-16T21:57:29+01:00</lastmod>
   </url>
   <url>
     <loc>http://www.mihiretukebede.com/blog1.html</loc>
@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>http://www.mihiretukebede.com/contact.html</loc>
-    <lastmod>2023-03-16T13:55:22+01:00</lastmod>
+    <lastmod>2023-03-18T22:35:06+01:00</lastmod>
   </url>
   <url>
     <loc>http://www.mihiretukebede.com/cv.html</loc>
@@ -42,11 +42,11 @@
   </url>
   <url>
     <loc>http://www.mihiretukebede.com/posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/</loc>
-    <lastmod>2021-06-08T14:31:58+02:00</lastmod>
+    <lastmod>2023-03-18T21:14:10+01:00</lastmod>
   </url>
   <url>
     <loc>http://www.mihiretukebede.com/posts/NA-corr-plot-python-vs-r/</loc>
-    <lastmod>2021-05-17T16:23:58+02:00</lastmod>
+    <lastmod>2023-03-18T22:36:44+01:00</lastmod>
   </url>
   <url>
     <loc>http://www.mihiretukebede.com/posts/2021-08-13-corr-plot-python-vs-r/</loc>

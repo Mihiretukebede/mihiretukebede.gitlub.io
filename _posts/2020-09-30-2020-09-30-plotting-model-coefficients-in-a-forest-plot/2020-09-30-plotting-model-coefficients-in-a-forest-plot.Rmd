@@ -19,6 +19,11 @@ output:
     widerscreen: true
 ---
 
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825" crossorigin="anonymous"></script>
+</head>
+
+
 The detail description of this blog is also available in my [YouTube channel.](https://www.youtube.com/watch?v=WgIqCRPZcZE)
 
 # Motivation
@@ -462,7 +467,7 @@ A widely approach to assess model performance is to assess prediction accuracy v
 
 We can use the models for predictions.
 
-```{r}
+```{r, cache=TRUE}
 library(caret)
 set.seed(123) #for reproducibility
 (cv_lm <-  train(life_expectancy ~ total_expenditure + 

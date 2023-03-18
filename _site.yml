@@ -10,10 +10,6 @@ date: "2020-08-06"
 collections: 
   posts:
       share: [twitter, linkedin, facebook, google-plus, pinterest] 
- 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825"
-     crossorigin="anonymous"></script>
-     
 navbar:
   left:
     - text: "Home"
