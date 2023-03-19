@@ -1,4 +1,3 @@
-base
 dplyr
 ggplot2
 bib2df
@@ -13,3 +12,4 @@ quanteda.textmodels
 enc
 revtools
 readxl
+quanteda.textplots
