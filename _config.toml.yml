@@ -1,21 +1,23 @@
-theme: jekyll-theme-cayman
---- 
 ---
 name: "Mihiretu M. Kebede"
-output_dir: "."
 title: "Aspire Data Solutions" 
 description: |
     This is Mihiretu Kebede(PhD)'s personal website. 
 google_analytics: "UA-173027539-1"
-base_url: http://www.mihiretukebede.com/ 
+baseurl: http://www.mihiretukebede.com/
 date: "2020-08-06"
 collections: 
   posts:
     share: [twitter, linkedin, facebook, google-plus, pinterest] 
 
 output: 
-  distill::distill_article    
----
+  jekyll::Mentions
+  jekyll::RenderRelativeLinks
+  jekyll::ImageLink
+  jekyll::AbsoluteUrl
+
+theme: jekyll-theme-cayman
+
 navbar:
   left:
     - text: "Home"
@@ -42,5 +44,4 @@ navbar:
       href: https://www.researchgate.net/profile/Mihiretu_Kebede2 
     - icon: fa fa-rss
       href: index.xml
-
-output: distill::distill_article    
+---

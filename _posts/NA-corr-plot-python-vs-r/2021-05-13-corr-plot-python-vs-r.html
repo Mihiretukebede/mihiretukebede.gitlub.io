@@ -189,6 +189,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -1261,15 +1262,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
-          var fn = $(this).children()[0]
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
           $(this).html(fn.shadowRoot.querySelector("sup"))
           $(this).id = fn.id
           fn.remove()
         }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -1468,7 +1475,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="2021-05-13-corr-plot-python-vs-r_files/header-attrs-2.15/header-attrs.js"></script>
+  <script src="2021-05-13-corr-plot-python-vs-r_files/header-attrs-2.20/header-attrs.js"></script>
   <script src="2021-05-13-corr-plot-python-vs-r_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="2021-05-13-corr-plot-python-vs-r_files/popper-2.6.0/popper.min.js"></script>
   <link href="2021-05-13-corr-plot-python-vs-r_files/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -1526,32 +1533,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825" crossorigin="anonymous"></script>
 </head>
 <h1 id="introduction">Introduction</h1>
-<p>Correlation is often used to test the relationship between two or
-more variables. Pearson product moment correlation is the most commonly
-used method of calculating correlation coefficient. It mainly measures
-the linear relationship between variables. Spearman and Kendal rank
-correlations are a non-parametric measures of correlation.</p>
-<p>Pearson correlation requires few assumptions to be met: linearity,
-normality, and absence of outliers. These assumptions should be met
-before doing the correlation. You can use Shapiro wilk test to to check
-whether a variable is normally is distributed using a simple command in
-r: <strong><em>shapiro.test(data$var).</em></strong> This test gives you
-<em>W</em> statistic and a p value. A <em>p</em> value of greater than
-0.05 means you can assume “normally” in your variable.</p>
+<p>Correlation is often used to test the relationship between two or more variables. Pearson product moment correlation is the most commonly used method of calculating correlation coefficient. It mainly measures the linear relationship between variables. Spearman and Kendal rank correlations are a non-parametric measures of correlation.</p>
+<p>Pearson correlation requires few assumptions to be met: linearity, normality, and absence of outliers. These assumptions should be met before doing the correlation. You can use Shapiro wilk test to to check whether a variable is normally is distributed using a simple command in r: <strong><em>shapiro.test(data$var).</em></strong> This test gives you <em>W</em> statistic and a p value. A <em>p</em> value of greater than 0.05 means you can assume “normally” in your variable.</p>
 <p><span class="math display">\[
-r_{x y}=\frac{n \sum x_{i} y_{i}-\sum x_{i} \sum y_{i}}{\sqrt{n \sum
-x_{i}^{2}-\left(\sum x_{i}\right)^{2}} \sqrt{n \sum y_{i}^{2}-\left(\sum
-y_{i}\right)^{2}}}
+r_{x y}=\frac{n \sum x_{i} y_{i}-\sum x_{i} \sum y_{i}}{\sqrt{n \sum x_{i}^{2}-\left(\sum x_{i}\right)^{2}} \sqrt{n \sum y_{i}^{2}-\left(\sum y_{i}\right)^{2}}}
 \]</span> <em>rxy = Pearson r correlation coefficient between ,</em></p>
 <p><em>n = number of observations</em></p>
 <p><em>x<sub>i</sub> = observed value of x for ith observation,
 y<sub>i</sub> = observed value of y or ith observation</em></p>
-<p>Without spending much time on the theory, let’s go directly to
-creating a correlation matrix and then we will visualize with a heat map
-in R and Python. Let’s use the cancer classification data.</p>
-<p>For detail explanations. Please check the following video. <a
-href="https://www.youtube.com/watch?v=Z7ggbnj0dM0&amp;t=2s"
-class="uri">https://www.youtube.com/watch?v=Z7ggbnj0dM0&amp;t=2s</a></p>
+<p>Without spending much time on the theory, let’s go directly to creating a correlation matrix and then we will visualize with a heat map in R and Python. Let’s use the cancer classification data.</p>
+<p>For detail explanations. Please check the following video. <a href="https://www.youtube.com/watch?v=Z7ggbnj0dM0&amp;t=2s" class="uri">https://www.youtube.com/watch?v=Z7ggbnj0dM0&amp;t=2s</a></p>
 <div class="layout-chunk" data-layout="l-body">
 <iframe width="560" height="315" src="https://www.youtube.com/watch?v=Z7ggbnj0dM0&amp;t=2s" frameborder="0" allow="accelerometer; autoplay; encrypted-media;
   gyroscope; picture-in-picture" allowfullscreen>
@@ -1584,17 +1575,13 @@ class="uri">https://www.youtube.com/watch?v=Z7ggbnj0dM0&amp;t=2s</a></p>
 [29] &quot;worst.symmetry&quot;          &quot;worst.fractal.dimension&quot;
 [31] &quot;benign_0__mal_1&quot;        </code></pre>
 </div>
-<p>Now, let’s read this in Python. I am using reticulate package to run
-r and python scripts in one RMD file.</p>
+<p>Now, let’s read this in Python. I am using reticulate package to run r and python scripts in one RMD file.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>py_data  <span class="op">=</span> pd.read_csv(<span class="st">&quot;cancer_classification.csv&quot;</span>)</span></code></pre></div>
 </div>
-<p>The data has 31 variables and 569 observations. I will only select
-the first six variables for my correlation plot.</p>
-<p>Notice in R counting starts from 1 while in Python it starts from
-0.</p>
+<p>The data has 31 variables and 569 observations. I will only select the first six variables for my correlation plot.</p>
+<p>Notice in R counting starts from 1 while in Python it starts from 0.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>filter_r_data</span>  <span class='op'>&lt;-</span> <span class='va'>r_data</span><span class='op'>[</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>6</span><span class='op'>)</span><span class='op'>]</span></span>
@@ -1608,8 +1595,7 @@ the first six variables for my correlation plot.</p>
 </div>
 <p>Now in Python:</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>filter_py_data <span class="op">=</span> py_data.iloc[:,<span class="dv">0</span>:<span class="dv">6</span>]</span>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>filter_py_data <span class="op">=</span> py_data.iloc[:,<span class="dv">0</span>:<span class="dv">6</span>]</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(filter_py_data)</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>filter_py_data.shape</span></code></pre></div>
 </div>
@@ -1636,18 +1622,10 @@ mean.compactness      0.65912322        1.0000000</code></pre>
 </div>
 <p>Now, in Python</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>py_cor_matrix <span class="op">=</span> filter_py_data.corr(method<span class="op">=</span><span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>py_cor_matrix <span class="op">=</span> filter_py_data.corr(method<span class="op">=</span><span class="st">&quot;pearson&quot;</span>)</span></code></pre></div>
 </div>
-<p>We have now produced our pearson correlation matrix in both R and
-Python. Next is visualizing them using corr heat maps. I use
-<strong><em>correplot</em></strong> package in R and
-<strong><em>matplotlib</em></strong> and
-<strong><em>seaborn</em></strong> libraries for producing for producing
-the correlation heatmaps in both languages</p>
-<p>The <strong><em>corrplot()</em></strong> function has numerous
-additional arguments which you can play with. I will use few of them
-here.</p>
+<p>We have now produced our pearson correlation matrix in both R and Python. Next is visualizing them using corr heat maps. I use <strong><em>correplot</em></strong> package in R and <strong><em>matplotlib</em></strong> and <strong><em>seaborn</em></strong> libraries for producing for producing the correlation heatmaps in both languages</p>
+<p>The <strong><em>corrplot()</em></strong> function has numerous additional arguments which you can play with. I will use few of them here.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/taiyun/corrplot'>corrplot</a></span><span class='op'>)</span></span>
@@ -1657,25 +1635,18 @@ here.</p>
 </div>
 <p>Now, in Python</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code></pre></div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sns.heatmap(py_cor_matrix, annot<span class="op">=</span><span class="va">True</span>, cmap<span class="op">=</span><span class="st">&quot;viridis&quot;</span>)</span>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sns.heatmap(py_cor_matrix, annot<span class="op">=</span><span class="va">True</span>, cmap<span class="op">=</span><span class="st">&quot;viridis&quot;</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
 </div>
-<p><img src="images/py-01.png"
-title="Correlation heatmap in Python" /></p>
-<p>I personally like the plot by seaborn. But, it is a personal
-taste.</p>
+<p><img src="images/py-01.png" title="Correlation heatmap in Python" /></p>
+<p>I personally like the plot by seaborn. But, it is a personal taste.</p>
 <h1 id="contact">Contact</h1>
-<p>Please mention @<a
-href="https://twitter.com/MihiretuKebede1">MihiretuKebede1</a> if you
-tweet this post.</p>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>Please mention @<a href="https://twitter.com/MihiretuKebede1">MihiretuKebede1</a> if you tweet this post.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
