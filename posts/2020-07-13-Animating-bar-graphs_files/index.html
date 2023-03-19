@@ -18,6 +18,75 @@
  <!--radix_placeholder_import_source-->
  <!--/radix_placeholder_import_source-->
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { color: #00769e; background-color: #f1f3f5; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span { color: #00769e; } /* Normal */
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #657422; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #00769e; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #00769e; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #00769e; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+
   <!--radix_placeholder_meta_tags-->
 <title>Aspire Data Solutions: Animating bar graphs</title>
 
@@ -2028,7 +2097,13 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/header-attrs-2.20/header-attrs.js"></script>
+  <script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="../../site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="../../site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="../../site_libs/anchor-4.2.2/anchor.min.js"></script>
   <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
   <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
   <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
@@ -2093,6 +2168,8 @@ gtag('config', 'UA-173027539-1');
 
 <div class="d-title">
 <h1>Animating bar graphs</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
 <p><p>Here we will have a quick look on how to create <code>Gif</code> or animated bar plots</p></p>
 </div>
 
@@ -2104,57 +2181,69 @@ gtag('config', 'UA-173027539-1');
 </div>
 
 <div class="d-article">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825" crossorigin="anonymous"></script>
+</head>
 <p><link rel="stylesheet" href="styles.css" type="text/css"></p>
 <p>Hello, this is my first ever blog post. Detail explanations of this data vizualization and other upcoming blogs are coming soon! Stay tuned.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-#Set working directory
-setwd(&quot;F:/github/githubwebsite&quot;)
-
-library(readxl)
-mystepcount &lt;- read_excel(&quot;mystepcount.xlsx&quot;)
-
-str(mystepcount)</code></pre>
-<pre><code>
-tibble [8 x 4] (S3: tbl_df/tbl/data.frame)
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>#Set working directory</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>setwd</a></span><span class='op'>(</span><span class='st'>"F:/github/githubwebsite"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readxl.tidyverse.org'>readxl</a></span><span class='op'>)</span></span>
+<span><span class='va'>mystepcount</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readxl.tidyverse.org/reference/read_excel.html'>read_excel</a></span><span class='op'>(</span><span class='st'>"mystepcount.xlsx"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>mystepcount</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>tibble [8 x 4] (S3: tbl_df/tbl/data.frame)
  $ Date       : chr [1:8] &quot;Sept_14&quot; &quot;Sept_15&quot; &quot;Sept_16&quot; &quot;Sept_17&quot; ...
  $ September  : num [1:8] 14 15 16 17 18 19 20 21
  $ Steps      : num [1:8] 1907 18767 10438 23128 28300 ...
  $ Killometres: num [1:8] 1.1 12.8 7.4 17.1 19.1 12.9 13.7 4.9</code></pre>
-<pre class="r"><code>
-library(ggplot2)
-library(gganimate)
-library(scales)
-theme_set(theme_bw())
-
-mystepcount$September &lt;- as.character(mystepcount$September)</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://gganimate.com'>gganimate</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://scales.r-lib.org'>scales</a></span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme_get.html'>theme_set</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggtheme.html'>theme_bw</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>mystepcount</span><span class='op'>$</span><span class='va'>September</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/character.html'>as.character</a></span><span class='op'>(</span><span class='va'>mystepcount</span><span class='op'>$</span><span class='va'>September</span><span class='op'>)</span></span></code></pre>
+</div>
 </div>
 <div class="layout-chunk" data-layout="l-body-outset">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>#Plot step counts on the y-axis and days of September on the x-axis</span></span>
+<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>mystepcount</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>September</span>,y<span class='op'>=</span><span class='va'>Steps</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>fill<span class='op'>=</span><span class='st'>"#004C99"</span>, stat<span class='op'>=</span><span class='st'>"identity"</span>, width<span class='op'>=</span><span class='fl'>1</span>, position<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/position_dodge.html'>position_dodge</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span>yintercept <span class='op'>=</span> <span class='fl'>10000</span>, col<span class='op'>=</span><span class='st'>"black"</span>, size<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span></span></code></pre>
+</div>
 <p><img src="2020-07-13-Animating-bar-graphs_files/figure-html5/unnamed-chunk-2-1.png" width="624" data-distill-preview=1 /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-animate(
-  ggplot(mystepcount, aes(x=September,y=Steps)) + 
-  geom_bar(fill=&quot;#004C99&quot;, stat=&quot;identity&quot;, width=1, position=position_dodge()) + 
-    geom_hline(yintercept = 10000, col=&quot;black&quot;, size=1) +
-  transition_states(September, wrap = FALSE) +
-  shadow_mark() +
-  enter_grow() +
-  enter_fade() + 
-  theme(axis.text = element_text(size=16),
-        axis.title = element_text(size=16, face=&quot;bold&quot;)) + 
-  xlab(&quot;September&quot;) +  
-  scale_y_discrete(name=&quot;Step counts&quot;, limits=c(5000,10000, 15000, 20000, 25000, 30000)) +
-  theme(axis.line = element_line(colour = &quot;black&quot;),
-          panel.border = element_blank()) ,
-  
-  duration = .001
-  )</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://gganimate.com/reference/animate.html'>animate</a></span><span class='op'>(</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>mystepcount</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>September</span>,y<span class='op'>=</span><span class='va'>Steps</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>fill<span class='op'>=</span><span class='st'>"#004C99"</span>, stat<span class='op'>=</span><span class='st'>"identity"</span>, width<span class='op'>=</span><span class='fl'>1</span>, position<span class='op'>=</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/position_dodge.html'>position_dodge</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>    <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span>yintercept <span class='op'>=</span> <span class='fl'>10000</span>, col<span class='op'>=</span><span class='st'>"black"</span>, size<span class='op'>=</span><span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://gganimate.com/reference/transition_states.html'>transition_states</a></span><span class='op'>(</span><span class='va'>September</span>, wrap <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://gganimate.com/reference/shadow_mark.html'>shadow_mark</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://gganimate.com/reference/enter_exit.html'>enter_grow</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://gganimate.com/reference/enter_exit.html'>enter_fade</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>axis.text <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>16</span><span class='op'>)</span>,</span>
+<span>        axis.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>16</span>, face<span class='op'>=</span><span class='st'>"bold"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"September"</span><span class='op'>)</span> <span class='op'>+</span>  </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_discrete.html'>scale_y_discrete</a></span><span class='op'>(</span>name<span class='op'>=</span><span class='st'>"Step counts"</span>, limits<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>5000</span>,<span class='fl'>10000</span>, <span class='fl'>15000</span>, <span class='fl'>20000</span>, <span class='fl'>25000</span>, <span class='fl'>30000</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>axis.line <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_line</a></span><span class='op'>(</span>colour <span class='op'>=</span> <span class='st'>"black"</span><span class='op'>)</span>,</span>
+<span>          panel.border <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_blank</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> ,</span>
+<span>  </span>
+<span>  duration <span class='op'>=</span> <span class='fl'>.001</span></span>
+<span>  <span class='op'>)</span></span></code></pre>
+</div>
 <p><img src="2020-07-13-Animating-bar-graphs_files/figure-html5/unnamed-chunk-3-1.gif" /><!-- --></p>
 </div>
 <h2 id="contact">Contact</h2>
 <p>Please mention <a href="https://www.https://twitter.com/MihiretuKebede1">MihiretuKebede1</a> if you tweet this post.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">
