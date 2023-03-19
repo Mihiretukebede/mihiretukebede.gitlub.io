@@ -20,6 +20,10 @@ output:
     toc_depth: 2
 ---
 
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825" crossorigin="anonymous"></script>
+</head>
+
 ### Disclaimer
 
 This blog post is simply about visualizing the data. I have no political affiliation. However, I cannot hide my sincere admiration and tremendous respect to prime minister Abiy Ahmed.
