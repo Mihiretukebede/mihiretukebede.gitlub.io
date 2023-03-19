@@ -785,6 +785,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -1857,15 +1858,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
-          var fn = $(this).children()[0]
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
           $(this).html(fn.shadowRoot.querySelector("sup"))
           $(this).id = fn.id
           fn.remove()
         }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -2064,7 +2071,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.15/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2141,116 +2148,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
 <div class="d-article">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825"
-     crossorigin="anonymous"></script>
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825" crossorigin="anonymous"></script>
+</head>
 <p><link rel="stylesheet" href="styles.css" type="text/css"></p>
 <p><img src="myphoto.jpg" style="width:25%; border:10px solid; margin-right: 20px" align="left"/></p>
-<p><a
-href="https://www.youtube.com/channel/UCpHd6O1Yqz4YgcYUBfyRqKg">YouTube
-courses</a></p>
-<p>My name is Mihiretu M Kebede(ምህረቱ ሞላ ከበደ). I was born in Gondar,
-Ethiopia. In 2006, I completed my Bachelor of Science degree in Medical
-Laboratory Technology at Addis Ababa University. After working for four
-years as a medical laboratory technologist, I did my MPH in Health
-Informatics at the University of Gondar in 2012. In 2015, I received a
-scholarship from the Basel Kanton to do advanced diploma in
-International Health at the Swiss Tropical and Public Health Institute
-in Basel. After finishing my advanced diploma, I moved back to Gondar
-and continued working as a lecturer at the University of Gondar.</p>
-<p>In April 2016, I came back to Europe and joined the University of
-Bremen. I received a doctoral research fellow position from the Leibniz
-Institute for Prevention Research and Epidemiology (BIPS) in the
-department of Prevention and Evaluation headed by Professor Dr.med Hajo
-Zeeb.</p>
-<p>In October 2019, I defended my Ph.D. entitled <a
-href="https://media.suub.uni-bremen.de/handle/elib/4307"><em>“Augmenting
-Diabetes Care and Self-management: What can digital health
-offer?”</em></a>. During my time at the University of Bremen and while
-working at BIPS, I presented my research projects in several national
-and international diabetes and epidemiology conferences notably at the
-ADA, EASD, JBI, and DGEPI conferences. I have authored more than 30
-journal articles published in several peer-reviewed international
-medical and public health journals.</p>
-<p>Currently, I work in the division of Cancer Epidemiology at the
-German Cancer Research Center in Heidelberg. My current research focuses
-on mechanistic pathways linking obesity to changes in sex hormone
-profiles, inflammation markers, changes in insulin and insulin like
-growth factors (IGF) which ultimately lead to increasing the risk of
-hormone-related cancers notably Breast, Ovarian and and Endometrial
-cancer.</p>
-<h1 id="selected-publications"><strong>Selected
-publications</strong></h1>
+<p><a href="https://www.youtube.com/channel/UCpHd6O1Yqz4YgcYUBfyRqKg">YouTube courses</a></p>
+<p>My name is Mihiretu M Kebede(ምህረቱ ሞላ ከበደ). I was born in Gondar, Ethiopia. In 2006, I completed my Bachelor of Science degree in Medical Laboratory Technology at Addis Ababa University. After working for four years as a medical laboratory technologist, I did my MPH in Health Informatics at the University of Gondar in 2012. In 2015, I received a scholarship from the Basel Kanton to do advanced diploma in International Health at the Swiss Tropical and Public Health Institute in Basel. After finishing my advanced diploma, I moved back to Gondar and continued working as a lecturer at the University of Gondar.</p>
+<p>In April 2016, I came back to Europe and joined the University of Bremen. I received a doctoral research fellow position from the Leibniz Institute for Prevention Research and Epidemiology (BIPS) in the department of Prevention and Evaluation headed by Professor Dr.med Hajo Zeeb.</p>
+<p>In October 2019, I defended my Ph.D. entitled <a href="https://media.suub.uni-bremen.de/handle/elib/4307"><em>“Augmenting Diabetes Care and Self-management: What can digital health offer?”</em></a>. During my time at the University of Bremen and while working at BIPS, I presented my research projects in several national and international diabetes and epidemiology conferences notably at the ADA, EASD, JBI, and DGEPI conferences. I have authored more than 30 journal articles published in several peer-reviewed international medical and public health journals.</p>
+<p>Currently, I work in the division of Cancer Epidemiology at the German Cancer Research Center in Heidelberg. My current research focuses on mechanistic pathways linking obesity to changes in sex hormone profiles, inflammation markers, changes in insulin and insulin like growth factors (IGF) which ultimately lead to increasing the risk of hormone-related cancers notably Breast, Ovarian and and Endometrial cancer.</p>
+<h1 id="selected-publications"><strong>Selected publications</strong></h1>
 <ol type="1">
-<li><p><strong>Kebede, MM</strong>, Le Cornet, C, Fortner, RT. In-depth
-evaluation of machine learning methods for semi-automating article
-screening in a systematic review of mechanistic literature. <em>Res Syn
-Meth.</em> 2022; 1- 17. doi: <a href="https://doi.org/10.1002/jrsm.1589"
-class="uri">https://doi.org/10.1002/jrsm.1589</a></p></li>
-<li><p><strong>Mihiretu M. Kebede</strong>, Hajo Zeeb, Manuela Peters,
-Thomas L. Heise, and Claudia R. Pischke. Effectiveness of Digital
-Interventions for Improving Glycemic Control in Persons with Poorly
-Controlled Type 2 Diabetes: A Systematic Review, Meta-analysis, and
-Meta-regression Analysis. Diabetes Technol Therapeutics. 2018
-Nov;20(11):767-782. <a href="https://doi.org/10.1089/dia.2018.0216"
-class="uri">https://doi.org/10.1089/dia.2018.0216</a>. Epub 2018 Sep
-26.</p></li>
-<li><p><strong>Mihiretu Kebede</strong>, Hajo Zeeb, Manuela Peters,
-Thomas H. Heisse,Claudia Pischke, Comparison of Three Meta-analytic
-Methods Using Data From Digital Interventions on Type 2 Diabetes, In
-press at Diabetes, Metabolic Syndrome and Obesity: Targets and Therapy,
-2018 Dec 19;12:59-73. doi: <a
-href="https://doi.org/10.2147/DMSO.S180106"
-class="uri">https://doi.org/10.2147/DMSO.S180106</a>.</p></li>
-<li><p><strong>Mihiretu M Kebede</strong>, Claudia R Pischke, Popular
-diabetes apps and the impact of diabetes app use on self-care behaviour:
-A survey among the digital community of persons with diabetes on Social
-Media, Frontiers in Endocrinology 2019, 10(135)
-10.3389/fendo.2019.00135, <a
-href="https://doi.org/10.3389/fendo.2019.00135"
-class="uri">https://doi.org/10.3389/fendo.2019.00135</a>.</p></li>
-<li><p><strong>Kebede M.M</strong>., Schuett C, Pischke C.R., The Role
-of Continuous Glucose Monitoring, Diabetes Smartphone Applications, and
-Self-Care Behavior in Glycemic Control: Results of a Multi-National
-Online Survey. J. Clinical Medicine, 2019, 8(109), <a
-href="https://doi.org/10.3390/jcm8010109"
-class="uri">https://doi.org/10.3390/jcm8010109</a>.</p></li>
-<li><p><strong>Kebede MM</strong>, Liedtke TP, Möllers T, Pischke CR:
-Characterizing Active Ingredients of eHealth Interventions Targeting
-Persons With Poorly Controlled Type 2 Diabetes Mellitus Using the
-Behavior Change Techniques Taxonomy: Scoping Review. Journal of medical
-Internet research 2017, 19(10):e348-e348, <a
-href="https://www.jmir.org/2017/10/e348/"
-class="uri">https://www.jmir.org/2017/10/e348/</a> .</p></li>
-<li><p><strong>Kebede M</strong>, Zegeye DT, Zeleke BM: Predicting CD4
-count changes among patients on antiretroviral treatment: Application of
-data mining techniques. Computer methods and programs in biomedicine
-2017, 152:149-157, doi: <a
-href="https://doi.org/10.1016/j.cmpb.2017.09.017"
-class="uri">https://doi.org/10.1016/j.cmpb.2017.09.017</a>.</p></li>
-<li><p>Astatikie G, Limenih MA, Kebede M: Maternal and fetal outcomes of
-uterine rupture and factors associated with maternal death secondary to
-uterine rupture. BMC pregnancy and childbirth 2017, 17(1):117, <a
-href="https://doi.org/10.1186/s12884-017-1302-z"
-class="uri">https://doi.org/10.1186/s12884-017-1302-z</a>.</p></li>
-<li><p><strong>Kebede M</strong>, Zeleke A, Asemahagn M, Fritz F:
-Willingness to receive text message medication reminders among patients
-on antiretroviral treatment in North West Ethiopia: A cross-sectional
-study. BMC medical informatics and decision making 2015, 15(1):65, <a
-href="https://doi.org/10.1186/s12911-015-0193-z"
-class="uri">https://doi.org/10.1186/s12911-015-0193-z</a>.</p></li>
-<li><p><em>GBD 2017 HIV collaborators</em>, Global, regional, and
-national incidence, prevalence, and mortality of HIV, 1980–2017, and
-forecasts to 2030, for 195 countries and territories: a systematic
-analysis for the Global Burden of Diseases, Injuries, and Risk Factors
-Study 2017, the Lancet HIV, August 2019, <a
-href="https://doi.org/10.1016/S2352-3018(19)30196-1"
-class="uri">https://doi.org/10.1016/S2352-3018(19)30196-1</a>.</p></li>
+<li><p><strong>Kebede, MM</strong>, Le Cornet, C, Fortner, RT. In-depth evaluation of machine learning methods for semi-automating article screening in a systematic review of mechanistic literature. <em>Res Syn Meth.</em> 2022; 1- 17. doi: <a href="https://doi.org/10.1002/jrsm.1589" class="uri">https://doi.org/10.1002/jrsm.1589</a></p></li>
+<li><p><strong>Mihiretu M. Kebede</strong>, Hajo Zeeb, Manuela Peters, Thomas L. Heise, and Claudia R. Pischke. Effectiveness of Digital Interventions for Improving Glycemic Control in Persons with Poorly Controlled Type 2 Diabetes: A Systematic Review, Meta-analysis, and Meta-regression Analysis. Diabetes Technol Therapeutics. 2018 Nov;20(11):767-782. <a href="https://doi.org/10.1089/dia.2018.0216" class="uri">https://doi.org/10.1089/dia.2018.0216</a>. Epub 2018 Sep 26.</p></li>
+<li><p><strong>Mihiretu Kebede</strong>, Hajo Zeeb, Manuela Peters, Thomas H. Heisse,Claudia Pischke, Comparison of Three Meta-analytic Methods Using Data From Digital Interventions on Type 2 Diabetes, In press at Diabetes, Metabolic Syndrome and Obesity: Targets and Therapy, 2018 Dec 19;12:59-73. doi: <a href="https://doi.org/10.2147/DMSO.S180106" class="uri">https://doi.org/10.2147/DMSO.S180106</a>.</p></li>
+<li><p><strong>Mihiretu M Kebede</strong>, Claudia R Pischke, Popular diabetes apps and the impact of diabetes app use on self-care behaviour: A survey among the digital community of persons with diabetes on Social Media, Frontiers in Endocrinology 2019, 10(135) 10.3389/fendo.2019.00135, <a href="https://doi.org/10.3389/fendo.2019.00135" class="uri">https://doi.org/10.3389/fendo.2019.00135</a>.</p></li>
+<li><p><strong>Kebede M.M</strong>., Schuett C, Pischke C.R., The Role of Continuous Glucose Monitoring, Diabetes Smartphone Applications, and Self-Care Behavior in Glycemic Control: Results of a Multi-National Online Survey. J. Clinical Medicine, 2019, 8(109), <a href="https://doi.org/10.3390/jcm8010109" class="uri">https://doi.org/10.3390/jcm8010109</a>.</p></li>
+<li><p><strong>Kebede MM</strong>, Liedtke TP, Möllers T, Pischke CR: Characterizing Active Ingredients of eHealth Interventions Targeting Persons With Poorly Controlled Type 2 Diabetes Mellitus Using the Behavior Change Techniques Taxonomy: Scoping Review. Journal of medical Internet research 2017, 19(10):e348-e348, <a href="https://www.jmir.org/2017/10/e348/" class="uri">https://www.jmir.org/2017/10/e348/</a> .</p></li>
+<li><p><strong>Kebede M</strong>, Zegeye DT, Zeleke BM: Predicting CD4 count changes among patients on antiretroviral treatment: Application of data mining techniques. Computer methods and programs in biomedicine 2017, 152:149-157, doi: <a href="https://doi.org/10.1016/j.cmpb.2017.09.017" class="uri">https://doi.org/10.1016/j.cmpb.2017.09.017</a>.</p></li>
+<li><p>Astatikie G, Limenih MA, Kebede M: Maternal and fetal outcomes of uterine rupture and factors associated with maternal death secondary to uterine rupture. BMC pregnancy and childbirth 2017, 17(1):117, <a href="https://doi.org/10.1186/s12884-017-1302-z" class="uri">https://doi.org/10.1186/s12884-017-1302-z</a>.</p></li>
+<li><p><strong>Kebede M</strong>, Zeleke A, Asemahagn M, Fritz F: Willingness to receive text message medication reminders among patients on antiretroviral treatment in North West Ethiopia: A cross-sectional study. BMC medical informatics and decision making 2015, 15(1):65, <a href="https://doi.org/10.1186/s12911-015-0193-z" class="uri">https://doi.org/10.1186/s12911-015-0193-z</a>.</p></li>
+<li><p><em>GBD 2017 HIV collaborators</em>, Global, regional, and national incidence, prevalence, and mortality of HIV, 1980–2017, and forecasts to 2030, for 195 countries and territories: a systematic analysis for the Global Burden of Diseases, Injuries, and Risk Factors Study 2017, the Lancet HIV, August 2019, <a href="https://doi.org/10.1016/S2352-3018(19)30196-1" class="uri">https://doi.org/10.1016/S2352-3018(19)30196-1</a>.</p></li>
 </ol>
-<h3 id="more-publications-from-my-orcid-records.">More publications from
-my <a href="https://orcid.org/0000-0002-5599-2823">ORCID
-records</a>.</h3>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h3 id="more-publications-from-my-orcid-records.">More publications from my <a href="https://orcid.org/0000-0002-5599-2823">ORCID records</a>.</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
