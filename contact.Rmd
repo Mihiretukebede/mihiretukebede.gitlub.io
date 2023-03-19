@@ -2,11 +2,9 @@
 title: "Book me"
 ---
 
-\<head\>
-
-\<script async src="[https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825"](https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825") crossorigin="anonymous"\>\</script\>
-
-\</head\>
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825" crossorigin="anonymous"></script>
+</head>
 
 # Book me
 
