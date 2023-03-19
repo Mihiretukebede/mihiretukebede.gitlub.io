@@ -23,6 +23,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -49,16 +50,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -72,17 +74,18 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
 code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
+
 
   <!--radix_placeholder_meta_tags-->
 <title>Aspire Data Solutions: Plotting regression model coefficients in a forest plot</title>
@@ -2094,8 +2097,8 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.6.6/header-attrs.js"></script>
-  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/header-attrs-2.20/header-attrs.js"></script>
+  <script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="../../site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2178,12 +2181,15 @@ gtag('config', 'UA-173027539-1');
 </div>
 
 <div class="d-article">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825" crossorigin="anonymous"></script>
+</head>
 <p>The detail description of this blog is also available in my <a href="https://www.youtube.com/watch?v=WgIqCRPZcZE">YouTube channel.</a></p>
 <h1 id="motivation">Motivation</h1>
 <p>A friend of mine asked me to plot regression coefficients or odds ratios/risk ratios on a forest plots. Since my favorite part of data analysis is visualization, I happily took the challenge. R is a great language for powerful visualizations. As I promised in my previous blog post, I will describe how to visualize model coefficients/OR/RR in R. and their confidence intervals. For today, I will perform linear regression and logistic regression models. Then, I will extract coefficients(for linear regression) and ORs (for logistic regression). Many may prefer to present their analysis in tables. Compared to long and messy tables, plots can help us to quickly see patterns and grasp the the idea.</p>
 <p>A great novelist may use fancy words to describe the beauty of Afework Tekele’s “Meskel Flower”, but it can never be as memorable as the 1959’s Afework Tekle’s master piece.</p>
 <div class="layout-chunk" data-layout="l-body">
-<div class="figure"><span id="fig:unnamed-chunk-1"></span>
+<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-1"></span>
 <img src="meskelflower.jpg" alt="Meskel Flower by Afework Tekle, 1959" width="417" />
 <p class="caption">
 Figure 1: Meskel Flower by Afework Tekle, 1959
@@ -2199,11 +2205,10 @@ Figure 1: Meskel Flower by Afework Tekle, 1959
 <pre><code></code></pre>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readr.tidyverse.org'>readr</a></span><span class='op'>)</span> <span class='co'>#for reading the csv file</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span> <span class='co'>#for data manipulation</span>
-<span class='va'>life_expe</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"life_expectancy.csv"</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>life_expe</span><span class='op'>)</span> 
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readr.tidyverse.org'>readr</a></span><span class='op'>)</span> <span class='co'>#for reading the csv file</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span> <span class='co'>#for data manipulation</span></span>
+<span><span class='va'>life_expe</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"life_expectancy.csv"</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>life_expe</span><span class='op'>)</span> </span></code></pre>
 </div>
 <pre><code> [1] &quot;Country&quot;                        
  [2] &quot;Year&quot;                           
@@ -2231,10 +2236,9 @@ Figure 1: Meskel Flower by Afework Tekle, 1959
 <p>Look at the variable names. They are not syntactically valid. That is why R puts variables inside the back tick and forward tick signs. I will use my favorite data cleaning package <em>janitor</em>, to quickly clean that messy variable naming with just one magically powerful function.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/sfirke/janitor'>janitor</a></span><span class='op'>)</span>
-<span class='va'>life_expe_data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/janitor/man/clean_names.html'>clean_names</a></span><span class='op'>(</span><span class='va'>life_expe</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>life_expe_data</span><span class='op'>)</span> <span class='co'># All variables names are automagically cleaned!</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/sfirke/janitor'>janitor</a></span><span class='op'>)</span></span>
+<span><span class='va'>life_expe_data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://sfirke.github.io/janitor/reference/clean_names.html'>clean_names</a></span><span class='op'>(</span><span class='va'>life_expe</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>life_expe_data</span><span class='op'>)</span> <span class='co'># All variables names are automagically cleaned!</span></span></code></pre>
 </div>
 <pre><code> [1] &quot;country&quot;                        
  [2] &quot;year&quot;                           
@@ -2259,55 +2263,51 @@ Figure 1: Meskel Flower by Afework Tekle, 1959
 [21] &quot;income_composition_of_resources&quot;
 [22] &quot;schooling&quot;                      </code></pre>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://tibble.tidyverse.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>life_expe_data</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>life_expe_data</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>Rows: 2,938
 Columns: 22
-$ country                         &lt;chr&gt; &quot;Afghanistan&quot;, &quot;Afghanist...
-$ year                            &lt;dbl&gt; 2015, 2014, 2013, 2012, 2...
-$ status                          &lt;chr&gt; &quot;Developing&quot;, &quot;Developing...
-$ life_expectancy                 &lt;dbl&gt; 65.0, 59.9, 59.9, 59.5, 5...
-$ adult_mortality                 &lt;dbl&gt; 263, 271, 268, 272, 275, ...
-$ infant_deaths                   &lt;dbl&gt; 62, 64, 66, 69, 71, 74, 7...
-$ alcohol                         &lt;dbl&gt; 0.01, 0.01, 0.01, 0.01, 0...
-$ percentage_expenditure          &lt;dbl&gt; 71.279624, 73.523582, 73....
-$ hepatitis_b                     &lt;dbl&gt; 65, 62, 64, 67, 68, 66, 6...
-$ measles                         &lt;dbl&gt; 1154, 492, 430, 2787, 301...
-$ bmi                             &lt;dbl&gt; 19.1, 18.6, 18.1, 17.6, 1...
-$ under_five_deaths               &lt;dbl&gt; 83, 86, 89, 93, 97, 102, ...
-$ polio                           &lt;dbl&gt; 6, 58, 62, 67, 68, 66, 63...
-$ total_expenditure               &lt;dbl&gt; 8.16, 8.18, 8.13, 8.52, 7...
-$ diphtheria                      &lt;dbl&gt; 65, 62, 64, 67, 68, 66, 6...
-$ hiv_aids                        &lt;dbl&gt; 0.1, 0.1, 0.1, 0.1, 0.1, ...
-$ gdp                             &lt;dbl&gt; 584.25921, 612.69651, 631...
-$ population                      &lt;dbl&gt; 33736494, 327582, 3173168...
-$ thinness_1_19_years             &lt;dbl&gt; 17.2, 17.5, 17.7, 17.9, 1...
-$ thinness_5_9_years              &lt;dbl&gt; 17.3, 17.5, 17.7, 18.0, 1...
-$ income_composition_of_resources &lt;dbl&gt; 0.479, 0.476, 0.470, 0.46...
-$ schooling                       &lt;dbl&gt; 10.1, 10.0, 9.9, 9.8, 9.5...</code></pre>
+$ country                         &lt;chr&gt; &quot;Afghanistan&quot;, &quot;Afghanistan&quot;~
+$ year                            &lt;dbl&gt; 2015, 2014, 2013, 2012, 2011~
+$ status                          &lt;chr&gt; &quot;Developing&quot;, &quot;Developing&quot;, ~
+$ life_expectancy                 &lt;dbl&gt; 65.0, 59.9, 59.9, 59.5, 59.2~
+$ adult_mortality                 &lt;dbl&gt; 263, 271, 268, 272, 275, 279~
+$ infant_deaths                   &lt;dbl&gt; 62, 64, 66, 69, 71, 74, 77, ~
+$ alcohol                         &lt;dbl&gt; 0.01, 0.01, 0.01, 0.01, 0.01~
+$ percentage_expenditure          &lt;dbl&gt; 71.279624, 73.523582, 73.219~
+$ hepatitis_b                     &lt;dbl&gt; 65, 62, 64, 67, 68, 66, 63, ~
+$ measles                         &lt;dbl&gt; 1154, 492, 430, 2787, 3013, ~
+$ bmi                             &lt;dbl&gt; 19.1, 18.6, 18.1, 17.6, 17.2~
+$ under_five_deaths               &lt;dbl&gt; 83, 86, 89, 93, 97, 102, 106~
+$ polio                           &lt;dbl&gt; 6, 58, 62, 67, 68, 66, 63, 6~
+$ total_expenditure               &lt;dbl&gt; 8.16, 8.18, 8.13, 8.52, 7.87~
+$ diphtheria                      &lt;dbl&gt; 65, 62, 64, 67, 68, 66, 63, ~
+$ hiv_aids                        &lt;dbl&gt; 0.1, 0.1, 0.1, 0.1, 0.1, 0.1~
+$ gdp                             &lt;dbl&gt; 584.25921, 612.69651, 631.74~
+$ population                      &lt;dbl&gt; 33736494, 327582, 31731688, ~
+$ thinness_1_19_years             &lt;dbl&gt; 17.2, 17.5, 17.7, 17.9, 18.2~
+$ thinness_5_9_years              &lt;dbl&gt; 17.3, 17.5, 17.7, 18.0, 18.2~
+$ income_composition_of_resources &lt;dbl&gt; 0.479, 0.476, 0.470, 0.463, ~
+$ schooling                       &lt;dbl&gt; 10.1, 10.0, 9.9, 9.8, 9.5, 9~</code></pre>
 </div>
 <p>The above result shows the data has about 22 columns(variables) and 2928 rows(observations). Let me do a quick exploratory data analysis .</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://boxuancui.github.io/DataExplorer/'>DataExplorer</a></span><span class='op'>)</span>
-<span class='fu'><a href='http://boxuancui.github.io/DataExplorer/reference/plot_missing.html'>plot_missing</a></span><span class='op'>(</span><span class='va'>life_expe_data</span><span class='op'>)</span> 
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://boxuancui.github.io/DataExplorer/'>DataExplorer</a></span><span class='op'>)</span></span>
+<span><span class='fu'><a href='http://boxuancui.github.io/DataExplorer/reference/plot_missing.html'>plot_missing</a></span><span class='op'>(</span><span class='va'>life_expe_data</span><span class='op'>)</span> </span></code></pre>
 </div>
 <p><img src="2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
 </div>
 <p>The missing value exploration plot shows, we don’t have missing value of more than 25% for each variable. We don’t have any variable that will be dropped using a complete deletion. In fact, the missing values are tolerable and performing imputation strategies is practically possible. I will be back on another blog post to perform missing value imputations using tree-based methods or KNN algorithms. For now, I will simply drop all observations with missing values!</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>life_exp_narm</span> <span class='op'>&lt;-</span> <span class='va'>life_expe_data</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/stats/complete.cases.html'>complete.cases</a></span><span class='op'>(</span><span class='va'>life_expe_data</span><span class='op'>)</span>, <span class='op'>]</span> <span class='co'># This deletes all rows with missing values</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>life_exp_narm</span> <span class='op'>&lt;-</span> <span class='va'>life_expe_data</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/stats/complete.cases.html'>complete.cases</a></span><span class='op'>(</span><span class='va'>life_expe_data</span><span class='op'>)</span>, <span class='op'>]</span> <span class='co'># This deletes all rows with missing values</span></span></code></pre>
 </div>
 </div>
 <p>There is another important function from the <code>DataExplorer</code>package to do a quick grasp of the distributions of my variables.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='http://boxuancui.github.io/DataExplorer/reference/plot_histogram.html'>plot_histogram</a></span><span class='op'>(</span><span class='va'>life_exp_narm</span><span class='op'>)</span> <span class='co'># Almost all variables are skewed</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='http://boxuancui.github.io/DataExplorer/reference/plot_histogram.html'>plot_histogram</a></span><span class='op'>(</span><span class='va'>life_exp_narm</span><span class='op'>)</span> <span class='co'># Almost all variables are skewed</span></span></code></pre>
 </div>
 <p><img src="2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-5-1.png" width="624" /><img src="2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-5-2.png" width="624" /></p>
 </div>
@@ -2315,47 +2315,42 @@ $ schooling                       &lt;dbl&gt; 10.1, 10.0, 9.9, 9.8, 9.5...</code
 <p>Since, the goal of this post is to plot model coefficients and confidence intervals in a forest plot, I will not go deeper in explaining models.I will use life expectancy as a dependent variable and use some predictors to do my linear models. Before that, I will do one quick visualization.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span> <span class='co'>#for awesome plotting</span>
-
-<span class='co'># let me rename the income variable</span>
-<span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>life_exp_narm</span><span class='op'>)</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>life_exp_narm</span><span class='op'>)</span> <span class='op'>==</span> <span class='st'>"income_composition_of_resources"</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"income_index"</span>
-
-
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>life_exp_narm</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>income_index</span>, y<span class='op'>=</span><span class='va'>life_expectancy</span>, col<span class='op'>=</span><span class='va'>status</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> 
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span> <span class='co'>#for awesome plotting</span></span>
+<span></span>
+<span><span class='co'># let me rename the income variable</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>life_exp_narm</span><span class='op'>)</span><span class='op'>[</span><span class='fu'><a href='https://rdrr.io/r/base/names.html'>names</a></span><span class='op'>(</span><span class='va'>life_exp_narm</span><span class='op'>)</span> <span class='op'>==</span> <span class='st'>"income_composition_of_resources"</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='st'>"income_index"</span></span>
+<span></span>
+<span></span>
+<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>life_exp_narm</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>income_index</span>, y<span class='op'>=</span><span class='va'>life_expectancy</span>, col<span class='op'>=</span><span class='va'>status</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> </span></code></pre>
 </div>
 <p><img src="2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>
 <p>The plot shows, as income index increases, life expectancy increases. In addition, the developed countries have higher income level and high life expectancy. However, there is really one very important thing visible in this plot. The income_index variable has a lot of zeros values.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>life_exp_narm</span><span class='op'>$</span><span class='va'>income_index</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>life_exp_narm</span><span class='op'>$</span><span class='va'>income_index</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
  0.0000  0.5090  0.6730  0.6316  0.7510  0.9360 </code></pre>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>life_exp_narm</span><span class='op'>$</span><span class='va'>income_index</span><span class='op'>==</span><span class='fl'>0</span><span class='op'>)</span> 
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>life_exp_narm</span><span class='op'>$</span><span class='va'>income_index</span><span class='op'>==</span><span class='fl'>0</span><span class='op'>)</span> </span></code></pre>
 </div>
 <pre><code>[1] 48</code></pre>
 </div>
 <p>See, 48 observations have 0 value on income_index. That must be missing data. I will filter out the observations with 0 values in this variable.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>life_exp_new</span> <span class='op'>&lt;-</span> <span class='va'>life_exp_narm</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>income_index</span><span class='op'>&gt;</span><span class='fl'>0</span><span class='op'>)</span> <span class='co'># all with 0 values on income_index variable are removed</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>life_exp_new</span> <span class='op'>&lt;-</span> <span class='va'>life_exp_narm</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>income_index</span><span class='op'>&gt;</span><span class='fl'>0</span><span class='op'>)</span> <span class='co'># all with 0 values on income_index variable are removed</span></span></code></pre>
 </div>
 </div>
 <p>Now, we can visualize again with a little more tweaking.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>life_exp_new</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>income_index</span>, y<span class='op'>=</span><span class='va'>life_expectancy</span>, col<span class='op'>=</span><span class='va'>status</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method<span class='op'>=</span><span class='st'>"lm"</span>, col<span class='op'>=</span><span class='st'>"blue"</span><span class='op'>)</span> 
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>life_exp_new</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>income_index</span>, y<span class='op'>=</span><span class='va'>life_expectancy</span>, col<span class='op'>=</span><span class='va'>status</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method<span class='op'>=</span><span class='st'>"lm"</span>, col<span class='op'>=</span><span class='st'>"blue"</span><span class='op'>)</span> </span></code></pre>
 </div>
 <p><img src="2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
 </div>
@@ -2364,21 +2359,19 @@ $ schooling                       &lt;dbl&gt; 10.1, 10.0, 9.9, 9.8, 9.5...</code
 <p>One of the great things, you can enjoy with R is there are many ways of doing the same thing.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>lm1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>life_expectancy</span> <span class='op'>~</span> <span class='va'>total_expenditure</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>income_index</span><span class='op'>)</span> <span class='op'>+</span> <span class='va'>adult_mortality</span> <span class='op'>+</span> <span class='va'>infant_deaths</span> <span class='op'>+</span> <span class='va'>alcohol</span> <span class='op'>+</span> <span class='va'>thinness_1_19_years</span> <span class='op'>+</span> <span class='va'>thinness_5_9_years</span> <span class='op'>+</span> <span class='va'>schooling</span> <span class='op'>+</span> <span class='va'>infant_deaths</span> <span class='op'>+</span> <span class='va'>status</span>,data<span class='op'>=</span><span class='va'>life_exp_new</span><span class='op'>)</span>
-
-<span class='co'># We can do the same task using glm but defining the family argument as "gaussian"</span>
-<span class='va'>lm2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/glm.html'>glm</a></span><span class='op'>(</span><span class='va'>life_expectancy</span> <span class='op'>~</span> <span class='va'>total_expenditure</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>income_index</span><span class='op'>)</span> <span class='op'>+</span> <span class='va'>adult_mortality</span> <span class='op'>+</span> <span class='va'>infant_deaths</span> <span class='op'>+</span> <span class='va'>alcohol</span> <span class='op'>+</span> <span class='va'>thinness_1_19_years</span> <span class='op'>+</span> <span class='va'>thinness_5_9_years</span> <span class='op'>+</span> <span class='va'>schooling</span> <span class='op'>+</span> <span class='va'>infant_deaths</span> <span class='op'>+</span> <span class='va'>status</span>,
-           data<span class='op'>=</span><span class='va'>life_exp_new</span>, family <span class='op'>=</span> <span class='va'>gaussian</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>lm1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>life_expectancy</span> <span class='op'>~</span> <span class='va'>total_expenditure</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>income_index</span><span class='op'>)</span> <span class='op'>+</span> <span class='va'>adult_mortality</span> <span class='op'>+</span> <span class='va'>infant_deaths</span> <span class='op'>+</span> <span class='va'>alcohol</span> <span class='op'>+</span> <span class='va'>thinness_1_19_years</span> <span class='op'>+</span> <span class='va'>thinness_5_9_years</span> <span class='op'>+</span> <span class='va'>schooling</span> <span class='op'>+</span> <span class='va'>infant_deaths</span> <span class='op'>+</span> <span class='va'>status</span>,data<span class='op'>=</span><span class='va'>life_exp_new</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># We can do the same task using glm but defining the family argument as "gaussian"</span></span>
+<span><span class='va'>lm2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/glm.html'>glm</a></span><span class='op'>(</span><span class='va'>life_expectancy</span> <span class='op'>~</span> <span class='va'>total_expenditure</span> <span class='op'>+</span> <span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>income_index</span><span class='op'>)</span> <span class='op'>+</span> <span class='va'>adult_mortality</span> <span class='op'>+</span> <span class='va'>infant_deaths</span> <span class='op'>+</span> <span class='va'>alcohol</span> <span class='op'>+</span> <span class='va'>thinness_1_19_years</span> <span class='op'>+</span> <span class='va'>thinness_5_9_years</span> <span class='op'>+</span> <span class='va'>schooling</span> <span class='op'>+</span> <span class='va'>infant_deaths</span> <span class='op'>+</span> <span class='va'>status</span>,</span>
+<span>           data<span class='op'>=</span><span class='va'>life_exp_new</span>, family <span class='op'>=</span> <span class='va'>gaussian</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
 <h1 id="see-the-model-outputs">See the model outputs</h1>
 <p>The two approach produce similar outputs. But,<strong>lm</strong> has a shorter code than glm. So, many ppl prefer to use lm() for linear regression.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://jtools.jacob-long.com'>jtools</a></span><span class='op'>)</span> <span class='co'>#for nice table model output</span>
-<span class='fu'><a href='https://jtools.jacob-long.com/reference/summ.html'>summ</a></span><span class='op'>(</span><span class='va'>lm1</span>,confint <span class='op'>=</span> <span class='cn'>TRUE</span>, digits <span class='op'>=</span> <span class='fl'>3</span>, vifs <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='co'># add vif to see if variance inflation factor is greater than 2</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://jtools.jacob-long.com'>jtools</a></span><span class='op'>)</span> <span class='co'>#for nice table model output</span></span>
+<span><span class='fu'><a href='https://jtools.jacob-long.com/reference/summ.html'>summ</a></span><span class='op'>(</span><span class='va'>lm1</span>,confint <span class='op'>=</span> <span class='cn'>TRUE</span>, digits <span class='op'>=</span> <span class='fl'>3</span>, vifs <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span> <span class='co'># add vif to see if variance inflation factor is greater than 2</span></span></code></pre>
 </div>
 <pre><code>MODEL INFO:
 Observations: 1601
@@ -2421,8 +2414,7 @@ schooling                   6.389
 statusDeveloping            1.716
 ---------------------------------</code></pre>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://jtools.jacob-long.com/reference/summ.html'>summ</a></span><span class='op'>(</span><span class='va'>lm2</span>,confint <span class='op'>=</span> <span class='cn'>TRUE</span>, digits <span class='op'>=</span> <span class='fl'>3</span>, vifs<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://jtools.jacob-long.com/reference/summ.html'>summ</a></span><span class='op'>(</span><span class='va'>lm2</span>,confint <span class='op'>=</span> <span class='cn'>TRUE</span>, digits <span class='op'>=</span> <span class='fl'>3</span>, vifs<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>MODEL INFO:
 Observations: 1601
@@ -2471,16 +2463,15 @@ Estimated dispersion parameter = 13.209 </code></pre>
 <p>Seeing the vif value above 2 is evidence of multicollinearity in our model. Let’s just use the HMISC package to find all correlation values for the variables in the model.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>dat</span> <span class='op'>&lt;-</span> <span class='va'>life_exp_narm</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>total_expenditure</span>, <span class='va'>income_index</span>, <span class='va'>adult_mortality</span> , <span class='va'>infant_deaths</span> ,
-             <span class='va'>alcohol</span>, <span class='va'>thinness_1_19_years</span>, <span class='va'>thinness_5_9_years</span>, <span class='va'>schooling</span><span class='op'>)</span>
-
-<span class='co'>#library(corrplot)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://hbiostat.org/R/Hmisc/'>Hmisc</a></span><span class='op'>)</span>
-<span class='va'>cor</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/Hmisc/man/rcorr.html'>rcorr</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>as.matrix</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>r</span> <span class='op'>&lt;-</span> <span class='va'>cor</span><span class='op'>$</span><span class='va'>r</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/base/table.html'>as.table</a></span><span class='op'>(</span><span class='op'>)</span>
-<span class='va'>r</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>dat</span> <span class='op'>&lt;-</span> <span class='va'>life_exp_narm</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>total_expenditure</span>, <span class='va'>income_index</span>, <span class='va'>adult_mortality</span> , <span class='va'>infant_deaths</span> ,</span>
+<span>             <span class='va'>alcohol</span>, <span class='va'>thinness_1_19_years</span>, <span class='va'>thinness_5_9_years</span>, <span class='va'>schooling</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'>#library(corrplot)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://hbiostat.org/R/Hmisc/'>Hmisc</a></span><span class='op'>)</span></span>
+<span><span class='va'>cor</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/Hmisc/man/rcorr.html'>rcorr</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>as.matrix</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='va'>r</span> <span class='op'>&lt;-</span> <span class='va'>cor</span><span class='op'>$</span><span class='va'>r</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/table.html'>as.table</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span><span class='va'>r</span></span></code></pre>
 </div>
 <pre><code>                    total_expenditure income_index adult_mortality
 total_expenditure          1.00000000   0.18365319     -0.08522653
@@ -2513,22 +2504,20 @@ schooling                  -0.47248203  1.00000000</code></pre>
 <p>Or more beautifully we can plot he correlation values using the <em><code>pairs.panels</code></em> function from the <code>psych</code> package. We can have a good correlation matrix of our variables.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://personality-project.org/r/psych/'>psych</a></span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/pkg/psych/man/pairs.panels.html'>pairs.panels</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://personality-project.org/r/psych/'>psych</a></span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/pkg/psych/man/pairs.panels.html'>pairs.panels</a></span><span class='op'>(</span><span class='va'>dat</span><span class='op'>)</span></span></code></pre>
 </div>
 <p><img src="2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-13-1.png" width="624" /></p>
 </div>
 <p>There is a high correlation(r=.93) between thinness_1_19_years and thinness_5_9_years, schooling and income_index (r=0.78), schooling and alchohol. To deal with this multicollinearity problem, I will just drop one of the collinear variables because they just add a redundenent information in my model. Ideally, one can do a stepwise regression, or best subsets regression and then choose the model that has the highest R-squared value. But, we are simply dropping one of the variables. Let me drop <em>thinness_5_9_years</em> (the variable <em>thinness_1_19_years</em> actually carry the other variable: <em>thinness_5_9_years</em>), and <em>income_index</em> variables from my linear model and redo my analysis.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>lm3</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>life_expectancy</span> <span class='op'>~</span> <span class='va'>total_expenditure</span> <span class='op'>+</span> 
-             <span class='va'>schooling</span> <span class='op'>+</span> <span class='va'>adult_mortality</span> <span class='op'>+</span> <span class='va'>infant_deaths</span> <span class='op'>+</span> <span class='va'>thinness_1_19_years</span> <span class='op'>+</span>
-            <span class='va'>alcohol</span> <span class='op'>+</span> <span class='va'>status</span>,
-          data<span class='op'>=</span><span class='va'>life_exp_new</span><span class='op'>)</span>
-
-<span class='fu'><a href='https://jtools.jacob-long.com/reference/summ.html'>summ</a></span><span class='op'>(</span><span class='va'>lm3</span>,confint <span class='op'>=</span> <span class='cn'>TRUE</span>, digits <span class='op'>=</span> <span class='fl'>3</span>, vifs<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span> 
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>lm3</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>life_expectancy</span> <span class='op'>~</span> <span class='va'>total_expenditure</span> <span class='op'>+</span> </span>
+<span>             <span class='va'>schooling</span> <span class='op'>+</span> <span class='va'>adult_mortality</span> <span class='op'>+</span> <span class='va'>infant_deaths</span> <span class='op'>+</span> <span class='va'>thinness_1_19_years</span> <span class='op'>+</span></span>
+<span>            <span class='va'>alcohol</span> <span class='op'>+</span> <span class='va'>status</span>,</span>
+<span>          data<span class='op'>=</span><span class='va'>life_exp_new</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://jtools.jacob-long.com/reference/summ.html'>summ</a></span><span class='op'>(</span><span class='va'>lm3</span>,confint <span class='op'>=</span> <span class='cn'>TRUE</span>, digits <span class='op'>=</span> <span class='fl'>3</span>, vifs<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span> </span></code></pre>
 </div>
 <pre><code>MODEL INFO:
 Observations: 1601
@@ -2571,107 +2560,102 @@ statusDeveloping            1.709
 <p>There are many ways of visualizing my model outputs.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://broom.tidymodels.org/'>broom</a></span><span class='op'>)</span>
-<span class='va'>model_output</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>lm3</span><span class='op'>)</span>
-<span class='va'>out_conf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>lm3</span>, conf.int <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span>
-
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/sollano/forestmangr#readme'>forestmangr</a></span><span class='op'>)</span>
-<span class='va'>lm_model_out</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/forestmangr/man/round_df.html'>round_df</a></span><span class='op'>(</span><span class='va'>out_conf</span>, digits<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span>
-<span class='va'>lm_model_out</span> <span class='op'>&lt;-</span> <span class='va'>lm_model_out</span><span class='op'>[</span><span class='op'>-</span><span class='fl'>1</span>,<span class='op'>]</span> <span class='co'>#remove the intercept </span>
-
-<span class='co'># Now plot them</span>
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>lm_model_out</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/stats/reorder.factor.html'>reorder</a></span><span class='op'>(</span><span class='va'>term</span>, <span class='va'>estimate</span><span class='op'>)</span>, y<span class='op'>=</span><span class='va'>estimate</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_errorbar</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin<span class='op'>=</span><span class='va'>conf.low</span>, ymax<span class='op'>=</span><span class='va'>conf.high</span><span class='op'>)</span>, 
-                       width <span class='op'>=</span> <span class='fl'>0.2</span>,size  <span class='op'>=</span> <span class='fl'>1</span>,
-                       position <span class='op'>=</span> <span class='st'>"dodge"</span>, color<span class='op'>=</span><span class='st'>"turquoise4"</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span>yintercept <span class='op'>=</span> <span class='fl'>0</span>, color <span class='op'>=</span> <span class='st'>"red"</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span><span class='op'>(</span><span class='op'>)</span> 
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://broom.tidymodels.org/'>broom</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://cli.r-lib.org'>cli</a></span><span class='op'>)</span></span>
+<span><span class='va'>model_output</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>lm3</span><span class='op'>)</span></span>
+<span><span class='va'>out_conf</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://generics.r-lib.org/reference/tidy.html'>tidy</a></span><span class='op'>(</span><span class='va'>lm3</span>, conf.int <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/sollano/forestmangr#readme'>forestmangr</a></span><span class='op'>)</span></span>
+<span><span class='va'>lm_model_out</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/forestmangr/man/round_df.html'>round_df</a></span><span class='op'>(</span><span class='va'>out_conf</span>, digits<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span></span>
+<span><span class='va'>lm_model_out</span> <span class='op'>&lt;-</span> <span class='va'>lm_model_out</span><span class='op'>[</span><span class='op'>-</span><span class='fl'>1</span>,<span class='op'>]</span> <span class='co'>#remove the intercept </span></span>
+<span></span>
+<span><span class='co'># Now plot them</span></span>
+<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>lm_model_out</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/stats/reorder.factor.html'>reorder</a></span><span class='op'>(</span><span class='va'>term</span>, <span class='va'>estimate</span><span class='op'>)</span>, y<span class='op'>=</span><span class='va'>estimate</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>         <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_errorbar</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin<span class='op'>=</span><span class='va'>conf.low</span>, ymax<span class='op'>=</span><span class='va'>conf.high</span><span class='op'>)</span>, </span>
+<span>                       width <span class='op'>=</span> <span class='fl'>0.2</span>,size  <span class='op'>=</span> <span class='fl'>1</span>,</span>
+<span>                       position <span class='op'>=</span> <span class='st'>"dodge"</span>, color<span class='op'>=</span><span class='st'>"turquoise4"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span>yintercept <span class='op'>=</span> <span class='fl'>0</span>, color <span class='op'>=</span> <span class='st'>"red"</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span><span class='op'>(</span><span class='op'>)</span> </span></code></pre>
 </div>
 <p><img src="2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-15-1.png" width="624" /></p>
 </div>
 <p><strong>Retrieve coefficients and their 95% CI</strong></p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>coef</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>lm3</span><span class='op'>)</span>
-<span class='va'>ConfidenceInterval</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/confint.html'>confint</a></span><span class='op'>(</span><span class='va'>lm3</span><span class='op'>)</span>
-<span class='va'>coef_confint</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>coef</span>, <span class='va'>ConfidenceInterval</span><span class='op'>)</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='op'>)</span>
-<span class='va'>coef_confint</span> <span class='op'>&lt;-</span> <span class='va'>coef_confint</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/pkg/plyr/man/mutate.html'>mutate</a></span><span class='op'>(</span>variable<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>coef_confint</span><span class='op'>)</span><span class='op'>)</span>
-
-
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://had.co.nz/plyr'>plyr</a></span><span class='op'>)</span> 
-<span class='va'>coef_confint</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/plyr/man/rename.html'>rename</a></span><span class='op'>(</span><span class='va'>coef_confint</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"coef"</span> <span class='op'>=</span> <span class='st'>"Beta"</span>,
-                                      `2.5 %` <span class='op'>=</span> <span class='st'>"lower_bound"</span>, 
-                                      `97.5 %` <span class='op'>=</span> <span class='st'>"upper_bound"</span><span class='op'>)</span><span class='op'>)</span>
-
-<span class='co'># We don't need to plot the intercept. We can remove it from our data</span>
-
-
-<span class='co'># Reorder variables</span>
-<span class='va'>col_order</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"variable"</span>, <span class='st'>"Beta"</span>, <span class='st'>"lower_bound"</span>, <span class='st'>"upper_bound"</span><span class='op'>)</span>
-<span class='va'>coef_confint</span> <span class='op'>&lt;-</span> <span class='va'>coef_confint</span><span class='op'>[</span>, <span class='va'>col_order</span><span class='op'>]</span> <span class='co'>#reorder variables in the data frame</span>
-
-<span class='va'>coef_confint</span> <span class='op'>&lt;-</span> <span class='va'>coef_confint</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate_all.html'>mutate_if</a></span><span class='op'>(</span><span class='va'>is.numeric</span>, <span class='va'>round</span>, digits <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span> <span class='co'># round numeric into two significant digits </span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>coef</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>lm3</span><span class='op'>)</span></span>
+<span><span class='va'>ConfidenceInterval</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/confint.html'>confint</a></span><span class='op'>(</span><span class='va'>lm3</span><span class='op'>)</span></span>
+<span><span class='va'>coef_confint</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='va'>coef</span>, <span class='va'>ConfidenceInterval</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span><span class='va'>coef_confint</span> <span class='op'>&lt;-</span> <span class='va'>coef_confint</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='fu'><a href='https://rdrr.io/pkg/plyr/man/mutate.html'>mutate</a></span><span class='op'>(</span>variable<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>coef_confint</span><span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://had.co.nz/plyr'>plyr</a></span><span class='op'>)</span> </span>
+<span><span class='va'>coef_confint</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/plyr/man/rename.html'>rename</a></span><span class='op'>(</span><span class='va'>coef_confint</span>,<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"coef"</span> <span class='op'>=</span> <span class='st'>"Beta"</span>,</span>
+<span>                                      `2.5 %` <span class='op'>=</span> <span class='st'>"lower_bound"</span>, </span>
+<span>                                      `97.5 %` <span class='op'>=</span> <span class='st'>"upper_bound"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># We don't need to plot the intercept. We can remove it from our data</span></span>
+<span></span>
+<span></span>
+<span><span class='co'># Reorder variables</span></span>
+<span><span class='va'>col_order</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"variable"</span>, <span class='st'>"Beta"</span>, <span class='st'>"lower_bound"</span>, <span class='st'>"upper_bound"</span><span class='op'>)</span></span>
+<span><span class='va'>coef_confint</span> <span class='op'>&lt;-</span> <span class='va'>coef_confint</span><span class='op'>[</span>, <span class='va'>col_order</span><span class='op'>]</span> <span class='co'>#reorder variables in the data frame</span></span>
+<span></span>
+<span><span class='va'>coef_confint</span> <span class='op'>&lt;-</span> <span class='va'>coef_confint</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate_all.html'>mutate_if</a></span><span class='op'>(</span><span class='va'>is.numeric</span>, <span class='va'>round</span>, digits <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span> <span class='co'># round numeric into two significant digits </span></span></code></pre>
 </div>
 </div>
 <h1 id="visualize-the-coefficients-once-again">Visualize the coefficients once again</h1>
 <p>Now, I have everything to visualize my coefficients and their respective confidence intervals in a forest plot.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plot_lm</span> <span class='op'>&lt;-</span> <span class='va'>coef_confint</span><span class='op'>[</span><span class='op'>-</span><span class='fl'>1</span>,<span class='op'>]</span> <span class='op'>%&gt;%</span>  <span class='co'>#remove row number 1 (The intercept) </span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/stats/reorder.factor.html'>reorder</a></span><span class='op'>(</span><span class='va'>variable</span>, <span class='va'>Beta</span><span class='op'>)</span>, y<span class='op'>=</span><span class='va'>Beta</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>shape <span class='op'>=</span> <span class='fl'>15</span>,
-             size  <span class='op'>=</span> <span class='fl'>4</span>, width <span class='op'>=</span> <span class='fl'>0.1</span>,
-             position <span class='op'>=</span> <span class='st'>"dodge"</span>, color<span class='op'>=</span><span class='st'>"black"</span><span class='op'>)</span> <span class='op'>+</span> 
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_errorbar</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin  <span class='op'>=</span> <span class='va'>lower_bound</span>,
-                    ymax  <span class='op'>=</span> <span class='va'>upper_bound</span><span class='op'>)</span>,
-                width <span class='op'>=</span> <span class='fl'>0.2</span>,
-                size  <span class='op'>=</span> <span class='fl'>1</span>,
-                position <span class='op'>=</span> <span class='st'>"dodge"</span>, color<span class='op'>=</span><span class='st'>"turquoise4"</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>axis.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Variables"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"Beta coeffecients with 95% CI"</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span><span class='op'>(</span>ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>2.5</span>, <span class='fl'>1.6</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span>yintercept <span class='op'>=</span> <span class='fl'>0</span>, color <span class='op'>=</span> <span class='st'>"red"</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span>
-   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>axis.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>17</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>axis.text <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>14</span><span class='op'>)</span><span class='op'>)</span> 
-
-<span class='va'>plot_lm</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot_lm</span> <span class='op'>&lt;-</span> <span class='va'>coef_confint</span><span class='op'>[</span><span class='op'>-</span><span class='fl'>1</span>,<span class='op'>]</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>  <span class='co'>#remove row number 1 (The intercept) </span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/stats/reorder.factor.html'>reorder</a></span><span class='op'>(</span><span class='va'>variable</span>, <span class='va'>Beta</span><span class='op'>)</span>, y<span class='op'>=</span><span class='va'>Beta</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>shape <span class='op'>=</span> <span class='fl'>15</span>,</span>
+<span>             size  <span class='op'>=</span> <span class='fl'>4</span>, width <span class='op'>=</span> <span class='fl'>0.1</span>,</span>
+<span>             position <span class='op'>=</span> <span class='st'>"dodge"</span>, color<span class='op'>=</span><span class='st'>"black"</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_errorbar</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin  <span class='op'>=</span> <span class='va'>lower_bound</span>,</span>
+<span>                    ymax  <span class='op'>=</span> <span class='va'>upper_bound</span><span class='op'>)</span>,</span>
+<span>                width <span class='op'>=</span> <span class='fl'>0.2</span>,</span>
+<span>                size  <span class='op'>=</span> <span class='fl'>1</span>,</span>
+<span>                position <span class='op'>=</span> <span class='st'>"dodge"</span>, color<span class='op'>=</span><span class='st'>"turquoise4"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>axis.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Variables"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"Beta coeffecients with 95% CI"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span><span class='op'>(</span>ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='op'>-</span><span class='fl'>2.5</span>, <span class='fl'>1.6</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span>yintercept <span class='op'>=</span> <span class='fl'>0</span>, color <span class='op'>=</span> <span class='st'>"red"</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>axis.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>17</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>axis.text <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>14</span><span class='op'>)</span><span class='op'>)</span> </span>
+<span></span>
+<span><span class='va'>plot_lm</span></span></code></pre>
 </div>
 <p><img src="2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-17-1.png" width="624" /></p>
 </div>
 <p>The y-axis tick labels can be improved to correctly define the names. I can do that by bz renaming mz axis tick-labels in my ggplot code.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plot_lm</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_discrete.html'>scale_x_discrete</a></span><span class='op'>(</span>breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"statusDeveloping"</span>, 
-                                    <span class='st'>"thinness_1_19_years"</span>, <span class='st'>"alcohol"</span>,
-                                    <span class='st'>"adult_mortality"</span>,<span class='st'>"total_expenditure"</span>, 
-                                    <span class='st'>"infant_deaths"</span>, <span class='st'>"schooling"</span><span class='op'>)</span>,
-                           labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Developing countries"</span>, <span class='st'>"Thinness 1-19 yrs"</span>, 
-                                      <span class='st'>"Alcohol consumption"</span>, 
-                                      <span class='st'>"Adult MR"</span>, <span class='st'>"Total expenditure"</span>,
-                                      <span class='st'>"IMR"</span>, 
-                                      <span class='st'>"Average school yrs"</span><span class='op'>)</span><span class='op'>)</span> 
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot_lm</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_discrete.html'>scale_x_discrete</a></span><span class='op'>(</span>breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"statusDeveloping"</span>, </span>
+<span>                                    <span class='st'>"thinness_1_19_years"</span>, <span class='st'>"alcohol"</span>,</span>
+<span>                                    <span class='st'>"adult_mortality"</span>,<span class='st'>"total_expenditure"</span>, </span>
+<span>                                    <span class='st'>"infant_deaths"</span>, <span class='st'>"schooling"</span><span class='op'>)</span>,</span>
+<span>                           labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Developing countries"</span>, <span class='st'>"Thinness 1-19 yrs"</span>, </span>
+<span>                                      <span class='st'>"Alcohol consumption"</span>, </span>
+<span>                                      <span class='st'>"Adult MR"</span>, <span class='st'>"Total expenditure"</span>,</span>
+<span>                                      <span class='st'>"IMR"</span>, </span>
+<span>                                      <span class='st'>"Average school yrs"</span><span class='op'>)</span><span class='op'>)</span> </span></code></pre>
 </div>
 <p><img src="2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-18-1.png" width="624" /></p>
 </div>
 <p>There are also a handful of specialized r packages which are dedicated to do this job with a much shorter lines of codes. In the following part, I will use some of the packages to plot my model coefficients. Of the many packages available, <code>broom.mixed</code>, and <code>sJPlot</code>, <code>coefplot</code>,<code>dotwhisker</code>, <code>modelsummary</code>, etc are some of them. I will try broom.mixed and sJPlot</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://github.com/bbolker/broom.mixed'>broom.mixed</a></span><span class='op'>)</span>
-
-<span class='fu'><a href='https://jtools.jacob-long.com/reference/plot_summs.html'>plot_summs</a></span><span class='op'>(</span><span class='va'>lm3</span>, scale <span class='op'>=</span> <span class='cn'>TRUE</span>, size<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span> 
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/bbolker/broom.mixed'>broom.mixed</a></span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://jtools.jacob-long.com/reference/plot_summs.html'>plot_summs</a></span><span class='op'>(</span><span class='va'>lm3</span>, scale <span class='op'>=</span> <span class='cn'>TRUE</span>, size<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span> </span></code></pre>
 </div>
 <img src="2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-19-1.png" width="624" />
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://jtools.jacob-long.com/reference/plot_summs.html'>plot_summs</a></span><span class='op'>(</span><span class='va'>lm1</span>, scale <span class='op'>=</span> <span class='cn'>TRUE</span>, plot.distributions <span class='op'>=</span> <span class='cn'>TRUE</span>, 
-           inner_ci_level <span class='op'>=</span> <span class='fl'>.9</span>,
-           color.class <span class='op'>=</span> <span class='st'>"darkgreen"</span><span class='op'>)</span> 
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://jtools.jacob-long.com/reference/plot_summs.html'>plot_summs</a></span><span class='op'>(</span><span class='va'>lm1</span>, scale <span class='op'>=</span> <span class='cn'>TRUE</span>, plot.distributions <span class='op'>=</span> <span class='cn'>TRUE</span>, </span>
+<span>           inner_ci_level <span class='op'>=</span> <span class='fl'>.9</span>,</span>
+<span>           color.class <span class='op'>=</span> <span class='st'>"darkgreen"</span><span class='op'>)</span> </span></code></pre>
 </div>
 <p><img src="2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-19-2.png" width="624" /></p>
 </div>
@@ -2679,12 +2663,11 @@ statusDeveloping            1.709
 <p>The variable names in the plots can be edited. But, for the sake of time, I am not going to do that.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://strengejacke.github.io/sjPlot/'>sjPlot</a></span><span class='op'>)</span>
-<span class='fu'><a href='https://strengejacke.github.io/sjPlot/reference/plot_model.html'>plot_model</a></span><span class='op'>(</span><span class='va'>lm3</span>, show.values <span class='op'>=</span> <span class='cn'>TRUE</span>, value.offset <span class='op'>=</span> <span class='fl'>0.3</span>,
-           axis.labels<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Developing countries"</span>, <span class='st'>"Alcohol consumption"</span>,
-                         <span class='st'>"Thinness 1-19 yrs"</span>,<span class='st'>"IMR"</span>, <span class='st'>"Adult MR"</span>,<span class='st'>"Total expenditure"</span>,
-                         <span class='st'>"Average school yrs"</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://strengejacke.github.io/sjPlot/'>sjPlot</a></span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://strengejacke.github.io/sjPlot/reference/plot_model.html'>plot_model</a></span><span class='op'>(</span><span class='va'>lm3</span>, show.values <span class='op'>=</span> <span class='cn'>TRUE</span>, value.offset <span class='op'>=</span> <span class='fl'>0.3</span>,</span>
+<span>           axis.labels<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Developing countries"</span>, <span class='st'>"Alcohol consumption"</span>,</span>
+<span>                         <span class='st'>"Thinness 1-19 yrs"</span>,<span class='st'>"IMR"</span>, <span class='st'>"Adult MR"</span>,<span class='st'>"Total expenditure"</span>,</span>
+<span>                         <span class='st'>"Average school yrs"</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
 <p><img src="2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-20-1.png" width="624" data-distill-preview=1 /></p>
 </div>
@@ -2693,31 +2676,29 @@ statusDeveloping            1.709
 <p>This is not the same regression as we did above. I used a new set of predictors. The following package can do the modeling calculation, tabulation and plotting all together. For linear regression, you can use coef_plot, for logistic regression or_plot, and hr_plot for hazard ratios, etc. I recently discovered this package in stack overflow.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/ewenharrison/finalfit'>finalfit</a></span><span class='op'>)</span> 
-
-<span class='va'>explanatory</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span> <span class='st'>"alcohol"</span>,
-                <span class='st'>"thinness_1_19_years"</span>, 
-                <span class='st'>"hiv_aids"</span>, 
-                <span class='st'>"total_expenditure"</span>, <span class='st'>"schooling"</span><span class='op'>)</span>
-
-<span class='va'>dependent</span> <span class='op'>=</span> <span class='st'>"life_expectancy"</span>
-
-
-<span class='va'>life_exp_new</span> <span class='op'>%&gt;%</span>
- <span class='fu'><a href='https://rdrr.io/pkg/finalfit/man/coefficient_plot.html'>coefficient_plot</a></span><span class='op'>(</span><span class='va'>dependent</span>, <span class='va'>explanatory</span>, table_text_size<span class='op'>=</span><span class='fl'>3</span>, 
-                  title_text_size<span class='op'>=</span><span class='fl'>12</span>,
-                   plot_opts<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Beta, 95% CI"</span><span class='op'>)</span>, 
-                                  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>axis.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>12</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/ewenharrison/finalfit'>finalfit</a></span><span class='op'>)</span> </span>
+<span></span>
+<span><span class='va'>explanatory</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span> <span class='st'>"alcohol"</span>,</span>
+<span>                <span class='st'>"thinness_1_19_years"</span>, </span>
+<span>                <span class='st'>"hiv_aids"</span>, </span>
+<span>                <span class='st'>"total_expenditure"</span>, <span class='st'>"schooling"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>dependent</span> <span class='op'>=</span> <span class='st'>"life_expectancy"</span></span>
+<span></span>
+<span></span>
+<span><span class='va'>life_exp_new</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span> <span class='fu'><a href='https://rdrr.io/pkg/finalfit/man/coefficient_plot.html'>coefficient_plot</a></span><span class='op'>(</span><span class='va'>dependent</span>, <span class='va'>explanatory</span>, table_text_size<span class='op'>=</span><span class='fl'>3</span>, </span>
+<span>                  title_text_size<span class='op'>=</span><span class='fl'>12</span>,</span>
+<span>                   plot_opts<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Beta, 95% CI"</span><span class='op'>)</span>, </span>
+<span>                                  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>axis.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>12</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
 <p><img src="2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-21-1.png" width="624" /></p>
 </div>
 <p>But, is linear regression model the right choice for our data. Did my model pass all key assumptions. I don’t think so. Before I do anything I need to check whether the linear regression assumptions are fulfilled. To reject or accept our model, it must pass all the relevant assumptions. <code>gvlma</code> is a good package for checking that.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>gvlma</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/pkg/gvlma/man/gvlma.html'>gvlma</a></span><span class='op'>(</span><span class='va'>lm3</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'>gvlma</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/pkg/gvlma/man/gvlma.html'>gvlma</a></span><span class='op'>(</span><span class='va'>lm3</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>
 Call:
@@ -2751,14 +2732,12 @@ Heteroscedasticity   37.49 9.187e-10 Assumptions NOT satisfied!</code></pre>
 <p>All of the linear regression assumptions are violated. The above model is incorrect. Therefore, I have to decide whether to transform my data using transformation methods or go for other models. Let me check some details about the dependent variable using the <em>psych</em> package,</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>life_exp_narm</span><span class='op'>$</span><span class='va'>life_expectancy</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/graphics/hist.html'>hist</a></span><span class='op'>(</span><span class='va'>life_exp_narm</span><span class='op'>$</span><span class='va'>life_expectancy</span><span class='op'>)</span></span></code></pre>
 </div>
 <img src="2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-23-1.png" width="624" />
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://personality-project.org/r/psych/'>psych</a></span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/pkg/psych/man/describe.html'>describe</a></span><span class='op'>(</span><span class='va'>life_exp_narm</span><span class='op'>$</span><span class='va'>life_expectancy</span><span class='op'>)</span> <span class='co'>#skewness -0.63, negatively skewed</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://personality-project.org/r/psych/'>psych</a></span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/pkg/psych/man/describe.html'>describe</a></span><span class='op'>(</span><span class='va'>life_exp_narm</span><span class='op'>$</span><span class='va'>life_expectancy</span><span class='op'>)</span> <span class='co'>#skewness -0.63, negatively skewed</span></span></code></pre>
 </div>
 <pre><code>   vars    n mean  sd median trimmed  mad min max range  skew
 X1    1 1649 69.3 8.8   71.7   69.91 7.56  44  89    45 -0.63
@@ -2768,28 +2747,25 @@ X1     0.03 0.22</code></pre>
 <p>My dependent variable is negatively(left) skewed. For left(negatively) skewed distribution, square root, cube root or logarithmic transformation can help me achieve normality. I will check that one by one using qqplot. But, for a nicer version of qqplots, I prefer to use the <code>ggpubr</code> package.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://rpkgs.datanovia.com/ggpubr/'>ggpubr</a></span><span class='op'>)</span>
-<span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggqqplot.html'>ggqqplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_expectancy</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://rpkgs.datanovia.com/ggpubr/'>ggpubr</a></span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggqqplot.html'>ggqqplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_expectancy</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
 <p><img src="2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-24-1.png" width="624" /></p>
 </div>
 <p>The qqplots above show many of the points fall outside the reference line indicating the data is not normally distributed. Let me transform all of them using square root, cube root and logarithm and investigate qqplots. After that, I will run shapiro wilk normality test.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://rpkgs.datanovia.com/ggpubr/'>ggpubr</a></span><span class='op'>)</span>
-<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://patchwork.data-imaginist.com'>patchwork</a></span><span class='op'>)</span>
-<span class='va'>p1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggqqplot.html'>ggqqplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_expectancy</span><span class='op'>)</span><span class='op'>)</span>
-<span class='va'>p2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggqqplot.html'>ggqqplot</a></span><span class='op'>(</span><span class='op'>(</span><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_expectancy</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>1</span><span class='op'>/</span><span class='fl'>3</span><span class='op'>)</span>
-<span class='va'>p3</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggqqplot.html'>ggqqplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_expectancy</span><span class='op'>)</span><span class='op'>)</span>
-
-<span class='va'>p1</span> <span class='op'>+</span> <span class='va'>p2</span> <span class='op'>+</span> <span class='va'>p3</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://rpkgs.datanovia.com/ggpubr/'>ggpubr</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://patchwork.data-imaginist.com'>patchwork</a></span><span class='op'>)</span></span>
+<span><span class='va'>p1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggqqplot.html'>ggqqplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_expectancy</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='va'>p2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggqqplot.html'>ggqqplot</a></span><span class='op'>(</span><span class='op'>(</span><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_expectancy</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>1</span><span class='op'>/</span><span class='fl'>3</span><span class='op'>)</span></span>
+<span><span class='va'>p3</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rpkgs.datanovia.com/ggpubr/reference/ggqqplot.html'>ggqqplot</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_expectancy</span><span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>p1</span> <span class='op'>+</span> <span class='va'>p2</span> <span class='op'>+</span> <span class='va'>p3</span></span></code></pre>
 </div>
 <img src="2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-25-1.png" width="624" />
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/shapiro.test.html'>shapiro.test</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_expectancy</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/shapiro.test.html'>shapiro.test</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/MathFun.html'>sqrt</a></span><span class='op'>(</span><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_expectancy</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>
     Shapiro-Wilk normality test
@@ -2797,8 +2773,7 @@ X1     0.03 0.22</code></pre>
 data:  sqrt(life_exp_new$life_expectancy)
 W = 0.94587, p-value &lt; 2.2e-16</code></pre>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/shapiro.test.html'>shapiro.test</a></span><span class='op'>(</span><span class='op'>(</span><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_expectancy</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>1</span><span class='op'>/</span><span class='fl'>3</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/shapiro.test.html'>shapiro.test</a></span><span class='op'>(</span><span class='op'>(</span><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_expectancy</span><span class='op'>)</span><span class='op'>^</span><span class='fl'>1</span><span class='op'>/</span><span class='fl'>3</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>
     Shapiro-Wilk normality test
@@ -2806,8 +2781,7 @@ W = 0.94587, p-value &lt; 2.2e-16</code></pre>
 data:  (life_exp_new$life_expectancy)^1/3
 W = 0.9605, p-value &lt; 2.2e-16</code></pre>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/stats/shapiro.test.html'>shapiro.test</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_expectancy</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/shapiro.test.html'>shapiro.test</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>log</a></span><span class='op'>(</span><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_expectancy</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>
     Shapiro-Wilk normality test
@@ -2821,8 +2795,7 @@ W = 0.92811, p-value &lt; 2.2e-16</code></pre>
 <p>I will use <code>glm</code> function to run logistic regression. However, I need to dichotomize my life expectancy variable into high and low life expectancy categories and attach numeric value label my binary category(something like: high,low/1,0. I need to split my outcome variable into two categories: high and low. Since, the data doesn’t follow normal distribution as evidenced above, I should use median split which means every life expectancy value above the median will have “high” label else “low” label.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_expectancy</span><span class='op'>)</span> <span class='co'>#median is 71.8</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_expectancy</span><span class='op'>)</span> <span class='co'>#median is 71.8</span></span></code></pre>
 </div>
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   44.00   64.60   71.80   69.39   75.00   89.00 </code></pre>
@@ -2830,13 +2803,12 @@ W = 0.92811, p-value &lt; 2.2e-16</code></pre>
 <p>Median split</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_exp_cat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_expectancy</span> <span class='op'>&lt;=</span> <span class='fl'>71.8</span>, <span class='st'>"0"</span>, <span class='st'>"1"</span><span class='op'>)</span>
-
-<span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_exp_cat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_exp_cat</span>, levels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>1</span><span class='op'>)</span>,
-                    labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"low"</span>, <span class='st'>"high"</span><span class='op'>)</span><span class='op'>)</span>
-
-<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_exp_cat</span><span class='op'>)</span> 
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_exp_cat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_expectancy</span> <span class='op'>&lt;=</span> <span class='fl'>71.8</span>, <span class='st'>"0"</span>, <span class='st'>"1"</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_exp_cat</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_exp_cat</span>, levels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='fl'>1</span><span class='op'>)</span>,</span>
+<span>                    labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"low"</span>, <span class='st'>"high"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>life_exp_new</span><span class='op'>$</span><span class='va'>life_exp_cat</span><span class='op'>)</span> </span></code></pre>
 </div>
 <pre><code>
  low high 
@@ -2844,12 +2816,11 @@ W = 0.92811, p-value &lt; 2.2e-16</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>logistic_reg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/glm.html'>glm</a></span><span class='op'>(</span><span class='va'>life_exp_cat</span> <span class='op'>~</span> <span class='va'>total_expenditure</span> <span class='op'>+</span> 
-             <span class='va'>schooling</span> <span class='op'>+</span> <span class='va'>adult_mortality</span> <span class='op'>+</span> <span class='va'>infant_deaths</span> <span class='op'>+</span> <span class='va'>thinness_1_19_years</span> <span class='op'>+</span>
-            <span class='va'>alcohol</span> <span class='op'>+</span> <span class='va'>status</span>, data<span class='op'>=</span><span class='va'>life_exp_new</span>, family <span class='op'>=</span> <span class='va'>binomial</span><span class='op'>)</span>
-
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>logistic_reg</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>logistic_reg</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/glm.html'>glm</a></span><span class='op'>(</span><span class='va'>life_exp_cat</span> <span class='op'>~</span> <span class='va'>total_expenditure</span> <span class='op'>+</span> </span>
+<span>             <span class='va'>schooling</span> <span class='op'>+</span> <span class='va'>adult_mortality</span> <span class='op'>+</span> <span class='va'>infant_deaths</span> <span class='op'>+</span> <span class='va'>thinness_1_19_years</span> <span class='op'>+</span></span>
+<span>            <span class='va'>alcohol</span> <span class='op'>+</span> <span class='va'>status</span>, data<span class='op'>=</span><span class='va'>life_exp_new</span>, family <span class='op'>=</span> <span class='va'>binomial</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>logistic_reg</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>
 Call:
@@ -2885,72 +2856,68 @@ Number of Fisher Scoring iterations: 6</code></pre>
 <h1 id="extract-odds-ratios-and-confidence-intervals">Extract Odds ratios and confidence intervals</h1>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'><a href='http://www.stats.ox.ac.uk/pub/MASS4/'>MASS</a></span><span class='op'>)</span>
-<span class='va'>or_CI</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>logistic_reg</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/stats/confint.html'>confint</a></span><span class='op'>(</span><span class='va'>logistic_reg</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>, digits<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='op'>)</span>
-
-<span class='va'>or_CI</span> <span class='op'>&lt;-</span> <span class='va'>or_CI</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>variable<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>or_CI</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># extract the variables from rownames</span>
-  
-
-<span class='va'>or_CI</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/plyr/man/rename.html'>rename</a></span><span class='op'>(</span><span class='va'>or_CI</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"V1"</span> <span class='op'>=</span> <span class='st'>"AOR"</span>,
-                        `2.5 %` <span class='op'>=</span> <span class='st'>"lower_bound"</span>,
-                        `97.5 %` <span class='op'>=</span> <span class='st'>"upper_bound"</span><span class='op'>)</span><span class='op'>)</span>
-
-<span class='co'># We don't need to plot the intercept. We can remove it from our data</span>
-
-
-<span class='co'># Reorder variables</span>
-<span class='va'>col_order</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"variable"</span>, <span class='st'>"AOR"</span>, <span class='st'>"lower_bound"</span>, <span class='st'>"upper_bound"</span><span class='op'>)</span>
-<span class='va'>or_CI</span> <span class='op'>&lt;-</span> <span class='va'>or_CI</span><span class='op'>[</span>, <span class='va'>col_order</span><span class='op'>]</span> <span class='co'>#reorder variables in the data frame</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>require</a></span><span class='op'>(</span><span class='va'><a href='http://www.stats.ox.ac.uk/pub/MASS4/'>MASS</a></span><span class='op'>)</span></span>
+<span><span class='va'>or_CI</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/cbind.html'>cbind</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/coef.html'>coef</a></span><span class='op'>(</span><span class='va'>logistic_reg</span><span class='op'>)</span>, <span class='fu'><a href='https://rdrr.io/r/stats/confint.html'>confint</a></span><span class='op'>(</span><span class='va'>logistic_reg</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>, digits<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>or_CI</span> <span class='op'>&lt;-</span> <span class='va'>or_CI</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>variable<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/colnames.html'>rownames</a></span><span class='op'>(</span><span class='va'>or_CI</span><span class='op'>)</span><span class='op'>)</span> <span class='co'># extract the variables from rownames</span></span>
+<span>  </span>
+<span></span>
+<span><span class='va'>or_CI</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/plyr/man/rename.html'>rename</a></span><span class='op'>(</span><span class='va'>or_CI</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"V1"</span> <span class='op'>=</span> <span class='st'>"AOR"</span>,</span>
+<span>                        `2.5 %` <span class='op'>=</span> <span class='st'>"lower_bound"</span>,</span>
+<span>                        `97.5 %` <span class='op'>=</span> <span class='st'>"upper_bound"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='co'># We don't need to plot the intercept. We can remove it from our data</span></span>
+<span></span>
+<span></span>
+<span><span class='co'># Reorder variables</span></span>
+<span><span class='va'>col_order</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"variable"</span>, <span class='st'>"AOR"</span>, <span class='st'>"lower_bound"</span>, <span class='st'>"upper_bound"</span><span class='op'>)</span></span>
+<span><span class='va'>or_CI</span> <span class='op'>&lt;-</span> <span class='va'>or_CI</span><span class='op'>[</span>, <span class='va'>col_order</span><span class='op'>]</span> <span class='co'>#reorder variables in the data frame</span></span></code></pre>
 </div>
 </div>
 <p>Now, I can plot the odds ratios and confidence intervals exactly as I did for my linear model coefficients.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plot_logit_model</span> <span class='op'>&lt;-</span> <span class='va'>or_CI</span><span class='op'>[</span><span class='op'>-</span><span class='fl'>1</span>,<span class='op'>]</span> <span class='op'>%&gt;%</span>  <span class='co'>#remove row number 1 (The intercept) </span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/reorder.factor.html'>reorder</a></span><span class='op'>(</span><span class='va'>variable</span>, <span class='va'>AOR</span><span class='op'>)</span>, y <span class='op'>=</span> <span class='va'>AOR</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>shape <span class='op'>=</span> <span class='fl'>15</span>,
-             size  <span class='op'>=</span> <span class='fl'>4</span>, width <span class='op'>=</span> <span class='fl'>0.1</span>,
-             position <span class='op'>=</span> <span class='st'>"dodge"</span>, color<span class='op'>=</span><span class='st'>"black"</span><span class='op'>)</span> <span class='op'>+</span> 
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_errorbar</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin  <span class='op'>=</span> <span class='va'>lower_bound</span>,
-                    ymax  <span class='op'>=</span> <span class='va'>upper_bound</span><span class='op'>)</span>,
-                width <span class='op'>=</span> <span class='fl'>0.2</span>,
-                size  <span class='op'>=</span> <span class='fl'>0.7</span>,
-                position <span class='op'>=</span> <span class='st'>"dodge"</span>, color<span class='op'>=</span><span class='st'>"turquoise4"</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>axis.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Variables"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"Adjusted odds ratios with 95% CI"</span><span class='op'>)</span> <span class='op'>+</span>
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span><span class='op'>(</span>ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>2.5</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span>yintercept <span class='op'>=</span> <span class='fl'>1</span>, color <span class='op'>=</span> <span class='st'>"red"</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span>
-   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>axis.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>17</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> 
-  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>axis.text <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>14</span><span class='op'>)</span><span class='op'>)</span> 
-<span class='va'>plot_logit_model</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot_logit_model</span> <span class='op'>&lt;-</span> <span class='va'>or_CI</span><span class='op'>[</span><span class='op'>-</span><span class='fl'>1</span>,<span class='op'>]</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span>  <span class='co'>#remove row number 1 (The intercept) </span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/reorder.factor.html'>reorder</a></span><span class='op'>(</span><span class='va'>variable</span>, <span class='va'>AOR</span><span class='op'>)</span>, y <span class='op'>=</span> <span class='va'>AOR</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>shape <span class='op'>=</span> <span class='fl'>15</span>,</span>
+<span>             size  <span class='op'>=</span> <span class='fl'>4</span>, width <span class='op'>=</span> <span class='fl'>0.1</span>,</span>
+<span>             position <span class='op'>=</span> <span class='st'>"dodge"</span>, color<span class='op'>=</span><span class='st'>"black"</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_linerange.html'>geom_errorbar</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>ymin  <span class='op'>=</span> <span class='va'>lower_bound</span>,</span>
+<span>                    ymax  <span class='op'>=</span> <span class='va'>upper_bound</span><span class='op'>)</span>,</span>
+<span>                width <span class='op'>=</span> <span class='fl'>0.2</span>,</span>
+<span>                size  <span class='op'>=</span> <span class='fl'>0.7</span>,</span>
+<span>                position <span class='op'>=</span> <span class='st'>"dodge"</span>, color<span class='op'>=</span><span class='st'>"turquoise4"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>axis.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>face <span class='op'>=</span> <span class='st'>"bold"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Variables"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"Adjusted odds ratios with 95% CI"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span><span class='op'>(</span>ylim <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>0</span>, <span class='fl'>2.5</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span>yintercept <span class='op'>=</span> <span class='fl'>1</span>, color <span class='op'>=</span> <span class='st'>"red"</span>, size <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>axis.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>17</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>axis.text <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>14</span><span class='op'>)</span><span class='op'>)</span> </span>
+<span><span class='va'>plot_logit_model</span></span></code></pre>
 </div>
 <p><img src="2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-30-1.png" width="624" /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>plot_logit_model</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_discrete.html'>scale_x_discrete</a></span><span class='op'>(</span>breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"statusDeveloping"</span>, <span class='st'>"alcohol"</span>,
-                                    <span class='st'>"thinness_1_19_years"</span>, 
-                                    <span class='st'>"adult_mortality"</span>,<span class='st'>"infant_deaths"</span>,
-                                    <span class='st'>"total_expenditure"</span>, <span class='st'>"schooling"</span><span class='op'>)</span>,
-                           
-                           labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Developing countries"</span>, <span class='st'>"Alcohol consumption"</span>,
-                                      <span class='st'>"Thinness 1-19 yrs"</span>, 
-                                      <span class='st'>"Adult mortality"</span>, <span class='st'>"Infant mortality"</span>, 
-                                      <span class='st'>"Total expenditure"</span>,
-                                      <span class='st'>"Average school yrs"</span><span class='op'>)</span><span class='op'>)</span> 
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot_logit_model</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_discrete.html'>scale_x_discrete</a></span><span class='op'>(</span>breaks <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"statusDeveloping"</span>, <span class='st'>"alcohol"</span>,</span>
+<span>                                    <span class='st'>"thinness_1_19_years"</span>, </span>
+<span>                                    <span class='st'>"adult_mortality"</span>,<span class='st'>"infant_deaths"</span>,</span>
+<span>                                    <span class='st'>"total_expenditure"</span>, <span class='st'>"schooling"</span><span class='op'>)</span>,</span>
+<span>                           </span>
+<span>                           labels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Developing countries"</span>, <span class='st'>"Alcohol consumption"</span>,</span>
+<span>                                      <span class='st'>"Thinness 1-19 yrs"</span>, </span>
+<span>                                      <span class='st'>"Adult mortality"</span>, <span class='st'>"Infant mortality"</span>, </span>
+<span>                                      <span class='st'>"Total expenditure"</span>,</span>
+<span>                                      <span class='st'>"Average school yrs"</span><span class='op'>)</span><span class='op'>)</span> </span></code></pre>
 </div>
 <p><img src="2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-31-1.png" width="624" /></p>
 </div>
 <p>Or just simply using the <em>sjPlot</em> package</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://strengejacke.github.io/sjPlot/reference/plot_model.html'>plot_model</a></span><span class='op'>(</span><span class='va'>logistic_reg</span>, show.values <span class='op'>=</span> <span class='cn'>TRUE</span>, value.offset <span class='op'>=</span> <span class='fl'>.3</span>, vline.color <span class='op'>=</span> <span class='st'>"red"</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://strengejacke.github.io/sjPlot/reference/plot_model.html'>plot_model</a></span><span class='op'>(</span><span class='va'>logistic_reg</span>, show.values <span class='op'>=</span> <span class='cn'>TRUE</span>, value.offset <span class='op'>=</span> <span class='fl'>.3</span>, vline.color <span class='op'>=</span> <span class='st'>"red"</span><span class='op'>)</span></span></code></pre>
 </div>
 <p><img src="2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-32-1.png" width="624" /></p>
 </div>
@@ -2959,14 +2926,13 @@ Number of Fisher Scoring iterations: 6</code></pre>
 <p>We can use the models for predictions.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/topepo/caret/'>caret</a></span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>123</span><span class='op'>)</span> <span class='co'>#for reproducibility</span>
-<span class='op'>(</span><span class='va'>cv_lm</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/pkg/caret/man/train.html'>train</a></span><span class='op'>(</span><span class='va'>life_expectancy</span> <span class='op'>~</span> <span class='va'>total_expenditure</span> <span class='op'>+</span> 
-             <span class='va'>schooling</span> <span class='op'>+</span> <span class='va'>adult_mortality</span> <span class='op'>+</span> <span class='va'>infant_deaths</span> <span class='op'>+</span> <span class='va'>thinness_1_19_years</span> <span class='op'>+</span>
-            <span class='va'>alcohol</span> <span class='op'>+</span> <span class='va'>status</span>, data<span class='op'>=</span><span class='va'>life_exp_new</span>, 
-            method<span class='op'>=</span><span class='st'>"lm"</span>, 
-            trControl <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/trainControl.html'>trainControl</a></span><span class='op'>(</span>method<span class='op'>=</span><span class='st'>"cv"</span>, number<span class='op'>=</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/topepo/caret/'>caret</a></span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>123</span><span class='op'>)</span> <span class='co'>#for reproducibility</span></span>
+<span><span class='op'>(</span><span class='va'>cv_lm</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/pkg/caret/man/train.html'>train</a></span><span class='op'>(</span><span class='va'>life_expectancy</span> <span class='op'>~</span> <span class='va'>total_expenditure</span> <span class='op'>+</span> </span>
+<span>             <span class='va'>schooling</span> <span class='op'>+</span> <span class='va'>adult_mortality</span> <span class='op'>+</span> <span class='va'>infant_deaths</span> <span class='op'>+</span> <span class='va'>thinness_1_19_years</span> <span class='op'>+</span></span>
+<span>            <span class='va'>alcohol</span> <span class='op'>+</span> <span class='va'>status</span>, data<span class='op'>=</span><span class='va'>life_exp_new</span>, </span>
+<span>            method<span class='op'>=</span><span class='st'>"lm"</span>, </span>
+<span>            trControl <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/trainControl.html'>trainControl</a></span><span class='op'>(</span>method<span class='op'>=</span><span class='st'>"cv"</span>, number<span class='op'>=</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>Linear Regression 
 
@@ -2987,13 +2953,12 @@ Tuning parameter &#39;intercept&#39; was held constant at a value of TRUE</code>
 <p>If the linear model is applied to unseen data, it will predict life expectancy about 4.6 years off from the actual life expectancy of a country. That was great. Unfortunately, the model did not satisfy the assumptions. Let’s now evaluate our logistic regression</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>123</span><span class='op'>)</span>
-<span class='op'>(</span><span class='va'>cv_logit</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/pkg/caret/man/train.html'>train</a></span><span class='op'>(</span><span class='va'>life_exp_cat</span> <span class='op'>~</span> <span class='va'>total_expenditure</span> <span class='op'>+</span> 
-             <span class='va'>schooling</span> <span class='op'>+</span> <span class='va'>adult_mortality</span> <span class='op'>+</span> <span class='va'>infant_deaths</span> <span class='op'>+</span> <span class='va'>thinness_1_19_years</span> <span class='op'>+</span>
-            <span class='va'>alcohol</span> <span class='op'>+</span> <span class='va'>status</span>, data<span class='op'>=</span><span class='va'>life_exp_new</span>, 
-            method<span class='op'>=</span><span class='st'>"glm"</span>, 
-            trControl <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/trainControl.html'>trainControl</a></span><span class='op'>(</span>method<span class='op'>=</span><span class='st'>"cv"</span>, number<span class='op'>=</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>123</span><span class='op'>)</span></span>
+<span><span class='op'>(</span><span class='va'>cv_logit</span> <span class='op'>&lt;-</span>  <span class='fu'><a href='https://rdrr.io/pkg/caret/man/train.html'>train</a></span><span class='op'>(</span><span class='va'>life_exp_cat</span> <span class='op'>~</span> <span class='va'>total_expenditure</span> <span class='op'>+</span> </span>
+<span>             <span class='va'>schooling</span> <span class='op'>+</span> <span class='va'>adult_mortality</span> <span class='op'>+</span> <span class='va'>infant_deaths</span> <span class='op'>+</span> <span class='va'>thinness_1_19_years</span> <span class='op'>+</span></span>
+<span>            <span class='va'>alcohol</span> <span class='op'>+</span> <span class='va'>status</span>, data<span class='op'>=</span><span class='va'>life_exp_new</span>, </span>
+<span>            method<span class='op'>=</span><span class='st'>"glm"</span>, </span>
+<span>            trControl <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/caret/man/trainControl.html'>trainControl</a></span><span class='op'>(</span>method<span class='op'>=</span><span class='st'>"cv"</span>, number<span class='op'>=</span><span class='fl'>10</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
 <pre><code>Generalized Linear Model 
 
@@ -3012,7 +2977,8 @@ Resampling results:
 <p>The logistic regression model predicts the data with 84.5% accuracy. Ideally, we have to split the data into test and train set and perform the performance evaluation and tabulate results using confusion matrix functions.</p>
 <p>Yes, I did it. Thank you for reading this post. In my next blog post, will write about more advanced generalized linear models(Lasso, ridge and elastic net).</p>
 <figure>
-<img src="https://media.tenor.com/images/ed15fe5ceca132793f32df5b383a30ed/tenor.gif" width="478" alt="Trains GIFs | Tenor" /><figcaption aria-hidden="true">Trains GIFs | Tenor</figcaption>
+<img src="https://media.tenor.com/images/ed15fe5ceca132793f32df5b383a30ed/tenor.gif" width="478" alt="Trains GIFs | Tenor" />
+<figcaption aria-hidden="true">Trains GIFs | Tenor</figcaption>
 </figure>
 <p>Thank you for reading this post. I hope you find this helpful. For more, subscribe to my <a href="https://www.youtube.com/channel/UCpHd6O1Yqz4YgcYUBfyRqKg">YouTube channel</a> and follow me on Twitter @<a href="https://twitter.com/RPy_DataScience">RPy_DataScience</a>.You can also follow me by liking <a href="https://web.facebook.com/R_Py-Data-Science-105325938441990/news_feed">R_Py Data Science</a> Facebook page.</p>
 <h1 id="contact"><strong>Contact</strong></h1>
