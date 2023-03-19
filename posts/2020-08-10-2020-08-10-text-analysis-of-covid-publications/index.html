@@ -18,6 +18,75 @@
  <!--radix_placeholder_import_source-->
  <!--/radix_placeholder_import_source-->
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { color: #00769e; background-color: #f1f3f5; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span { color: #00769e; } /* Normal */
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #657422; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #00769e; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #00769e; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #00769e; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+
   <!--radix_placeholder_meta_tags-->
 <title>Aspire Data Solutions: Applying text analyses methods on 382 COVID19 journal articles</title>
 
@@ -2028,8 +2097,13 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/header-attrs-2.3/header-attrs.js"></script>
-  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/header-attrs-2.20/header-attrs.js"></script>
+  <script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="../../site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="../../site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="../../site_libs/anchor-4.2.2/anchor.min.js"></script>
   <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
   <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
   <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
@@ -2094,6 +2168,8 @@ gtag('config', 'UA-173027539-1');
 
 <div class="d-title">
 <h1>Applying text analyses methods on 382 COVID19 journal articles</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
 <p><p>This blog post is a continuation of my previous blog post on applications of text mining on sampled COVI19 publications.</p></p>
 </div>
 
@@ -2105,84 +2181,89 @@ gtag('config', 'UA-173027539-1');
 </div>
 
 <div class="d-article">
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825" crossorigin="anonymous"></script>
+</head>
 <h2 id="load-necessary-packages">Load necessary packages</h2>
 <p>For this analysis, I need the following packages</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(dplyr) #for data management
-library(ggplot2) #for plotting
-library(tidytext) #for text mining
-library(bib2df) #for converting bib file to data frame
-library(wordcloud) #for plotting most frequent words</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span> <span class='co'>#for data management</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span> <span class='co'>#for plotting</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/juliasilge/tidytext'>tidytext</a></span><span class='op'>)</span> <span class='co'>#for text mining</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://docs.ropensci.org/bib2df'>bib2df</a></span><span class='op'>)</span> <span class='co'>#for converting bib file to data frame</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://blog.fellstat.com/?cat=11'>wordcloud</a></span><span class='op'>)</span> <span class='co'>#for plotting most frequent words</span></span></code></pre>
+</div>
 </div>
 <h1 id="data">Data</h1>
 <p>Let’s import our bibliographic data using bib2df package as described in my previous <a href="http://www.mihiretukebede.com/posts/2020-08-03-2020-08-03-covid19/">blog post</a></p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(bib2df)
-covid19 &lt;- bib2df(&quot;covid19.bib&quot;)</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://docs.ropensci.org/bib2df'>bib2df</a></span><span class='op'>)</span></span>
+<span><span class='va'>covid19</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://docs.ropensci.org/bib2df/reference/bib2df.html'>bib2df</a></span><span class='op'>(</span><span class='st'>"covid19.bib"</span><span class='op'>)</span></span></code></pre>
+</div>
 </div>
 <p>As usual, let’s have a quick glimpse of our data.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-glimpse(covid19)</code></pre>
-<pre><code>
-Rows: 601
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://pillar.r-lib.org/reference/glimpse.html'>glimpse</a></span><span class='op'>(</span><span class='va'>covid19</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>Rows: 601
 Columns: 32
-$ CATEGORY     &lt;chr&gt; &quot;MISC&quot;, &quot;ARTICLE&quot;, &quot;ARTICLE&quot;, &quot;ARTICLE&quot;, &quot;MI...
-$ BIBTEXKEY    &lt;chr&gt; &quot;Gelzinis2020&quot;, &quot;Coccia2020&quot;, &quot;Ataguba2020&quot;,...
-$ ADDRESS      &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...
-$ ANNOTE       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...
-$ AUTHOR       &lt;list&gt; [&quot;Gelzinis, Theresa A&quot;, &quot;Coccia, Mario&quot;, &lt;&quot;...
-$ BOOKTITLE    &lt;chr&gt; &quot;Journal of cardiothoracic and vascular anes...
-$ CHAPTER      &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...
-$ CROSSREF     &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...
-$ EDITION      &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...
-$ EDITOR       &lt;list&gt; [NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA...
-$ HOWPUBLISHED &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...
-$ INSTITUTION  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...
-$ JOURNAL      &lt;chr&gt; NA, &quot;The Science of the total environment&quot;, ...
-$ KEY          &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...
-$ MONTH        &lt;chr&gt; &quot;sep&quot;, &quot;aug&quot;, &quot;dec&quot;, &quot;sep&quot;, &quot;dec&quot;, &quot;nov&quot;, &quot;s...
-$ NOTE         &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...
-$ NUMBER       &lt;chr&gt; &quot;9&quot;, NA, &quot;1&quot;, NA, &quot;1&quot;, NA, NA, &quot;1&quot;, NA, NA, ...
-$ ORGANIZATION &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...
-$ PAGES        &lt;chr&gt; &quot;2328--2330&quot;, &quot;138474&quot;, &quot;1788263&quot;, &quot;312--321...
-$ PUBLISHER    &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...
-$ SCHOOL       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...
-$ SERIES       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...
-$ TITLE        &lt;chr&gt; &quot;Thoracic Anesthesia in the Coronavirus Dise...
-$ TYPE         &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, ...
-$ VOLUME       &lt;chr&gt; &quot;34&quot;, &quot;729&quot;, &quot;13&quot;, &quot;117&quot;, &quot;9&quot;, &quot;110&quot;, &quot;83&quot;, ...
-$ YEAR         &lt;dbl&gt; 2020, 2020, 2020, 2020, 2020, 2020, 2020, 20...
-$ DOI          &lt;chr&gt; &quot;10.1053/j.jvca.2020.05.008&quot;, &quot;10.1016/j.sci...
-$ ISSN         &lt;chr&gt; &quot;1532-8422 (Electronic)&quot;, &quot;1879-1026 (Electr...
-$ LANGUAGE     &lt;chr&gt; &quot;eng&quot;, &quot;eng&quot;, &quot;eng&quot;, &quot;eng&quot;, &quot;eng&quot;, &quot;eng&quot;, &quot;e...
-$ PMID         &lt;chr&gt; &quot;32406428&quot;, &quot;32498152&quot;, &quot;32657669&quot;, &quot;3254687...
-$ ABSTRACT     &lt;chr&gt; NA, &quot;This study has two goals. The first is ...
-$ KEYWORDS     &lt;chr&gt; NA, &quot;Air Pollutants,Air Pollution,Betacorona...</code></pre>
-<pre class="r"><code>
-dim(covid19) #601 documents and 32 variables </code></pre>
-<pre><code>
-[1] 601  32</code></pre>
+$ CATEGORY     &lt;chr&gt; &quot;MISC&quot;, &quot;ARTICLE&quot;, &quot;ARTICLE&quot;, &quot;ARTICLE&quot;, &quot;MISC&quot;~
+$ BIBTEXKEY    &lt;chr&gt; &quot;Gelzinis2020&quot;, &quot;Coccia2020&quot;, &quot;Ataguba2020&quot;, &quot;S~
+$ ADDRESS      &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+$ ANNOTE       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+$ AUTHOR       &lt;list&gt; &quot;Gelzinis, Theresa A&quot;, &quot;Coccia, Mario&quot;, &lt;&quot;Atag~
+$ BOOKTITLE    &lt;chr&gt; &quot;Journal of cardiothoracic and vascular anesthe~
+$ CHAPTER      &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+$ CROSSREF     &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+$ EDITION      &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+$ EDITOR       &lt;list&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA~
+$ HOWPUBLISHED &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+$ INSTITUTION  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+$ JOURNAL      &lt;chr&gt; NA, &quot;The Science of the total environment&quot;, &quot;Gl~
+$ KEY          &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+$ MONTH        &lt;chr&gt; &quot;sep&quot;, &quot;aug&quot;, &quot;dec&quot;, &quot;sep&quot;, &quot;dec&quot;, &quot;nov&quot;, &quot;sep&quot;~
+$ NOTE         &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+$ NUMBER       &lt;chr&gt; &quot;9&quot;, NA, &quot;1&quot;, NA, &quot;1&quot;, NA, NA, &quot;1&quot;, NA, NA, &quot;3&quot;~
+$ ORGANIZATION &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+$ PAGES        &lt;chr&gt; &quot;2328--2330&quot;, &quot;138474&quot;, &quot;1788263&quot;, &quot;312--321&quot;, ~
+$ PUBLISHER    &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+$ SCHOOL       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+$ SERIES       &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+$ TITLE        &lt;chr&gt; &quot;Thoracic Anesthesia in the Coronavirus Disease~
+$ TYPE         &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,~
+$ VOLUME       &lt;chr&gt; &quot;34&quot;, &quot;729&quot;, &quot;13&quot;, &quot;117&quot;, &quot;9&quot;, &quot;110&quot;, &quot;83&quot;, &quot;9&quot;~
+$ YEAR         &lt;dbl&gt; 2020, 2020, 2020, 2020, 2020, 2020, 2020, 2020,~
+$ DOI          &lt;chr&gt; &quot;10.1053/j.jvca.2020.05.008&quot;, &quot;10.1016/j.scitot~
+$ ISSN         &lt;chr&gt; &quot;1532-8422 (Electronic)&quot;, &quot;1879-1026 (Electroni~
+$ LANGUAGE     &lt;chr&gt; &quot;eng&quot;, &quot;eng&quot;, &quot;eng&quot;, &quot;eng&quot;, &quot;eng&quot;, &quot;eng&quot;, &quot;eng&quot;~
+$ PMID         &lt;chr&gt; &quot;32406428&quot;, &quot;32498152&quot;, &quot;32657669&quot;, &quot;32546875&quot;,~
+$ ABSTRACT     &lt;chr&gt; NA, &quot;This study has two goals. The first is to ~
+$ KEYWORDS     &lt;chr&gt; NA, &quot;Air Pollutants,Air Pollution,Betacoronavir~</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>covid19</span><span class='op'>)</span> <span class='co'>#601 documents and 32 variables </span></span></code></pre>
+</div>
+<pre><code>[1] 601  32</code></pre>
 </div>
 <p>Once you read the file, it will be saved in our enviroment as data frame and we can do our analysis. As usual, the first part of the analysis is doing some descriptives and visualizing the data. We will then move to tokenization steps. <strong><em>Token</em></strong> is meaningful unit of unit of a <strong><em>text</em></strong>. This meanigful unit is represented by a word or a term. It is the unit that text analysts are interested in doing their analzsis. The process of breaking down a text to set of tokens is known as <strong>tokenization</strong>. For example</p>
 <p>Text: “COVID19 is the biggest global health crisis of the modern world”. In this text, the tokens are each word. In the tokenization process, each of these words are written in a separate columns(variable) as follows.</p>
 <p>In tokenization process, the text documents is changed to tokens and each token is counted.</p>
-<table>
+<table style="width:100%;">
 <colgroup>
-<col style="width: 45%" />
+<col style="width: 24%" />
 <col style="width: 6%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
 <col style="width: 6%" />
-<col style="width: 5%" />
-<col style="width: 5%" />
-<col style="width: 5%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 5%" />
-<col style="width: 4%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2218,19 +2299,19 @@ dim(covid19) #601 documents and 32 variables </code></pre>
 </tbody>
 </table>
 <p>In tokenization process, the text documents is changed to tokens and each token is counted. Notice “the” is mentioned twice. So, we can count it and reshuffle our table as fllows.</p>
-<table>
+<table style="width:100%;">
 <colgroup>
-<col style="width: 47%" />
-<col style="width: 6%" />
-<col style="width: 3%" />
-<col style="width: 3%" />
-<col style="width: 6%" />
-<col style="width: 5%" />
-<col style="width: 5%" />
-<col style="width: 5%" />
-<col style="width: 3%" />
-<col style="width: 5%" />
-<col style="width: 5%" />
+<col style="width: 24%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2266,71 +2347,77 @@ dim(covid19) #601 documents and 32 variables </code></pre>
 <p>The next thing after tokenization is removing irrelevant words. These are words that don’t give much information to the concept of the document other than making the grammatical structure of the document. The stp_words data has about 1150 irrelevant words. These words can be easily removed using the dyplyr ant_join function.</p>
 <p>We have enough of theory. Let’s move to the more technical things. As we did in the previous blog, we will only need journal articiles having no missing data on their abstract variable.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(dplyr)
-covid19new &lt;- covid19 %&gt;%
-  filter(!is.na(ABSTRACT)) #remove all records with missing abstracts</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span></span>
+<span><span class='va'>covid19new</span> <span class='op'>&lt;-</span> <span class='va'>covid19</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/NA.html'>is.na</a></span><span class='op'>(</span><span class='va'>ABSTRACT</span><span class='op'>)</span><span class='op'>)</span> <span class='co'>#remove all records with missing abstracts</span></span></code></pre>
+</div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-table(covid19new$CATEGORY) #382 are journal articles with no missing abstract</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>covid19new</span><span class='op'>$</span><span class='va'>CATEGORY</span><span class='op'>)</span> <span class='co'>#382 are journal articles with no missing abstract</span></span></code></pre>
+</div>
 <pre><code>
 ARTICLE    MISC 
     382      60 </code></pre>
-<pre class="r"><code>
-# Filter journal articles having  abstracts 
-covid19new &lt;- covid19new %&gt;% 
-  filter(CATEGORY==&quot;ARTICLE&quot;) 
-#Check 
-table(covid19new$CATEGORY) #382 journal articles</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Filter journal articles having  abstracts </span></span>
+<span><span class='va'>covid19new</span> <span class='op'>&lt;-</span> <span class='va'>covid19new</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>CATEGORY</span><span class='op'>==</span><span class='st'>"ARTICLE"</span><span class='op'>)</span> </span>
+<span><span class='co'>#Check </span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>covid19new</span><span class='op'>$</span><span class='va'>CATEGORY</span><span class='op'>)</span> <span class='co'>#382 journal articles</span></span></code></pre>
+</div>
 <pre><code>
 ARTICLE 
     382 </code></pre>
 </div>
 <h1 id="tokenization">Tokenization</h1>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# select few variables from our data set
-data &lt;- covid19new %&gt;% 
-  select(&quot;TITLE&quot;, &quot;ABSTRACT&quot;, &quot;KEYWORDS&quot;, &quot;AUTHOR&quot;)</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># select few variables from our data set</span></span>
+<span><span class='va'>data</span> <span class='op'>&lt;-</span> <span class='va'>covid19new</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='st'>"TITLE"</span>, <span class='st'>"ABSTRACT"</span>, <span class='st'>"KEYWORDS"</span>, <span class='st'>"AUTHOR"</span><span class='op'>)</span></span></code></pre>
+</div>
 </div>
 <p>To start with the tokenization process, we will load stop_words data. We can also add our own stop stop words. In text mining, words on both sides of extreme frequency are no relevant. These words can be removed by creating a customized list of stop_words. Since we are doing our text analysis on journal articles, words that are obviously common in each of the abstracts can be removed. Structured abstracts usually contain “Introduction” or “background”, “Methods”, “Results” and “conclusions”. These and other words can be removed. The custom stop words can also include “covid”, since all of them are about “covid”. There is also a way to remove numbers from our corpus. For now, we will not remove all numbers.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-data(stopwords)
-custom_stop_words &lt;- bind_rows(tibble(word=c(&quot;covid&quot;, &quot;covid19&quot;,&quot;covid-19&quot;, &quot;sars&quot;, &quot;sars&quot;, &quot;cov&quot;, &quot;background&quot;, &quot;introduction&quot;,&quot;aims&quot;, &quot;objectives&quot;, &quot;materials&quot;, &quot;methods&quot;, &quot;results&quot;, &quot;conclusions&quot;,&quot;textless&quot;, &quot;0&quot;, &quot;1&quot;,&quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;,&quot;19&quot;, &quot;2019&quot;, &quot;2020&quot;, &quot;95&quot;),
-                                      lexicon = c(&quot;custom&quot;)),
-                               stop_words)
-
-
-tidy_covid_data &lt;- data %&gt;% 
-  unnest_tokens(input=ABSTRACT, output=word) %&gt;% 
-  anti_join(stop_words) %&gt;% 
-  anti_join(custom_stop_words)
-
-dim(tidy_covid_data) # 40669 tokens, 4 variables</code></pre>
-<pre><code>
-[1] 40647     4</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>stopwords</span><span class='op'>)</span></span>
+<span><span class='va'>custom_stop_words</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/bind_rows.html'>bind_rows</a></span><span class='op'>(</span><span class='fu'><a href='https://tibble.tidyverse.org/reference/tibble.html'>tibble</a></span><span class='op'>(</span>word<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"covid"</span>, <span class='st'>"covid19"</span>,<span class='st'>"covid-19"</span>, <span class='st'>"sars"</span>, <span class='st'>"sars"</span>, <span class='st'>"cov"</span>, <span class='st'>"background"</span>, <span class='st'>"introduction"</span>,<span class='st'>"aims"</span>, <span class='st'>"objectives"</span>, <span class='st'>"materials"</span>, <span class='st'>"methods"</span>, <span class='st'>"results"</span>, <span class='st'>"conclusions"</span>,<span class='st'>"textless"</span>, <span class='st'>"0"</span>, <span class='st'>"1"</span>,<span class='st'>"2"</span>, <span class='st'>"3"</span>, <span class='st'>"4"</span>, <span class='st'>"5"</span>, <span class='st'>"6"</span>, <span class='st'>"7"</span>, <span class='st'>"8"</span>, <span class='st'>"9"</span>,<span class='st'>"19"</span>, <span class='st'>"2019"</span>, <span class='st'>"2020"</span>, <span class='st'>"95"</span><span class='op'>)</span>,</span>
+<span>                                      lexicon <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"custom"</span><span class='op'>)</span><span class='op'>)</span>,</span>
+<span>                               <span class='va'>stop_words</span><span class='op'>)</span></span>
+<span></span>
+<span></span>
+<span><span class='va'>tidy_covid_data</span> <span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://rdrr.io/pkg/tidytext/man/unnest_tokens.html'>unnest_tokens</a></span><span class='op'>(</span>input<span class='op'>=</span><span class='va'>ABSTRACT</span>, output<span class='op'>=</span><span class='va'>word</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter-joins.html'>anti_join</a></span><span class='op'>(</span><span class='va'>stop_words</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter-joins.html'>anti_join</a></span><span class='op'>(</span><span class='va'>custom_stop_words</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>tidy_covid_data</span><span class='op'>)</span> <span class='co'># 40669 tokens, 4 variables</span></span></code></pre>
+</div>
+<pre><code>[1] 40647     4</code></pre>
 </div>
 <h1 id="count-number-of-words-and-visualize-it-using-barchart.">count number of words and visualize it using barchart.</h1>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
- tidy_covid_data %&gt;% 
-  count(word, sort=T) %&gt;% 
-   filter(n&gt;100) %&gt;% 
-   mutate(word=reorder(word, n)) %&gt;% 
-   ggplot(aes(x=word, y=n)) + 
-   geom_col(fill=&quot;#619CFF&quot;) + coord_flip()</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span> <span class='va'>tidy_covid_data</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/count.html'>count</a></span><span class='op'>(</span><span class='va'>word</span>, sort<span class='op'>=</span><span class='cn'>T</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>n</span><span class='op'>&gt;</span><span class='fl'>100</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>word<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/stats/reorder.factor.html'>reorder</a></span><span class='op'>(</span><span class='va'>word</span>, <span class='va'>n</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>word</span>, y<span class='op'>=</span><span class='va'>n</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>   <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span>fill<span class='op'>=</span><span class='st'>"#619CFF"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
+</div>
 <p><img src="2020-08-10-text-analysis-of-covid-publications_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
 </div>
 <h1 id="visualize-most-frequent-words-using-wordcloud">Visualize most frequent words using wordcloud</h1>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(wordcloud)
-pal &lt;- brewer.pal(8, &quot;Dark2&quot;)
-tidy_covid_data %&gt;% 
-  count(word) %&gt;% 
-  with(wordcloud(word, n, max.words=700, colors = pal))</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://blog.fellstat.com/?cat=11'>wordcloud</a></span><span class='op'>)</span></span>
+<span><span class='va'>pal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/RColorBrewer/man/ColorBrewer.html'>brewer.pal</a></span><span class='op'>(</span><span class='fl'>8</span>, <span class='st'>"Dark2"</span><span class='op'>)</span></span>
+<span><span class='va'>tidy_covid_data</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/count.html'>count</a></span><span class='op'>(</span><span class='va'>word</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://rdrr.io/r/base/with.html'>with</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/wordcloud/man/wordcloud.html'>wordcloud</a></span><span class='op'>(</span><span class='va'>word</span>, <span class='va'>n</span>, max.words<span class='op'>=</span><span class='fl'>700</span>, colors <span class='op'>=</span> <span class='va'>pal</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
 <p><img src="2020-08-10-text-analysis-of-covid-publications_files/figure-html5/unnamed-chunk-9-1.png" width="1300" /></p>
 </div>
 <h2 id="relationship-between-words">Relationship between words</h2>
@@ -2342,11 +2429,11 @@ tidy_covid_data %&gt;%
 </ol>
 <table>
 <colgroup>
-<col style="width: 36%" />
-<col style="width: 16%" />
-<col style="width: 15%" />
-<col style="width: 12%" />
-<col style="width: 19%" />
+<col style="width: 27%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -2376,25 +2463,25 @@ tidy_covid_data %&gt;%
 </table>
 <p>As we did previously, lets’s do the tokenization once again again. This time usigng bigrams.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-covid_bigram &lt;- data[, c(1,2,3)] %&gt;% #selct only titles, abstracts and keywords column of the data. Title is saved
-  unnest_tokens(output=bigram, 
-                input=ABSTRACT,
-                token=&quot;ngrams&quot;, n=2)
-
-dim(covid_bigram) # 79404 bigrams, 3 variables</code></pre>
-<pre><code>
-[1] 79404     3</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>covid_bigram</span> <span class='op'>&lt;-</span> <span class='va'>data</span><span class='op'>[</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span>,<span class='fl'>2</span>,<span class='fl'>3</span><span class='op'>)</span><span class='op'>]</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='co'>#selct only titles, abstracts and keywords column of the data. Title is saved</span></span>
+<span>  <span class='fu'><a href='https://rdrr.io/pkg/tidytext/man/unnest_tokens.html'>unnest_tokens</a></span><span class='op'>(</span>output<span class='op'>=</span><span class='va'>bigram</span>, </span>
+<span>                input<span class='op'>=</span><span class='va'>ABSTRACT</span>,</span>
+<span>                token<span class='op'>=</span><span class='st'>"ngrams"</span>, n<span class='op'>=</span><span class='fl'>2</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>covid_bigram</span><span class='op'>)</span> <span class='co'># 79404 bigrams, 3 variables</span></span></code></pre>
+</div>
+<pre><code>[1] 79404     3</code></pre>
 </div>
 <p>Let’s see the most frequent bigrams. Notice the irrelvant words.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-head(
-  covid_bigram %&gt;%
-  count(bigram, sort = TRUE)
-)</code></pre>
-<pre><code>
-# A tibble: 6 x 2
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span></span>
+<span>  <span class='va'>covid_bigram</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/count.html'>count</a></span><span class='op'>(</span><span class='va'>bigram</span>, sort <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code># A tibble: 6 x 2
   bigram       n
   &lt;chr&gt;    &lt;int&gt;
 1 covid 19   989
@@ -2406,28 +2493,28 @@ head(
 </div>
 <h1 id="remove-useless-words">Remove useless words</h1>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(tidyr)
-
-covid_bigrams_separated &lt;- covid_bigram %&gt;%
-  separate(bigram, c(&quot;word1&quot;, &quot;word2&quot;), sep = &quot; &quot;)
-
-covd_bigrams_filtered &lt;- covid_bigrams_separated %&gt;%
-  filter(!word1 %in% stop_words$word) %&gt;%
-  filter(!word2 %in% stop_words$word) %&gt;% 
-  filter(!word1 %in% custom_stop_words$word) %&gt;%
-  filter(!word2 %in% custom_stop_words$word)
-
-dim(covd_bigrams_filtered) # 18981 bigrams, 4 variables</code></pre>
-<pre><code>
-[1] 18963     4</code></pre>
-<pre class="r"><code>
-covd_bigrams_filtered_counts &lt;- covd_bigrams_filtered %&gt;% 
-  count(word1, word2, sort = TRUE)
-
-head(covd_bigrams_filtered_counts)</code></pre>
-<pre><code>
-# A tibble: 6 x 3
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyr.tidyverse.org'>tidyr</a></span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>covid_bigrams_separated</span> <span class='op'>&lt;-</span> <span class='va'>covid_bigram</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/separate.html'>separate</a></span><span class='op'>(</span><span class='va'>bigram</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"word1"</span>, <span class='st'>"word2"</span><span class='op'>)</span>, sep <span class='op'>=</span> <span class='st'>" "</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>covd_bigrams_filtered</span> <span class='op'>&lt;-</span> <span class='va'>covid_bigrams_separated</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='va'>word1</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='va'>stop_words</span><span class='op'>$</span><span class='va'>word</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='va'>word2</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='va'>stop_words</span><span class='op'>$</span><span class='va'>word</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='va'>word1</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='va'>custom_stop_words</span><span class='op'>$</span><span class='va'>word</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='op'>!</span><span class='va'>word2</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='va'>custom_stop_words</span><span class='op'>$</span><span class='va'>word</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>covd_bigrams_filtered</span><span class='op'>)</span> <span class='co'># 18981 bigrams, 4 variables</span></span></code></pre>
+</div>
+<pre><code>[1] 18963     4</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>covd_bigrams_filtered_counts</span> <span class='op'>&lt;-</span> <span class='va'>covd_bigrams_filtered</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/count.html'>count</a></span><span class='op'>(</span><span class='va'>word1</span>, <span class='va'>word2</span>, sort <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>covd_bigrams_filtered_counts</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code># A tibble: 6 x 3
   word1       word2           n
   &lt;chr&gt;       &lt;chr&gt;       &lt;int&gt;
 1 coronavirus disease        95
@@ -2440,16 +2527,16 @@ head(covd_bigrams_filtered_counts)</code></pre>
 <p>As you can see from the dim( ) call, the tokenization process changed the abstract of the 382 documents to 41000 tokens. That means we have 382 observations and 41000 one word columns. In the bigram tokenization, we have about 19000 bigrams for our 382 abstracts.</p>
 <p>Now, let’s join the separated bigrams.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-covid_bigrams_united &lt;- covd_bigrams_filtered %&gt;%
-  unite(bigram, word1, word2, sep = &quot; &quot;)
-
-covd_bigrams_joined_counts &lt;- covid_bigrams_united %&gt;% 
-  count(bigram, sort = TRUE)
-
-head(covd_bigrams_joined_counts)</code></pre>
-<pre><code>
-# A tibble: 6 x 2
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>covid_bigrams_united</span> <span class='op'>&lt;-</span> <span class='va'>covd_bigrams_filtered</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/unite.html'>unite</a></span><span class='op'>(</span><span class='va'>bigram</span>, <span class='va'>word1</span>, <span class='va'>word2</span>, sep <span class='op'>=</span> <span class='st'>" "</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>covd_bigrams_joined_counts</span> <span class='op'>&lt;-</span> <span class='va'>covid_bigrams_united</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/count.html'>count</a></span><span class='op'>(</span><span class='va'>bigram</span>, sort <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>covd_bigrams_joined_counts</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code># A tibble: 6 x 2
   bigram                   n
   &lt;chr&gt;                &lt;int&gt;
 1 coronavirus disease     95
@@ -2462,85 +2549,89 @@ head(covd_bigrams_joined_counts)</code></pre>
 <h1 id="vizualize-bigrams">Vizualize bigrams</h1>
 <h2 id="word-cloud">Word cloud</h2>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-#Let&#39;s visualize 150 most common words
-library(wordcloud)
-pal &lt;- brewer.pal(8, &quot;Dark2&quot;)
-covid_bigrams_united %&gt;% 
-  count(bigram) %&gt;% 
-  with(wordcloud(bigram, n, max.words=150, colors = pal))</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>#Let's visualize 150 most common words</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://blog.fellstat.com/?cat=11'>wordcloud</a></span><span class='op'>)</span></span>
+<span><span class='va'>pal</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/RColorBrewer/man/ColorBrewer.html'>brewer.pal</a></span><span class='op'>(</span><span class='fl'>8</span>, <span class='st'>"Dark2"</span><span class='op'>)</span></span>
+<span><span class='va'>covid_bigrams_united</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/count.html'>count</a></span><span class='op'>(</span><span class='va'>bigram</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://rdrr.io/r/base/with.html'>with</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/pkg/wordcloud/man/wordcloud.html'>wordcloud</a></span><span class='op'>(</span><span class='va'>bigram</span>, <span class='va'>n</span>, max.words<span class='op'>=</span><span class='fl'>150</span>, colors <span class='op'>=</span> <span class='va'>pal</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
 <p><img src="2020-08-10-text-analysis-of-covid-publications_files/figure-html5/unnamed-chunk-14-1.png" width="1300" data-distill-preview=1 /></p>
 </div>
 <p>The word cloud above shows, “severe acute”, “wuhan china”, “air pollution”, “rt pcr”, “personal protective”, “cytokine storm” and “social distancing” as most common bigrams in the covid19 publications included in this analysis.</p>
 <h2 id="network-graph">Network graph</h2>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-library(igraph)
-library(ggplot2)
-bigram_graph &lt;- covd_bigrams_filtered_counts %&gt;%
-  filter(n &gt; 8) %&gt;% #words mentioned more than 8 timse
-  graph_from_data_frame()
-
-bigram_graph</code></pre>
-<pre><code>
-IGRAPH 0e07d00 DN-- 103 70 -- 
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://igraph.org'>igraph</a></span><span class='op'>)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span></span>
+<span><span class='va'>bigram_graph</span> <span class='op'>&lt;-</span> <span class='va'>covd_bigrams_filtered_counts</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>n</span> <span class='op'>&gt;</span> <span class='fl'>8</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> <span class='co'>#words mentioned more than 8 timse</span></span>
+<span>  <span class='fu'><a href='https://rdrr.io/pkg/igraph/man/graph_from_data_frame.html'>graph_from_data_frame</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>bigram_graph</span></span></code></pre>
+</div>
+<pre><code>IGRAPH da5994c DN-- 103 70 -- 
 + attr: name (v/c), n (e/n)
-+ edges from 0e07d00 (vertex names):
++ edges from da5994c (vertex names):
  [1] coronavirus-&gt;disease      acute      -&gt;respiratory 
  [3] respiratory-&gt;syndrome     severe     -&gt;acute       
  [5] syndrome   -&gt;coronavirus  public     -&gt;health      
  [7] health     -&gt;care         nâ         -&gt;â           
  [9] mental     -&gt;health       air        -&gt;quality     
-[11] â          -&gt;â            rt         -&gt;pcr         
+[11] rt         -&gt;pcr          â          -&gt;â           
 [13] world      -&gt;health       health     -&gt;organization
 [15] pm         -&gt;10           air        -&gt;pollution   
 + ... omitted several edges</code></pre>
-<pre class="r"><code>
-library(ggraph)
-set.seed(2017)
-
-ggraph(bigram_graph, layout = &quot;fr&quot;) +
-  geom_edge_link() +
-  geom_node_point() +
-  geom_node_text(aes(label = name), vjust = 1, hjust = 1)</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggraph.data-imaginist.com'>ggraph</a></span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>2017</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://ggraph.data-imaginist.com/reference/ggraph.html'>ggraph</a></span><span class='op'>(</span><span class='va'>bigram_graph</span>, layout <span class='op'>=</span> <span class='st'>"fr"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggraph.data-imaginist.com/reference/geom_edge_link.html'>geom_edge_link</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggraph.data-imaginist.com/reference/geom_node_point.html'>geom_node_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggraph.data-imaginist.com/reference/geom_node_text.html'>geom_node_text</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>label <span class='op'>=</span> <span class='va'>name</span><span class='op'>)</span>, vjust <span class='op'>=</span> <span class='fl'>1</span>, hjust <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></span></code></pre>
+</div>
 <p><img src="2020-08-10-text-analysis-of-covid-publications_files/figure-html5/unnamed-chunk-15-1.png" width="1300" /></p>
 </div>
 <p>Term frequency inverse document frequency (tf-idf) is a weighted numerical representation of how a certain word is important in a document. It is calculated using the following formula. tf_idf can be done for the one word columns. For now, let’s just do for bigrams instead.</p>
 <p><span class="math display">\[tfidf( t, d, D ) = tf( t, d ) \times idf( t, D )\]</span> <span class="math display">\[idf( t, D ) = log \frac{ \text{| } D \text{ |} }{ 1 + \text{| } \{ d \in D : t \in d \} \text{ |} }\]</span></p>
 <p>Where <code>t</code> is the terms appearing in a document; <code>d</code> denotes each document; <code>D</code> denotes the collection of documents.</p>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-covid_bigram_tf_idf &lt;- covid_bigrams_united %&gt;%
-  count(TITLE, bigram) %&gt;%
-  bind_tf_idf(bigram, TITLE, n) %&gt;%
-  arrange(desc(tf_idf))
-
-head(covid_bigram_tf_idf)</code></pre>
-<pre><code>
-# A tibble: 6 x 6
-  TITLE                          bigram           n    tf   idf tf_idf
-  &lt;chr&gt;                          &lt;chr&gt;        &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
-1 Arthroplasty during the COVID~ arthroplast~     1 0.5    5.95   2.97
-2 Arthroplasty during the COVID~ safely navi~     1 0.5    5.95   2.97
-3 COVID-19 Reveals Brugada Patt~ brugada pat~     3 0.375  5.95   2.23
-4 Neutrophils and COVID-19: Not~ increase ef~     1 0.333  5.95   1.98
-5 Neutrophils and COVID-19: Not~ pandemic ma~     1 0.333  5.25   1.75
-6 COVID-19 Time Capsule 1: DATE~ time capsule     2 0.286  5.95   1.70</code></pre>
-<pre class="r"><code>
-covid_bigram_tf_idf %&gt;%
-  arrange(desc(tf_idf)) %&gt;%
-  mutate(bigram = factor(bigram, levels = rev(unique(bigram)))) %&gt;% 
-  top_n(15) %&gt;% 
-  ggplot(aes(bigram, tf_idf)) +
-  geom_col(show.legend = FALSE, fill=&quot;cyan4&quot;) +
-  labs(x = NULL, y = &quot;tf-idf&quot;) +
-  coord_flip()</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>covid_bigram_tf_idf</span> <span class='op'>&lt;-</span> <span class='va'>covid_bigrams_united</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/count.html'>count</a></span><span class='op'>(</span><span class='va'>TITLE</span>, <span class='va'>bigram</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://rdrr.io/pkg/tidytext/man/bind_tf_idf.html'>bind_tf_idf</a></span><span class='op'>(</span><span class='va'>bigram</span>, <span class='va'>TITLE</span>, <span class='va'>n</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/desc.html'>desc</a></span><span class='op'>(</span><span class='va'>tf_idf</span><span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>covid_bigram_tf_idf</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code># A tibble: 6 x 6
+  TITLE                                bigram     n    tf   idf tf_idf
+  &lt;chr&gt;                                &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+1 Arthroplasty during the COVID-19 Pa~ arthr~     1 0.5    5.95   2.97
+2 Arthroplasty during the COVID-19 Pa~ safel~     1 0.5    5.95   2.97
+3 COVID-19 Reveals Brugada Pattern in~ bruga~     3 0.375  5.95   2.23
+4 Neutrophils and COVID-19: Nots, NET~ incre~     1 0.333  5.95   1.98
+5 Neutrophils and COVID-19: Nots, NET~ pande~     1 0.333  5.25   1.75
+6 COVID-19 Time Capsule 1: DATE: Marc~ time ~     2 0.286  5.95   1.70</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>covid_bigram_tf_idf</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/desc.html'>desc</a></span><span class='op'>(</span><span class='va'>tf_idf</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>bigram <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>bigram</span>, levels <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rev.html'>rev</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/unique.html'>unique</a></span><span class='op'>(</span><span class='va'>bigram</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/top_n.html'>top_n</a></span><span class='op'>(</span><span class='fl'>15</span><span class='op'>)</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span><span class='va'>bigram</span>, <span class='va'>tf_idf</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span>show.legend <span class='op'>=</span> <span class='cn'>FALSE</span>, fill<span class='op'>=</span><span class='st'>"cyan4"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='cn'>NULL</span>, y <span class='op'>=</span> <span class='st'>"tf-idf"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/coord_flip.html'>coord_flip</a></span><span class='op'>(</span><span class='op'>)</span></span></code></pre>
+</div>
 <p><img src="2020-08-10-text-analysis-of-covid-publications_files/figure-html5/unnamed-chunk-16-1.png" width="1300" /></p>
 </div>
 <p>The above <em>tf_idf</em> plot shows, “athroplasyty practice”, “safely navigate”, “brugada pattern”, etc were bigrams having the highest tf_idf values.</p>
 <p>That is all for today.</p>
 <h1 id="contact">Contact</h1>
 <p><a href="https://twitter.com/MihiretuKebede1"><em>@MihiretuKebede1</em></a></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">

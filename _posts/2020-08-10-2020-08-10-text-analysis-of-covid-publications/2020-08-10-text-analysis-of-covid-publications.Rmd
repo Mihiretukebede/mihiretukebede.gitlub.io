@@ -17,6 +17,9 @@ output:
     self_contained: false
     widerscreen: true
 ---
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825" crossorigin="anonymous"></script>
+</head>
 
 ## Load necessary packages
 
@@ -54,16 +57,16 @@ Text: "COVID19 is the biggest global health crisis of the modern world". In this
 In tokenization process, the text documents is changed to tokens and each token is counted.
 
 | Text                                                            | COVID19 | is  | the | biggest | global | health | crisis | of  | the | modern | world |
-|-----------------------------------------------------------------|---------|-----|-----|---------|--------|--------|--------|-----|-----|--------|-------|
+|------------------|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
 | COVID19 is the biggest global health crisis of the modern world | 1       | 1   | 1   | 1       | 1      | 1      | 1      | 1   | 1   | 1      | 1     |
 
 In tokenization process, the text documents is changed to tokens and each token is counted. Notice "the" is mentioned twice. So, we can count it and reshuffle our table as fllows.
 
 | Text                                                            | COVID19 | is  | the | biggest | global | health | crisis | of  | modern | world |
-|-----------------------------------------------------------------|---------|-----|-----|---------|--------|--------|--------|-----|--------|-------|
+|-------------------|------|------|------|------|------|------|------|------|------|------|
 | COVID19 is the biggest global health crisis of the modern world | 1       | 1   | 2   | 1       | 1      | 1      | 1      | 1   | 1      | 1     |
 
-The next thing after tokenization is removing irrelevant words. These are words that don't give much information to the concept of the document other than making the grammatical structure of the document. The stp\_words data has about 1150 irrelevant words. These words can be easily removed using the dyplyr ant\_join function.
+The next thing after tokenization is removing irrelevant words. These are words that don't give much information to the concept of the document other than making the grammatical structure of the document. The stp_words data has about 1150 irrelevant words. These words can be easily removed using the dyplyr ant_join function.
 
 We have enough of theory. Let's move to the more technical things. As we did in the previous blog, we will only need journal articiles having no missing data on their abstract variable.
 
@@ -92,7 +95,7 @@ data <- covid19new %>%
   select("TITLE", "ABSTRACT", "KEYWORDS", "AUTHOR")
 ```
 
-To start with the tokenization process, we will load stop\_words data. We can also add our own stop stop words. In text mining, words on both sides of extreme frequency are no relevant. These words can be removed by creating a customized list of stop\_words. Since we are doing our text analysis on journal articles, words that are obviously common in each of the abstracts can be removed. Structured abstracts usually contain "Introduction" or "background", "Methods", "Results" and "conclusions". These and other words can be removed. The custom stop words can also include "covid", since all of them are about "covid". There is also a way to remove numbers from our corpus. For now, we will not remove all numbers.
+To start with the tokenization process, we will load stop_words data. We can also add our own stop stop words. In text mining, words on both sides of extreme frequency are no relevant. These words can be removed by creating a customized list of stop_words. Since we are doing our text analysis on journal articles, words that are obviously common in each of the abstracts can be removed. Structured abstracts usually contain "Introduction" or "background", "Methods", "Results" and "conclusions". These and other words can be removed. The custom stop words can also include "covid", since all of them are about "covid". There is also a way to remove numbers from our corpus. For now, we will not remove all numbers.
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 data(stopwords)
@@ -142,13 +145,10 @@ For now, we will only see bigrams(two-word tokens). Two word tokens can be repre
 
 2.  text 2: "How dangerous is COVID19 pandemic.?"
 
-+-----------------------------------+---------------+--------------+-----------+------------------+
 | Text                              | how dangerous | dangerous is | is covi19 | covid19 pandemic |
-+===================================+===============+==============+===========+==================+
+|--------------------|-------------|-------------|-------------|-------------|
 | How dangerous is COVID19?         | 1             | 1            | 1         | 0                |
-+-----------------------------------+---------------+--------------+-----------+------------------+
 | How dangerous is COVID19 pandemic | 1             | 1            | 1         | 1                |
-+-----------------------------------+---------------+--------------+-----------+------------------+
 
 As we did previously, lets's do the tokenization once again again. This time usigng bigrams.
 
@@ -245,7 +245,7 @@ ggraph(bigram_graph, layout = "fr") +
 
 ```
 
-Term frequency inverse document frequency (tf-idf) is a weighted numerical representation of how a certain word is important in a document. It is calculated using the following formula. tf\_idf can be done for the one word columns. For now, let's just do for bigrams instead.
+Term frequency inverse document frequency (tf-idf) is a weighted numerical representation of how a certain word is important in a document. It is calculated using the following formula. tf_idf can be done for the one word columns. For now, let's just do for bigrams instead.
 
 $$tfidf( t, d, D ) = tf( t, d ) \times idf( t, D )$$ $$idf( t, D ) = log \frac{ \text{| } D \text{ |} }{ 1 + \text{| } \{ d \in D : t \in d \} \text{ |} }$$
 
@@ -270,7 +270,7 @@ covid_bigram_tf_idf %>%
   coord_flip()
 ```
 
-The above *tf\_idf* plot shows, "athroplasyty practice", "safely navigate", "brugada pattern", etc were bigrams having the highest tf\_idf values.
+The above *tf_idf* plot shows, "athroplasyty practice", "safely navigate", "brugada pattern", etc were bigrams having the highest tf_idf values.
 
 That is all for today.
 
