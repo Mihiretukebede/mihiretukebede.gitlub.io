@@ -7,7 +7,15 @@
     <description>This is Mihiretu Kebede(PhD)'s personal website. 
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 08 Jun 2021 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 18 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Classifying abstracts using regularized models: covid-19 or sars-2003?</title>
+      <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
+      <link>http://www.mihiretukebede.com/posts/2020-12-09-2020-12-09-documentclassification-using-regularized-models</link>
+      <description>Classifying abstracts using regularized models: covid-19 or sars-2003?</description>
+      <guid>http://www.mihiretukebede.com/posts/2020-12-09-2020-12-09-documentclassification-using-regularized-models</guid>
+      <pubDate>Sat, 18 Mar 2023 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Scraping individual participant data from scatter plots</title>
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
@@ -41,7 +49,7 @@
       <link>http://www.mihiretukebede.com/posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot</link>
       <description>How to plot model coefficients in a forest plot.</description>
       <guid>http://www.mihiretukebede.com/posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot</guid>
-      <pubDate>Wed, 03 Feb 2021 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 04 Feb 2021 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot/2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-20-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
@@ -52,15 +60,6 @@
       <guid>http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning</guid>
       <pubDate>Tue, 26 Jan 2021 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/machinelearning.jpg" medium="image" type="image/jpeg"/>
-    </item>
-    <item>
-      <title>Classifying abstracts using regularized models: covid-19 or sars-2003?</title>
-      <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
-      <link>http://www.mihiretukebede.com/posts/2020-12-09-2020-12-09-documentclassification-using-regularized-models</link>
-      <description>Classifying abstracts using regularized models: covid-19 or sars-2003?</description>
-      <guid>http://www.mihiretukebede.com/posts/2020-12-09-2020-12-09-documentclassification-using-regularized-models</guid>
-      <pubDate>Tue, 26 Jan 2021 00:00:00 +0000</pubDate>
-      <media:content url="http://www.mihiretukebede.com/posts/2020-12-09-2020-12-09-documentclassification-using-regularized-models/2020-12-09-documentclassification-using-regularized-models_files/figure-html5/unnamed-chunk-16-1.png" medium="image" type="image/png" width="1950" height="1200"/>
     </item>
     <item>
       <title>Applying text analyses methods on 382 COVID19 journal articles</title>
