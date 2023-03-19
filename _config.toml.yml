@@ -16,7 +16,6 @@ collections:
 output: 
   distill::distill_article    
 ---
-
 navbar:
   left:
     - text: "Home"
