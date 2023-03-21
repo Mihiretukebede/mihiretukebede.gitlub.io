@@ -272,7 +272,7 @@ ggplot(sad, aes(x=Date_posted, y=value)) + geom_point(size=3) +
 
 # Interpretation
 
-The anger and sadness sharply increased until it reached its peak on the 30th of June. Then, after three weeks of internet black out, his Facebook page became active and coninued posting and I continued collecting my data. The plots above show how negative reactions have sharply declined. It seems the measures have worked very well to alleviate digital anger from the people or at least it is possible to hypothesize people were positive about the measures taken by his government. With this, I can say Abiy Ahmed has likely regained his control and his government started to properly use its teeth.
+The anger and sadness sharply increased until it reached its peak on the 30th of June. Then, after three weeks of internet black out, his Facebook page became active and continued posting and I continued collecting my data. The plots above show how negative reactions have sharply declined. It seems the measures have worked very well to alleviate digital anger from the people or at least it is possible to hypothesize people were positive about the measures taken by his government. With this, I can say Abiy Ahmed has likely regained his control and his government started to properly use its teeth.
 
 Peace and love for my beautiful country and her people!
 

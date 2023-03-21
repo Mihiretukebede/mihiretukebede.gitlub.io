@@ -48,7 +48,7 @@ library(lime) #for explaining the machine learning models
 
 I used the covid19 data that I used in my previous [blog post](http://www.mihiretukebede.com/posts/2020-08-03-2020-08-03-covid19/). In addition, I have added new reference data by searching SARS papers published from January 1/2003 until September 12/2003.
 
-As I did in my last blog, I read my files using the beautiful bib2df package. You can also use **`bibliometrix`** or **`revtools`** packages to convert bibtex files to data frame in R. With **`revtools`**, you can also convert *.ris* files to data frame. Awesome! 😍
+As I did in my last blog, I read my files using the beautiful bib2df package. You can also use **`bibliometrix`** or **`revtools`** packages to convert bibtex files to data frame in R. With **`revtools`**, you can also convert *.ris* files to data frame. Awesome! 
 
 ```{r, cache=T, include=T, echo=T, message=FALSE, warning=FALSE}
 # library(bib2df)
@@ -463,7 +463,7 @@ I have tried three different models and the level of accuracy has improved throu
 
 # Next stop
 
-Visualizing odds ratios/risk ratios in forest plots. See you! 👍
+Visualizing odds ratios/risk ratios in forest plots. See you! 
 
 ![Trains GIFs \| Tenor](https://media.tenor.com/images/ed15fe5ceca132793f32df5b383a30ed/tenor.gif){width="478"}
 
