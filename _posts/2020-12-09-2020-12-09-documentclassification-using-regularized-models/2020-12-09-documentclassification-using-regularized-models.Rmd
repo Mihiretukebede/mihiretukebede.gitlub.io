@@ -27,7 +27,7 @@ Classifying documents to a certain list of categories can provide valuable insig
 
 There are handful of very good algorithms that can automagically handle text data. In this blog post, I would like to experiment regularized logistic regression machine learning models for classifying abstracts.
 
-I am interested in predicting abstracts that will fall into "SARS_2003" and "COVID_19" categories. For this task, I will use the same data sets that I have used in my previous blog posts. I saved the references files in excel from my previous post. I will simply load this excel file and play with the abstract using `qunateda` and `glmnet` packages. 😍
+I am interested in predicting abstracts that will fall into "SARS_2003" and "COVID_19" categories. For this task, I will use the same data sets that I have used in my previous blog posts. I saved the references files in excel from my previous post. I will simply load this excel file and play with the abstract using `qunateda` and `glmnet` packages. 
 
 # Data
 
@@ -516,10 +516,10 @@ ggplot(cv_glmnet_10_roc_tfidf)
 ## Predict using the belastic model cv_glmnet_50
 predicted_class.elastic_10 <- predict(cv_glmnet_10_roc, 
                                       da_test_xmatrix, 
-                                      cv_glmnet_10_roc$lamda.min, type="raw")
+                                      cv_glmnet_10_roc$lamda.min,
+                                      type="raw")
 
-predicted_class.elastic_10 <- as.factor(ifelse(predicted_class.elastic_10==0, 
-                                               "sars", "covid"))
+predicted_class.elastic_10 <- as.factor(ifelse(predicted_class.elastic_10==0, "sars", "covid"))
 
 confusion_mat_elastic_net <- confusionMatrix(predicted_class.elastic_10, 
                                       actual_class, mode="everything",
