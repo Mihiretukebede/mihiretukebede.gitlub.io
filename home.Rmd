@@ -1,9 +1,14 @@
 ---
 title: "Welcome"
 ---
+
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825" crossorigin="anonymous"></script>
+
+```{=html}
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825" crossorigin="anonymous"></script>
+```
 </head>
 
-Thank you for visiting my page 
-<img src="myphoto.jpg" style="width:25%; border:10px solid; margin-right: 20px" align="left">
+Thank you for visiting this website. You may also find my YouTube Channel by clicking here -\> [RPy Data Science YouTube channel](https://www.youtube.com/channel/UCpHd6O1Yqz4YgcYUBfyRqKg)
+
+<img src="myphoto.jpg" style="width:25%; border:10px solid; margin-right: 20px" align="left"/>
