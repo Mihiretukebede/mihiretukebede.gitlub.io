@@ -18,6 +18,75 @@
  <!--radix_placeholder_import_source-->
  <!--/radix_placeholder_import_source-->
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  { color: #00769e; background-color: #f1f3f5; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span { color: #00769e; } /* Normal */
+code span.al { color: #ad0000; } /* Alert */
+code span.an { color: #5e5e5e; } /* Annotation */
+code span.at { color: #657422; } /* Attribute */
+code span.bn { color: #ad0000; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #00769e; } /* ControlFlow */
+code span.ch { color: #20794d; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #5e5e5e; } /* Comment */
+code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+code span.dt { color: #ad0000; } /* DataType */
+code span.dv { color: #ad0000; } /* DecVal */
+code span.er { color: #ad0000; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #ad0000; } /* Float */
+code span.fu { color: #4758ab; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #5e5e5e; } /* Information */
+code span.kw { color: #00769e; } /* Keyword */
+code span.op { color: #5e5e5e; } /* Operator */
+code span.ot { color: #00769e; } /* Other */
+code span.pp { color: #ad0000; } /* Preprocessor */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
+code span.ss { color: #20794d; } /* SpecialString */
+code span.st { color: #20794d; } /* String */
+code span.va { color: #111111; } /* Variable */
+code span.vs { color: #20794d; } /* VerbatimString */
+code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+</style>
+
+
   <!--radix_placeholder_meta_tags-->
 <title>Aspire Data Solutions: Visualizing the prevalence of diabetes in six European countries, 1990-2017</title>
 
@@ -2028,7 +2097,13 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!--/radix_placeholder_distill-->
-  <script src="../../site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="../../site_libs/header-attrs-2.20/header-attrs.js"></script>
+  <script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+  <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
+  <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
+  <link href="../../site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
+  <script src="../../site_libs/tippy-6.2.7/tippy.umd.min.js"></script>
+  <script src="../../site_libs/anchor-4.2.2/anchor.min.js"></script>
   <script src="../../site_libs/bowser-1.9.3/bowser.min.js"></script>
   <script src="../../site_libs/webcomponents-2.0.0/webcomponents.js"></script>
   <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
@@ -2093,6 +2168,8 @@ gtag('config', 'UA-173027539-1');
 
 <div class="d-title">
 <h1>Visualizing the prevalence of diabetes in six European countries, 1990-2017</h1>
+<!--radix_placeholder_categories-->
+<!--/radix_placeholder_categories-->
 <p><p>This is a quick demonstration of diabetes prevalence in six European countries. The data are from the the Institute of Health Metrics and Evaluation (IHME).</p></p>
 </div>
 
@@ -2104,24 +2181,30 @@ gtag('config', 'UA-173027539-1');
 </div>
 
 <div class="d-article">
-<h3 class="d-toc-header">Table of Contents</h3>
-<nav class="d-toc" id="TOC">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
 <ul>
-<li><a href="#a-step-by-step-guide-on-how-to-improve-a-simple-scatter-plot">A step by-step guide on how to improve a simple scatter plot</a><ul>
-<li><a href="#my-r-version">My R version</a></li>
+<li><a href="#a-step-by-step-guide-on-how-to-improve-a-simple-scatter-plot" id="toc-a-step-by-step-guide-on-how-to-improve-a-simple-scatter-plot">A step by-step guide on how to improve a simple scatter plot</a>
+<ul>
+<li><a href="#my-r-version" id="toc-my-r-version">My R version</a></li>
 </ul></li>
-<li><a href="#required-packages">Required packages</a></li>
-<li><a href="#load-the-data-and-have-a-closer-look">Load the data and have a closer look</a><ul>
-<li><a href="#lets-choose-only-5-european-countries-with-high-diabetes-prevalence">Let’s choose only 5 European countries with high diabetes prevalence</a></li>
+<li><a href="#required-packages" id="toc-required-packages">Required packages</a></li>
+<li><a href="#load-the-data-and-have-a-closer-look" id="toc-load-the-data-and-have-a-closer-look">Load the data and have a closer look</a>
+<ul>
+<li><a href="#lets-choose-only-5-european-countries-with-high-diabetes-prevalence" id="toc-lets-choose-only-5-european-countries-with-high-diabetes-prevalence">Let’s choose only 5 European countries with high diabetes prevalence</a></li>
 </ul></li>
-<li><a href="#basic-plots">Basic plots</a></li>
-<li><a href="#the-fun-part">The fun part</a></li>
-<li><a href="#use-gifski_renderer-to-loop-or-no-to-loop-the-gif">Use gifski_renderer to loop or no to loop the gif</a></li>
-<li><a href="#lets-tweak-few-things-and-see-what-happens">Let’s tweak few things and see what happens</a></li>
-<li><a href="#contact">Contact</a></li>
+<li><a href="#basic-plots" id="toc-basic-plots">Basic plots</a></li>
+<li><a href="#the-fun-part" id="toc-the-fun-part">The fun part</a></li>
+<li><a href="#use-gifski_renderer-to-loop-or-no-to-loop-the-gif" id="toc-use-gifski_renderer-to-loop-or-no-to-loop-the-gif">Use gifski_renderer to loop or no to loop the gif</a></li>
+<li><a href="#lets-tweak-few-things-and-see-what-happens" id="toc-lets-tweak-few-things-and-see-what-happens">Let’s tweak few things and see what happens</a></li>
+<li><a href="#contact" id="toc-contact">Contact</a></li>
 </ul>
 </nav>
-<hr class="d-toc-separator"/>
+</div>
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825" crossorigin="anonymous"></script>
+</head>
 <p><link rel="stylesheet" href="styles.css" type="text/css"></p>
 <h1 id="a-step-by-step-guide-on-how-to-improve-a-simple-scatter-plot">A step by-step guide on how to improve a simple scatter plot</h1>
 <h2 id="my-r-version">My R version</h2>
@@ -2129,50 +2212,51 @@ gtag('config', 'UA-173027539-1');
 <li>See below</li>
 </ul>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-version</code></pre>
-<pre><code>
-               _                           
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>version</span></span></code></pre>
+</div>
+<pre><code>               _                           
 platform       x86_64-w64-mingw32          
 arch           x86_64                      
 os             mingw32                     
 system         x86_64, mingw32             
 status                                     
-major          3                           
-minor          6.3                         
-year           2020                        
-month          02                          
-day            29                          
-svn rev        77875                       
+major          4                           
+minor          1.3                         
+year           2022                        
+month          03                          
+day            10                          
+svn rev        81868                       
 language       R                           
-version.string R version 3.6.3 (2020-02-29)
-nickname       Holding the Windsock        </code></pre>
+version.string R version 4.1.3 (2022-03-10)
+nickname       One Push-Up                 </code></pre>
 </div>
 <h1 id="required-packages">Required packages</h1>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-#If you don&#39;t have any of these packages install them using install.packages(&quot;pakage)
-library(readr) #to read csv file
-library(dplyr) #for data manipulaion 
-library(ggplot2) # for awesome plotting
-library(gganimate) #for animating ggplot objects
-library(scales) # for customizing axis 
-library(lattice) #for enhancing graphics
-library(directlabels) #for directly labeling!
-library(transformr)</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'>#If you don't have any of these packages install them using install.packages("pakage)</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://readr.tidyverse.org'>readr</a></span><span class='op'>)</span> <span class='co'>#to read csv file</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span> <span class='co'>#for data manipulaion </span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span> <span class='co'># for awesome plotting</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://gganimate.com'>gganimate</a></span><span class='op'>)</span> <span class='co'>#for animating ggplot objects</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://scales.r-lib.org'>scales</a></span><span class='op'>)</span> <span class='co'># for customizing axis </span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://lattice.r-forge.r-project.org/'>lattice</a></span><span class='op'>)</span> <span class='co'>#for enhancing graphics</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/tdhock/directlabels'>directlabels</a></span><span class='op'>)</span> <span class='co'>#for directly labeling!</span></span>
+<span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/thomasp85/transformr'>transformr</a></span><span class='op'>)</span></span></code></pre>
+</div>
 </div>
 <h1 id="load-the-data-and-have-a-closer-look">Load the data and have a closer look</h1>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# The data is for all countries included in GBD studies
-diabetes &lt;- read_csv(&quot;Eurodiabetes.csv&quot;) 
-dim(diabetes) #980 observations and 9 variables. </code></pre>
-<pre><code>
-[1] 980   9</code></pre>
-<pre class="r"><code>
-str(diabetes) </code></pre>
-<pre><code>
-tibble [980 x 9] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># The data is for all countries included in GBD studies</span></span>
+<span><span class='va'>diabetes</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://readr.tidyverse.org/reference/read_delim.html'>read_csv</a></span><span class='op'>(</span><span class='st'>"Eurodiabetes.csv"</span><span class='op'>)</span> </span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>diabetes</span><span class='op'>)</span> <span class='co'>#980 observations and 9 variables. </span></span></code></pre>
+</div>
+<pre><code>[1] 980   9</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>diabetes</span><span class='op'>)</span> </span></code></pre>
+</div>
+<pre><code>spc_tbl_ [980 x 9] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
  $ Location                : chr [1:980] &quot;Australia&quot; &quot;Australia&quot; &quot;Australia&quot; &quot;Australia&quot; ...
  $ Year                    : num [1:980] 1990 1991 1992 1993 1994 ...
  $ Age                     : chr [1:980] &quot;All ages&quot; &quot;All ages&quot; &quot;All ages&quot; &quot;All ages&quot; ...
@@ -2193,18 +2277,19 @@ tibble [980 x 9] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
   ..   Value = col_double(),
   ..   `Lower bound` = col_double(),
   ..   `Upper bound` = col_double()
-  .. )</code></pre>
+  .. )
+ - attr(*, &quot;problems&quot;)=&lt;externalptr&gt; </code></pre>
 </div>
 <h2 id="lets-choose-only-5-european-countries-with-high-diabetes-prevalence">Let’s choose only 5 European countries with high diabetes prevalence</h2>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-ger_au_ch &lt;- diabetes %&gt;% 
-  filter(Location %in% c(&quot;Austria&quot;, &quot;Germany&quot;, &quot;Switzerland&quot;, &quot;Denmark&quot;, &quot;Portugal&quot;, &quot;Finland&quot;)) 
-ger_au_ch &lt;- na.omit(ger_au_ch) #Remove missing values
-ger_au_ch$Prev &lt;- ger_au_ch$Value*100 #Prevalence in percent. 
-str(ger_au_ch) #structure of the data, variable types</code></pre>
-<pre><code>
-tibble [168 x 10] (S3: tbl_df/tbl/data.frame)
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>ger_au_ch</span> <span class='op'>&lt;-</span> <span class='va'>diabetes</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Location</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Austria"</span>, <span class='st'>"Germany"</span>, <span class='st'>"Switzerland"</span>, <span class='st'>"Denmark"</span>, <span class='st'>"Portugal"</span>, <span class='st'>"Finland"</span><span class='op'>)</span><span class='op'>)</span> </span>
+<span><span class='va'>ger_au_ch</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/na.fail.html'>na.omit</a></span><span class='op'>(</span><span class='va'>ger_au_ch</span><span class='op'>)</span> <span class='co'>#Remove missing values</span></span>
+<span><span class='va'>ger_au_ch</span><span class='op'>$</span><span class='va'>Prev</span> <span class='op'>&lt;-</span> <span class='va'>ger_au_ch</span><span class='op'>$</span><span class='va'>Value</span><span class='op'>*</span><span class='fl'>100</span> <span class='co'>#Prevalence in percent. </span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/str.html'>str</a></span><span class='op'>(</span><span class='va'>ger_au_ch</span><span class='op'>)</span> <span class='co'>#structure of the data, variable types</span></span></code></pre>
+</div>
+<pre><code>tibble [168 x 10] (S3: tbl_df/tbl/data.frame)
  $ Location                : chr [1:168] &quot;Austria&quot; &quot;Austria&quot; &quot;Austria&quot; &quot;Austria&quot; ...
  $ Year                    : num [1:168] 1990 1991 1992 1993 1994 ...
  $ Age                     : chr [1:168] &quot;All ages&quot; &quot;All ages&quot; &quot;All ages&quot; &quot;All ages&quot; ...
@@ -2215,174 +2300,181 @@ tibble [168 x 10] (S3: tbl_df/tbl/data.frame)
  $ Lower bound             : num [1:168] 0.061 0.0627 0.0646 0.0664 0.0683 ...
  $ Upper bound             : num [1:168] 0.0519 0.0538 0.0555 0.0572 0.0588 ...
  $ Prev                    : num [1:168] 5.62 5.79 5.97 6.14 6.31 ...</code></pre>
-<pre class="r"><code>
-dim(ger_au_ch) #168 rows, 10 columns </code></pre>
-<pre><code>
-[1] 168  10</code></pre>
-<pre class="r"><code>
-is.factor(ger_au_ch$Year) #check if Year is saved as factor variable</code></pre>
-<pre><code>
-[1] FALSE</code></pre>
-<pre class="r"><code>
-ger_au_ch$yearfactor &lt;- factor(ger_au_ch$Year) #convert it to factor and save it as Yearfactor
-
-ger_au_ch$Yearnumeric &lt;- as.numeric(ger_au_ch$Year) #change it to numeric and save it as Year Numeric</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>ger_au_ch</span><span class='op'>)</span> <span class='co'>#168 rows, 10 columns </span></span></code></pre>
+</div>
+<pre><code>[1] 168  10</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/factor.html'>is.factor</a></span><span class='op'>(</span><span class='va'>ger_au_ch</span><span class='op'>$</span><span class='va'>Year</span><span class='op'>)</span> <span class='co'>#check if Year is saved as factor variable</span></span></code></pre>
+</div>
+<pre><code>[1] FALSE</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>ger_au_ch</span><span class='op'>$</span><span class='va'>yearfactor</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span><span class='op'>(</span><span class='va'>ger_au_ch</span><span class='op'>$</span><span class='va'>Year</span><span class='op'>)</span> <span class='co'>#convert it to factor and save it as Yearfactor</span></span>
+<span></span>
+<span><span class='va'>ger_au_ch</span><span class='op'>$</span><span class='va'>Yearnumeric</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>as.numeric</a></span><span class='op'>(</span><span class='va'>ger_au_ch</span><span class='op'>$</span><span class='va'>Year</span><span class='op'>)</span> <span class='co'>#change it to numeric and save it as Year Numeric</span></span></code></pre>
+</div>
 </div>
 <h1 id="basic-plots">Basic plots</h1>
 <p>Since we already have everything we need for plotting, we can start using ggplot2</p>
 <div class="layout-chunk" data-layout="l-body-outset">
-<pre class="r"><code>
-plot1 &lt;- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
-  geom_line() + geom_point() + xlab(&quot;Year&quot;) +
-  ylab(&quot;Prevalence of diabetes in %&quot;) 
-plot1</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot1</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>ger_au_ch</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>Yearnumeric</span>, y<span class='op'>=</span><span class='va'>Prev</span>, col<span class='op'>=</span><span class='va'>Location</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Year"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"Prevalence of diabetes in %"</span><span class='op'>)</span> </span>
+<span><span class='va'>plot1</span></span></code></pre>
+</div>
 <p><img src="2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-5-1.png" width="624" data-distill-preview=1 /></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-plot2 &lt;- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
-  geom_line() + xlab(&quot;Year&quot;) +
-  ylab(&quot;Prevalence of diabetes in %&quot;) 
-plot2</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>plot2</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>ger_au_ch</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>Yearnumeric</span>, y<span class='op'>=</span><span class='va'>Prev</span>, col<span class='op'>=</span><span class='va'>Location</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Year"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"Prevalence of diabetes in %"</span><span class='op'>)</span> </span>
+<span><span class='va'>plot2</span></span></code></pre>
+</div>
 <p><img src="2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>
 <h1 id="the-fun-part">The fun part</h1>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-euro_anim &lt;- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
-  geom_point(size=6) + transition_time(Yearnumeric)  +
-  shadow_mark()  +  
-  scale_x_continuous(name =&quot;Year&quot;,
-                     breaks= c(1990,1995,2000,2005, 
-                               2010, 2015, 2020)) +
-  
-  xlab(&quot;Year&quot;) +
-  ylab(&quot;Prevalence of diabetes in %&quot;) +
-  labs(col=&quot;Country&quot;) + 
-  
-  theme(
-    axis.title.x = element_text(color = &quot;Blue&quot;, size=15),
-    axis.title.y = element_text(color = &quot;Blue&quot;, size=15),
-    axis.text.x = element_text(size = 15),
-    axis.text.y = element_text(size = 15),
-    
-    plot.title = element_text(size=20),
-    
-    legend.title = element_text(size = 10),
-    legend.text = element_text(size = 10),
-    legend.position = &quot;None&quot;,
-    
-    text = element_text(family = &quot;Comics Sans MS&quot;)
-  ) + ease_aes(&#39;cubic-in-out&#39;) +
-  geom_dl(aes(label=Location),
-          method=list(&quot;last.points&quot;,rot=40)) </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>euro_anim</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>ger_au_ch</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>Yearnumeric</span>, y<span class='op'>=</span><span class='va'>Prev</span>, col<span class='op'>=</span><span class='va'>Location</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>6</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://gganimate.com/reference/transition_time.html'>transition_time</a></span><span class='op'>(</span><span class='va'>Yearnumeric</span><span class='op'>)</span>  <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://gganimate.com/reference/shadow_mark.html'>shadow_mark</a></span><span class='op'>(</span><span class='op'>)</span>  <span class='op'>+</span>  </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span>name <span class='op'>=</span><span class='st'>"Year"</span>,</span>
+<span>                     breaks<span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1990</span>,<span class='fl'>1995</span>,<span class='fl'>2000</span>,<span class='fl'>2005</span>, </span>
+<span>                               <span class='fl'>2010</span>, <span class='fl'>2015</span>, <span class='fl'>2020</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Year"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"Prevalence of diabetes in %"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>col<span class='op'>=</span><span class='st'>"Country"</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    axis.title.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"Blue"</span>, size<span class='op'>=</span><span class='fl'>15</span><span class='op'>)</span>,</span>
+<span>    axis.title.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"Blue"</span>, size<span class='op'>=</span><span class='fl'>15</span><span class='op'>)</span>,</span>
+<span>    axis.text.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span>,</span>
+<span>    axis.text.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span>,</span>
+<span>    </span>
+<span>    plot.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>20</span><span class='op'>)</span>,</span>
+<span>    </span>
+<span>    legend.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>,</span>
+<span>    legend.text <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>,</span>
+<span>    legend.position <span class='op'>=</span> <span class='st'>"None"</span>,</span>
+<span>    </span>
+<span>    text <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>family <span class='op'>=</span> <span class='st'>"Comics Sans MS"</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://gganimate.com/reference/ease_aes.html'>ease_aes</a></span><span class='op'>(</span><span class='st'>'cubic-in-out'</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://rdrr.io/pkg/directlabels/man/geom_dl.html'>geom_dl</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>label<span class='op'>=</span><span class='va'>Location</span><span class='op'>)</span>,</span>
+<span>          method<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>"last.points"</span>,rot<span class='op'>=</span><span class='fl'>40</span><span class='op'>)</span><span class='op'>)</span> </span></code></pre>
+</div>
 </div>
 <h1 id="use-gifski_renderer-to-loop-or-no-to-loop-the-gif">Use gifski_renderer to loop or no to loop the gif</h1>
 <ul>
 <li>Let’s see, how it looks if we assign RUE or just T in short for loop.</li>
 </ul>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-animate(euro_anim, renderer = gifski_renderer(loop = T), width = 700, height = 700, duration = 15) # when you assign loop=TRUE or just T, the gif starts playing again </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://gganimate.com/reference/animate.html'>animate</a></span><span class='op'>(</span><span class='va'>euro_anim</span>, renderer <span class='op'>=</span> <span class='fu'><a href='https://gganimate.com/reference/renderers.html'>gifski_renderer</a></span><span class='op'>(</span>loop <span class='op'>=</span> <span class='cn'>T</span><span class='op'>)</span>, width <span class='op'>=</span> <span class='fl'>700</span>, height <span class='op'>=</span> <span class='fl'>700</span>, duration <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span> <span class='co'># when you assign loop=TRUE or just T, the gif starts playing again </span></span></code></pre>
+</div>
 <p><img src="2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-8-1.gif" /><!-- --></p>
 </div>
 <ul>
 <li>Assign loop to False or just F
 <div class="layout-chunk" data-layout="l-body">
-</li>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://gganimate.com/reference/animate.html'>animate</a></span><span class='op'>(</span><span class='va'>euro_anim</span>, renderer <span class='op'>=</span> <span class='fu'><a href='https://gganimate.com/reference/renderers.html'>gifski_renderer</a></span><span class='op'>(</span>loop <span class='op'>=</span> <span class='cn'>F</span><span class='op'>)</span>, width <span class='op'>=</span> <span class='fl'>700</span>, height <span class='op'>=</span> <span class='fl'>700</span>, duration <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span> <span class='co'># when you assign loop=TRUE or just F, the gif stops looping. It only plays once. Refresh if you want to see again  </span></span></code></pre>
+</div>
+<img src="2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-9-1.gif" /><!-- --></li>
 </ul>
-<pre class="r"><code>
-animate(euro_anim, renderer = gifski_renderer(loop = F), width = 700, height = 700, duration = 15) # when you assign loop=TRUE or just F, the gif stops looping. It only plays once. Refresh if you want to see again  </code></pre>
-<p><img src="2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-9-1.gif" /><!-- --></p>
 </div>
 <h1 id="lets-tweak-few-things-and-see-what-happens">Let’s tweak few things and see what happens</h1>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-euro_anim &lt;- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
-  geom_point(size=6) + transition_time(Yearnumeric)  +
-  shadow_mark()  +  
-  scale_x_continuous(name =&quot;Year&quot;,
-                     breaks= c(1990,1995,2000,2005, 
-                               2010, 2015, 2020)) +
-  
-  xlab(&quot;Year&quot;) +
-  ylab(&quot;Prevalence of diabetes in %&quot;) +
-  labs(col=&quot;Country&quot;) + 
-
-  shadow_wake(wake_length = 0.1, alpha = FALSE) +
-  theme(
-    axis.title.x = element_text(color = &quot;Blue&quot;, size=15),
-    axis.title.y = element_text(color = &quot;Blue&quot;, size=15),
-    axis.text.x = element_text(size = 15),
-    axis.text.y = element_text(size = 15),
-    
-    plot.title = element_text(size=20),
-    
-    legend.title = element_text(size = 10),
-    legend.text = element_text(size = 10),
-    legend.position = &quot;None&quot;,
-    
-    text = element_text(family = &quot;Comics Sans MS&quot;)
-  ) + ease_aes(&#39;cubic-in-out&#39;) +
-  geom_dl(aes(label=Location),
-          method=list(&quot;last.points&quot;,rot=40)) 
-
-animate(euro_anim, renderer = gifski_renderer(loop = F), width = 700, height = 700, duration = 15)</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>euro_anim</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>ger_au_ch</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>Yearnumeric</span>, y<span class='op'>=</span><span class='va'>Prev</span>, col<span class='op'>=</span><span class='va'>Location</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>6</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://gganimate.com/reference/transition_time.html'>transition_time</a></span><span class='op'>(</span><span class='va'>Yearnumeric</span><span class='op'>)</span>  <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://gganimate.com/reference/shadow_mark.html'>shadow_mark</a></span><span class='op'>(</span><span class='op'>)</span>  <span class='op'>+</span>  </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span>name <span class='op'>=</span><span class='st'>"Year"</span>,</span>
+<span>                     breaks<span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1990</span>,<span class='fl'>1995</span>,<span class='fl'>2000</span>,<span class='fl'>2005</span>, </span>
+<span>                               <span class='fl'>2010</span>, <span class='fl'>2015</span>, <span class='fl'>2020</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Year"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"Prevalence of diabetes in %"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>col<span class='op'>=</span><span class='st'>"Country"</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span></span>
+<span>  <span class='fu'><a href='https://gganimate.com/reference/shadow_wake.html'>shadow_wake</a></span><span class='op'>(</span>wake_length <span class='op'>=</span> <span class='fl'>0.1</span>, alpha <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    axis.title.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"Blue"</span>, size<span class='op'>=</span><span class='fl'>15</span><span class='op'>)</span>,</span>
+<span>    axis.title.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"Blue"</span>, size<span class='op'>=</span><span class='fl'>15</span><span class='op'>)</span>,</span>
+<span>    axis.text.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span>,</span>
+<span>    axis.text.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span>,</span>
+<span>    </span>
+<span>    plot.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>20</span><span class='op'>)</span>,</span>
+<span>    </span>
+<span>    legend.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>,</span>
+<span>    legend.text <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>,</span>
+<span>    legend.position <span class='op'>=</span> <span class='st'>"None"</span>,</span>
+<span>    </span>
+<span>    text <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>family <span class='op'>=</span> <span class='st'>"Comics Sans MS"</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://gganimate.com/reference/ease_aes.html'>ease_aes</a></span><span class='op'>(</span><span class='st'>'cubic-in-out'</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://rdrr.io/pkg/directlabels/man/geom_dl.html'>geom_dl</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>label<span class='op'>=</span><span class='va'>Location</span><span class='op'>)</span>,</span>
+<span>          method<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>"last.points"</span>,rot<span class='op'>=</span><span class='fl'>40</span><span class='op'>)</span><span class='op'>)</span> </span>
+<span></span>
+<span><span class='fu'><a href='https://gganimate.com/reference/animate.html'>animate</a></span><span class='op'>(</span><span class='va'>euro_anim</span>, renderer <span class='op'>=</span> <span class='fu'><a href='https://gganimate.com/reference/renderers.html'>gifski_renderer</a></span><span class='op'>(</span>loop <span class='op'>=</span> <span class='cn'>F</span><span class='op'>)</span>, width <span class='op'>=</span> <span class='fl'>700</span>, height <span class='op'>=</span> <span class='fl'>700</span>, duration <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span></span></code></pre>
+</div>
 <p><img src="2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-10-1.gif" /><!-- --></p>
 </div>
 <ul>
 <li>And again
 <div class="layout-chunk" data-layout="l-body">
-</li>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>euro_anim3</span> <span class='op'>&lt;-</span> <span class='va'>ger_au_ch</span> <span class='op'><a href='https://magrittr.tidyverse.org/reference/pipe.html'>%&gt;%</a></span> </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>Yearnumeric</span>, y<span class='op'>=</span><span class='va'>Prev</span>, col<span class='op'>=</span><span class='va'>Location</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>    <span class='fu'><a href='https://gganimate.com/reference/transition_reveal.html'>transition_reveal</a></span><span class='op'>(</span><span class='va'>Yearnumeric</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://gganimate.com/reference/shadow_mark.html'>shadow_mark</a></span><span class='op'>(</span><span class='op'>)</span>  <span class='op'>+</span>  </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span>name <span class='op'>=</span><span class='st'>"Year"</span>,</span>
+<span>                     breaks<span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1990</span>,<span class='fl'>1995</span>,<span class='fl'>2000</span>,<span class='fl'>2005</span>, </span>
+<span>                               <span class='fl'>2010</span>, <span class='fl'>2015</span>, <span class='fl'>2020</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Year"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"Prevalence of diabetes in %"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>col<span class='op'>=</span><span class='st'>"Country"</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://gganimate.com/reference/shadow_wake.html'>shadow_wake</a></span><span class='op'>(</span>wake_length <span class='op'>=</span> <span class='fl'>0.1</span>, alpha <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span></span>
+<span>    axis.title.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"Blue"</span>, size<span class='op'>=</span><span class='fl'>15</span><span class='op'>)</span>,</span>
+<span>    axis.title.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='st'>"Blue"</span>, size<span class='op'>=</span><span class='fl'>15</span><span class='op'>)</span>,</span>
+<span>    axis.text.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span>,</span>
+<span>    axis.text.y <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>15</span><span class='op'>)</span>,</span>
+<span>    </span>
+<span>    plot.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size<span class='op'>=</span><span class='fl'>20</span><span class='op'>)</span>,</span>
+<span>    </span>
+<span>    legend.title <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>,</span>
+<span>    legend.text <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>10</span><span class='op'>)</span>,</span>
+<span>    legend.position <span class='op'>=</span> <span class='st'>"None"</span>,</span>
+<span>    </span>
+<span>    text <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>family <span class='op'>=</span> <span class='st'>"Comics Sans MS"</span><span class='op'>)</span></span>
+<span>  <span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://gganimate.com/reference/ease_aes.html'>ease_aes</a></span><span class='op'>(</span><span class='st'>'cubic-in-out'</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://rdrr.io/pkg/directlabels/man/geom_dl.html'>geom_dl</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>label<span class='op'>=</span><span class='va'>Location</span><span class='op'>)</span>,</span>
+<span>          method<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>"last.points"</span>,rot<span class='op'>=</span><span class='fl'>40</span><span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>euro_anim3</span>  </span></code></pre>
+</div>
+<img src="2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-11-1.gif" /><!-- --></li>
 </ul>
-<pre class="r"><code>
-euro_anim3 &lt;- ger_au_ch %&gt;% 
-  ggplot( aes(x=Yearnumeric, y=Prev, col=Location)) + geom_line() + geom_line() +
-  geom_point() +
-    transition_reveal(Yearnumeric) + 
-  shadow_mark()  +  
-  scale_x_continuous(name =&quot;Year&quot;,
-                     breaks= c(1990,1995,2000,2005, 
-                               2010, 2015, 2020)) +
-  xlab(&quot;Year&quot;) +
-  ylab(&quot;Prevalence of diabetes in %&quot;) +
-  labs(col=&quot;Country&quot;) + 
-  shadow_wake(wake_length = 0.1, alpha = FALSE) +
-  theme(
-    axis.title.x = element_text(color = &quot;Blue&quot;, size=15),
-    axis.title.y = element_text(color = &quot;Blue&quot;, size=15),
-    axis.text.x = element_text(size = 15),
-    axis.text.y = element_text(size = 15),
-    
-    plot.title = element_text(size=20),
-    
-    legend.title = element_text(size = 10),
-    legend.text = element_text(size = 10),
-    legend.position = &quot;None&quot;,
-    
-    text = element_text(family = &quot;Comics Sans MS&quot;)
-  ) + ease_aes(&#39;cubic-in-out&#39;) +
-  geom_dl(aes(label=Location),
-          method=list(&quot;last.points&quot;,rot=40))
-
-euro_anim3  </code></pre>
-<p><img src="2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-11-1.gif" /><!-- --></p>
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<pre class="r"><code>
-# Shorter code
- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + geom_line() + geom_line() +
-  geom_point() +
-    transition_reveal(Yearnumeric) + 
-  shadow_mark()  +  
-  scale_x_continuous(name =&quot;Year&quot;,
-                     breaks= c(1990,1995,2000,2005, 
-                               2010, 2015, 2020)) +
-  xlab(&quot;Year&quot;) +
-  ylab(&quot;Prevalence of diabetes in %&quot;) +
-  labs(col=&quot;Country&quot;) + ease_aes(&#39;cubic-in-out&#39;) +
-  geom_dl(aes(label=Location),
-          method=list(&quot;last.points&quot;,rot=40))</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='co'># Shorter code</span></span>
+<span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='va'>ger_au_ch</span>, <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='va'>Yearnumeric</span>, y<span class='op'>=</span><span class='va'>Prev</span>, col<span class='op'>=</span><span class='va'>Location</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>geom_line</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>    <span class='fu'><a href='https://gganimate.com/reference/transition_reveal.html'>transition_reveal</a></span><span class='op'>(</span><span class='va'>Yearnumeric</span><span class='op'>)</span> <span class='op'>+</span> </span>
+<span>  <span class='fu'><a href='https://gganimate.com/reference/shadow_mark.html'>shadow_mark</a></span><span class='op'>(</span><span class='op'>)</span>  <span class='op'>+</span>  </span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_continuous.html'>scale_x_continuous</a></span><span class='op'>(</span>name <span class='op'>=</span><span class='st'>"Year"</span>,</span>
+<span>                     breaks<span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1990</span>,<span class='fl'>1995</span>,<span class='fl'>2000</span>,<span class='fl'>2005</span>, </span>
+<span>                               <span class='fl'>2010</span>, <span class='fl'>2015</span>, <span class='fl'>2020</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>xlab</a></span><span class='op'>(</span><span class='st'>"Year"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>ylab</a></span><span class='op'>(</span><span class='st'>"Prevalence of diabetes in %"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>col<span class='op'>=</span><span class='st'>"Country"</span><span class='op'>)</span> <span class='op'>+</span> <span class='fu'><a href='https://gganimate.com/reference/ease_aes.html'>ease_aes</a></span><span class='op'>(</span><span class='st'>'cubic-in-out'</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://rdrr.io/pkg/directlabels/man/geom_dl.html'>geom_dl</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>label<span class='op'>=</span><span class='va'>Location</span><span class='op'>)</span>,</span>
+<span>          method<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='st'>"last.points"</span>,rot<span class='op'>=</span><span class='fl'>40</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
 <p><img src="2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-12-1.gif" /><!-- --></p>
 </div>
 <ul>
@@ -2394,6 +2486,7 @@ euro_anim3  </code></pre>
 <p>That is it all for today. I hope, you like it. See you in my next post.</p>
 <h1 id="contact">Contact</h1>
 <p>Please mention <a href="https://twitter.com/MihiretuKebede1">MihiretuKebede1</a> if you tweet this post.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">
