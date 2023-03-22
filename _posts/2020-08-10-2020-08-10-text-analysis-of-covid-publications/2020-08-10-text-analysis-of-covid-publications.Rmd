@@ -1,6 +1,7 @@
 ---
 title: "Applying text analyses methods on 382 COVID19 journal articles"
-
+categories: 
+  - Data Science
 author: Mihiretu Kebede(PhD)
 url: http://www.mihiretukebede.com/ 
 google_analytics: "UA-173027539-1"

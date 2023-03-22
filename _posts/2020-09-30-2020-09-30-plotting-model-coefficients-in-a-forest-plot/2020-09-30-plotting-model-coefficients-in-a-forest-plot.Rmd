@@ -1,6 +1,8 @@
 ---
 name: "Aspire Data Solutions"
 title: "Plotting regression model coefficients in a forest plot"
+categories: 
+  - Data Science
 date: February 4, 2021
 theme: theme.css
 author: Mihiretu Kebede(PhD)

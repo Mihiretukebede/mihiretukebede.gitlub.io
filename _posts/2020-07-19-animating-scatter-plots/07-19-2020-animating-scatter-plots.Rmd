@@ -2,6 +2,8 @@
 name: "Aspire Data Solutions"
 output_dir: "."
 title: "Animating scatter plots"
+categories: 
+  - Data Science
 author: Mihiretu Kebede(PhD)
 url: http://www.mihiretukebede.com/ 
 preview: F:/github/githubwebsite/scatterplot.JPG

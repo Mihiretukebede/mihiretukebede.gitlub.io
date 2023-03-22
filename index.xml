@@ -33,7 +33,7 @@
       <description>In this blog post, I demonstrated how to easily scrap individual participant data by digitizing a scatter plot of an old publication.</description>
       <category>Data Science</category>
       <guid>http://www.mihiretukebede.com/posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots</guid>
-      <pubDate>Mon, 07 Jun 2021 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 08 Jun 2021 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/digitize.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
@@ -41,6 +41,7 @@
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
       <link>http://www.mihiretukebede.com/posts/NA-corr-plot-python-vs-r</link>
       <description>Correlation heat map in R and Python</description>
+      <category>Data Science</category>
       <guid>http://www.mihiretukebede.com/posts/NA-corr-plot-python-vs-r</guid>
       <pubDate>Mon, 17 May 2021 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/NA-corr-plot-python-vs-r/2021-05-13-corr-plot-python-vs-r_files/figure-html5/unnamed-chunk-7-1.png" medium="image" type="image/png" width="1248" height="768"/>
@@ -59,8 +60,9 @@
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
       <link>http://www.mihiretukebede.com/posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot</link>
       <description>How to plot model coefficients in a forest plot.</description>
+      <category>Data Science</category>
       <guid>http://www.mihiretukebede.com/posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot</guid>
-      <pubDate>Thu, 04 Feb 2021 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 03 Feb 2021 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot/2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-20-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
@@ -68,6 +70,7 @@
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
       <link>http://www.mihiretukebede.com/posts/2020-08-10-2020-08-10-text-analysis-of-covid-publications</link>
       <description>This blog post is a continuation of my previous blog post on applications of text mining on sampled COVI19 publications.</description>
+      <category>Data Science</category>
       <guid>http://www.mihiretukebede.com/posts/2020-08-10-2020-08-10-text-analysis-of-covid-publications</guid>
       <pubDate>Tue, 11 Aug 2020 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2020-08-10-2020-08-10-text-analysis-of-covid-publications/2020-08-10-text-analysis-of-covid-publications_files/figure-html5/unnamed-chunk-14-1.png" medium="image" type="image/png" width="2600" height="1600"/>
@@ -95,6 +98,7 @@
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
       <link>http://www.mihiretukebede.com/posts/2020-07-25-2020-07-25-diabetesprevalenceeurope</link>
       <description>This is a quick demonstration of diabetes prevalence in six European countries. The data are from the the Institute of Health Metrics and Evaluation (IHME).</description>
+      <category>Data Science</category>
       <guid>http://www.mihiretukebede.com/posts/2020-07-25-2020-07-25-diabetesprevalenceeurope</guid>
       <pubDate>Sat, 25 Jul 2020 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2020-07-25-2020-07-25-diabetesprevalenceeurope/2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-5-1.png" medium="image" type="image/png" width="1248" height="768"/>
@@ -104,6 +108,7 @@
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
       <link>http://www.mihiretukebede.com/posts/2020-07-19-animating-scatter-plots</link>
       <description>Creating `Gif` for scatter plots</description>
+      <category>Data Science</category>
       <guid>http://www.mihiretukebede.com/posts/2020-07-19-animating-scatter-plots</guid>
       <pubDate>Tue, 21 Jul 2020 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2020-07-19-animating-scatter-plots/07-19-2020-animating-scatter-plots_files/figure-html5/setup-1.png" medium="image" type="image/png" width="1248" height="768"/>
@@ -113,6 +118,7 @@
       <dc:creator>Mihiretu Kebede</dc:creator>
       <link>http://www.mihiretukebede.com/posts/2020-07-13-Animating-bar-graphs_files</link>
       <description>Here we will have a quick look on how to create `Gif` or animated bar plots</description>
+      <category>Data Science</category>
       <guid>http://www.mihiretukebede.com/posts/2020-07-13-Animating-bar-graphs_files</guid>
       <pubDate>Mon, 13 Jul 2020 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2020-07-13-Animating-bar-graphs_files/2020-07-13-Animating-bar-graphs_files/figure-html5/unnamed-chunk-2-1.png" medium="image" type="image/png" width="1248" height="768"/>
