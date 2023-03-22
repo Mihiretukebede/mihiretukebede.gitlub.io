@@ -92,6 +92,7 @@ plot2
 # The fun part
 
 ```{r, include=TRUE, echo=TRUE, warning=FALSE, message=FALSE}
+library(ggplot2)
 euro_anim <- ggplot(ger_au_ch, aes(x=Yearnumeric, y=Prev, col=Location)) + 
   geom_point(size=6) + transition_time(Yearnumeric)  +
   shadow_mark()  +  

@@ -2,6 +2,8 @@
 name: "Aspire Data Solutions"
 output_dir: "."
 title: "Vizualizing the prevalence of diabetes in six European countries"
+categories: 
+  - Data Science
 author: Mihiretu Kebede (PhD)
 url: http://www.mihiretukebede.com/ 
 google_analytics: "UA-173027539-1"

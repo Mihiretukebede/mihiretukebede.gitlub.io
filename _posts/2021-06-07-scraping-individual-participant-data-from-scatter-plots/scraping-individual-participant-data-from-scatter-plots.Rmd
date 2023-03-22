@@ -1,5 +1,7 @@
 ---
 title: "Scraping individual participant data from scatter plots"
+categories: 
+  - Data Science
 description: |
   In this blog post, I demonstrated how to easily scrap individual participant data by digitizing a scatter plot of an old publication.
 theme: theme.css

@@ -7,9 +7,9 @@ description: |
 google_analytics: "UA-173027539-1"
 base_url: http://www.mihiretukebede.com/ 
 date: "2020-08-06"
-collections: 
+collections:
   posts:
-      share: [twitter, linkedin, facebook, google-plus, pinterest] 
+    share: [twitter, linkedin, facebook, google-plus, pinterest]
 navbar:
   left:
     - text: "Home"
@@ -37,4 +37,10 @@ navbar:
     - icon: fa fa-rss
       href: index.xml
 
-output: distill::distill_article     
+output:
+  distill::distill_article:
+    categories:
+      - Data Science
+      - Travel Experiences
+      - Holidays
+     
