@@ -36,7 +36,7 @@ I am interested in predicting abstracts that will fall into "SARS_2003" and "COV
 
 I load the data and see a summary of number of characters used to write the abstracts. For this analysis, I will use only abstracts having 200 characters. I will just filter out the abstracts on the lower side of the extreme.
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, eval=TRUE}
 library(readxl)
 library(dplyr)
 covid_sars <- read_excel("covidsars.xlsx")
