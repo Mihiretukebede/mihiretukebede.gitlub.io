@@ -7,7 +7,7 @@
     <description>This is Mihiretu Kebede(PhD)'s personal website. 
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 22 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Mar 2023 00:00:00 +0000</lastBuildDate>
     <item>
       <title>XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts</title>
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
@@ -15,7 +15,7 @@
       <description>Machine learning methods for document classification.</description>
       <category>Data Science</category>
       <guid>http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning</guid>
-      <pubDate>Wed, 22 Mar 2023 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 23 Mar 2023 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/machinelearning.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
@@ -104,7 +104,7 @@
       <description>This is a quick demonstration of diabetes prevalence in six European countries. The data are from the the Institute of Health Metrics and Evaluation (IHME).</description>
       <category>Data Science</category>
       <guid>http://www.mihiretukebede.com/posts/2020-07-25-2020-07-25-diabetesprevalenceeurope</guid>
-      <pubDate>Sat, 25 Jul 2020 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 24 Jul 2020 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2020-07-25-2020-07-25-diabetesprevalenceeurope/2020-07-25-diabetesprevalenceeurope_files/figure-html5/unnamed-chunk-5-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
