@@ -18,6 +18,7 @@ collections:
 output:
   distill::distill_article:
     self_contained: false
+    encoding: UTF-8
     widerscreen: true
 ---
 
@@ -484,7 +485,8 @@ How do you interpret the above cross validated loss functions(eg.RMSE)?
 
 If the linear model is applied to unseen data, it will predict life expectancy about 4.6 years off from the actual life expectancy of a country. That was great. Unfortunately, the model did not satisfy the assumptions. Let's now evaluate our logistic regression
 
-```{r}
+```{r, eval=TRUE}
+library(caret)
 set.seed(123)
 (cv_logit <-  train(life_exp_cat ~ total_expenditure + 
              schooling + adult_mortality + infant_deaths + thinness_1_19_years +

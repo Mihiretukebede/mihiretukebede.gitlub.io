@@ -17,6 +17,7 @@ collections:
 output:
   distill::distill_article:
     self_contained: false
+    encoding: UTF-8
     widerscreen: false
     toc: true
     toc_depth: 2
