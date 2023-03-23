@@ -1,6 +1,8 @@
 ---
 name: "Aspire Data Solutions"
-title: "Digital Reactions Towards Prime Minister Abiy Ahmed's Facebook Activities."
+title: "Digital Reactions Towards Prime Minister Abiy Ahmed's Facebook Activities"
+categories: 
+  - Data Science
 author: Mihiretu Kebede(PhD)
 url: http://www.mihiretukebede.com/ 
 google_analytics: "UA-173027539-1"

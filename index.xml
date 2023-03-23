@@ -7,7 +7,17 @@
     <description>This is Mihiretu Kebede(PhD)'s personal website. 
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 21 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts</title>
+      <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
+      <link>http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning</link>
+      <description>Machine learning methods for document classification.</description>
+      <category>Data Science</category>
+      <guid>http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning</guid>
+      <pubDate>Thu, 23 Mar 2023 00:00:00 +0000</pubDate>
+      <media:content url="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/machinelearning.jpg" medium="image" type="image/jpeg"/>
+    </item>
     <item>
       <title>Classifying abstracts using regularized models: covid-19 or sars-2003?</title>
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
@@ -15,17 +25,8 @@
       <description>Classifying abstracts using regularized models: covid-19 or sars-2003?</description>
       <category>Data Science</category>
       <guid>http://www.mihiretukebede.com/posts/2020-12-09-2020-12-09-documentclassification-using-regularized-models</guid>
-      <pubDate>Tue, 21 Mar 2023 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 22 Mar 2023 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2020-12-09-2020-12-09-documentclassification-using-regularized-models/2020-12-09-documentclassification-using-regularized-models_files/figure-html5/unnamed-chunk-16-1.png" medium="image" type="image/png" width="1950" height="1200"/>
-    </item>
-    <item>
-      <title>XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts</title>
-      <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
-      <link>http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning</link>
-      <description>Machine learning methods for document classification.</description>
-      <guid>http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning</guid>
-      <pubDate>Tue, 21 Mar 2023 00:00:00 +0000</pubDate>
-      <media:content url="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/machinelearning.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
       <title>Scraping individual participant data from scatter plots</title>
@@ -77,12 +78,13 @@
       <media:content url="http://www.mihiretukebede.com/posts/2020-08-10-2020-08-10-text-analysis-of-covid-publications/2020-08-10-text-analysis-of-covid-publications_files/figure-html5/unnamed-chunk-14-1.png" medium="image" type="image/png" width="2600" height="1600"/>
     </item>
     <item>
-      <title>Digital Reactions Towards Prime Minister Abiy Ahmed's Facebook Activities.</title>
+      <title>Digital Reactions Towards Prime Minister Abiy Ahmed's Facebook Activities</title>
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
       <link>http://www.mihiretukebede.com/posts/2020-08-04-2020-08-04-abiyahmed</link>
       <description>Let's have some fun in visualizing Facebook reactions to prime minister Abiy Ahmed's Facebook posts (June 24 to August 09). This post is an updated version. The previous analysis was only until August 5.</description>
+      <category>Data Science</category>
       <guid>http://www.mihiretukebede.com/posts/2020-08-04-2020-08-04-abiyahmed</guid>
-      <pubDate>Thu, 06 Aug 2020 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2020-08-04-2020-08-04-abiyahmed/2020-08-04-abiyahmed_files/figure-html5/unnamed-chunk-5-1.png" medium="image" type="image/png" width="2600" height="1600"/>
     </item>
     <item>
