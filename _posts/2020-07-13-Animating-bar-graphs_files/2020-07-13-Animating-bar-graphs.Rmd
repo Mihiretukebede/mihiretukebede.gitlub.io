@@ -28,10 +28,10 @@ Hello, this is my first ever blog post. Detail explanations of this data vizuali
   
 ```{r, echo=TRUE, include=TRUE}
 #Set working directory
-setwd("F:/github/githubwebsite")
+#setwd("F:/github/githubwebsite")
 
 library(readxl)
-mystepcount <- read_excel("mystepcount.xlsx")
+mystepcount <- read_excel("F:/github/githubwebsite/mystepcount.xlsx")
 
 str(mystepcount)
 

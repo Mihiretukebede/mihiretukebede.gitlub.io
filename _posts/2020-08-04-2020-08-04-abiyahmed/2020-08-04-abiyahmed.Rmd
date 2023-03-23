@@ -62,7 +62,7 @@ library(ggimage)
 
 ```{r, cache=F, include=T, echo=T, message=FALSE, warning=FALSE}
 
-abiy_ahmed <- read_excel("abiy_ahmed.xlsx")
+abiy_ahmed <- read_excel("F:/github/githubwebsite/_posts/2020-08-04-2020-08-04-abiyahmed/abiy_ahmed.xlsx")
 # As usual 
 dim(abiy_ahmed)
 glimpse(abiy_ahmed)
