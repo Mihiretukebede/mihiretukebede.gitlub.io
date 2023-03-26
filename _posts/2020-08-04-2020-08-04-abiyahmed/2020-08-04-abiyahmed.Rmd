@@ -16,7 +16,6 @@ collections:
       
 output:
   distill::distill_article:
-    self_contained: false
     encoding: utf-8
     widerscreen: true
     toc: true
