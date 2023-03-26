@@ -1575,7 +1575,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </div>
 </div>
 <p><img src="df.gif" /></p>
-<p>Now we have extracted the x which was BMI and the y (insulin level). We can easily recalculate the correlation and β coefficient values.</p>
+<p>Now we have extracted the x which was BMI and the y (insulin level). We can easily recalculate the correlation and Beta coefficient values.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>$</span><span class='va'>x</span>, <span class='va'>df</span><span class='op'>$</span><span class='va'>y</span>, method <span class='op'>=</span> <span class='st'>"pearson"</span><span class='op'>)</span></span></code></pre>
@@ -1588,7 +1588,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>y</span><span class='op'>~</span><span class='va'>x</span>, data<span class='op'>=</span><span class='va'>df</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
-<p>I estimated the correlation value to be 0.709 and the β coefficient to be about 0.9605. The tiny difference is due to my calibration. If you zoom and carefully calibrate, you can have approximately similar values.</p>
+<p>I estimated the correlation value to be 0.709 and the Beta coefficient to be about 0.9605. The tiny difference is due to my calibration. If you zoom and carefully calibrate, you can have approximately similar values.</p>
 <p><img src="lm.png" /></p>
 <p>Thank you for reading this post. I hope you find this helpful. For more, subscribe to my <a href="https://www.youtube.com/channel/UCpHd6O1Yqz4YgcYUBfyRqKg">YouTube channel</a> and follow me on Twitter @<a href="https://twitter.com/RPy_DataScience">RPy_DataScience</a>.You can also follow me by liking <a href="https://web.facebook.com/R_Py-Data-Science-105325938441990/news_feed">R_Py Data Science</a> Facebook page.</p>
 <h1 id="contact">Contact</h1>

@@ -83,7 +83,7 @@ df <- Calibrate(data.points, fig, 0, 100, 0, 100) #determin where x and y axis v
 ```
 ![](df.gif)
 
-Now we have extracted the x which was BMI and the y (insulin level). We can easily recalculate the correlation and β coefficient values.
+Now we have extracted the x which was BMI and the y (insulin level). We can easily recalculate the correlation and Beta coefficient values.
 
 ```{r, include=TRUE,eval=FALSE, echo=TRUE, warning=FALSE}
 cor(df$x, df$y, method = "pearson")
@@ -97,7 +97,7 @@ Estimate the regression coefficient and compare with the reported value.
 summary(lm(y~x, data=df))
 ```
 
-I estimated the correlation value to be 0.709 and the β coefficient to be about 0.9605. The tiny difference is due to my calibration. If you zoom and carefully calibrate, you can have approximately similar values.
+I estimated the correlation value to be 0.709 and the Beta coefficient to be about 0.9605. The tiny difference is due to my calibration. If you zoom and carefully calibrate, you can have approximately similar values.
 
 ![](lm.png)
 
