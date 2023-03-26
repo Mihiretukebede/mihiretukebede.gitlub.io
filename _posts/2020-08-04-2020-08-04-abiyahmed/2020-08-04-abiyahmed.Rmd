@@ -21,6 +21,7 @@ output:
     widerscreen: true
     toc: true
     toc_depth: 2
+    fig.path: "."
 ---
 
 <head>
@@ -29,7 +30,7 @@ output:
 
 ### Disclaimer
 
-This blog post is simply about visualizing the data. I have no political affiliation. However, I cannot hide my sincere admiration and tremendous respect to prime minister Abiy Ahmed.
+This blog post is simply about visualizing the data. I have no political affiliation. 
 
 # Introduction
 
