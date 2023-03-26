@@ -22,7 +22,7 @@ navbar:
       href: about.html
 
   right:
-    - icon: YouTube
+    - icon: fab fa-youtube
       href: https://www.youtube.com/channel/UCpHd6O1Yqz4YgcYUBfyRqKg  
     - icon: fa-envelope fa-lg
       href: contact.html
