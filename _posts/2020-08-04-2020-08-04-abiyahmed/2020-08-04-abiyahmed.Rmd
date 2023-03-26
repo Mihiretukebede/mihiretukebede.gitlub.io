@@ -65,7 +65,7 @@ library(ggimage)
 
 ```{r, cache=F, include=T, echo=T, message=FALSE, warning=FALSE}
 
-abiy_ahmed <- read_excel("C:/Users/mihir/OneDrive/Dokumente/Moved_from_website")
+abiy_ahmed <- read_excel("F:/github/githubwebsite/_posts/2020-08-04-2020-08-04-abiyahmed/abiy_ahmed.xlsx")
 # As usual 
 dim(abiy_ahmed)
 glimpse(abiy_ahmed)
@@ -124,7 +124,7 @@ plot <- ggplot(abiy_ahmed, aes(x=Date_posted,
 
 plot1 <- direct.label(plot, "first.qp")
 
-plot2 <- ggbackground(plot1, "abiy.jpg") 
+plot2 <- ggbackground(plot1, "abiy.png") 
 plot2
 ```
 
