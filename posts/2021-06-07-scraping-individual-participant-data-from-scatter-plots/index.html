@@ -130,7 +130,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["Animationnewlastr.gif","corr.png","df.gif","digitize.jpg","download.svg","lm.png","paste-586399E8.png","points.gif","publication.png","scatterPlotdigitize.JPG","scraping-individual-participant-data-from-scatter-plots_files/anchor-4.2.2/anchor.min.js","scraping-individual-participant-data-from-scatter-plots_files/bowser-1.9.3/bowser.min.js","scraping-individual-participant-data-from-scatter-plots_files/distill-2.2.21/template.v2.js","scraping-individual-participant-data-from-scatter-plots_files/figure-html5/unnamed-chunk-2-1.png","scraping-individual-participant-data-from-scatter-plots_files/header-attrs-2.20/header-attrs.js","scraping-individual-participant-data-from-scatter-plots_files/jquery-3.6.0/jquery-3.6.0.js","scraping-individual-participant-data-from-scatter-plots_files/jquery-3.6.0/jquery-3.6.0.min.js","scraping-individual-participant-data-from-scatter-plots_files/jquery-3.6.0/jquery-3.6.0.min.map","scraping-individual-participant-data-from-scatter-plots_files/popper-2.6.0/popper.min.js","scraping-individual-participant-data-from-scatter-plots_files/tippy-6.2.7/tippy-bundle.umd.min.js","scraping-individual-participant-data-from-scatter-plots_files/tippy-6.2.7/tippy-light-border.css","scraping-individual-participant-data-from-scatter-plots_files/tippy-6.2.7/tippy.css","scraping-individual-participant-data-from-scatter-plots_files/tippy-6.2.7/tippy.umd.min.js","scraping-individual-participant-data-from-scatter-plots_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["Animationnewlastr.gif","corr.png","df.gif","digitize.jpg","download.svg","lm.png","paste-586399E8.png","points.gif","publication.png","scatterPlotdigitize.JPG","scraping-individual-participant-data-from-scatter-plots_files/anchor-4.2.2/anchor.min.js","scraping-individual-participant-data-from-scatter-plots_files/bowser-1.9.3/bowser.min.js","scraping-individual-participant-data-from-scatter-plots_files/distill-2.2.21/template.v2.js","scraping-individual-participant-data-from-scatter-plots_files/figure-html5/unnamed-chunk-2-1.png","scraping-individual-participant-data-from-scatter-plots_files/figure-html5/unnamed-chunk-4-1.png","scraping-individual-participant-data-from-scatter-plots_files/header-attrs-2.20/header-attrs.js","scraping-individual-participant-data-from-scatter-plots_files/jquery-3.6.0/jquery-3.6.0.js","scraping-individual-participant-data-from-scatter-plots_files/jquery-3.6.0/jquery-3.6.0.min.js","scraping-individual-participant-data-from-scatter-plots_files/jquery-3.6.0/jquery-3.6.0.min.map","scraping-individual-participant-data-from-scatter-plots_files/popper-2.6.0/popper.min.js","scraping-individual-participant-data-from-scatter-plots_files/tippy-6.2.7/tippy-bundle.umd.min.js","scraping-individual-participant-data-from-scatter-plots_files/tippy-6.2.7/tippy-light-border.css","scraping-individual-participant-data-from-scatter-plots_files/tippy-6.2.7/tippy.css","scraping-individual-participant-data-from-scatter-plots_files/tippy-6.2.7/tippy.umd.min.js","scraping-individual-participant-data-from-scatter-plots_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2212,20 +2212,35 @@ gtag('config', 'UA-173027539-1');
 </iframe>
 </div>
 <p>The scatter plot that I will use is from the 1994 publication by Strain G. and colleagues. The results are interesting and I invite you reading the paper.</p>
-<p><img src="publication.png" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/include_graphics.html'>include_graphics</a></span><span class='op'>(</span><span class='st'>"F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/publication.png"</span><span class='op'>)</span> </span></code></pre>
+</div>
+<p><img src="publication.png" width="918" /></p>
+</div>
 <p>For this blog post, I will be using Fig 1 which shows the relationship of fasting insulin level to BMI in non-dieting weight-stable subjects.</p>
-<p><img src="paste-586399E8.png" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/include_graphics.html'>include_graphics</a></span><span class='op'>(</span><span class='st'>"F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/paste-586399E8.png"</span><span class='op'>)</span> </span></code></pre>
+</div>
+<p><img src="paste-586399E8.png" width="426" /></p>
+</div>
 <p>Now, we have what we need and let’s go straight to extracting individual participant data from the scatter plot.</p>
 <p>What we need to do is take a screen shot of the scatter plot, save it as png or JPG, read it in R, calibrate the x and y axes .</p>
 <h3 id="read-and-calibrate-the-figure-mark-the-beginning-and-the-end-of-x-and-y-axis">Read and calibrate the figure (mark the beginning and the end of x and y axis)</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/tpoisot/digitize/'>digitize</a></span><span class='op'>)</span></span>
-<span><span class='va'>fig</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/digitize/man/ReadAndCal.html'>ReadAndCal</a></span><span class='op'>(</span><span class='st'>"scatterPlotdigitize.JPG"</span><span class='op'>)</span></span></code></pre>
+<span><span class='va'>fig</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/digitize/man/ReadAndCal.html'>ReadAndCal</a></span><span class='op'>(</span><span class='st'>"F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/scatterPlotdigitize.JPG"</span><span class='op'>)</span></span></code></pre>
 </div>
-<p><img src="scraping-individual-participant-data-from-scatter-plots_files/figure-html5/unnamed-chunk-2-1.png" width="624" /></p>
+<p><img src="scraping-individual-participant-data-from-scatter-plots_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
 </div>
-<p><img src="Animationnewlastr.gif" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/include_graphics.html'>include_graphics</a></span><span class='op'>(</span><span class='st'>"F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/Animationnewlastr.gif"</span><span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="Animationnewlastr.gif" /><!-- --></p>
+</div>
 <h3 id="mark-data-points">Mark data points</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2239,14 +2254,24 @@ gtag('config', 'UA-173027539-1');
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/digitize/man/Calibrate.html'>Calibrate</a></span><span class='op'>(</span><span class='va'>data.points</span>, <span class='va'>fig</span>, <span class='fl'>0</span>, <span class='fl'>100</span>, <span class='fl'>0</span>, <span class='fl'>100</span><span class='op'>)</span> <span class='co'>#determin where x and y axis values start and end</span></span></code></pre>
 </div>
 </div>
-<p><img src="df.gif" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/include_graphics.html'>include_graphics</a></span><span class='op'>(</span><span class='st'>"F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/df.gif"</span><span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="df.gif" /><!-- --></p>
+</div>
 <p>Now we have extracted the x which was BMI and the y (insulin level). We can easily recalculate the correlation and Beta coefficient values.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>$</span><span class='va'>x</span>, <span class='va'>df</span><span class='op'>$</span><span class='va'>y</span>, method <span class='op'>=</span> <span class='st'>"pearson"</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
-<p><img src="corr.png" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/include_graphics.html'>include_graphics</a></span><span class='op'>(</span><span class='st'>"F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/corr.png"</span><span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="corr.png" width="273" /></p>
+</div>
 <p>Estimate the regression coefficient and compare with the reported value.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -2254,7 +2279,12 @@ gtag('config', 'UA-173027539-1');
 </div>
 </div>
 <p>I estimated the correlation value to be 0.709 and the Beta coefficient to be about 0.9605. The tiny difference is due to my calibration. If you zoom and carefully calibrate, you can have approximately similar values.</p>
-<p><img src="lm.png" /></p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/include_graphics.html'>include_graphics</a></span><span class='op'>(</span><span class='st'>"F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/lm.png"</span><span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="lm.png" width="589" /></p>
+</div>
 <p>Thank you for reading this post. I hope you find this helpful. For more, subscribe to my <a href="https://www.youtube.com/channel/UCpHd6O1Yqz4YgcYUBfyRqKg">YouTube channel</a> and follow me on Twitter @<a href="https://twitter.com/RPy_DataScience">RPy_DataScience</a>.You can also follow me by liking <a href="https://web.facebook.com/R_Py-Data-Science-105325938441990/news_feed">R_Py Data Science</a> Facebook page.</p>
 <h1 id="contact">Contact</h1>
 <p>Please mention @<a href="https://twitter.com/RPy_DataScience">RPy_DataScience</a> if you tweet this post.</p>

@@ -51,11 +51,16 @@ cat(
 
 The scatter plot that I will use is from the 1994 publication by Strain G. and colleagues. The results are interesting and I invite you reading the paper.
 
-![](publication.png)
+```{r}
+knitr::include_graphics("F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/publication.png") 
+```
+
 
 For this blog post, I will be using Fig 1 which shows the relationship of fasting insulin level to BMI in non-dieting weight-stable subjects.
 
-![](paste-586399E8.png)
+```{r}
+knitr::include_graphics("F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/paste-586399E8.png") 
+```
 
 Now, we have what we need and let's go straight to extracting individual participant data from the scatter plot.
 
@@ -65,10 +70,14 @@ What we need to do is take a screen shot of the scatter plot, save it as png or 
 
 ```{r, include=TRUE, echo=TRUE, warning=FALSE}
 library(digitize)
-fig <- ReadAndCal("scatterPlotdigitize.JPG")
+fig <- ReadAndCal("F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/scatterPlotdigitize.JPG")
 ```
 
-![](Animationnewlastr.gif)
+```{r}
+knitr::include_graphics("F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/Animationnewlastr.gif")
+
+```
+
 
 ### Mark data points
 
@@ -85,7 +94,11 @@ data.points = DigitData(col="red")
 df <- Calibrate(data.points, fig, 0, 100, 0, 100) #determin where x and y axis values start and end
 ```
 
-![](df.gif)
+```{r}
+knitr::include_graphics("F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/df.gif")
+```
+
+
 
 Now we have extracted the x which was BMI and the y (insulin level). We can easily recalculate the correlation and Beta coefficient values.
 
@@ -93,7 +106,11 @@ Now we have extracted the x which was BMI and the y (insulin level). We can easi
 cor(df$x, df$y, method = "pearson")
 ```
 
-![](corr.png)
+```{r}
+knitr::include_graphics("F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/corr.png")
+
+```
+
 
 Estimate the regression coefficient and compare with the reported value.
 
@@ -103,7 +120,11 @@ summary(lm(y~x, data=df))
 
 I estimated the correlation value to be 0.709 and the Beta coefficient to be about 0.9605. The tiny difference is due to my calibration. If you zoom and carefully calibrate, you can have approximately similar values.
 
-![](lm.png)
+```{r}
+knitr::include_graphics("F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/lm.png")
+
+```
+
 
 Thank you for reading this post. I hope you find this helpful. For more, subscribe to my [YouTube channel](https://www.youtube.com/channel/UCpHd6O1Yqz4YgcYUBfyRqKg) and follow me on Twitter \@[RPy_DataScience](https://twitter.com/RPy_DataScience).You can also follow me by liking [R_Py Data Science](https://web.facebook.com/R_Py-Data-Science-105325938441990/news_feed) Facebook page.
 
