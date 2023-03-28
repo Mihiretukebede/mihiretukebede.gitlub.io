@@ -2225,7 +2225,7 @@ gtag('config', 'UA-173027539-1');
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/tpoisot/digitize/'>digitize</a></span><span class='op'>)</span></span>
-<span><span class='va'>fig</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/digitize/man/ReadAndCal.html'>ReadAndCal</a></span><span class='op'>(</span><span class='st'>"F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/scatterPlotdigitize.JPG"</span><span class='op'>)</span></span></code></pre>
+<span><span class='va'>fig</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/digitize/man/ReadAndCal.html'>ReadAndCal</a></span><span class='op'>(</span><span class='st'>'F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/scatterPlotdigitize.JPG'</span><span class='op'>)</span></span></code></pre>
 </div>
 <p><img src="scraping-individual-participant-data-from-scatter-plots_files/figure-html5/unnamed-chunk-4-1.png" width="624" /></p>
 </div>
@@ -2235,7 +2235,7 @@ gtag('config', 'UA-173027539-1');
 <h3 id="mark-data-points">Mark data points</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>data.points</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/digitize/man/DigitData.html'>DigitData</a></span><span class='op'>(</span>col<span class='op'>=</span><span class='st'>"red"</span><span class='op'>)</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>data.points</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/pkg/digitize/man/DigitData.html'>DigitData</a></span><span class='op'>(</span>col<span class='op'>=</span><span class='st'>'red'</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
@@ -2253,7 +2253,7 @@ gtag('config', 'UA-173027539-1');
 <p>Now we have extracted the x which was BMI and the y (insulin level). We can easily recalculate the correlation and Beta coefficient values.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>$</span><span class='va'>x</span>, <span class='va'>df</span><span class='op'>$</span><span class='va'>y</span>, method <span class='op'>=</span> <span class='st'>"pearson"</span><span class='op'>)</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='fu'><a href='https://rdrr.io/r/stats/cor.html'>cor</a></span><span class='op'>(</span><span class='va'>df</span><span class='op'>$</span><span class='va'>x</span>, <span class='va'>df</span><span class='op'>$</span><span class='va'>y</span>, method <span class='op'>=</span> <span class='st'>'pearson'</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
 <div class="layout-chunk" data-layout="l-body">

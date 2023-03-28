@@ -52,14 +52,14 @@ cat(
 The scatter plot that I will use is from the 1994 publication by Strain G. and colleagues. The results are interesting and I invite you reading the paper.
 
 ```{r,echo=FALSE}
-knitr::include_graphics("F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/publication.png") 
+knitr::include_graphics('F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/publication.png') 
 ```
 
 
 For this blog post, I will be using Fig 1 which shows the relationship of fasting insulin level to BMI in non-dieting weight-stable subjects.
 
 ```{r, echo=FALSE}
-knitr::include_graphics("F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/paste-586399E8.png") 
+knitr::include_graphics('F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/paste-586399E8.png') 
 ```
 
 Now, we have what we need and let's go straight to extracting individual participant data from the scatter plot.
@@ -70,11 +70,11 @@ What we need to do is take a screen shot of the scatter plot, save it as png or 
 
 ```{r, include=TRUE, echo=TRUE, warning=FALSE}
 library(digitize)
-fig <- ReadAndCal("F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/scatterPlotdigitize.JPG")
+fig <- ReadAndCal('F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/scatterPlotdigitize.JPG')
 ```
 
 ```{r, echo=FALSE}
-knitr::include_graphics("F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/Animationnewlastr.gif")
+knitr::include_graphics('F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/Animationnewlastr.gif')
 
 ```
 
@@ -82,12 +82,12 @@ knitr::include_graphics("F:/github/githubwebsite/_posts/2021-06-07-scraping-indi
 ### Mark data points
 
 ```{r, include=TRUE,eval=FALSE, echo=TRUE, warning=FALSE}
-data.points = DigitData(col="red")
+data.points = DigitData(col='red')
 
 ```
 
 ```{r,echo=FALSE}
-knitr::include_graphics("F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/points.gif")
+knitr::include_graphics('F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/points.gif')
 ```
 
 
@@ -98,7 +98,7 @@ df <- Calibrate(data.points, fig, 0, 100, 0, 100) #determin where x and y axis v
 ```
 
 ```{r, echo=FALSE}
-knitr::include_graphics("F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/df.gif")
+knitr::include_graphics('F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/df.gif')
 ```
 
 
@@ -106,11 +106,11 @@ knitr::include_graphics("F:/github/githubwebsite/_posts/2021-06-07-scraping-indi
 Now we have extracted the x which was BMI and the y (insulin level). We can easily recalculate the correlation and Beta coefficient values.
 
 ```{r, include=TRUE,eval=FALSE, echo=TRUE, warning=FALSE}
-cor(df$x, df$y, method = "pearson")
+cor(df$x, df$y, method = 'pearson')
 ```
 
 ```{r, echo=FALSE}
-knitr::include_graphics("F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/corr.png")
+knitr::include_graphics('F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/corr.png')
 
 ```
 
@@ -124,7 +124,7 @@ summary(lm(y~x, data=df))
 I estimated the correlation value to be 0.709 and the Beta coefficient to be about 0.9605. The tiny difference is due to my calibration. If you zoom and carefully calibrate, you can have approximately similar values.
 
 ```{r, echo=FALSE}
-knitr::include_graphics("F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/lm.png")
+knitr::include_graphics('F:/github/githubwebsite/_posts/2021-06-07-scraping-individual-participant-data-from-scatter-plots/lm.png')
 
 ```
 
