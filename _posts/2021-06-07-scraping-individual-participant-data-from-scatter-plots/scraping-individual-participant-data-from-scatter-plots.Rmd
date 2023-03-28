@@ -21,10 +21,13 @@ output:
     toc: true
     toc_depth: 2
 ---
-<head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825" crossorigin="anonymous"></script>
-</head>
 
+<head>
+
+```{=html}
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825" crossorigin="anonymous"></script>
+```
+</head>
 
 # Introduction
 
@@ -81,6 +84,7 @@ data.points = DigitData(col="red")
 ```{r, include=TRUE,eval=FALSE, echo=TRUE, warning=FALSE}
 df <- Calibrate(data.points, fig, 0, 100, 0, 100) #determin where x and y axis values start and end
 ```
+
 ![](df.gif)
 
 Now we have extracted the x which was BMI and the y (insulin level). We can easily recalculate the correlation and Beta coefficient values.
