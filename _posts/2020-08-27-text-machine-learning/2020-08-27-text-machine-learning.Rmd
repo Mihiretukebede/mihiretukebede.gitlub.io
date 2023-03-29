@@ -9,7 +9,7 @@ url: http://www.mihiretukebede.com/
 google_analytics: "UA-173027539-1" 
 description: |
    Machine learning methods for document classification.
-preview: machinelearning.jpg
+preview: machinelearning.png
 collections:
   posts:
       share: [twitter, linkedin, facebook, google-plus, pinterest]
