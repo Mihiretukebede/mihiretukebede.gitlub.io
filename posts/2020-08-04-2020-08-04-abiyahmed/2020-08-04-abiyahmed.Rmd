@@ -1,0 +1,292 @@
+---
+name: "Aspire Data Solutions"
+title: "Digital Reactions Towards Prime Minister Abiy Ahmed's Facebook Activities"
+categories: 
+  - Data Science
+author: Mihiretu Kebede(PhD)
+url: http://www.mihiretukebede.com/ 
+google_analytics: "UA-173027539-1"
+date: "2020-08-06`"
+description: |
+  Let's have some fun in visualizing Facebook reactions to prime minister Abiy Ahmed's Facebook posts (June 24 to August 09). This post is an updated version. The previous analysis was only until August 5. 
+
+collections:
+  posts:
+      share: [twitter, linkedin, facebook, google-plus, pinterest]
+      
+output:
+  distill::distill_article:
+    encoding: utf-8
+    widerscreen: true
+    toc: true
+    toc_depth: 2
+---
+
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825" crossorigin="anonymous"></script>
+</head>
+
+### Disclaimer
+
+This blog post is simply about visualizing the data. I have no political affiliation. 
+
+# Introduction
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache=FALSE)
+```
+
+[**Haccalu Hundessa**](https://en.wikipedia.org/wiki/Hachalu_Hundessa), the popular Ethiopian singer, was killed in June 29, 2020. His death sparked a widespread violence in Oromia region. Several innocent civilians were murdered and public and private properties worth of millions were vandalized. The government has immediately taken measures to restore law and order. I am sincerely hoping prime minister Abiy's government will take significant steps in letting an independent and international investigation. As a concerned Ethiopian, I have tried to follow some of the news. To this date, the news is giving me nightmares!
+
+In this short blog posts, I will dive into prime minister Abiy's [*Facebook activity*](https://www.facebook.com/PMAbiyAhmedAli/) and his followers reactions using emojis. I will then compare positive (like, care, love, wow) and negative reactions(angry, sad, haha) towards his posts on Facebook. More specificically, I will show you the trend of love, anger and sad reactions.
+
+NB: classifying the reactions into positve/negative may not reflect the actual reaction of the individual to the news. It doesn't also reflect the contents of the prime minister's Facebbook post. In addition, internet was locked from the first of july until 23rd of July. That is clearly visible from the plots with a simple horizontal line.
+
+# Data
+
+I have manually collected Prime Minister Abiy Ahmed's one month Facebook posts (From June 24 until August 09). I collected few variables: date Abiy Ahmed posted on Facebook, type of Facebook reaction (eg: Like, Love, angry, sad, etc...) and total number of reactions.
+
+# Initialize
+
+## Required packages
+
+```{r, cache=F, include=T, echo=T, message=FALSE, warning=FALSE}
+library(readxl) 
+library(ggplot2) 
+library(jpeg) 
+library(directlabels) 
+library(dplyr)
+library(data.table) 
+library(scales)
+library(readxl)
+library(jpeg)
+library(ggimage)
+```
+
+```{r, cache=F, include=T, echo=T, message=FALSE, warning=FALSE}
+
+abiy_ahmed <- read_xlsx("F:/github/githubwebsite/_posts/2020-08-04-2020-08-04-abiyahmed/abiy_ahmed.xlsx")
+# As usual 
+dim(abiy_ahmed)
+glimpse(abiy_ahmed)
+#abiy_ahmed <- abiy_ahmed %>% 
+#  rename(Date_postedX.U.FEFF.Date_posted)
+
+
+```
+
+# Some descriptives
+
+In total, about a million (932453 ) people showed some kind of reaction. On average, more than 35206(sd=20293) peple liked his posts, an average of 840 people hit the angry buttons.
+
+```{r dpi=200, cache=F, include=T, echo=T, message=FALSE, warning=FALSE}
+# Mean per reaction
+library(dplyr)
+abiy_ahmed %>%  
+  summarize(sum=sum(Count)) # 932453
+
+mean <- abiy_ahmed %>% 
+  group_by(Reaction) %>% 
+  summarize(mean=mean(Count, na.rm=T)) %>% 
+  mutate(mean=round(mean,2)) %>% 
+  ungroup()
+
+sd <- abiy_ahmed %>% 
+  group_by(Reaction) %>% 
+  summarize(sd=sd(Count, na.rm=T)) %>%
+  mutate(sd=round(sd,2)) %>% 
+  ungroup()
+
+merge(mean, sd)
+
+```
+
+# Visualize
+
+```{r echo=T, message=FALSE, warning=FALSE, cache=F, include=T, dpi=200}
+
+
+plot <- ggplot(abiy_ahmed, aes(x=Date_posted,
+                               y=Count, col=Reaction)) +
+  geom_point(size=2) +
+  geom_line(size=1) 
+
+plot1 <- direct.label(plot, "first.qp", )
+
+plot1
+```
+
+```{r dpi=200, cache=F, include=T, echo=T, message=FALSE, warning=FALSE, preview=TRUE}
+
+
+plot <- ggplot(abiy_ahmed, aes(x=Date_posted,
+                             y=Count, col=Reaction)) +
+  geom_point(size=2) + geom_line(size=1.5) + theme_void() + 
+  xlab("Date of Facebook post") + 
+  ylab("Number of reactions") 
+
+plot1 <- direct.label(plot, "first.qp")
+
+plot2 <- ggbackground(plot1, "abiy.png") 
+plot2
+```
+
+# Reshape the data
+
+For easier manipulation, let's reshape our data using `reshape2`.
+
+```{r dpi=200, cache=F, include=T, echo=T, message=FALSE, warning=FALSE}
+library(reshape2)
+library(ggplot2)
+abiy_data <- melt(abiy_ahmed, id=c("Date_posted", "Reaction", "Death_Haccalu"))
+abiy_data$Date_posted <- as.Date(abiy_data$Date_posted)
+
+ggplot(abiy_data, aes(x=Date_posted, y=value, col=Reaction)) + geom_point() + xlab("Date of Facebook post") + ylab("Number of reactions") +
+  geom_line() + scale_x_date(date_breaks = "7 day") + theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0))
+
+```
+
+The graph above shows the prime minister has much more likes than the other reactions. Since there are a lot more likes than the other reactions, we will filter out the Likes to have a good picture of the other reactions. Then, we will dive more into the data to see the trends of *love* and *angry* reactions.
+
+```{r dpi=200, cache=F, include=T, echo=T, message=FALSE, warning=FALSE}
+
+othethan_like <-  abiy_data %>% 
+  group_by(Date_posted) %>% 
+  filter(Reaction !="Like") 
+
+direct.label(
+  ggplot(othethan_like, aes(x=Date_posted, y=value, col=Reaction)) + geom_point(size=2) +
+  geom_line(size=1) +
+  xlab("Date of Facebook post") + ylab("Number of lovely reaction") +
+  ylab("Number of lovely reactions") +
+  scale_x_date(date_breaks = "7 day", labels = date_format("%B %d") ) + theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0)),
+  "first.qp",
+)
+
+```
+
+# How about positive and negative reactions
+
+Positive reactions: "Like", "Love", "Wow", "Care" Negative reactions: "Angry", "Sad", "Haha"
+
+```{r dpi=200, cache=F, include=T, echo=T, message=FALSE, warning=FALSE}
+abiy_pos <- abiy_data %>% 
+  group_by(Date_posted) %>% 
+  filter(Reaction == c("Like", "Love", "Wow", "Care")) %>% 
+  mutate(number_reaction=sum(value),
+         reaction="positive reaction")  
+
+abiy_neg <- abiy_data %>% 
+  group_by(Date_posted) %>% 
+  filter(Reaction == c("Angry", "Sad", "Haha")) %>% 
+  mutate(number_reaction=sum(value),
+         reaction="negative reaction")
+
+abiy_pos_neg <- rbind(abiy_pos, abiy_neg)
+
+
+ggplot(abiy_pos_neg, aes(x=Date_posted, y=number_reaction, col=reaction)) + geom_point(size=2) +
+  geom_line(size=1) + scale_x_date(date_breaks = "5 day") + theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0)) +
+  xlab("Date of Facebook post") + ylab("Reaction") + 
+  scale_x_date(date_breaks = "7 day", labels = date_format("%B %d") ) + theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0))
+  
+```
+
+# Negative reactions
+
+Since there is a lot of positive reaction, we can't see the negative reaction very much in the above plot. Let's just focus on the negative reactions. See, it declinined after its maximum on the 30th of June. I assume, this anger is more to the news not to his opinions.
+
+```{r dpi=200, cache=F, include=T, echo=T, message=FALSE, warning=FALSE}
+ggplot(abiy_neg, aes(x=Date_posted, y=number_reaction)) + geom_point(size=2.5) +
+  geom_line(size=1.5, col="darkred") + xlab("Date of Facebook post") +
+  ylab("Number of negative reaction") +
+  scale_x_date(date_breaks = "7 day", labels = date_format("%B %d") ) + theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0))
+```
+
+# Number of people reacting to his posts
+
+It is some how declining. Are people loosing interest? I don't know. I hope not.
+
+```{r dpi=200, cache=F, include=T, echo=T, message=FALSE, warning=FALSE}
+abiy_reaction_sum <- abiy_data %>% 
+  group_by(Date_posted) %>% 
+  mutate(number_reaction=sum(value),
+         reaction="total reaction")
+
+ggplot(abiy_reaction_sum, aes(x=Date_posted, y=number_reaction)) + geom_point(size=2) +
+  geom_line(size=1, col="darkgreen") + scale_x_date(date_breaks = "5 day") + theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0))  + xlab("Date of Facebook post") +
+  ylab("Total reactions") +
+  scale_x_date(date_breaks = "5 day", labels = date_format("%B %d") ) + theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0))
+```
+
+# Are people getting more angry at the the prime minister after Haccalu's death?
+
+See how the anger tops the 30th of July and then it fell down like an avalanche
+
+```{r dpi=200,  include=T, echo=T, message=FALSE, warning=FALSE}
+library(dplyr)
+library(ggplot2)
+library(lubridate)
+library(scales)
+angry <- abiy_data %>% 
+  group_by(Date_posted) %>% 
+  filter(Reaction == "Angry") 
+
+abiy_data %>% 
+  group_by(Death_Haccalu) %>% 
+  filter(Reaction == "Angry") %>% 
+  summarize(mean(value))
+
+  ggplot(angry, aes(x=Date_posted, y=value)) + geom_point(size=2) +
+  geom_line(size=1.5, col="red") +
+  xlab("Date of Facebook post") + ylab("Number of angry reaction") +
+  scale_x_date(date_breaks = "7 day", labels = date_format("%B %d") ) + theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0))
+```
+
+# How about love reactions?
+
+It looks like people are getting less angry at his posts. But, are they loving his posts? I don't think so. But, let's see.
+
+```{r dpi=200, cache=F, include=T, echo=T, message=FALSE, warning=FALSE}
+
+love <-  abiy_data %>% 
+  group_by(Date_posted) %>% 
+  filter(Reaction == c("Care", "Love")) %>% 
+  mutate(love_reaction=sum(value),
+         reaction="love reaction")
+
+ggplot(love, aes(x=Date_posted, y=love_reaction)) + geom_point(size=2.5) +
+  geom_line(size=1.5, col="darkgreen") +
+  xlab("Date of Facebook post") + ylab("Number of lovely reaction") +
+  ylab("Number of lovely reactions") +
+  scale_x_date(date_breaks = "5 day", labels = date_format("%B %d") ) + theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0))
+
+```
+
+# Are people sad about his posts?
+
+We will see the same pattern for Sad reactions on August 4. But, what happened on August 4. It is the Lebanon's explosion. People shared their sadness about the Lebanon explosion news and shared condolences with the prime minister.
+
+```{r dpi=200, cache=F, include=T, echo=T, message=FALSE, warning=FALSE}
+  sad <- abiy_data %>% 
+  group_by(Date_posted) %>% 
+  filter(Reaction=="Sad")
+
+ggplot(sad, aes(x=Date_posted, y=value)) + geom_point(size=3) +
+  geom_line(size=1.5, col="red") +
+  xlab("Date of Facebook post") + ylab("Number of sad reaction") +
+  ylab("Number of sad reaction") +
+  scale_x_date(date_breaks = "5 day", labels = date_format("%B %d") ) + theme(axis.text.x = element_text(angle = 25, vjust = 1.0, hjust = 1.0))
+```
+
+# Interpretation
+
+The anger and sadness sharply increased until it reached its peak on the 30th of June. Then, after three weeks of internet black out, his Facebook page became active and continued posting and I continued collecting my data. The plots above show how negative reactions have sharply declined. It seems the measures have worked very well to alleviate digital anger from the people or at least it is possible to hypothesize people were positive about the measures taken by his government. With this, I can say Abiy Ahmed has likely regained his control and his government started to properly use its teeth.
+
+Peace and love for my beautiful country and her people!
+
+I conclude my blog with a quote by Lois McMaster Bujold "The dead cannot cry out for justice. It is a duty of the living to do so for them."
+
+# Contact
+
+[MihiretuKebede1](https://twitter.com/MihiretuKebede1)
