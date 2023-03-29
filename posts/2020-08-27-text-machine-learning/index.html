@@ -95,8 +95,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <link rel="canonical" href="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2023-03-23"/>
-<meta property="article:created" itemprop="dateCreated" content="2023-03-23"/>
+<meta property="article:published" itemprop="datePublished" content="2023-03-29"/>
+<meta property="article:created" itemprop="dateCreated" content="2023-03-29"/>
 <meta name="article:author" content="Mihiretu Kebede(PhD)"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -118,14 +118,14 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
 <meta name="citation_title" content="Aspire Data Solutions: XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts"/>
 <meta name="citation_fulltext_html_url" content="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/"/>
-<meta name="citation_online_date" content="2023/03/23"/>
-<meta name="citation_publication_date" content="2023/03/23"/>
+<meta name="citation_online_date" content="2023/03/29"/>
+<meta name="citation_publication_date" content="2023/03/29"/>
 <meta name="citation_author" content="Mihiretu Kebede(PhD)"/>
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","title","categories","theme","author","url","google_analytics","preview","description","collections","output","date","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Aspire Data Solutions"]},{"type":"character","attributes":{},"value":["XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts"]},{"type":"character","attributes":{},"value":["Data Science"]},{"type":"character","attributes":{},"value":["theme.css"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Mihiretu Kebede(PhD)"]}]}]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/"]},{"type":"character","attributes":{},"value":["UA-173027539-1"]},{"type":"character","attributes":{},"value":["machinelearning.jpg"]},{"type":"character","attributes":{},"value":["Machine learning methods for document classification."]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["posts"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["share"]}},"value":[{"type":"character","attributes":{},"value":["twitter","linkedin","facebook","google-plus","pinterest"]}]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","encoding","widerscreen"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["UTF-8"]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["03-23-2023"]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/"]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","title","categories","theme","author","url","google_analytics","description","preview","collections","output","date","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Aspire Data Solutions"]},{"type":"character","attributes":{},"value":["XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts"]},{"type":"character","attributes":{},"value":["Data Science"]},{"type":"character","attributes":{},"value":["theme.css"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Mihiretu Kebede(PhD)"]}]}]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/"]},{"type":"character","attributes":{},"value":["UA-173027539-1"]},{"type":"character","attributes":{},"value":["Machine learning methods for document classification."]},{"type":"character","attributes":{},"value":["machinelearning.jpg"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["posts"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["share"]}},"value":[{"type":"character","attributes":{},"value":["twitter","linkedin","facebook","google-plus","pinterest"]}]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","encoding","widerscreen"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["UTF-8"]},{"type":"logical","attributes":{},"value":[true]}]}]},{"type":"character","attributes":{},"value":["03-29-2023"]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/"]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -945,6 +945,11 @@ d-article div.sourceCode pre {
 d-article div.sourceCode pre {
   padding-left: 18px;
   font-size: 14px;
+}
+
+/* tweak for Pandoc numbered line within distill */
+d-article pre.numberSource code > span {
+    left: -2em;
 }
 
 d-article pre {
@@ -1783,8 +1788,9 @@ function init_distill() {
   $('.distill-force-highlighting-css').parent().remove();
 
   // remove empty line numbers inserted by pandoc when using a
-  // custom syntax highlighting theme
-  $('code.sourceCode a:empty').remove();
+  // custom syntax highlighting theme, except when numbering line
+  // in code chunk
+  $('pre:not(.numberLines) code.sourceCode a:empty').remove();
 
   // load distill framework
   load_distill_framework();
@@ -2124,7 +2130,7 @@ gtag('config', 'UA-173027539-1');
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts","description":"Machine learning methods for document classification.","authors":[{"author":"Mihiretu Kebede(PhD)","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-03-23T00:00:00.000+01:00","citationText":"Kebede(PhD), 2023"}
+{"title":"XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts","description":"Machine learning methods for document classification.","authors":[{"author":"Mihiretu Kebede(PhD)","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2023-03-29T00:00:00.000+02:00","citationText":"Kebede(PhD), 2023"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2141,7 +2147,9 @@ gtag('config', 'UA-173027539-1');
 <a href="../../contact.html">
 <i class="fa fa-envelope fa-lg" aria-hidden="true"></i>
 </a>
-<a href="https://www.youtube.com/channel/UCpHd6O1Yqz4YgcYUBfyRqKg">YouTube</a>
+<a href="https://www.youtube.com/channel/UCpHd6O1Yqz4YgcYUBfyRqKg">
+<i class="fab fa-youtube" aria-hidden="true"></i>
+</a>
 <a href="https://github.com/Mihiretukebede/mihiretukebede.gitlub.io">
 <i class="fa fa-github fa-lg" aria-hidden="true"></i>
 </a>
@@ -2179,7 +2187,7 @@ gtag('config', 'UA-173027539-1');
   
   Mihiretu Kebede(PhD)
   
-<br/>03-23-2023
+<br/>03-29-2023
 </div>
 
 <div class="d-article">
@@ -2945,7 +2953,7 @@ predicted_class_svm included not included
 <div class="appendix-bottom">
   <h3 id="citation">Citation</h3>
   <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">Kebede(PhD) (2023, March 23). Aspire Data Solutions: XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts. Retrieved from http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/</pre>
+  <pre class="citation-appendix short">Kebede(PhD) (2023, March 29). Aspire Data Solutions: XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts. Retrieved from http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/</pre>
   <p>BibTeX citation</p>
   <pre class="citation-appendix long">@misc{kebede(phd)2023xgboost,,
   author = {Kebede(PhD), Mihiretu},

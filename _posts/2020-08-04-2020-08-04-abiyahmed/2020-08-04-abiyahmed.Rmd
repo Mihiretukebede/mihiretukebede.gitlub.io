@@ -7,6 +7,7 @@ author: Mihiretu Kebede(PhD)
 url: http://www.mihiretukebede.com/ 
 google_analytics: "UA-173027539-1"
 date: "2020-08-06`"
+preview: abiy.png
 description: |
   Let's have some fun in visualizing Facebook reactions to prime minister Abiy Ahmed's Facebook posts (June 24 to August 09). This post is an updated version. The previous analysis was only until August 5. 
 

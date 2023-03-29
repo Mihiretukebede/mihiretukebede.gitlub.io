@@ -7,7 +7,7 @@
     <description>This is Mihiretu Kebede(PhD)'s personal website. 
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 23 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Mar 2023 00:00:00 +0000</lastBuildDate>
     <item>
       <title>XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts</title>
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
@@ -15,7 +15,7 @@
       <description>Machine learning methods for document classification.</description>
       <category>Data Science</category>
       <guid>http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning</guid>
-      <pubDate>Thu, 23 Mar 2023 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 28 Mar 2023 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/machinelearning.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
@@ -84,7 +84,8 @@
       <description>Let's have some fun in visualizing Facebook reactions to prime minister Abiy Ahmed's Facebook posts (June 24 to August 09). This post is an updated version. The previous analysis was only until August 5.</description>
       <category>Data Science</category>
       <guid>http://www.mihiretukebede.com/posts/2020-08-04-2020-08-04-abiyahmed</guid>
-      <pubDate>Wed, 05 Aug 2020 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 06 Aug 2020 00:00:00 +0000</pubDate>
+      <media:content url="http://www.mihiretukebede.com/posts/2020-08-04-2020-08-04-abiyahmed/abiy.png" medium="image" type="image/png" width="2292" height="1524"/>
     </item>
     <item>
       <title>Applying bibliometric analysis and text mining to COVID-19 publications</title>
