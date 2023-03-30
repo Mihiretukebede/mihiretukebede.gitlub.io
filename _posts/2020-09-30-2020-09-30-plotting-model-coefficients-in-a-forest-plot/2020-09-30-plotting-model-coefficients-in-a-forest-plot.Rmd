@@ -32,20 +32,23 @@ The detail description of this blog is also available in my [YouTube channel.](h
 Part 1
 
 ```{r, echo=FALSE, results='asis'}
-htmltools::tags$iframe(width="560", height="315", src="https://www.youtube.com/watch?v=WgIqCRPZcZE", frameborder="0", allowfullscreen="")
-
+htmltools::tags$iframe(width="560", height="315", src="https://www.youtube.com/embed/WgIqCRPZcZE", frameborder="0", allowfullscreen="")
 ```
 
-Part 2
+Part 2 
+
 
 ```{r, echo=FALSE, results='asis'}
-htmltools::tags$iframe(width="560", height="315", src="https://www.youtube.com/watch?v=NKZOrMisgtc&t=1s", frameborder="0", allowfullscreen="")
+htmltools::tags$iframe(width="560", height="315", src="https://www.youtube.com/embed/NKZOrMisgtc", frameborder="0", allowfullscreen="")
 ```
+
 
 Part 3 
 
 ```{r, echo=FALSE, results='asis'}
-htmltools::tags$iframe(width="560", height="315", src="https://www.youtube.com/watch?v=HmBXBTFPMB4&t=45s", frameborder="0", allowfullscreen="")
+htmltools::tags$iframe(width="560", height="315", src="https://www.youtube.com/embed/HmBXBTFPMB4", frameborder="0", allowfullscreen="")
+
+
 ```
 
 
