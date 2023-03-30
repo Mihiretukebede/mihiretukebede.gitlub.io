@@ -1,0 +1,248 @@
+---
+name: "Aspire Data Solutions"
+title: "Quantile regression tutorial"
+categories: 
+  - Data Science
+author: Mihiretu Kebede(PhD)
+url: http://www.mihiretukebede.com/ 
+google_analytics: "UA-173027539-1"
+date: "2023-03-30`"
+preview: quantreg.png
+description: |
+  This is a quick demonstration of quantile regression in R
+
+collections:
+  posts:
+      share: [twitter, linkedin, facebook, google-plus, pinterest]
+      
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 2
+---
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825" crossorigin="anonymous"></script>
+</head>
+
+# Motivation 
+Around a year ago, a subscriber on my YouTube channel requested that I create a video on "Quantile regression". Although I had no prior experience with this regression technique, I accepted the assignment and began researching the topic. After gaining a basic understanding of the technique, I created a video which was well-received by my audience, and has since become one of my most viewed videos. You can watch the video below. Several viewers have also requested that I make the code available, and I apologize for the delay in doing so due to time constraints. Better than never, I will share you the code today. Thanks for your patience. 
+
+```{r, echo=FALSE, results='asis'}
+htmltools::tags$iframe(width="560", height="315", src="https://www.youtube.com/embed/BPDr-BbRfK0", frameborder="0", allowfullscreen="")
+```
+
+
+# What is qauntile regression?
+
+Quantile regression is a statistical technique used to model the relationship between a response variable and one or more predictor variables. Unlike traditional regression models that estimate the mean of the response variable given the predictor variables, quantile regression estimates the conditional quantiles of the response variable.
+
+An equal probability portion of a distribution is represented by a quantile. When the median is the 50th percentile, for instance, 50% of the distribution's values fall below the median and 50% fall above it. We can estimate any conditional quantile of the response variable in quantile regression, not only the median.
+
+Quantile regression's primary benefit is that it enables us to model the relationship between the predictor variables across different parts of the distribution of the response variable. This can be useful when the relationship between the predictor variables and the response variable is not constant across the distribution, for example, when the relationship is stronger in the tails of the distribution.
+
+Without spending more time, I will proceed directly to the codes. I need few libraries and I will use the life_expectancy data set. I will use *quantreg* package to do the models(life expactancy as a function of income) and *plotly* to visualize the coefficients in 3D.
+
+
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
+library(pacman)
+p_load(dplyr,janitor, ggplot2, quantreg, plotly)
+
+```
+
+
+```{r {r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width=10, fig.height=8)
+```
+
+
+## Read Datasets 
+
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
+life_exp  <- read.csv("life_expectancy.csv", na.strings = "")
+head(life_exp)
+```
+
+I will now do some data cleaning. The variable names are a bit tedious and to avoid using the back ticks. I will simply clean up the column names using the *janitor* packages very useful *clean_names()* function 
+
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
+life_expe_data  <- clean_names(life_exp)
+names(life_expe_data)
+```
+Now the variable names are clean, we can do the rest of the coding as follows.I now remove the missing values. You can do better for your data by using imputation techniques to deal with missing values. But that is not my goal here today. Perhaps, I may do a blog or a YouTube video in the future. I just need you to demand for it or encourage me to do it.   
+
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
+life_exp_narm  <- life_expe_data[complete.cases(life_expe_data),]
+dim(life_exp_narm) 
+```
+
+We have about 22 variables and 1649 observations. Not bad for modelling! Since, *income_composition_of_resources* is a really long and boring variable name, I am changing it.  
+
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
+names(life_exp_narm)[names(life_exp_narm) == "income_composition_of_resources"] <- "income_index"
+```
+
+
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
+summary(life_exp_narm$income_index)
+sd(life_exp_narm$income_index)
+```
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
+summary(life_exp_narm$life_expectancy)
+sd(life_exp_narm$life_expectancy)
+```
+
+
+You can see that our main predictor variable has a mean 0.65 and SD of 0.149. It maybe a good idea to take a look at it by visualizing it. And the mean life expectancy was 69.4(SD=8.88)
+
+```{r nclude=T, echo=TRUE, warning=FALSE, message=FALSE}
+ggplot(life_exp_narm, aes(x=income_index, 
+                          y=life_expectancy, col=status)) + geom_point() +
+geom_smooth(method = "lm", col="blue") +
+  xlab("Income index") + ylab("Life expectancy")
+
+```
+
+# Qauntile regression 
+
+Before doing the quantile regression. It might be a good idea to take a look at the visualization by setting different tau values in abline of the base r plot showing the relationship between `life_expectancy` and `income_index`. The 
+OLS regression is do the regression from the mean while the quantil regression n quantile regression, we can estimate any conditional quantile of the response variable, not just the mean but could be the medeian (50%), 90%, 75% or anywhere until 99%.If this is not clear, I highly recommended watching the video I dropped earlier. 
+Let's now vizualize the mean and the median ablines 
+
+```{r nclude=T, echo=TRUE, warning=FALSE, message=FALSE}
+plot(life_expectancy  ~ income_index, data = life_exp_narm) 
+abline(lm(life_expectancy  ~ income_index, data = life_exp_narm), col="blue", lwd = 3)
+abline(rq(life_expectancy  ~ income_index, tau=0.5, data = life_exp_narm), col="red",  lwd = 4) # Notcie the tau=0.5, 
+```
+You can see the plot blue line is the OLS regression line but the red line is if we model the regression using the median. If you have to run only two models and choose the model that best fits the data, you have to choose by your loss function(eg. the model with mean squared error or mean absolute error, etc will be the best fit). NB: choosing the right model is not my goal here. 
+
+Now let's add 10th and 90th percentiles from the above vizualization and evaluate which line looks better fit for the relationship between the two variables.
+
+
+```{r nclude=T, echo=TRUE, warning=FALSE, message=FALSE}
+
+plot(life_expectancy  ~ income_index, data = life_exp_narm) 
+abline(lm(life_expectancy  ~ income_index, data = life_exp_narm), col="blue", lwd = 3)
+abline(rq(life_expectancy  ~ income_index, tau=0.5, data = life_exp_narm), col="red",  lwd = 4)
+abline(rq(life_expectancy  ~ income_index, tau=0.1, data = life_exp_narm), col="black",  lwd = 5)
+abline(rq(life_expectancy  ~ income_index, tau=0.90, data = life_exp_narm), col="turquoise4",  lwd = 6)
+
+```
+
+
+Let's now run four different models at the mean(OLS), and quantile regressions at the median, 10th percentile and 95th percentiles. Notice the tau values. I also added one more variable.
+
+
+```{r nclude=T, echo=TRUE, warning=FALSE, message=FALSE}
+ols <-  rq(life_expectancy~income_index+schooling, data = life_exp_narm) #Similar to lm()
+quant_reg_med  <- rq(life_expectancy~income_index+schooling,tau = 0.5, data = life_exp_narm)
+quant_reg_first  <- rq(life_expectancy~income_index+schooling,tau = 0.1, data = life_exp_narm)
+quant_reg_last  <- rq(life_expectancy~income_index+schooling,tau = 0.95, data = life_exp_narm)
+```
+
+```{r nclude=T, echo=TRUE, warning=FALSE, message=FALSE}
+summary(ols)
+```
+
+```{r nclude=T, echo=TRUE, warning=FALSE, message=FALSE}
+summary(quant_reg_med)
+```
+
+
+
+```{r nclude=T, echo=TRUE, warning=FALSE, message=FALSE}
+summary(quant_reg_first)
+```
+```{r nclude=T, echo=TRUE, warning=FALSE, message=FALSE}
+summary(quant_reg_last)
+```
+You can see the OLS and quanitile regression based on the median are identical.But the others are different. 
+
+For effectively modeling numerous quantreg models, you may do somthing like the following. 
+
+
+```{r nclude=T, echo=TRUE, warning=FALSE, message=FALSE}
+taus<-seq(from = .05, to = .95, by = 0.05) #Taus ranging from 0.05 to 0.95 with a step value of 0.05
+quant_all  <- rq(life_expectancy~income_index,tau = taus, 
+                 data = life_exp_narm)
+```
+
+```{r nclude=T, echo=TRUE, warning=FALSE, message=FALSE}
+names(quant_all) #To access the cntents of our model
+quant_all$tau #To see the taus 
+```
+With that we have got several models. But how we access a specific model for example when `tau=0.8` or `tau=0.1`? 
+
+
+```{r nclude=T, echo=TRUE, warning=FALSE, message=FALSE}
+summary(quant_all)[which(taus == 0.8)]
+summary(quant_all)[which(taus == 0.1)]
+
+```
+
+How about if we want to access the coefficients?
+
+```{r nclude=T, echo=TRUE, warning=FALSE, message=FALSE}
+QR.coef <- coef(quant_all)
+
+```
+
+
+Or in a more complicated way like the following
+
+
+```{r nclude=T, echo=TRUE, warning=FALSE, message=FALSE}
+lprq <-  function(x, y, h, m=19 , tau=.5)
+  {
+    xx <- seq(min(x),max(x),length=m)
+    fv <- xx
+    dv <- xx
+    for(i in 1:length(xx)) {
+      z <- x - xx[i]
+      wx <- dnorm(z/h)
+      r <- rq(y~z, weights=wx, tau=tau, ci=FALSE)
+      fv[i] <- r$coef[1.]
+      dv[i] <- r$coef[2.]
+    }
+    data.frame(dv = dv)
+}
+
+#Create a matrix to save the QQR estimates
+taus<-seq(from = .05, to = .95, by = 0.05)
+
+QQR.coef <- as.data.frame(matrix(0, ncol = 19, nrow = 19))
+
+# Run QQR in a loop and save estimates in matrix "QQR.coef"
+#Note: 0.05 in below loop is the bandwidth that can be adjusted
+
+o <-life_exp_narm$life_expectancy
+p <-life_exp_narm$income_index
+
+for (i in 1:19){
+  x<-lprq(o, p,0.05,tau=taus[i])
+  QQR.coef[,i]<-x
+}  
+
+```
+
+Let's now save all coefficients in a matrix
+
+```{r}
+beta <- as.matrix(QQR.coef)
+```
+
+# Vizualize 
+
+```{r}
+p <- plot_ly( z = ~beta, x = ~taus, y = ~taus, opacity = 0.6) %>%
+  add_markers()
+
+p %>% add_surface(z = ~beta, x = ~taus, y = ~taus, showscale = FALSE) %>%
+  layout(showlegend = FALSE)
+```
+
+
+That is all for today. Again I highly recommend watching the video and reading `quantreg` package functions. That is it all for today. I hope, you like it. See you in my next post.
+
+# Contact 
+Please mention [@RPy_DataScience](https://twitter.com/RPy_DataScience) if you tweet this post.

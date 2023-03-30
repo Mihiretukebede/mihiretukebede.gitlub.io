@@ -7,7 +7,7 @@
     <description>This is Mihiretu Kebede(PhD)'s personal website. 
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 28 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Mar 2023 00:00:00 +0000</lastBuildDate>
     <item>
       <title>XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts</title>
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
@@ -15,8 +15,18 @@
       <description>Machine learning methods for document classification.</description>
       <category>Data Science</category>
       <guid>http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning</guid>
-      <pubDate>Tue, 28 Mar 2023 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 29 Mar 2023 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/machinelearning.png" medium="image" type="image/png" width="2121" height="1362"/>
+    </item>
+    <item>
+      <title>Quantile regression tutorial</title>
+      <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
+      <link>http://www.mihiretukebede.com/posts/2023-03-30-quantile-regression</link>
+      <description>This is a quick demonstration of quantile regression in R</description>
+      <category>Data Science</category>
+      <guid>http://www.mihiretukebede.com/posts/2023-03-30-quantile-regression</guid>
+      <pubDate>Wed, 29 Mar 2023 00:00:00 +0000</pubDate>
+      <media:content url="http://www.mihiretukebede.com/posts/2023-03-30-quantile-regression/quantreg.png" medium="image" type="image/png" width="1023" height="588"/>
     </item>
     <item>
       <title>Classifying abstracts using regularized models: covid-19 or sars-2003?</title>
