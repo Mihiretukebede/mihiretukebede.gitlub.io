@@ -7,7 +7,17 @@
     <description>This is Mihiretu Kebede(PhD)'s personal website. 
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 29 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Quantile regression tutorial</title>
+      <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
+      <link>http://www.mihiretukebede.com/posts/2023-03-30-quantile-regression</link>
+      <description>This is a quick demonstration of quantile regression in R</description>
+      <category>Data Science</category>
+      <guid>http://www.mihiretukebede.com/posts/2023-03-30-quantile-regression</guid>
+      <pubDate>Thu, 30 Mar 2023 00:00:00 +0000</pubDate>
+      <media:content url="http://www.mihiretukebede.com/posts/2023-03-30-quantile-regression/quantreg.png" medium="image" type="image/png" width="1023" height="588"/>
+    </item>
     <item>
       <title>XGboost, Naive Bayes and SVM Machine learning algorithms for facilitating title-abstract screening in systematic reviews: predicting inclusion/exclusion of abstracts</title>
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
@@ -17,16 +27,6 @@
       <guid>http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning</guid>
       <pubDate>Wed, 29 Mar 2023 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2020-08-27-text-machine-learning/machinelearning.png" medium="image" type="image/png" width="2121" height="1362"/>
-    </item>
-    <item>
-      <title>Quantile regression tutorial</title>
-      <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
-      <link>http://www.mihiretukebede.com/posts/2023-03-30-quantile-regression</link>
-      <description>This is a quick demonstration of quantile regression in R</description>
-      <category>Data Science</category>
-      <guid>http://www.mihiretukebede.com/posts/2023-03-30-quantile-regression</guid>
-      <pubDate>Wed, 29 Mar 2023 00:00:00 +0000</pubDate>
-      <media:content url="http://www.mihiretukebede.com/posts/2023-03-30-quantile-regression/quantreg.png" medium="image" type="image/png" width="1023" height="588"/>
     </item>
     <item>
       <title>Classifying abstracts using regularized models: covid-19 or sars-2003?</title>
@@ -74,8 +74,8 @@
       <description>How to plot model coefficients in a forest plot.</description>
       <category>Data Science</category>
       <guid>http://www.mihiretukebede.com/posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot</guid>
-      <pubDate>Thu, 04 Feb 2021 00:00:00 +0000</pubDate>
-      <media:content url="http://www.mihiretukebede.com/posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot/2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-20-1.png" medium="image" type="image/png" width="1248" height="768"/>
+      <pubDate>Wed, 03 Feb 2021 00:00:00 +0000</pubDate>
+      <media:content url="http://www.mihiretukebede.com/posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot/2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-23-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Applying text analyses methods on 382 COVID19 journal articles</title>

@@ -27,7 +27,27 @@ output:
 </head>
 
 
-The detail description of this blog is also available in my [YouTube channel.](https://www.youtube.com/watch?v=WgIqCRPZcZE)
+The detail description of this blog is also available in my [YouTube channel.](https://www.youtube.com/watch?v=WgIqCRPZcZE). Each content of this blog were based on my three YouTube videos embedded below. I highly recommend watching them. 
+
+Part 1
+
+```{r, echo=FALSE, results='asis'}
+htmltools::tags$iframe(width="560", height="315", src="https://www.youtube.com/watch?v=WgIqCRPZcZE", frameborder="0", allowfullscreen="")
+
+```
+
+Part 2
+
+```{r, echo=FALSE, results='asis'}
+htmltools::tags$iframe(width="560", height="315", src="https://www.youtube.com/watch?v=NKZOrMisgtc&t=1s", frameborder="0", allowfullscreen="")
+```
+
+Part 3 
+
+```{r, echo=FALSE, results='asis'}
+htmltools::tags$iframe(width="560", height="315", src="https://www.youtube.com/watch?v=HmBXBTFPMB4&t=45s", frameborder="0", allowfullscreen="")
+```
+
 
 # Motivation
 
@@ -45,14 +65,8 @@ The data that I will use for this blog post is from the Global Health Observator
 
 I will use the `readr`package to read the csv file and use glm and lm to do the linear regression and logistic regression modeling. I will mention other relevant packages and their use along the way.
 
+
 # Load the data
-
-For more details, pls watch this [YouTube video](https://www.youtube.com/watch?v=WgIqCRPZcZE)and subscribe for more. That will of course encourage me for sharing more contents and keep me in touch with you.Enjoy R!
-
-![](https://www.youtube.com/watch?v=WgIqCRPZcZE){width="90%"}
-
-```{}
-```
 
 ```{r setup, include=TRUE}
 library(readr) #for reading the csv file
