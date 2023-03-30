@@ -242,7 +242,7 @@ p %>% add_surface(z = ~beta, x = ~taus, y = ~taus, showscale = FALSE) %>%
 ```
 
 
-That is all for today. Again I highly recommend watching the video and reading `quantreg` package functions. That is it all for today. I hope, you like it. See you in my next post.
+That is all for today. Again I highly recommend watching the video and reading `quantreg` package functions. I hope, you like it. I hope I will see you in the next post.
 
 # Contact 
 Please mention [@RPy_DataScience](https://twitter.com/RPy_DataScience) if you tweet this post.

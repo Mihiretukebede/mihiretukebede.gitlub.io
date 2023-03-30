@@ -7,7 +7,7 @@
     <description>This is Mihiretu Kebede(PhD)'s personal website. 
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 30 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Mar 2023 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Quantile regression tutorial</title>
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
@@ -15,7 +15,7 @@
       <description>This is a quick demonstration of quantile regression in R</description>
       <category>Data Science</category>
       <guid>http://www.mihiretukebede.com/posts/2023-03-30-quantile-regression</guid>
-      <pubDate>Thu, 30 Mar 2023 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 29 Mar 2023 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2023-03-30-quantile-regression/quantreg.png" medium="image" type="image/png" width="1023" height="588"/>
     </item>
     <item>
@@ -74,7 +74,7 @@
       <description>How to plot model coefficients in a forest plot.</description>
       <category>Data Science</category>
       <guid>http://www.mihiretukebede.com/posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot</guid>
-      <pubDate>Wed, 03 Feb 2021 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 04 Feb 2021 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2020-09-30-2020-09-30-plotting-model-coefficients-in-a-forest-plot/2020-09-30-plotting-model-coefficients-in-a-forest-plot_files/figure-html5/unnamed-chunk-23-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
