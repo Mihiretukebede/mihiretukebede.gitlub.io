@@ -1,6 +1,6 @@
 ---
 name: "Aspire Data Solutions"
-title: "Quantile regression tutorial"
+title: "Quantile regression tutorial in R"
 categories: 
   - Data Science
 author: Mihiretu Kebede(PhD)
@@ -133,7 +133,9 @@ abline(rq(life_expectancy  ~ income_index, tau=0.90, data = life_exp_narm), col=
 
 ```
 
+
 We can actually visualize multiple quantreg models and see it compared to the OLS model.
+
 
 ```{r, include=T, warning=F, echo=T, message=F}
 ggplot(life_exp_narm, aes(life_expectancy, income_index))+
