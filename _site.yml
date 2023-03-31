@@ -16,8 +16,13 @@ navbar:
       href: home.html
     - text: "About"
       href: about.html 
-
   right:
+    - text: "Subscribe"
+      extrahead: |
+        <form action="https://us18.list-manage.com/subscribe/post?u=7fbf23d6cf3189de9b20ca2e2&amp;id=300638" method="post" target="_blank">
+          <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+          <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+        </form>
     - icon: fa-envelope fa-lg
       href: contact.html
     - icon: fab fa-youtube
@@ -45,4 +50,3 @@ output:
       - Data Science
       - Travel Experiences
       - Holidays
-     

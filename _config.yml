@@ -20,7 +20,8 @@ navbar:
       href: home.html
     - text: "About"
       href: about.html
-
+    - text: "Subscribe"
+      href: subscribe.html
   right:
     - icon: fa-envelope fa-lg
       href: contact.html
