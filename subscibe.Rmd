@@ -1,0 +1,10 @@
+---
+title: "Subscribe to upcoming blog posts"
+---
+
+Welcome to my post! If you enjoyed reading this post, please consider subscribing to my newsletter:
+
+<form action="https://us18.list-manage.com/subscribe/post?u=7fbf23d6cf3189de9b20ca2e2&amp;id=300638" method="post" target="_blank">
+  <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="Email Address" required>
+  <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+</form>
