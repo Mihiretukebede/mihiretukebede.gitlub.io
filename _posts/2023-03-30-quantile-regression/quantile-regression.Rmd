@@ -41,12 +41,14 @@ An equal probability portion of a distribution is represented by a quantile. Whe
 
 Quantile regression's primary benefit is that it enables us to model the relationship between the predictor variables across different parts of the distribution of the response variable. This can be useful when the relationship between the predictor variables and the response variable is not constant across the distribution, for example, when the relationship is stronger in the tails of the distribution.
 
+Quantile regression can be a good choice if the data violate some of the key assumptions in ordinary least square regression (OLS): domesticity and normality. It is also robust to outliers or influential data points. 
+
 Without spending more time, I will proceed directly to the codes. I need few libraries and I will use the life_expectancy data set. I will use *quantreg* package to do the models(life expactancy as a function of income) and *plotly* to visualize the coefficients in 3D.
 
 
 ```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
 library(pacman)
-p_load(dplyr,janitor, ggplot2, quantreg, plotly)
+p_load(dplyr,janitor, ggplot2, quantreg,sjPlot, plotly)
 
 ```
 
@@ -107,7 +109,7 @@ geom_smooth(method = "lm", col="blue") +
 
 Before doing the quantile regression. It might be a good idea to take a look at the visualization by setting different tau values in abline of the base r plot showing the relationship between `life_expectancy` and `income_index`. The 
 OLS regression is do the regression from the mean while the quantil regression n quantile regression, we can estimate any conditional quantile of the response variable, not just the mean but could be the medeian (50%), 90%, 75% or anywhere until 99%.If this is not clear, I highly recommended watching the video I dropped earlier. 
-Let's now vizualize the mean and the median ablines 
+Let's now visualize the mean and the median ablines 
 
 ```{r nclude=T, echo=TRUE, warning=FALSE, message=FALSE}
 plot(life_expectancy  ~ income_index, data = life_exp_narm) 
@@ -144,10 +146,10 @@ quant_reg_last  <- rq(life_expectancy~income_index+schooling,tau = 0.95, data = 
 summary(ols)
 ```
 
-```{r nclude=T, echo=TRUE, warning=FALSE, message=FALSE}
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
 summary(quant_reg_med)
-```
 
+```
 
 
 ```{r nclude=T, echo=TRUE, warning=FALSE, message=FALSE}
@@ -156,10 +158,21 @@ summary(quant_reg_first)
 ```{r nclude=T, echo=TRUE, warning=FALSE, message=FALSE}
 summary(quant_reg_last)
 ```
+
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
+plot_models(ols, quant_reg_med, quant_reg_first, quant_reg_last,
+           show.values = TRUE,
+           m.labels = c("OLS", "Median", "10th percentile",
+                       "95th percentile",
+                       legend.title = "Model")
+           )
+
+```
+
+
 You can see the OLS and quanitile regression based on the median are identical.But the others are different. 
 
 For effectively modeling numerous quantreg models, you may do somthing like the following. 
-
 
 ```{r nclude=T, echo=TRUE, warning=FALSE, message=FALSE}
 taus<-seq(from = .05, to = .95, by = 0.05) #Taus ranging from 0.05 to 0.95 with a step value of 0.05
