@@ -116,7 +116,7 @@ plot(life_expectancy  ~ income_index, data = life_exp_narm)
 abline(lm(life_expectancy  ~ income_index, data = life_exp_narm), col="blue", lwd = 3)
 abline(rq(life_expectancy  ~ income_index, tau=0.5, data = life_exp_narm), col="red",  lwd = 4) # Notcie the tau=0.5, 
 ```
-You can see the plot blue line is the OLS regression line but the red line is if we model the regression using the median. If you have to run only two models and choose the model that best fits the data, you have to choose by your loss function(eg. the model with mean squared error or mean absolute error, etc will be the best fit). NB: choosing the right model is not my goal here. 
+You can see the plot blue line is the OLS regression line but the red line is if we model the regression using the median. If you have to run only two models and choose the model that best fits the data, you have to choose by AIC or using loss function(eg. the model with minimum mean squared error or mean absolute error, etc will be the best fit). NB: choosing the right model is not my goal here. 
 
 Now let's add 10th and 90th percentiles from the above vizualization and evaluate which line looks better fit for the relationship between the two variables.
 
@@ -129,6 +129,15 @@ abline(rq(life_expectancy  ~ income_index, tau=0.5, data = life_exp_narm), col="
 abline(rq(life_expectancy  ~ income_index, tau=0.1, data = life_exp_narm), col="black",  lwd = 5)
 abline(rq(life_expectancy  ~ income_index, tau=0.90, data = life_exp_narm), col="turquoise4",  lwd = 6)
 
+```
+We can actually visualize multiple quantreg models and see it compared to the OLS model. 
+```{r, include=T, warning=F, echo=T, message=F}
+ggplot(life_exp_narm, aes(life_expectancy, income_index))+
+    geom_point()+
+    geom_smooth(method = lm, se = F, color = "darkturquoise")+ #linear model
+    geom_quantile(color = "red", quantiles = 0.5)+
+    geom_quantile(color = "black", alpha = 0.2, #Quantreg based on median
+                  quantiles = seq(.05, .95, by = 0.05)) #multiple models from the 5th percentile to 95th percentile
 ```
 
 
@@ -170,7 +179,7 @@ plot_models(ols, quant_reg_med, quant_reg_first, quant_reg_last,
 ```
 
 
-You can see the OLS and quanitile regression based on the median are identical.But the others are different. 
+You can see the OLS(based one mean) and quanitile regression based on the median are identical.But the one with 10th percentile and 95th percentile are different from the coefficients of the OLS. 
 
 For effectively modeling numerous quantreg models, you may do somthing like the following. 
 
