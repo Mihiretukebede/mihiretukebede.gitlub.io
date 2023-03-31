@@ -132,7 +132,9 @@ abline(rq(life_expectancy  ~ income_index, tau=0.1, data = life_exp_narm), col="
 abline(rq(life_expectancy  ~ income_index, tau=0.90, data = life_exp_narm), col="turquoise4",  lwd = 6)
 
 ```
-We can actually visualize multiple quantreg models and see it compared to the OLS model. 
+
+We can actually visualize multiple quantreg models and see it compared to the OLS model.
+
 ```{r, include=T, warning=F, echo=T, message=F}
 ggplot(life_exp_narm, aes(life_expectancy, income_index))+
     geom_point()+
@@ -185,7 +187,7 @@ You can see the OLS(based one mean) and quanitile regression based on the median
 
 For effectively modeling numerous quantreg models, you may do somthing like the following. 
 
-```{r nclude=T, echo=TRUE, warning=FALSE, message=FALSE}
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
 taus<-seq(from = .05, to = .95, by = 0.05) #Taus ranging from 0.05 to 0.95 with a step value of 0.05
 quant_all  <- rq(life_expectancy~income_index,tau = taus, 
                  data = life_exp_narm)
@@ -203,8 +205,25 @@ summary(quant_all)[which(taus == 0.8)]
 summary(quant_all)[which(taus == 0.1)]
 
 ```
+If we want to compare the AIC values of these models, as usual we can use AIC()
 
-How about if we want to access the coefficients?
+```{r}
+aic_df <- data.frame(AIC = AIC(quant_all), model = paste("tau=",taus))
+head(aic_df)
+ggplot(aic_df, aes(x = model, y = AIC)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  labs(title = "AIC values for different tau values",
+       x = "Tau",
+       y = "AIC") +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+```
+
+It seems the model around the median point is better fit. In general, we ought to pick the model with the lowest AIC score. AIC (Akaike Information Criterion) is a metric used to assess a statistical model's suitability for a particular set of data. It is based on the model's complexity as well as its goodness of fit. The model is thought to be better the lower the AIC value.
+
+However, it's crucial to remember that the AIC should not be the only factor considered when choosing a model. When choosing a model, it is important to take into account a number of additional elements, including interpretability, applicability, and theoretical relevance. It's also possible that none of the models have an AIC that is noticeably superior to the others, in which case other factors might be more crucial in selecting a model.
+
+## How about if we want to access the coefficients?
 
 ```{r nclude=T, echo=TRUE, warning=FALSE, message=FALSE}
 QR.coef <- coef(quant_all)
