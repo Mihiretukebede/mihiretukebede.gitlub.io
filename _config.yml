@@ -42,8 +42,9 @@ navbar:
       href: index.xml
 output:
   distill::distill_article:
+    search: true
+    search_engine: fusejs
     categories:
       - Data Science
       - Travel Experiences
       - Holidays
- 

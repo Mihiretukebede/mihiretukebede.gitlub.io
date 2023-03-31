@@ -210,13 +210,13 @@ summary(quant_all)[which(taus == 0.1)]
 If we want to compare the AIC values of these models, as usual we can use AIC()
 
 ```{r}
-aic_df <- data.frame(AIC = AIC(quant_all), model = paste("tau=",taus))
+aic_df <- data.frame(AIC = AIC(quant_all), model = paste("tau =",taus))
 head(aic_df)
 ggplot(aic_df, aes(x = model, y = AIC)) +
   geom_bar(stat = "identity", fill = "steelblue") +
   labs(title = "AIC values for different tau values",
-       x = "Tau",
-       y = "AIC") +
+       x = "Quantile regression models with different Tau values",
+       y = "Akaike Information Criterion") +
     theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
 ```
