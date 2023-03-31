@@ -76,6 +76,8 @@ Now the variable names are clean, we can do the rest of the coding as follows.I 
 ```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
 life_exp_narm  <- life_expe_data[complete.cases(life_expe_data),]
 dim(life_exp_narm) 
+life_exp_narm <- life_exp_narm |> 
+  filter(income_composition_of_resources>0) #let's remove all with income index around 0. 
 ```
 
 We have about 22 variables and 1649 observations. Not bad for modelling! Since, *income_composition_of_resources* is a really long and boring variable name, I am changing it.  
