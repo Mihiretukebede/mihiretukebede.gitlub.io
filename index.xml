@@ -7,7 +7,7 @@
     <description>This is Mihiretu Kebede(PhD)'s personal website. 
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 29 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Mar 2023 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Quantile regression tutorial in R</title>
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
@@ -15,7 +15,7 @@
       <description>This is a quick demonstration of quantile regression in R</description>
       <category>Data Science</category>
       <guid>http://www.mihiretukebede.com/posts/2023-03-30-quantile-regression</guid>
-      <pubDate>Wed, 29 Mar 2023 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 30 Mar 2023 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2023-03-30-quantile-regression/quantreg.png" medium="image" type="image/png" width="1023" height="588"/>
     </item>
     <item>
@@ -103,7 +103,7 @@
       <description>Let's have a quick overview of what on COVID-19 related records were added in PubMed on August 03/2020.</description>
       <category>Data Science</category>
       <guid>http://www.mihiretukebede.com/posts/2020-08-03-2020-08-03-covid19</guid>
-      <pubDate>Tue, 04 Aug 2020 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 03 Aug 2020 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2020-08-03-2020-08-03-covid19/pic.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
