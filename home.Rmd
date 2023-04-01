@@ -12,3 +12,6 @@ title: "Welcome"
 Thank you for visiting this website. You may also find my YouTube Channel by clicking here -\> [RPy Data Science YouTube channel](https://www.youtube.com/channel/UCpHd6O1Yqz4YgcYUBfyRqKg)
 
 <img src="myphoto.jpg" style="width:25%; border:10px solid; margin-right: 20px" align="left"/>
+
+
+
