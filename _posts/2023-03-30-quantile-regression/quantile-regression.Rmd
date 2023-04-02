@@ -6,7 +6,7 @@ categories:
 author: Mihiretu Kebede(PhD)
 url: http://www.mihiretukebede.com/ 
 google_analytics: "UA-173027539-1"
-date: "2023-03-30`"
+date: "2023-04-02`"
 preview: quantreg.png
 description: |
   This is a quick demonstration of quantile regression in R
@@ -138,7 +138,7 @@ We can actually visualize multiple quantreg models and see it compared to the OL
 
 
 ```{r, include=T, warning=F, echo=T, message=F}
-ggplot(life_exp_narm, aes(life_expectancy, income_index))+
+ggplot(life_exp_narm, aes(income_index, life_expectancy))+
     geom_point()+
     geom_smooth(method = lm, se = F, color = "darkturquoise")+ #linear model
     geom_quantile(color = "red", quantiles = 0.5)+
@@ -173,6 +173,23 @@ summary(quant_reg_first)
 ```{r nclude=T, echo=TRUE, warning=FALSE, message=FALSE}
 summary(quant_reg_last)
 ```
+Let's have a closer look of the median model relative to the lm. 
+
+```{r, warning=FALSE, message=FALSE}
+# Plot data points and regression models
+ggplot(life_exp_narm, aes(income_index, life_expectancy)) +
+  geom_point() +
+  geom_smooth(method = lm, se = FALSE, color = "red", size = 0.5) + # linear model
+  geom_quantile(color = "darkturquoise", quantiles = 0.5, size=2) + # median quantile regression model with tau = 0.5
+    geom_quantile(color = "black", quantiles = 0.1, size=0.5) + #quantreg based on the 10th percentile
+      geom_quantile(color = "yellow", quantiles = 0.75, size= 0.5) + #quantreg based on the 10th percentile
+  geom_segment(aes(x = income_index, y = life_expectancy, xend = income_index, yend = predict(quant_reg_med, newdata = life_exp_narm)), 
+               color = "darkgray", size = 0.1) + # distance line based on median quantile regression model
+  labs(title = " Life Expectancy~Income Index", y = "Life Expectancy", x = "Income Index")
+```
+
+
+We can plot the coefficients of the four different models we modeled earlier and compare them. 
 
 ```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
 plot_models(ols, quant_reg_med, quant_reg_first, quant_reg_last,
@@ -194,6 +211,7 @@ taus<-seq(from = .05, to = .95, by = 0.05) #Taus ranging from 0.05 to 0.95 with 
 quant_all  <- rq(life_expectancy~income_index,tau = taus, 
                  data = life_exp_narm)
 ```
+
 
 ```{r nclude=T, echo=TRUE, warning=FALSE, message=FALSE}
 names(quant_all) #To access the cntents of our model
@@ -286,8 +304,21 @@ p %>% add_surface(z = ~beta, x = ~taus, y = ~taus, showscale = FALSE) %>%
   layout(showlegend = FALSE)
 ```
 
+# Quantile process plot
 
-That is all for today. Again I highly recommend watching the video and reading `quantreg` package functions. I hope, you like it.See you in the next post.  
+```{r}
+summary(quant_all) |> plot("income_index") #Let's ignore the intercept 
+```
+
+
+The summary(quant_all) |> plot("income_index") command generates a Quantile Process Plot for the variable income_index. Quantile process plot is a graphical tool to assess the relationship between the response variable (in our case, life_expectancy) and the predictor variable (income_index) across different quantiles of the response distribution. The x-axis represents the predictor variable, and the y-axis represents the quantiles of the response variable. The plot shows a line for each quantile of interest (0.05, 0.1, 0.15, ..., 0.95), indicating the estimated relationship between income_index and the corresponding quantile of life_expectancy. The shaded area is for quantile regression and its confidence intervals.The slope of each line represents the estimated effect of income_index on the given quantile of life_expectancy.The solid and dashed red lines show the linear model and its lower and upper bound confidence intervals, respectively. In the plot, we can see only a very small region(from around 0.25 to 0.4) overlaps with the linear model. The large portion of the plot when income index is larger than 0.4 or when it is lower than 0.2 is not overlapping indicating difference between the quantreg approach and the OLS modeling approach. 
+
+In addition, we can see curvatures or non-linearity in the lines, which may indicate that the relationship between the variables is more complex than a simple linear one.Hence, a more complex model maybe necessary to capture the full range of the relationship between the two variables. 
+
+
+That is all for today. Again I highly recommend watching the video and reading `quantreg` package functions. I hope, you like it.See you in the next post.
+
+
 
 # Contact 
 Please mention [@RPy_DataScience](https://twitter.com/RPy_DataScience) if you tweet this post.
