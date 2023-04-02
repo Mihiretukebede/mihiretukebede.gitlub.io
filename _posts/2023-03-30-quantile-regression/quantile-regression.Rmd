@@ -370,7 +370,7 @@ htmltools::tagList(
   disqus_html,
   htmltools::tags$script(
     type = "text/javascript",
-    src = 'https://https-www-mihiretukebede-com.disqus.com/embed.js',
+    src = 'https://mihiretukebede-com.disqus.com/embed.js',
     async = TRUE
   ),
   htmltools::tags$noscript(
