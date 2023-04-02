@@ -355,7 +355,7 @@ HTML(html)
 
 ```{r, include=FALSE}
 disqus_url <- "https://www.mihiretukebede.com/posts/2023-03-30-quantile-regression"
-disqus_title <- "My blog post"
+disqus_title <- "Quantile regression tutorial in R"
 disqus_identifier <- "2023-03-30-quantile-regression"
 disqus_shortname <- "mihiretukebede-com"
 
