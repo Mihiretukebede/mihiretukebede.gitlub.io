@@ -7,16 +7,7 @@
     <description>This is Mihiretu Kebede(PhD)'s personal website. 
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Sun, 09 Apr 2023 00:00:00 +0000</lastBuildDate>
-    <item>
-      <title>የደረቅ ፋንድያ ማጣራቀሚያ የተገጠመላቸው የቪየና ቅንጡ ሰረገላወች</title>
-      <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
-      <link>http://www.mihiretukebede.com/posts/2023-04-10-viena</link>
-      <description>የደረቅ ፋንድያ ማጣራቀሚያ የተገጠመላቸው የቪየና ቅንጡ ሰረገላወች</description>
-      <category>Travel Experiences</category>
-      <guid>http://www.mihiretukebede.com/posts/2023-04-10-viena</guid>
-      <pubDate>Sun, 09 Apr 2023 00:00:00 +0000</pubDate>
-    </item>
+    <lastBuildDate>Sun, 02 Apr 2023 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Quantile regression tutorial in R</title>
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
@@ -64,7 +55,7 @@
       <description>Correlation heat map in R and Python</description>
       <category>Data Science</category>
       <guid>http://www.mihiretukebede.com/posts/NA-corr-plot-python-vs-r</guid>
-      <pubDate>Mon, 17 May 2021 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 16 May 2021 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/NA-corr-plot-python-vs-r/2021-05-13-corr-plot-python-vs-r_files/figure-html5/unnamed-chunk-7-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>

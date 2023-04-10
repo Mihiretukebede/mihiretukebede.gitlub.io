@@ -77,6 +77,11 @@ d-appendix {
 /* Add any additional CSS rules below                      */
 
 
+.d-article pre code,
+.distill-site-footer {
+	font-family: 'Nyala', sans-serif;
+}
+
 .d-article pre code {
 	font-family: 'Fira Code', monospace;
 	font-size: 1.2rem;
@@ -86,3 +91,4 @@ d-appendix {
   font-family: 'Nyala';
   src: url('F:/github/githubwebsite/fonts/nyala.ttf');
 }
+
