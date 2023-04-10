@@ -3,6 +3,7 @@ name: "Aspire Data Solutions"
 title: "የደረቅ ፋንድያ ማጣራቀሚያ የተገጠመላቸው የቪየና ቅንጡ ሰረገላወች"
 categories: 
   - Travel Experiences
+theme: theme.css
 author: Mihiretu Kebede(PhD)
 url: http://www.mihiretukebede.com/ 
 google_analytics: "UA-173027539-1"
