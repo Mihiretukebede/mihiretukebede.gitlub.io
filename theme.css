@@ -81,3 +81,8 @@ d-appendix {
 	font-family: 'Fira Code', monospace;
 	font-size: 1.2rem;
 }
+
+@font-face {
+  font-family: 'Nyala';
+  src: url('/github/githubwebsite/fonts/nyala.ttf');
+}
