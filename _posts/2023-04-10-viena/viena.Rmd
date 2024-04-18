@@ -21,8 +21,11 @@ output:
 ---
 
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825" crossorigin="anonymous"></script>
-</head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825"
+     crossorigin="anonymous"></script>
+ <head>
+ 
+ </head>
 
 <link rel="stylesheet" href="styles.css" type="text/css">
 
