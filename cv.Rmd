@@ -1,0 +1,189 @@
+---
+title: "CURRICULUM VITAE"
+---
+
+<head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825"
+     crossorigin="anonymous"></script>
+ <head>
+ 
+ </head>
+ 
+ 
+<link rel="stylesheet" href="styles.css" type="text/css">
+
+## About Me
+
+Senior epidemiologist with more than 18 years of experience in healthcare practice, teaching, and epidemiological research. Computationally oriented with strong R and Python programming skills and proven experience in epidemiological and machine learning research methods applied to diabetes, cancer, and infectious diseases. Experienced in observational methods, systematic reviews and meta-analysis, and computational epidemiology such as NLP methods and applications of machine learning in evidence syntheses, disease risk profiling, and health care prognosis prediction. A strong advocate of data visualization, published about 50 peer-reviewed articles and served as an associate editor or peer-reviewer for over 30 international medical journals. Peer-reviewed clinical study protocols in GLG and SciPinion. H-Index = 20, I10-Index = 2.
+
+## Work Experience
+
+### Senior Epidemiologist
+**German Cancer Research Center, Heidelberg, Germany**  
+Mar 2024 - Present
+
+- Investigate the impact of familial, disease exposure, medication history and other exposures in the risk of colorectal cancer using the Swedish nation-wide registers.
+- Develop risk-adapted colorectal cancer screening recommendations.
+
+### Postdoc - Epidemiologist
+**German Cancer Research Center, Heidelberg, Germany**  
+Mar 2020 - Apr 2024
+
+- Investigated biological links between obesity and breast, ovarian, and endometrial cancers.
+- Synthesized evidence from diverse study designs, including prospective cohorts and Mendelian randomization.
+- Data visualization and using traditional epidemiological methods alongside modern machine learning for evidence synthesis.
+
+### Doctoral Research Fellow
+**Leibniz Institute for Prevention Research and Epidemiology - BIPS GmbH, Bremen, Germany**  
+Apr 2016 - Mar 2019
+
+- Research in Diabetes and Digital Health
+- Data analysis
+- Publication in international and peer-reviewed journals
+
+### Lecturer and Head of the Department of Health Informatics
+**University of Gondar, Ethiopia**  
+Sep 2012 - Mar 2016
+
+- Head of department, teaching, research, and community service.
+
+### Public Health Planning Monitoring and Evaluation Officer
+**Amhara Regional Health Bureau, Bahirdar City Administration Health Office, Ethiopia**  
+Jun 2012 - Sep 2012
+
+- Preparing annual strategic health plan for city administration health office
+- Coordinating health centers in the district to plan their five-year strategic and annual health plans
+- Monitoring progress on planned health center achievements
+- Evaluation of health centers in the district and providing feedback
+
+### Medical Laboratory Technologist and Head of Laboratory Department
+**Amhara Regional Health Bureau (Abay Health Center), Bahirdar, Ethiopia**  
+Sep 2006 - May 2012
+
+- Collecting biological specimens and performing different laboratory diagnostic tests
+- Performing laboratory tests including HIV testing, CD4 counts, complete blood cell counts, and other haematological parameters, and clinical chemistry
+
+## Education
+
+### Ph.D. in Public Health
+**University of Bremen, Germany**  
+2019  
+Dissertation: *Augmenting Diabetes Care and Self-management: What Can Digital Health Offer?*
+
+### Advanced Diploma in Health Care and Management in Tropical Countries
+**University of Basel, Switzerland**  
+2015  
+Grade: 82.5/100
+
+### MPH in Health Informatics
+**University of Gondar, Ethiopia**  
+2012  
+Thesis: *Predictors of CD4 Count Change Among Patients Antiretroviral Treatment: Application of Machine Learning Methods.*  
+Grade: 3.91/4.0 (Highest Grade from University of Gondar MPH, 2012 cohort)
+
+### BSc in Medical Laboratory Technology
+**Addis Ababa University, Ethiopia**  
+2006  
+Thesis: *Trend of Leprosy in Ethiopia*  
+Grade: 3.32/4.0
+
+## Skills
+
+- R, Rmarkdown, R shiny application, Python
+- Data analysis, Machine learning
+- Data visualization, Predictive modelling
+- Reproducible research, Statistical modelling
+- Meta-analysis, Network meta-analysis
+- Systematic Reviews, Natural Language Processing
+- Biomarkers, Laboratory diagnosis
+- Study design, Interactive data visualization
+- Manuscript writing, Peer-review
+- SQL, SAS
+
+## Languages
+
+- English
+- German
+- Amharic
+
+## Links
+
+- **Website:** [mihiretukebede.com](https://www.mihiretukebede.com/)
+- **ORCID:** [0000-0002-5599-2823](https://orcid.org/0000-0002-5599-2823)
+- **Google Scholar:** [O93Icv4AAAAJ](https://scholar.google.de/citations?user=O93Icv4AAAAJ&hl=de)
+- **LinkedIn:** [mihiretu-m-kebede](https://www.linkedin.com/in/mihiretu-m-kebede-18831b70/)
+- **Publons:** [mihiretu-kebede](https://publons.com/researcher/556310/mihiretu-kebede/)
+- **YouTube:** [YouTube Channel](https://www.youtube.com/channel/UCpHd6O1Yqz4YgcYUBfyRqKg)
+
+## Attended Courses
+
+- Causal Inference in Epidemiology, University of Essen, Germany
+- Machine Learning (A-Z), Udemy online course
+- R Programming: Advanced Analytics In R For Data Science, Online
+- R Programming A-Z™: R For Data Science With Real Exercises, Online
+- Data science, statistical methods and machine learning in R, University of Bremen
+- Reproducible Templates for Analysis and Dissemination, Online
+- Systematic Review and Meta-analysis, University of Essen, Germany
+- Mathematical Modeling and Data Analysis, Oberwolfach Research Institute for Mathematics (MFO), Germany
+- Principles of STD/HIV Research Course, University of Washington, Online
+- Leadership and Management, University of Washington, Online
+- Advanced Biostatistics by the Ohio State University, Gondar, Ethiopia
+
+## Membership in Professional Societies
+
+- Deutsche Gesellschaft für Medizinische Informatik, Biometrie und Epidemiologie (GMDS)
+- European Association of Studies in Diabetes (EASD)
+- Ethiopian Public Health Association (EPHA)
+- Ethiopian Medical Laboratory Technologists Association
+
+## References
+
+------------
+
+## Awards
+
+- Highest Grade from University of Gondar MPH, 2012 cohort
+- Publons 2018 top 1% peer reviewer
+
+
+## Teaching Experience
+
+- Evidence-based Medicine, Advanced Epidemiology, Epidemiological methods, Research methods, Systematic Reviews and Meta-analysis, Data entry with EPI Info, Statistical analysis with R, SPSS, STATA, EndNote/Mendeley/Zotero reference management systems.
+
+## Conferences (Oral and Poster Presentations)
+
+- 55th Annual Meeting of the European Association for the Study of Diabetes (EASD) 16-20 September 2019 in Barcelona, Spain
+- 14th German Association of Epidemiologists (DGEPI) Annual Conference, Ulm, Germany, October 2018
+- 13th German Association of Epidemiologists (DGEPI) Annual Conference, Bremen, Germany, October 2018
+- 10th Biennial Joanna Briggs Institute Colloquium, Antwerp, Belgium, May 2018
+- 78th American Diabetes Association conference, Orlando, USA, June 2018
+- [See additional conferences in the original document for more details]
+
+## Extra-Curricular Activities
+
+- Voluntary work in different projects supporting schools and health centers in Northwest Ethiopia
+- Prison health service in Ethiopia
+- Blog data analyses and visualization on personal website and Medium page
+- YouTube Tutorials on Machine learning, Meta-analysis, and other statistical and epidemiological topics
+
+## Soft Skills
+
+- Quick learner
+- Communication
+- Supervision
+- Attention to details
+
+## Publications
+
+1. Kebede, M.M., Cornet, C.L., Fortner, R.T. (2023). In‐depth evaluation of machine learning methods for semi‐automating article screening in a systematic review of mechanistic literature. *Research Synthesis Methods*. 14(2): 156-172. [PMID: 36583759](https://doi.org/10.1002/jrsm.1607).
+
+2. Nicholas Kofi Adjei, Mihiretu Kebede, Florence Samkange-Zeeb, Daniel Boakye, Maham Saleem2, Lara Christianson, Thomas L. Heise, Tilman Brand, Oluwaseun Esan, David C Taylor-Robinson, Charles Agyemang, Hajo Zeeb, Racial-ethnic differences in Metabolic Syndrome in high-income countries: a systematic review and meta- analysis, *Reviews in Endocrine and Metabolic Disorders*, April 10, 2024, [10.1007/s11154-024-09879-9](https://doi.org/10.1007/s11154-024-09879-9).
+
+3. Sagaro, G.G., Angeloni, U., Battineni, G., Kebede, M.M., et al. (2023). Risk prediction model of self-reported hypertension for telemedicine based on the sociodemographic, occupational and health-related characteristics of seafarers: a cross-sectional epidemiological study. *BMJ Open*. 13:e070146. [PMID: 36912656](https://doi.org/10.1136/bmjopen-2022-070146).
+
+4. Mekonnen, D., Kebede, M.M., et al. (2023). Comparative serum lipid and immunohematological values among adult pulmonary tuberculosis and tuberculosis lymphadenitis cases and their association with sputum bacilli load and time to culture positivity in Northwestern Ethiopia. *Lipids in Health and Disease*. 22(1): 56. [PMID: 37157994](https://doi.org/10.1186/s12944-023-01791-6).
+
+5. Ngusie, H.S., Kebede, M.M., Ahmed, M.H., Mengiste, S.A., et al. (2023). The effect of capacity building evidence-based medicine training on its implementation among healthcare professionals in Southwest Ethiopia: a controlled quasi-experimental outcome evaluation. *BMC Med Inform Decis Mak*. 23, 172. [PMID: 37693421](https://doi.org/10.1186/s12911-023-02272-7).
+
+Please check **ORCID:** [0000-0002-5599-2823](https://orcid.org/0000-0002-5599-2823) for more
+
