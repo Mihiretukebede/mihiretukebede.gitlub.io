@@ -4,7 +4,7 @@ title: "CURRICULUM VITAE"
   
 <link rel="stylesheet" href="styles.css" type="text/css">
 
-Dr Mihiretu M. Kebede, Husarenstrasse 3 | DE-69121 Heidelberg | +49 (0)176 87170349 | mihiretaabush@gmail.com
+Dr Mihiretu M. Kebede, Husarenstrasse 3 | DE-69121 Heidelberg | mihiretaabush@gmail.com
 
 # PERSONAL DETAILS
 - Nationality:	Ethiopian 
