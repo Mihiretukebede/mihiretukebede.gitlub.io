@@ -92,3 +92,21 @@ d-appendix {
   src: url('F:/github/githubwebsite/fonts/nyala.ttf');
 }
 
+/* Bigger navbar logo (Distill) */
+.distill-site-header .logo img,
+.distill-site-nav .logo img {   /* both, to be safe */
+  height: 64px !important;   /* try 56–72px to taste */
+  width: auto !important;
+}
+
+/* Optional: a bit more vertical padding */
+.distill-site-header {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+/* Smaller on phones (optional) */
+@media (max-width: 991.98px) {
+  .distill-site-header .logo img,
+  .distill-site-nav .logo img { height: 44px !important; }
+}
