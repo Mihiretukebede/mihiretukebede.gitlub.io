@@ -20,6 +20,8 @@ navbar:
       href: about.html
     - text: "Subscribe"
       href: subscribe.html
+    - text: "Previous posts"
+      href: archive.html
   right:
     - icon: fa-envelope fa-lg
       href: contact.html

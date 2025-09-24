@@ -1,9 +1,20 @@
 ---
 title: "Previous posts"
+description: Browse all articles from the archive.
 listing:
   contents: posts
-  sort: date desc
-  page-size: 50
-  categories: yes
+  sort: path desc
+  page-size: 30
   filter-ui: yes
+  categories: yes
+collections:
+  posts:
+    share:
+    - twitter
+    - linkedin
+    - facebook
+    - "google-plus"
+    - pinterest
 ---
+Use the search box or category filters to find older posts.
+
