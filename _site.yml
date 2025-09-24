@@ -44,6 +44,7 @@ output:
   distill::distill_article:
     search: true
     search_engine: fusejs
+    css: theme.css  
     categories: ["Data Science", "Travel Experiences", "Holidays"]
     includes:
       in_header: favicon.html   # ← ensures favicon loads
