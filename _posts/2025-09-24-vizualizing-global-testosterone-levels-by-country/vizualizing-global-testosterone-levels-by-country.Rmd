@@ -1,0 +1,335 @@
+---
+name: "Aspire Data Solutions"
+title: "Vizualizing global testosterone levels by country"
+categories: 
+  - Data Science
+author: Mihiretu Kebede(PhD)
+url: http://www.mihiretukebede.com/ 
+google_analytics: "UA-173027539-1"
+date: 2025-09-24
+preview: testosterone.png
+description: |
+  Scrapping global testosterone data from the world population review website and vizualizing it
+
+collections:
+  posts:
+      share: [twitter, linkedin, facebook, google-plus, pinterest]
+      
+output:
+  distill::distill_article:
+    self_contained: false
+    toc: true
+    toc_depth: 2
+---
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4447780400240825" crossorigin="anonymous"></script>
+</head>
+
+# Mapping Global Testosterone Levels with R
+
+Recently I stumbled upon the [World Population Review](https://worldpopulationreview.com/country-rankings/testosterone-levels-by-country) ranking of testosterone levels by country
+ and thought it would make a fun data-wrangling and visualization exercise in R.
+Here’s how I scraped the data, cleaned it, and built a choropleth world map.
+
+::: {.callout-warning}
+**Caution — ecological data.** Country averages may reflect differing cohorts, lab methods, and sampling times. Values are approximate and not age-standardized. Use for patterns, not precise comparisons or causal inference.
+:::
+
+1️⃣ Setup
+
+We’ll need a handful of tidyverse-friendly packages for web scraping, data wrangling, and spatial plotting:
+
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
+library(tidyverse)
+library(rvest)
+library(countrycode)
+library(sf)
+library(rnaturalearth)
+library(rnaturalearthdata)
+
+```
+
+2️⃣ Scrape the data
+
+We try to read a proper HTML table first; if absent, fall back to parsing visible text.
+
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
+url <- "https://worldpopulationreview.com/country-rankings/testosterone-levels-by-country"
+
+page <- read_html(url)
+tbls <- page %>% html_elements("table") %>% html_table(trim = TRUE)
+
+if (length(tbls) > 0) {
+  raw <- tbls[[1]]
+  names(raw) <- tolower(names(raw))
+  # Ensure a 'country' column exists; infer it if necessary
+  if (!("country" %in% names(raw))) {
+    cn_idx <- which.max(colSums(sapply(raw, \(x) stringr::str_detect(x, "[A-Za-z]"))))
+    names(raw)[cn_idx] <- "country"
+  }
+  # Pick the column with the most digits as value
+  val_col <- names(raw)[which.max(colSums(sapply(raw, \(x) stringr::str_detect(x, "\\d"))))]
+  data_raw <- raw %>% select(country, value = all_of(val_col))
+} else {
+  # Fallback: parse visible text
+  txt <- page %>% html_element("main") %>% html_text2()
+  lines <- stringr::str_match_all(txt, "(?m)^([A-Za-z .()'’-]+?)\\s+(\\d{3})\\s+2024$")[[1]]
+  data_raw <- tibble(country = lines[,2], value = lines[,3])
+}
+
+```
+
+3️⃣ Clean and save
+
+We strip non-numeric characters from the value column, de-duplicate countries, and write a CSV.
+
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
+dat <- data_raw %>%
+  rename(country = 1, raw_value = 2) %>%
+  mutate(
+    country = stringr::str_squish(as.character(country)),
+    value   = as.numeric(gsub("[^0-9.]", "", raw_value))
+  ) %>%
+  distinct(country, .keep_all = TRUE) %>%
+  filter(!is.na(value) & value > 0)
+
+# Quick peek
+dat %>% slice_head(n = 10)
+
+```
+
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
+readr::write_csv(dat, "testosterone_wpr_2024.csv")
+cat("Saved: testosterone_wpr_2024.csv\n")
+
+```
+
+4️⃣ Add ISO codes and join to a world map
+
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
+dat <- dat %>%
+  mutate(
+    iso3 = countrycode(country, "country.name", "iso3c",
+                       custom_match = c(
+                         "Czech Republic" = "CZE",
+                         "DR Congo"       = "COD",
+                         "Palestine"      = "PSE"
+                       ))
+  )
+
+world <- ne_countries(scale = "medium", returnclass = "sf") %>%
+  st_transform(4326)
+
+world_join <- world %>%
+  left_join(dat, by = c("iso_a3" = "iso3"))
+
+misses <- dat %>% filter(is.na(iso3)) %>% arrange(country)
+if (nrow(misses)) {
+  cat("Unmatched country names (consider adding to custom_match):\n")
+  print(misses)
+}
+
+```
+
+5️⃣ Plot the choropleth
+
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
+ggplot(world_join) +
+  geom_sf(aes(fill = value), color = "grey30", linewidth = 0.1) +
+  scale_fill_viridis_c(
+    option = "plasma",
+    na.value = "gainsboro",
+    name = "Testosterone (ng/dL)"
+  ) +
+  labs(
+    title = "Global Testosterone Levels by Country (2024)",
+    subtitle = "Scraped from WorldPopulationReview",
+    caption = "Source: worldpopulationreview.com"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    legend.position = "right",
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank()
+  )
+
+```
+
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE,fig.width=12, fig.height=7, dpi=220, out.width='100%'}
+
+library(grid)  # for unit()
+
+ggplot(world_join) +
+  geom_sf(aes(fill = value), color = "grey25", linewidth = 0.05) +
+  # More appealing palette + trimmed extremes
+  scale_fill_viridis_c(
+    option = "inferno", begin = 0.05, end = 0.95,
+    na.value = "grey90", name = "Testosterone (ng/dL)"
+  ) +
+  # Nicer world projection (Robinson). If this errors on your system, remove this line.
+  coord_sf(crs = "ESRI:54030") +
+  labs(
+    title = "Global Testosterone Levels by Country (2024)",
+    subtitle = "Scraped from WorldPopulationReview",
+    caption = "Source: worldpopulationreview.com"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title.position = "plot",
+    legend.position = "right",
+    legend.key.height = unit(2.2, "cm"),
+    legend.title = element_text(face = "bold"),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    plot.background = element_rect(fill = "white", colour = NA),
+    panel.background = element_rect(fill = "white", colour = NA)
+  )
+```
+
+Interactive plot
+
+```{r plotly-map, echo=FALSE, message=FALSE, warning=FALSE}
+# needs: library(plotly) (and our existing 'dat' with iso3 + value + country)
+library(plotly)
+
+dat_plot <- dat %>%
+  dplyr::filter(!is.na(iso3)) %>%
+  dplyr::mutate(
+    hover = paste0(
+      country, "<br>",
+      "Testosterone: ", format(round(value, 0), big.mark = ","), " ng/dL"
+    )
+  )
+
+fig <- plot_ly(
+  data        = dat_plot,
+  type        = "choropleth",
+  locations   = ~iso3,
+  locationmode= "ISO-3",
+  z           = ~value,
+  text        = ~hover,
+  hoverinfo   = "text",
+  colorscale  = "Viridis",
+  colorbar    = list(title = "ng/dL"),
+  marker      = list(line = list(color = "rgb(200,200,200)", width = 0.3)),
+  zmin        = min(dat_plot$value, na.rm = TRUE),
+  zmax        = max(dat_plot$value, na.rm = TRUE)
+) %>%
+  layout(
+    title = list(text = "Global Testosterone Levels by Country (2024)"),
+    geo = list(
+      showframe = FALSE,
+      showcoastlines = FALSE,
+      projection = list(type = "robinson")  # nice world view; change to "natural earth" or remove if needed
+    )
+  )
+
+fig
+```
+
+
+You’ll get a vibrant world map shading each country by its reported mean testosterone level.
+Any unmatched countries are flagged so you can add them to the custom_match list.
+
+# Final Thoughts
+
+This is a nice example of how rvest and ggplot2 can turn an interesting dataset into a ready-to-share visualization in just a few lines of R.
+Remember that these figures are population averages and can reflect many factors (sampling methods, measurement techniques, etc.), so treat them as exploratory rather than definitive.
+
+5) Data Table (Optional)
+
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
+dat %>%
+  arrange(desc(value)) %>%
+  head(20)
+
+```
+
+## Testosterone: quick background
+
+**What it is.** Testosterone (T) is the principal androgen in men, produced mainly by the testes under hypothalamic–pituitary control. Low levels with consistent symptoms define hypogonadism, which should be diagnosed **only** when both are present and **confirmed on at least two morning tests**.  
+*Guideline note:* diagnose when symptoms/signs are present **and** serum T is “unequivocally and consistently low.”¹
+
+### What counts as “healthy” values?
+
+- **Reference range (young healthy men, 19–39 y):** ~**264–916 ng/dL** (2.5th–97.5th percentiles) from harmonized LC/MS-calibrated cohorts.²  
+- **Why ranges differ:** lab methods, calibration, population (age, BMI) and SHBG differences shift “normal” windows.  
+- **Sampling best practice:** draw **morning, fasting** samples; repeat on a different day; consider **free T** when SHBG is abnormal (e.g., obesity, diabetes, thyroid or liver disease).¹
+
+### Physiology & potential benefits when true deficiency is treated
+
+- **Sexual health:** improved libido; modest improvements in erectile function (particularly when baseline T is low).¹  
+- **Body composition & bone:** increased fat-free mass/strength; increased BMD, though **fracture reduction not proven**.¹  
+- **Mood/energy:** small average effects; not an antidepressant.¹
+
+### Risks, side effects, and key cautions (especially for therapy)
+
+- **Erythrocytosis (↑hematocrit):** most common dose-related adverse effect; many guidelines hold/adjust if **Hct >54%**.³ ⁴  
+- **Fertility:** exogenous T suppresses spermatogenesis—**avoid if planning near-term fertility**.¹  
+- **Prostate considerations:** **do not** start with active prostate/breast cancer; monitor PSA/DRE per age/risk after initiation.¹  
+- **Sleep apnea/edema/acne/gynecomastia:** may worsen; manage or avoid in untreated severe OSA.¹  
+- **Cardiovascular safety:** In the large **TRAVERSE** RCT of symptomatic men with low T and high CV risk on **transdermal gel titrated to 350–750 ng/dL**, testosterone was **non-inferior** to placebo for MACE; **higher rates of atrial fibrillation, AKI, and pulmonary embolism** were observed as safety signals—so shared decision-making and monitoring remain essential.⁵
+
+### Ecological vs causal interpretation for your map
+
+Country-average T levels are **ecologic** aggregates. Correlating them with national disease rates (e.g., prostate cancer, CVD, diabetes) risks the **ecological fallacy**—group-level associations may not reflect individual-level causal effects. Differences in age structure, obesity, assay methods, healthcare access/screening, smoking, and comorbidities can confound cross-country comparisons. Use the map to **generate hypotheses**, not to claim causation; test hypotheses with individual-level or multilevel data and pre-specified causal models (DAGs).⁶ ⁷
+
+Interpretation note: The country values are ecological, approximate estimates. They combine data from different years, age mixes, labs/methods (e.g., immunoassay vs LC/MS), and time-of-day sampling—so levels aren’t directly comparable or precise. Use the map for broad patterns, not exact rankings or causal claims.
+
+
+### References (plain-language)
+1. **Endocrine Society CPG (2018):** Testosterone therapy in men with hypogonadism—diagnosis, when to treat, and monitoring. *J Clin Endocrinol Metab* 103:1715–1744.  
+2. **Travison et al. (2017):** Harmonized reference range for total testosterone in healthy non-obese men 19–39 y: **264–916 ng/dL**. *J Clin Endocrinol Metab* 102:1161–1173.  
+3. **Ohlander et al. (2017):** Erythrocytosis with testosterone therapy; manage if **Hct >54%**. *Sex Med Rev*.  
+4. **Bond et al. (2024):** Review on TRT-induced erythrocytosis; consensus Hct **>54%** → hold/adjust (± phlebotomy). *Endocr Connect*.  
+5. **TRAVERSE Trial (NEJM 2023):** Testosterone gel vs placebo, **non-inferior for MACE**, with more AFib/AKI/PE signals. *N Engl J Med* 389:107–117.  
+6. **Greenland & Morgenstern (1989):** Ecological bias/confounding/effect modification. *Int J Epidemiol* 18:269–274.  
+7. **Piantadosi et al. (1988):** Classic warning on ecological fallacy. *Am J Epidemiol* 127:893–904.
+
+
+Reproducibility
+
+R version: r R.version.string
+
+Locale/timezone: r paste(Sys.timezone(), format(Sys.time(), '%Y-%m-%d %H:%M:%S'))
+
+Packages:
+
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
+sessionInfo()
+
+```
+
+
+If you have enjoyed reading this blog post, consider subscribing for upcoming posts. 
+
+
+```{r, results='asis', echo=FALSE}
+library(htmltools)
+html <- '<form action="https://mihiretukebede.us18.list-manage.com/subscribe/post?u=7996931f0da3fa21654a3274b&amp;id=a7cc1788e4&amp;f_id=00252de7f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+  <div id="mc_embed_signup_scroll">
+    <h2>Subscribe</h2>
+    <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+    <div class="mc-field-group">
+      <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span></label>
+      <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" required>
+      <span id="mce-EMAIL-HELPERTEXT" class="helper_text"></span>
+    </div>
+    <div id="mce-responses" class="clear foot">
+      <div class="response" id="mce-error-response" style="display:none"></div>
+      <div class="response" id="mce-success-response" style="display:none"></div>
+    </div>  
+    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_7996931f0da3fa21654a3274b_a7cc1788e4" tabindex="-1" value=""></div>
+    <div class="optionalParent">
+      <div class="clear foot">
+        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+        <p class="brandingLogo"><a href="http://eepurl.com/ioaw72" title="Mailchimp - email marketing made easy and fun"><img src="https://eep.io/mc-cdn-images/template_images/branding_logo_text_dark_dtp.svg"></a></p>
+      </div>
+    </div>
+  </div>
+</form>'
+HTML(html)
+```
+
+
+
