@@ -12,7 +12,7 @@ collections:
     share: [twitter, linkedin, facebook, google-plus, pinterest]
 
 navbar:
-  logo: images/aspire-logo-1.png   # ← your logo
+  logo: images/aspire-logo-1.jpg   # ← my logo
   left:
     - text: "Home"
       href: home.html

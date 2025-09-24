@@ -10,6 +10,6 @@ listing: posts
 <!-- in the page body/header -->
 <header class="site-header">
   <a class="brand" href="/">
-    <img src="/images/aspire-logo-1.png" alt="Aspire Data Solutions" width="180" height="auto">
+    <img src="/images/aspire-logo-1.jpg" alt="Aspire Data Solutions" width="180" height="auto">
   </a>
 </header>
