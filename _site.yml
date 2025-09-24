@@ -1,50 +1,49 @@
---- 
 name: "Mihiretu M. Kebede"
 output_dir: "."
-title: "Aspire Data Solutions" 
+title: "Aspire Data Solutions"
 description: |
-    This is Mihiretu Kebede(PhD)'s personal website. 
+  This is Mihiretu Kebede(PhD)'s personal website.
 google_analytics: "UA-173027539-1"
-base_url: http://www.mihiretukebede.com/ 
+base_url: http://www.mihiretukebede.com/
 date: "2020-08-06"
+
 collections:
   posts:
     share: [twitter, linkedin, facebook, google-plus, pinterest]
+
 navbar:
+  logo: images/aspire-logo-1.png   # ← your logo
   left:
     - text: "Home"
       href: home.html
     - text: "About"
-      href: about.html 
+      href: about.html
     - text: "Subscribe"
       href: subscribe.html
   right:
     - icon: fa-envelope fa-lg
       href: contact.html
     - icon: fab fa-youtube
-      href: https://www.youtube.com/channel/UCpHd6O1Yqz4YgcYUBfyRqKg      
+      href: https://www.youtube.com/channel/UCpHd6O1Yqz4YgcYUBfyRqKg
     - icon: fa-github fa-lg
-      href: https://github.com/Mihiretukebede/mihiretukebede.gitlub.io
+      href: https://github.com/Mihiretukebede/mihiretukebede.github.io   # fixed typo
     - icon: fa-twitter fa-lg
       href: https://twitter.com/MihiretuKebede1
     - icon: fa-linkedin fa-lg
       href: https://www.linkedin.com/in/mihiretu-m-kebede-18831b70/
     - text: "ORCID"
       href: https://orcid.org/0000-0002-5599-2823
-    - text: "Google Scholar" 
+    - text: "Google Scholar"
       href: https://scholar.google.de/citations?user=O93Icv4AAAAJ&hl=en
     - text: ResearchGate
-      href: https://www.researchgate.net/profile/Mihiretu_Kebede2 
+      href: https://www.researchgate.net/profile/Mihiretu_Kebede2
     - icon: fa fa-rss
       href: index.xml
-      
+
 output:
   distill::distill_article:
     search: true
     search_engine: fusejs
-    categories:
-      - Data Science
-      - Travel Experiences
-      - Holidays
-navbar:
-  logo: images/aspire-logo-1.png
+    categories: ["Data Science", "Travel Experiences", "Holidays"]
+    includes:
+      in_header: favicon.html   # ← ensures favicon loads

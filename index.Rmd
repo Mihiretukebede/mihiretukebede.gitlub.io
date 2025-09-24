@@ -5,7 +5,7 @@ listing: posts
 ---
 
 <!-- in <head> -->
-<link rel="icon" href="/images/favicon.ico">
+<link rel="icon" href="images/favicon.ico" sizes="any">
 
 <!-- in the page body/header -->
 <header class="site-header">
