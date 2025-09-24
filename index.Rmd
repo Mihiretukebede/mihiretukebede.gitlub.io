@@ -1,7 +1,13 @@
 ---
-title: ''
+title: "Aspire Data Solutions"
 site: distill::distill_website
-listing: posts
+description: Data notes and projects.
+listing:
+  contents: posts
+  sort: date desc
+  page-size: 5
+  categories: yes
+  filter-ui: no
 ---
 
 <!-- in <head> -->
@@ -13,3 +19,5 @@ listing: posts
     <img src="/images/aspire-logo-1.jpg" alt="Aspire Data Solutions" width="180" height="auto">
   </a>
 </header>
+
+[See all previous posts »](/archive.html)

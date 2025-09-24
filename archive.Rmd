@@ -1,0 +1,9 @@
+---
+title: "Previous posts"
+listing:
+  contents: posts
+  sort: date desc
+  page-size: 50
+  categories: yes
+  filter-ui: yes
+---
