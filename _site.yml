@@ -46,7 +46,5 @@ output:
       - Data Science
       - Travel Experiences
       - Holidays
-website:
-  navbar:
-    logo: githubwebsite/aspire-logo-1.png
-  favicon: githubwebsite/favicon.ico
+navbar:
+  logo: images/aspire-logo-1.png
