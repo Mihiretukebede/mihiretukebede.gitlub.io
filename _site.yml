@@ -50,3 +50,4 @@ output:
     categories: ["Data Science", "Travel Experiences", "Holidays"]
     includes:
       in_header: favicon.html   # ← ensures favicon loads
+      
