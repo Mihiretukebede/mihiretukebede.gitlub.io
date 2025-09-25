@@ -2218,8 +2218,10 @@ d-appendix {
 
 @font-face {
   font-family: 'Nyala';
-  src: url('F:/github/githubwebsite/fonts/nyala.ttf');
+  src: url('/fonts/nyala.woff2') format('woff2');
+  font-display: swap;
 }
+
 
 /* Bigger navbar logo (Distill) */
 .distill-site-header .logo img,
@@ -2239,6 +2241,45 @@ d-appendix {
   .distill-site-header .logo img,
   .distill-site-nav .logo img { height: 44px !important; }
 }
+
+/*New update for the /
+
+/* ==== Bigger NAV text (menu) ==== */
+.distill-site-header {
+  --text-size: 21px;           /* was 19px; try 20â€“22px */
+}
+/* If your theme ignores the var, force it: */
+.distill-site-header a.nav-link,
+.distill-site-nav a.nav-link {
+  font-size: 21px !important;
+}
+
+/* ==== Bigger BUTTON text (site-wide) ==== */
+button,
+.button, a.button,           /* generic â€œbuttonâ€ class */
+.btn, a.btn,                 /* bootstrap-style buttons (distill often uses these) */
+input[type="submit"],
+input[type="button"] {
+  font-size: 18px;           /* bump text size */
+  line-height: 1.25;
+  padding: 0.6rem 1rem;      /* make the button feel larger */
+  border-radius: 8px;
+}
+
+/* Optional: slightly larger buttons on desktop */
+@media (min-width: 992px) {
+  button,
+  .button, a.button,
+  .btn, a.btn,
+  input[type="submit"],
+  input[type="button"] {
+    font-size: 19px;
+    padding: 0.65rem 1.1rem;
+  }
+}
+
+
+
 
 </style>
 <!--/radix_placeholder_site_in_header-->
