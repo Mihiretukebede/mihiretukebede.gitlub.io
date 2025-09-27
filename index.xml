@@ -15,7 +15,7 @@
       <description>In this post I reproduce an elegant JAMA forest plot—originally created in SAS—using R.</description>
       <guid>http://www.mihiretukebede.com/posts/2025-09-27-elegant-forest-plot</guid>
       <pubDate>Fri, 26 Sep 2025 00:00:00 +0000</pubDate>
-      <media:content url="http://www.mihiretukebede.com/posts/2025-09-27-elegant-forest-plot/jama.jpg" medium="image" type="image/jpeg"/>
+      <media:content url="http://www.mihiretukebede.com/posts/2025-09-27-elegant-forest-plot/forestcover.png" medium="image" type="image/png" width="1024" height="1024"/>
     </item>
     <item>
       <title>Vizualizing global testosterone levels by country</title>
