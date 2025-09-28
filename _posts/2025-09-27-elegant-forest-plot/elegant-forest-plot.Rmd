@@ -6,7 +6,7 @@ description: |
 ategories: 
   - Data Science
 google_analytics: "UA-173027539-1"
-preview: forestcover.png
+preview: foresplotcoverimage.png
 author: Mihiretu Kebede(PhD)
 url: http://www.mihiretukebede.com/ 
 date: 2025-09-27
