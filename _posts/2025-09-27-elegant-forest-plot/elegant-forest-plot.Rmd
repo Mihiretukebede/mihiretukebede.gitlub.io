@@ -1,6 +1,7 @@
 ---
 name: "Aspire Data Solutions"
 title: "Still presenting regression results in tables? why not forest plots?"
+citation: false
 description: |
   In this post I reproduce an elegant JAMA forest plot—originally created in SAS—using R.
 ategories: 

@@ -7,14 +7,14 @@
     <description>This is Mihiretu Kebede(PhD)'s personal website.
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Fri, 26 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 27 Sep 2025 00:00:00 +0000</lastBuildDate>
     <item>
       <title>Still presenting regression results in tables? why not forest plots?</title>
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
       <link>http://www.mihiretukebede.com/posts/2025-09-27-elegant-forest-plot</link>
       <description>In this post I reproduce an elegant JAMA forest plot—originally created in SAS—using R.</description>
       <guid>http://www.mihiretukebede.com/posts/2025-09-27-elegant-forest-plot</guid>
-      <pubDate>Fri, 26 Sep 2025 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2025-09-27-elegant-forest-plot/foresplotcoverimage.png" medium="image" type="image/png" width="1536" height="1024"/>
     </item>
     <item>
