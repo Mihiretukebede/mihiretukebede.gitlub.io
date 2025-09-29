@@ -278,7 +278,7 @@ Country-average T levels are **ecologic** aggregates. Correlating them with nati
 Interpretation note: The country values are ecological, approximate estimates. They combine data from different years, age mixes, labs/methods (e.g., immunoassay vs LC/MS), and time-of-day sampling—so levels aren’t directly comparable or precise. Use the map for broad patterns, not exact rankings or causal claims.
 
 
-### References (plain-language)
+### References
 1. **Endocrine Society CPG (2018):** Testosterone therapy in men with hypogonadism—diagnosis, when to treat, and monitoring. *J Clin Endocrinol Metab* 103:1715–1744.  
 2. **Travison et al. (2017):** Harmonized reference range for total testosterone in healthy non-obese men 19–39 y: **264–916 ng/dL**. *J Clin Endocrinol Metab* 102:1161–1173.  
 3. **Ohlander et al. (2017):** Erythrocytosis with testosterone therapy; manage if **Hct >54%**. *Sex Med Rev*.  
