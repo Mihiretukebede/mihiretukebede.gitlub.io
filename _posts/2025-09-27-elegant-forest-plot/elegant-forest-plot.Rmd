@@ -33,7 +33,7 @@ collections:
 
 Every week I open papers that bury their main results in wall-to-wall regression tables: dozens of rows, tiny fonts, and confidence intervals that may even require a ruler and patience.
 
-Let's see this elegant forest plot presented in this article: [Association of Income, Smoking, and Other Factors With Colorectal Cancer Risk](https://jamanetwork.com/journals/jama/fullarticle/2817406). It looks nice and easy to read, right? So what is stopping many from presenting regression results like this---clear, visual, and instantly interpretable?
+Let's see this elegant forest plot presented in this article: [Associations Between Diabetes and Incident Colorectal Cancer](https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2811815). It looks nice and easy to read, right? So what is stopping many from presenting regression results like this---clear, visual, and instantly interpretable?
 
 ![](images/jama.jpg)
 
