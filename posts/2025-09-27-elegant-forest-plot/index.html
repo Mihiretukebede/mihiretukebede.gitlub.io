@@ -128,7 +128,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["elegant-forest-plot_files/anchor-4.2.2/anchor.min.js","elegant-forest-plot_files/bowser-1.9.3/bowser.min.js","elegant-forest-plot_files/distill-2.2.21/template.v2.js","elegant-forest-plot_files/figure-html5/unnamed-chunk-3-1.png","elegant-forest-plot_files/figure-html5/unnamed-chunk-4-1.png","elegant-forest-plot_files/header-attrs-2.20/header-attrs.js","elegant-forest-plot_files/jquery-3.6.0/jquery-3.6.0.js","elegant-forest-plot_files/jquery-3.6.0/jquery-3.6.0.min.js","elegant-forest-plot_files/jquery-3.6.0/jquery-3.6.0.min.map","elegant-forest-plot_files/popper-2.6.0/popper.min.js","elegant-forest-plot_files/tippy-6.2.7/tippy-bundle.umd.min.js","elegant-forest-plot_files/tippy-6.2.7/tippy-light-border.css","elegant-forest-plot_files/tippy-6.2.7/tippy.css","elegant-forest-plot_files/tippy-6.2.7/tippy.umd.min.js","elegant-forest-plot_files/webcomponents-2.0.0/webcomponents.js","foresplotcoverimage.png","forestcover.png","images/jama.jpg","jama.jpg"]}
+  {"type":"character","attributes":{},"value":["elegant-forest-plot_files/anchor-4.2.2/anchor.min.js","elegant-forest-plot_files/bowser-1.9.3/bowser.min.js","elegant-forest-plot_files/distill-2.2.21/template.v2.js","elegant-forest-plot_files/figure-html5/unnamed-chunk-3-1.png","elegant-forest-plot_files/figure-html5/unnamed-chunk-4-1.png","elegant-forest-plot_files/figure-html5/unnamed-chunk-6-1.png","elegant-forest-plot_files/header-attrs-2.20/header-attrs.js","elegant-forest-plot_files/jquery-3.6.0/jquery-3.6.0.js","elegant-forest-plot_files/jquery-3.6.0/jquery-3.6.0.min.js","elegant-forest-plot_files/jquery-3.6.0/jquery-3.6.0.min.map","elegant-forest-plot_files/popper-2.6.0/popper.min.js","elegant-forest-plot_files/tippy-6.2.7/tippy-bundle.umd.min.js","elegant-forest-plot_files/tippy-6.2.7/tippy-light-border.css","elegant-forest-plot_files/tippy-6.2.7/tippy.css","elegant-forest-plot_files/tippy-6.2.7/tippy.umd.min.js","elegant-forest-plot_files/webcomponents-2.0.0/webcomponents.js","foresplotcoverimage.png","forestcover.png","images/jama.jpg","jama.jpg"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2374,6 +2374,7 @@ d-article a:hover { color: #034349; }
 <li><a href="#getting-the-data" id="toc-getting-the-data">Getting the Data</a></li>
 </ul></li>
 <li><a href="#reproducing-the-plot-in-r" id="toc-reproducing-the-plot-in-r">Reproducing the Plot in R</a></li>
+<li><a href="#in-python-no-problem" id="toc-in-python-no-problem">In Python? No problem</a></li>
 </ul>
 </nav>
 </div>
@@ -2463,8 +2464,7 @@ HR (95% Cl)</code></pre>
 11 1.69 (1.15–2.47)</code></pre>
 </div>
 <h1 id="reproducing-the-plot-in-r">Reproducing the Plot in R</h1>
-<p>The meta package is designed for meta-analysis,
-but its forest() function is perfect for any list of estimates once pooling is turned off.</p>
+<p>The meta package is designed for meta-analysis, but its forest() function is perfect for any list of estimates once pooling is turned off.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/guido-s/meta/'>meta</a></span><span class='op'>)</span></span>
@@ -2498,12 +2498,71 @@ but its forest() function is perfect for any list of estimates once pooling is t
 </div>
 <p><img src="elegant-forest-plot_files/figure-html5/unnamed-chunk-3-1.png" width="624" /></p>
 </div>
+<h1 id="in-python-no-problem">In Python? No problem</h1>
+<p>Let’s try to reproduce it in python. First lets bring the R data frame from above and copy it in our python interpreter.</p>
+<p>I use reticulate package to run both R and python codes.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://rstudio.github.io/reticulate/'>reticulate</a></span><span class='op'>)</span></span>
+<span><span class='fu'>knitr</span><span class='fu'>::</span><span class='va'><a href='https://rdrr.io/pkg/knitr/man/opts_chunk.html'>opts_chunk</a></span><span class='op'>$</span><span class='fu'>set</span><span class='op'>(</span>echo <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span><span class='co'># If needed, pick a python env:</span></span>
+<span><span class='co'># reticulate::use_python("C:/Path/to/python.exe", required = TRUE)</span></span>
+<span><span class='co'># reticulate::py_install(c("pandas","matplotlib","numpy"))</span></span></code></pre>
+</div>
+</div>
+<p>Now let’s bring that R dataframe into our python interpreter.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd, numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.transforms <span class="im">as</span> transforms</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># bring R&#39;s df into Python</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>python_df <span class="op">=</span> r.df.copy()</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>python_df.head()</span></code></pre></div>
+<pre><code>    variable characteristic    HR  lower  upper  p_value             HR_CI
+0  Income, $         &gt;50000  1.51   0.84   2.72     0.93  1.51 (0.84–2.72)
+1  Income, $         &lt;15000  1.72   1.32   2.24      NaN  1.72 (1.32–2.24)
+2    Smoking          Never  1.10   0.81   1.48     0.04  1.10 (0.81–1.48)
+3    Smoking         Former  2.07   1.41   3.06      NaN  2.07 (1.41–3.06)
+4    Smoking        Current  1.62   1.14   2.31      NaN  1.62 (1.14–2.31)</code></pre>
+</div>
+<p>Plot in python: we will use the <code>forestplot</code> library from python. You can take a look at the <a href="https://pypi.org/project/forestplot/">vignettes</a> for more details.</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> forestplot <span class="im">as</span> fp</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fp.forestplot(python_df,  <span class="co"># the dataframe with results data</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>              estimate<span class="op">=</span><span class="st">&quot;HR&quot;</span>,  <span class="co"># col containing estimated effect size </span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>              ll<span class="op">=</span><span class="st">&quot;lower&quot;</span>, hl<span class="op">=</span><span class="st">&quot;upper&quot;</span>,  <span class="co"># columns containing conf. int. lower and higher limits</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>              varlabel<span class="op">=</span><span class="st">&quot;characteristic&quot;</span>,  <span class="co"># column containing variable label</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>              capitalize<span class="op">=</span><span class="st">&quot;capitalize&quot;</span>,  <span class="co"># Capitalize labels</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>              groupvar<span class="op">=</span><span class="st">&quot;variable&quot;</span>,  <span class="co"># Add variable groupings </span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>              <span class="co"># group ordering</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>              annote<span class="op">=</span>[<span class="st">&quot;HR_CI&quot;</span>],  <span class="co"># columns to report on left of plot</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>              annoteheaders<span class="op">=</span>[<span class="st">&quot;HR (95%CI)&quot;</span>],  <span class="co"># ^corresponding headers</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>              group_order<span class="op">=</span>[<span class="st">&quot;Income, $&quot;</span>, <span class="st">&quot;Smoking&quot;</span>, <span class="st">&quot;Obesity&quot;</span>, <span class="st">&quot;Sex&quot;</span>, </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>                           <span class="st">&quot;Race and ethnicity&quot;</span>],</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>              sort<span class="op">=</span><span class="va">True</span>,  <span class="co"># sort in ascending order (sorts within group if group is specified)               </span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>              pval<span class="op">=</span><span class="st">&quot;p_value&quot;</span>,  <span class="co"># Column of p-value to be reported on right</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>              color_alt_rows<span class="op">=</span><span class="va">True</span>,  <span class="co"># Gray alternate rows</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>              mcolor <span class="op">=</span> <span class="st">&quot;darkgreen&quot;</span>,<span class="co">#color of the square</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>              figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>), <span class="co">#Controls the size of the figure,</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>              xticks<span class="op">=</span>[<span class="fl">0.5</span>,<span class="dv">1</span>, <span class="dv">2</span>],</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>              ylabel<span class="op">=</span><span class="st">&quot;HR (95% CI)&quot;</span>,  <span class="co"># ylabel to print</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>              <span class="op">**</span>{<span class="st">&quot;ylabel1_size&quot;</span>: <span class="dv">11</span>}  <span class="co"># control size of printed ylabel</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>              )</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a> <span class="co"># add vertical line at x=1</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>ax.axvline(x<span class="op">=</span><span class="dv">1</span>, linewidth<span class="op">=</span><span class="fl">1.5</span>, color<span class="op">=</span><span class="st">&#39;black&#39;</span>,linestyle<span class="op">=</span><span class="st">&#39;-&#39;</span>) </span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div>
+<p><img src="elegant-forest-plot_files/figure-html5/unnamed-chunk-6-1.png" width="768" /></p>
+</div>
 <p>Take-Home Message</p>
 <p>Visuals persuade. A forest plot conveys magnitude, direction, and uncertainty at a glance.</p>
 <p>Readers remember pictures, not tables.</p>
 <p>If your model fits in a table, it fits in a figure—and your audience will thank you.</p>
-<p>So the next time you’re tempted to drop a 12-column regression table into your manuscript,
-ask yourself: why not a forest plot?</p>
+<p>So the next time you’re tempted to drop a 12-column regression table into your manuscript, ask yourself: why not a forest plot?</p>
 <p>Stop drowning readers in tables—start communicating with figures.</p>
 <p>Image credit: Figure 1 from the cited JAMA article.</p>
 <p>If you have enjoyed reading this blog post, consider subscribing for upcoming posts.</p>
@@ -2531,7 +2590,7 @@ ask yourself: why not a forest plot?</p>
   </div>
 </form>
 </div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
   <p class="social_footer">

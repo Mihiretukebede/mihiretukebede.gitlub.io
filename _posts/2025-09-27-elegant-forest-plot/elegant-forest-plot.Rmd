@@ -48,14 +48,13 @@ That guarantees 100 % fidelity.
 For larger figures you could automate extraction.\
 The `tesseract` package in R can OCR a PDF or PNG:
 
-
 ```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
 library(tesseract)
 txt <- ocr("jama.jpg")
 cat(txt)
 ```
 
-…but for eleven lines of data, manual entry wins on speed and accuracy.
+...but for eleven lines of data, manual entry wins on speed and accuracy.
 
 ```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
 df <- data.frame(
@@ -78,8 +77,7 @@ df
 
 # Reproducing the Plot in R
 
-The meta package is designed for meta-analysis,
-but its forest() function is perfect for any list of estimates once pooling is turned off.
+The meta package is designed for meta-analysis, but its forest() function is perfect for any list of estimates once pooling is turned off.
 
 ```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
 library(meta)
@@ -112,6 +110,66 @@ forest(all,
        )
 ```
 
+# In Python? No problem
+
+Let's try to reproduce it in python. First lets bring the R data frame from above and copy it in our python interpreter.
+
+I use reticulate package to run both R and python codes.
+
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
+library(reticulate)
+knitr::opts_chunk$set(echo = TRUE)
+# If needed, pick a python env:
+# reticulate::use_python("C:/Path/to/python.exe", required = TRUE)
+# reticulate::py_install(c("pandas","matplotlib","numpy"))
+```
+
+Now let's bring that R dataframe into our python interpreter.
+
+```{python, echo=TRUE, warning=FALSE, message=FALSE}
+import pandas as pd, numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.transforms as transforms
+
+# bring R's df into Python
+python_df = r.df.copy()
+python_df.head()
+```
+
+
+Plot in python: we will use the `forestplot` library from python. You can take a look at the [vignettes](https://pypi.org/project/forestplot/) for more details.
+
+
+```{python, echo=TRUE, message =FALSE}
+
+import forestplot as fp
+
+ax = fp.forestplot(python_df,  # the dataframe with results data
+              estimate="HR",  # col containing estimated effect size 
+              ll="lower", hl="upper",  # columns containing conf. int. lower and higher limits
+              varlabel="characteristic",  # column containing variable label
+              capitalize="capitalize",  # Capitalize labels
+              groupvar="variable",  # Add variable groupings 
+              # group ordering
+              annote=["HR_CI"],  # columns to report on left of plot
+              annoteheaders=["HR (95%CI)"],  # ^corresponding headers
+            
+              group_order=["Income, $", "Smoking", "Obesity", "Sex", 
+                           "Race and ethnicity"],
+              sort=True,  # sort in ascending order (sorts within group if group is specified)               
+              pval="p_value",  # Column of p-value to be reported on right
+              color_alt_rows=True,  # Gray alternate rows
+              mcolor = "darkgreen",#color of the square
+              figsize=(8, 6), #Controls the size of the figure,
+              xticks=[0.5,1, 2],
+              ylabel="HR (95% CI)",  # ylabel to print
+              **{"ylabel1_size": 11}  # control size of printed ylabel
+              )
+ # add vertical line at x=1
+ax.axvline(x=1, linewidth=1.5, color='black',linestyle='-') 
+plt.tight_layout()
+plt.show()
+```
 
 Take-Home Message
 
@@ -119,17 +177,15 @@ Visuals persuade. A forest plot conveys magnitude, direction, and uncertainty at
 
 Readers remember pictures, not tables.
 
-If your model fits in a table, it fits in a figure—and your audience will thank you.
+If your model fits in a table, it fits in a figure---and your audience will thank you.
 
-So the next time you’re tempted to drop a 12-column regression table into your manuscript,
-ask yourself: why not a forest plot?
+So the next time you're tempted to drop a 12-column regression table into your manuscript, ask yourself: why not a forest plot?
 
-Stop drowning readers in tables—start communicating with figures.
+Stop drowning readers in tables---start communicating with figures.
 
 Image credit: Figure 1 from the cited JAMA article.
 
-If you have enjoyed reading this blog post, consider subscribing for upcoming posts. 
-
+If you have enjoyed reading this blog post, consider subscribing for upcoming posts.
 
 ```{r, results='asis', echo=FALSE}
 library(htmltools)
