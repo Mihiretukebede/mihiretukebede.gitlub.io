@@ -154,8 +154,8 @@ ax = fp.forestplot(python_df,  # the dataframe with results data
               annote=["HR_CI"],  # columns to report on left of plot
               annoteheaders=["HR (95%CI)"],  # ^corresponding headers
             
-              group_order=["Income, $", "Smoking", "Obesity", "Sex", 
-                           "Race and ethnicity"],
+              group_order=["Income, $", "Smoking", "Obesity", "Sex", "Race and ethnicity"],
+              table=True,  # Format as a table
               sort=True,  # sort in ascending order (sorts within group if group is specified)               
               pval="p_value",  # Column of p-value to be reported on right
               color_alt_rows=True,  # Gray alternate rows
