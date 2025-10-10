@@ -2,7 +2,7 @@
 title: "Still presenting regression results in tables? why not forest plots?"
 citation: false
 description: |
-  In this post I reproduce an elegant JAMA forest plot—originally created in SAS—using R.
+  In this post I reproduce an elegant JAMA forest plot—originally created in SAS—using R and Python.
 ategories: 
   - Data Science
 google_analytics: "UA-173027539-1"
