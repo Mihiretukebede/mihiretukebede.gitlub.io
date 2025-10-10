@@ -1,5 +1,4 @@
 ---
-name: "Aspire Data Solutions"
 title: "Still presenting regression results in tables? why not forest plots?"
 citation: false
 description: |
