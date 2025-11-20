@@ -18,9 +18,6 @@ output:
 collections:
   posts:
       share: [twitter, linkedin, facebook, google-plus, pinterest]
-editor_options: 
-  markdown: 
-    wrap: 72
 ---
 
 <head>
