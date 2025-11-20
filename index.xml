@@ -15,7 +15,7 @@
       <description>In this post, I will go through basic introduction Propensity Score Matching(PSM) method of determining the causal effects of treatment on outcome. PSM most commonly implemented method on observational studies in the RWE setting.</description>
       <guid>http://www.mihiretukebede.com/posts/2025-11-20-propensity-score-matching</guid>
       <pubDate>Wed, 19 Nov 2025 00:00:00 +0000</pubDate>
-      <media:content url="http://www.mihiretukebede.com/posts/2025-11-20-propensity-score-matching/propensity-score-matching_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1248" height="768"/>
+      <media:content url="http://www.mihiretukebede.com/posts/2025-11-20-propensity-score-matching/loveplot.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
       <title>Still presenting regression results in tables? why not forest plots?</title>

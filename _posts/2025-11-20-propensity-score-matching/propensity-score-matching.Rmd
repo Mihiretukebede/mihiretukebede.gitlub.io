@@ -34,7 +34,7 @@ editor_options:
 
 In randomized control trials, treatment assignment is random and
 independent of potential confounders. Ignorability or exchangebility
-assuption are fullfilled. Determining average causal effects is,
+assumption are fulfilled. Determining average causal effects is,
 therefore, straightforward. However, in observational studies treatment
 assignment is not random. This makes determining the causal effects of
 treatment difficult. Individuals get assigned to certain treatment based
