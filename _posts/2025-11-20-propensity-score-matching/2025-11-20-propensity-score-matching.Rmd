@@ -1,4 +1,5 @@
 ---
+name: "Aspire Data Solutions"
 title: "RWE Data Analysis Using Propensity Score Matching (PSM): Concept, Implementation, and Interpretation"
 citation: false
 description: >
