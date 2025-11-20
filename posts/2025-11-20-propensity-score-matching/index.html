@@ -123,7 +123,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","citation","description","ategories","google_analytics","preview","author","url","date","output","collections","editor_options","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["RWE Data Analysis Using Propensity Score Matching (PSM): Concept, Implementation, and Interpretation"]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["In this post, I will go through basic introduction Propensity Score Matching(PSM) method of determining the causal effects of treatment on outcome. PSM most commonly implemented method on observational studies in the RWE setting."]},{"type":"character","attributes":{},"value":["Data Science"]},{"type":"character","attributes":{},"value":["UA-173027539-1"]},{"type":"character","attributes":{},"value":["loveplot.jpeg"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Mihiretu Kebede(PhD)"]}]}]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/"]},{"type":"character","attributes":{},"value":["2025-11-20"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["posts"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["share"]}},"value":[{"type":"character","attributes":{},"value":["twitter","linkedin","facebook","google-plus","pinterest"]}]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["markdown"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["wrap"]}},"value":[{"type":"integer","attributes":{},"value":[72]}]}]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/posts/2025-11-20-propensity-score-matching/"]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/posts/2025-11-20-propensity-score-matching/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","citation","description","ategories","google_analytics","preview","author","url","date","output","collections","editor_options","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["RWE Data Analysis Using Propensity Score Matching (PSM): Concept, Implementation, and Interpretation"]},{"type":"logical","attributes":{},"value":[false]},{"type":"character","attributes":{},"value":["In this post, I will go through basic introduction Propensity Score Matching(PSM) method of determining the causal effects of treatment on outcome. PSM most commonly implemented method on observational studies in the RWE setting."]},{"type":"character","attributes":{},"value":["Data Science"]},{"type":"character","attributes":{},"value":["UA-173027539-1"]},{"type":"character","attributes":{},"value":["loveplot.jpg"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Mihiretu Kebede(PhD)"]}]}]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/"]},{"type":"character","attributes":{},"value":["2025-11-20"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained","toc","toc_depth"]}},"value":[{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]},{"type":"integer","attributes":{},"value":[2]}]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["posts"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["share"]}},"value":[{"type":"character","attributes":{},"value":["twitter","linkedin","facebook","google-plus","pinterest"]}]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["markdown"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["wrap"]}},"value":[{"type":"integer","attributes":{},"value":[72]}]}]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/posts/2025-11-20-propensity-score-matching/"]},{"type":"character","attributes":{},"value":["http://www.mihiretukebede.com/posts/2025-11-20-propensity-score-matching/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -2728,14 +2728,14 @@ mean of the differences
 <pre><code>                      Stratified by treat
                        0                 1                 SMD   
   n                        112               112                 
-  age (mean (SD))        26.21 (10.83)     26.17 (7.18)     0.005
-  educ (mean (SD))       10.50 (2.65)      10.31 (2.33)     0.075
+  age (mean (SD))        26.15 (10.76)     26.17 (7.18)     0.002
+  educ (mean (SD))       10.55 (2.67)      10.31 (2.33)     0.096
   black (mean (SD))       0.72 (0.45)       0.74 (0.44)     0.040
-  hispan (mean (SD))      0.11 (0.31)       0.10 (0.30)     0.029
-  married (mean (SD))     0.24 (0.43)       0.24 (0.43)    &lt;0.001
+  hispan (mean (SD))      0.10 (0.30)       0.10 (0.30)    &lt;0.001
+  married (mean (SD))     0.23 (0.42)       0.24 (0.43)     0.021
   nodegree (mean (SD))    0.61 (0.49)       0.65 (0.48)     0.092
-  re74 (mean (SD))     2513.00 (4482.97) 2156.96 (5627.20)  0.070
-  re75 (mean (SD))     1822.15 (2742.84) 1063.68 (2619.06)  0.283</code></pre>
+  re74 (mean (SD))     2657.59 (4546.15) 2156.96 (5627.20)  0.098
+  re75 (mean (SD))     1895.31 (2914.40) 1063.68 (2619.06)  0.300</code></pre>
 </div>
 <p>From the smd, values setting the caliper has achieved a better balance but smaller sample size. More unmatched observations are dropped.</p>
 <p>Now, outcome analysis after matching using caliper</p>
@@ -2750,13 +2750,13 @@ mean of the differences
     Paired t-test
 
 data:  y_trt and y_ctrl
-t = 1.2389, df = 111, p-value = 0.218
+t = 1.2062, df = 111, p-value = 0.2303
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- -634.8581 2753.0151
+ -687.6696 2827.0162
 sample estimates:
 mean of the differences 
-               1059.078 </code></pre>
+               1069.673 </code></pre>
 </div>
 <p>The mean of the differences 1300(95%CI: -340, 2942) is our final causal estimate. It tells us how much the training program increased the average post intervention earnings among participants.However, the 96%CI includes 0. Hence no causal effect of the treatment(training programs) on post intervention earnings!</p>
 <p>In summary, we have seen observational treatment assignment creates confounding and the propensity score summarizes multiple confounders into a single scalar value and can help us achieve a matched dataset. This dataset can be much lower than the original unmatched dataset. Matching discards unmatched subjects (often many), leading to: reduced precision. weaker generalizability,and possibly losing a rare treatment subgroup. In contrast to PSM, Inverse Probability of Treatment Weighting (IPTW) offers an attractive alternative that avoids discarding subjects. Instead of removing unmatched individuals, IPTW reweights each observation by the inverse of its probability of receiving the treatment(1/propensity score value for treated and 1/(1-propensity score value for control subjects)) actually observed. That will be my next post.</p>
