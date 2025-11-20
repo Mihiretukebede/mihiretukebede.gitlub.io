@@ -7,14 +7,15 @@
     <description>This is Mihiretu Kebede(PhD)'s personal website.
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Thu, 20 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 19 Nov 2025 00:00:00 +0000</lastBuildDate>
     <item>
       <title>RWE Data Analysis Using Propensity Score Matching (PSM): Concept, Implementation, and Interpretation</title>
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
       <link>http://www.mihiretukebede.com/posts/2025-11-20-propensity-score-matching</link>
       <description>In this post, I will go through basic introduction Propensity Score Matching(PSM) method of determining the causal effects of treatment on outcome. PSM most commonly implemented method on observational studies in the RWE setting.</description>
+      <category>Data Science</category>
       <guid>http://www.mihiretukebede.com/posts/2025-11-20-propensity-score-matching</guid>
-      <pubDate>Thu, 20 Nov 2025 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 19 Nov 2025 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2025-11-20-propensity-score-matching/loveplot.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
@@ -22,8 +23,9 @@
       <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
       <link>http://www.mihiretukebede.com/posts/2025-09-27-elegant-forest-plot</link>
       <description>In this post I reproduce an elegant JAMA forest plot using R and Python.</description>
+      <category>Data Science</category>
       <guid>http://www.mihiretukebede.com/posts/2025-09-27-elegant-forest-plot</guid>
-      <pubDate>Fri, 26 Sep 2025 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2025-09-27-elegant-forest-plot/foresplotcoverimage.png" medium="image" type="image/png" width="1536" height="1024"/>
     </item>
     <item>
