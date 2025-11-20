@@ -44,11 +44,11 @@ navbar:
 
 output:
   distill::distill_article:
-    search: true
+    search: true 
     search_engine: fusejs
     citation: false
     css: theme.css  
     categories: ["Data Science", "Travel Experiences", "Holidays"]
     includes:
       in_header: favicon.html   # ← ensures favicon loads
-      
+ 

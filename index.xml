@@ -10,9 +10,9 @@
     <lastBuildDate>Wed, 19 Nov 2025 00:00:00 +0000</lastBuildDate>
     <item>
       <title>RWE Data Analysis Using Propensity Score Matching (PSM): Concept, Implementation, and Interpretation</title>
-      <dc:creator>Mihiretu Kebede(PhD)</dc:creator>
+      <dc:creator>Mihiretu Kebede (PhD)</dc:creator>
       <link>http://www.mihiretukebede.com/posts/2025-11-20-propensity-score-matching</link>
-      <description>In this post, I will go through basic introduction Propensity Score Matching(PSM) method of determining the causal effects of treatment on outcome. PSM most commonly implemented method on observational studies in the RWE setting.</description>
+      <description>In this post, I will go through a basic introduction to the Propensity Score Matching (PSM) method for estimating the causal effects of a treatment on an outcome. PSM is one of the most commonly implemented methods in observational RWE studies.</description>
       <category>Data Science</category>
       <guid>http://www.mihiretukebede.com/posts/2025-11-20-propensity-score-matching</guid>
       <pubDate>Wed, 19 Nov 2025 00:00:00 +0000</pubDate>
