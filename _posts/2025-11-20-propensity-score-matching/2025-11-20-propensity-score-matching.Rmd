@@ -50,7 +50,7 @@ $$
 \tau = Y(1) - Y(0)
 $$
 
-but for any given person, only one potential outcome can ever be observed—either the result of receiving the treatment or the result of not receiving it, but never both..This is the fundamental problem of potential outcomes scenario.
+but for any given person, only one potential outcome can ever be observed, either the result of receiving the treatment or the result of not receiving it, but never both. This is the fundamental problem of potential outcomes scenario.
 
 If we compare outcomes without adjustment:
 
@@ -69,7 +69,7 @@ path:
 $$
 T \leftarrow X \to Y
 $$
-
+![](images/confounderX.png)
 To identify causal effects, we assume **conditional exchangeability**:
 
 $$
