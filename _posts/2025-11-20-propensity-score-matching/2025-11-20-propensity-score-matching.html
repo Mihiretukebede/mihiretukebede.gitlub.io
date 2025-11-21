@@ -1902,14 +1902,14 @@ mean of the differences
 <pre><code>                      Stratified by treat
                        0                 1                 SMD   
   n                        112               112                 
-  age (mean (SD))        26.33 (10.98)     26.17 (7.18)     0.017
-  educ (mean (SD))       10.47 (2.62)      10.31 (2.33)     0.065
+  age (mean (SD))        26.12 (10.78)     26.17 (7.18)     0.005
+  educ (mean (SD))       10.53 (2.68)      10.31 (2.33)     0.085
   black (mean (SD))       0.72 (0.45)       0.74 (0.44)     0.040
-  hispan (mean (SD))      0.11 (0.31)       0.10 (0.30)     0.029
-  married (mean (SD))     0.25 (0.43)       0.24 (0.43)     0.021
-  nodegree (mean (SD))    0.62 (0.49)       0.65 (0.48)     0.056
-  re74 (mean (SD))     2583.19 (4555.86) 2156.96 (5627.20)  0.083
-  re75 (mean (SD))     1866.04 (2907.90) 1063.68 (2619.06)  0.290</code></pre>
+  hispan (mean (SD))      0.10 (0.30)       0.10 (0.30)    &lt;0.001
+  married (mean (SD))     0.23 (0.42)       0.24 (0.43)     0.021
+  nodegree (mean (SD))    0.61 (0.49)       0.65 (0.48)     0.092
+  re74 (mean (SD))     2592.95 (4520.71) 2156.96 (5627.20)  0.085
+  re75 (mean (SD))     1898.49 (2912.86) 1063.68 (2619.06)  0.301</code></pre>
 </div>
 <p>From the smd, values setting the caliper has achieved a better balance but smaller sample size. More unmatched observations are dropped.</p>
 <p>Now, outcome analysis after matching using caliper</p>
@@ -1924,13 +1924,13 @@ mean of the differences
     Paired t-test
 
 data:  y_trt and y_ctrl
-t = 1.3967, df = 111, p-value = 0.1653
+t = 1.2371, df = 111, p-value = 0.2187
 alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
- -499.3045 2884.2703
+ -650.4085 2812.0529
 sample estimates:
 mean of the differences 
-               1192.483 </code></pre>
+               1080.822 </code></pre>
 </div>
 <p>The mean of the difference is 1300(95%CI: -340, 2942) is our final causal estimate. It tells us how much the training program increased the average post intervention earnings among participants.However, the 96%CI includes 0. Hence no causal effect of the treatment(training programs) on post intervention earnings!</p>
 <h1 id="propensity-score-matching-for-binary-outcome-data">Propensity score matching for binary outcome data</h1>
@@ -2143,6 +2143,7 @@ Unmatched    1367       0</code></pre>
 </div>
 <p><img src="2025-11-20-propensity-score-matching_files/figure-html5/unnamed-chunk-16-1.png" width="624" /></p>
 </div>
+<p>As you can see from the love plot(most have below 0.1 mean difference value) and SMD values of the before and after matching(nearly all have smd value of &lt;0.1), there is a good matching after we do the PSM. If you still want to have a more conservative matching, you can it by setting a caliper value.</p>
 <h2 id="causal-effect-estimation-after-matching">Causal Effect Estimation (After Matching)</h2>
 <p>We now use the matched datasets to determine the causal risk difference and the causal risk ratio.</p>
 <div class="layout-chunk" data-layout="l-body">

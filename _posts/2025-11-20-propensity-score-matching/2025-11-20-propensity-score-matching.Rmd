@@ -440,7 +440,10 @@ love.plot(
 )
 ```
 
+As you can see from the love plot(most have below 0.1 mean difference value) and SMD values of the before and after matching(nearly all have smd value of <0.1), there is a good matching after we do the PSM. If you still want to have a more conservative matching, you can it by setting a caliper value. 
+
 ## Causal Effect Estimation (After Matching)
+
 We now use the matched datasets to determine the causal risk difference and the causal risk ratio. 
 
 ```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
