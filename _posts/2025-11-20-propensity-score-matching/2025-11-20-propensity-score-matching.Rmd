@@ -51,8 +51,7 @@ $$
 \tau = Y(1) - Y(0)
 $$
 
-but only one potential outcome is observed for each individual.This is
-the fundamental problem of potential outcomes scenario.
+but for any given person, only one potential outcome can ever be observed—either the result of receiving the treatment or the result of not receiving it, but never both..This is the fundamental problem of potential outcomes scenario.
 
 If we compare outcomes without adjustment:
 
@@ -85,9 +84,9 @@ covariates(potential confounders), treatment assignment can be close to
 or as good as random. This is called **conditional exchangeabilty** or
 **conditional ignorability** or **causal sufficiency**.
 
-## The propensity score matching method
+# The propensity score matching method
 
-Propensnsity score is the probality of being asigned to treatment. More
+Propensnsity score is the probability of receiving treatment. More
 formally, the **propensity score** (Rosenbaum and Rubin 1983) is defined
 as:
 
@@ -102,10 +101,12 @@ $$
 Y(1), Y(0) \perp T \mid e(X)
 $$
 
-This means that conditioning on a single scalar(score) $e(X)$ is
-sufficient to remove confounding due to all observed covariates in $X$.
+![](images/psm_dagitty.jpeg)
 
-### Goal of Propensity Score Matching
+This means that conditioning on a single agregated scalar(score) $e(X)$ is
+sufficient to remove confounding due to all observed covariates $X$.
+
+## Goal of Propensity Score Matching
 
 Propensity Score Matching (PSM) matches treated individuals with control
 individuals using propensity scores, creating a balanced sample. After
@@ -183,7 +184,7 @@ print(table1_before, smd = TRUE)
 The standardized mean differences show imbalance in several baseline
 covariates. This is why we need to balance. PSM is needed.
 
-# Greedy Matching on Covariates
+## Greedy Matching on Covariates
 
 Greedy matching also known as nearest neighbor matching. It uses
 Mahalanobis distance, Euclidean distance or propensity scores. Fore more
@@ -201,7 +202,7 @@ print(table_greedy, smd = TRUE)
 
 As you can see, greedy matching has already greatly achieved matching. However, matching directly on the covariates improves balance but may not be optimal. Propensity score matching usually performs better.
 
-# Estimate the Propensity Score
+## Estimate the Propensity Score
 
 Estimating propensity score is simply done by doing logistic regression of treatment variable on the set of confounders. 
 
@@ -215,6 +216,7 @@ df$pscore <- psmodel1$fitted.values
 ```
 
 ## Check overlap 
+
 ```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
 library(ggplot2)
 
@@ -237,7 +239,7 @@ matched_df <- match.data(m.out1) # we create our full matched datset
 
 ```
 
-Then check the plot after matching
+Then check visually after matching
 
 ```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
 ggplot(matched_df, aes(x = pscore, fill = factor(treat))) +
@@ -269,8 +271,8 @@ love.plot(m.out1, stats = "mean.diffs",
 
 As you can see most standardized mean differences drop below 0.1 after matching. This shows good covariate balance is achieved and we can move on to our causal effect calculations.
 
-## Otcome analysis 
-We use paired t-test to evaluate the outcome data on our PSM-matched datset.
+## Outcome analysis 
+We use paired t-test to evaluate the outcome data on our PSM-matched data sets.Mean difference is our effect size measure. 
 
 ```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
 y_trt <- matched_df$re78[matched_df$treat == 1]
@@ -284,7 +286,8 @@ The difference in means is the Average Treatment Effect on the Treated (ATT). Th
 
 
 ## PSM using caliper
-Caliper matching prevents poor matches and often improves covariate balance even further. This is simply achieved by setting caliper value from the Match() function. 
+
+Caliper matching prevents poor matches and often improves covariate balance even further. This is simply achieved by setting caliper value from the Match() function. Observations with higher distance will be removed(less match) 
 
 ```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
 pscore1 <- df$pscore
@@ -311,11 +314,180 @@ t.test(y_trt, y_ctrl, paired = TRUE)
 
 ```
 
-The mean of the differences 1300(95%CI: -340, 2942) is our final causal estimate. It tells us how much the training program increased the average post intervention earnings among participants.However, the 96%CI includes 0. Hence no causal effect of the treatment(training programs) on post intervention earnings! 
+The mean of the difference is 1300(95%CI: -340, 2942) is our final causal estimate. It tells us how much the training program increased the average post intervention earnings among participants.However, the 96%CI includes 0. Hence no causal effect of the treatment(training programs) on post intervention earnings! 
 
-In summary, we have seen observational treatment assignment creates confounding and the propensity score summarizes multiple confounders into a single scalar value and can help us achieve a matched dataset. This dataset can be much lower than the original unmatched dataset. Matching discards unmatched subjects (often many), leading to: reduced precision. weaker generalizability,and possibly losing a rare treatment subgroup.  In contrast to PSM, Inverse Probability of Treatment Weighting (IPTW) offers an attractive alternative that avoids discarding subjects. Instead of removing unmatched individuals, IPTW reweights each observation by the inverse of its probability of receiving the treatment(1/propensity score value for treated and 1/(1-propensity score value for control subjects)) actually observed. That will be my next post. 
+# Propensity score matching for binary outcome data
+
+For categorical outcomes, the analysis is similar but the effect size measures are causal risk difference, causal risk ration, causal odds ratio, etc. We can take a look at the Right heart catheterization (RHC) data(freely available). 
+
+The treatment variable is:
+
+- `treatment`: received RHC (`1`) or not (`0`)
+
+The outcome is:
+
+- `died`: death during the hospital stay (`1` = died, `0` = survived)
+
+In addition, the dataset contains several baseline characteristics measured at or shortly before the decision to provide RHC treatment, for example:
+
+- Demographics: `age`, `female`
+- Clinical severity and physiology: mean blood pressure at baseline (`meanbp1`), acute physiology score (`aps1`)
+- Primary disease category at ICU admission: ARF, CHF, Cirrhosis, Colon cancer, Coma, Lung cancer, Multiple organ system failure with malignancy (MOSF), Multiple organ system failure with sepsis (sepsis)
+
+These variables are strong candidates for confounders, because they are likely to influence both the decision to use RHC and the risk of death. The goal of propensity score matching is to create treated and untreated groups that are comparable with respect to these measured confounders, and then estimate the causal effect of RHC on mortality within this matched sample.
+
+We assume that the decision to use RHC is not random. It is influenced by  characteristics of the patient such as age, sex, underlying disease category, and severity at baseline (for example APS score and mean blood pressure). The same characteristics also affect the risk of death(outcome). It has several confounders. For this tutorial, we only look at a handful of them. 
+
+## Load the data sets and do a quick cleaning
+
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
+# Load dataset
+library(dplyr)
+load(url("https://hbiostat.org/data/repo/rhc.sav"))
+head(rhc, 3)
+# Prepare binary variables
+mydata <- rhc %>% 
+  mutate(
+    ARF     = as.numeric(cat1 == "ARF"),
+    CHF     = as.numeric(cat1 == "CHF"),
+    Cirr    = as.numeric(cat1 == "Cirrhosis"),
+    colcan  = as.numeric(cat1 == "Colon Cancer"),
+    Coma    = as.numeric(cat1 == "Coma"),
+    lungcan = as.numeric(cat1 == "Lung Cancer"),
+    MOSF    = as.numeric(cat1 == "MOSF w/Malignancy"),
+    sepsis  = as.numeric(cat1 == "MOSF w/Sepsis"),
+    female  = as.numeric(sex == "Female"),
+    died    = as.numeric(death == "Yes"),
+    treatment = as.numeric(swang1 == "RHC")
+  ) %>% 
+  select(
+    ARF, CHF, Cirr, colcan, Coma, lungcan, MOSF, sepsis,
+    age, female, meanbp1, aps1, treatment, died
+  )
+```
+
+## Fit the propensity score model
+
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
+psmodel <- glm(
+  treatment ~ age + female + meanbp1 +
+    ARF + CHF + Cirr + colcan + Coma + lungcan + MOSF + sepsis,
+  data = mydata,
+  family = binomial()
+)
+
+mydata$ps <- predict(psmodel, type = "response")
+```
+
+## Propensity score matching (1:1 nearest neighbour)
+
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
+m.out <- matchit(
+  treatment ~ age + female + meanbp1 +
+    ARF + CHF + Cirr + colcan + Coma + lungcan + MOSF + sepsis,
+  data   = mydata,
+  method = "nearest",
+  distance = mydata$ps,
+  ratio  = 1
+)
+
+matched_data <- match.data(m.out)
+```
+
+## Assessmening Covariate Balance (SMDs)
+
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
+confounders <- c(
+  "age", "female", "meanbp1", "aps",
+  "ARF", "CHF", "Cirr", "colcan",
+  "Coma", "lungcan", "MOSF", "sepsis"
+)
+
+# Before matching
+balance_before <- CreateTableOne(
+  vars = confounders,
+  strata = "treatment",
+  data = mydata,
+  test = FALSE
+)
+
+# After matching
+balance_after <- CreateTableOne(
+  vars = confounders,
+  strata = "treatment",
+  data = matched_data,
+  test = FALSE
+)
+cat("Standardized Mean Differences Before Matching:\n")
+print(balance_before, smd = TRUE)
+
+cat("\n\nStandardized Mean Differences After Matching:\n")
+print(balance_after, smd = TRUE)
+```
+
+
+### Check covariate balance graphically: Love plot
+
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
+bal.tab(m.out, un = TRUE)   # print balance summary
+
+love.plot(
+  m.out,
+  stats      = "mean.diffs",
+  threshold  = 0.1,
+  abs        = TRUE,
+  var.order  = "unadjusted"
+)
+```
+
+## Causal Effect Estimation (After Matching)
+We now use the matched datasets to determine the causal risk difference and the causal risk ratio. 
+
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
+# Number in each matched group
+n_treated  <- sum(matched_data$treatment == 1)
+n_control  <- sum(matched_data$treatment == 0)
+
+# Calculate risks
+risk_treated  <- mean(matched_data$died[matched_data$treatment == 1])
+risk_control  <- mean(matched_data$died[matched_data$treatment == 0])
+
+# Standard errors for risks: we need this for 95%CI
+se_treated  <- sqrt(risk_treated  * (1 - risk_treated)  / n_treated)
+se_control  <- sqrt(risk_control  * (1 - risk_control)  / n_control)
+
+# Risk difference and CI
+risk_difference <- risk_treated - risk_control
+se_rd <- sqrt(se_treated^2 + se_control^2)
+
+rd_lower <- risk_difference - 1.96 * se_rd
+rd_upper <- risk_difference + 1.96 * se_rd
+
+# Risk ratio and CI (log scale)
+risk_ratio <- risk_treated / risk_control
+se_log_rr <- sqrt((1 - risk_treated)  / (risk_treated  * n_treated) +
+                  (1 - risk_control) / (risk_control * n_control))
+
+rr_lower <- exp(log(risk_ratio) - 1.96 * se_log_rr)
+rr_upper <- exp(log(risk_ratio) + 1.96 * se_log_rr)
+
+# Print results
+risk_treated
+risk_control
+risk_difference; c(rd_lower, rd_upper)
+risk_ratio;      c(rr_lower, rr_upper)
+```
+
+Therefore, the causal risk difference was 0.046 (95%CI:0.018-0.074) and it doesn't cross the null point(0) indicating that the harmful effect is statistically significant The causal risk ratio was 1.07 (95%CI: 1.028 - 1.12), suggesting that patients who received RHC had a 7 percent higher risk of death compared to similar patients who did not receive RHC.
+
+# Conclusion
+
+In summary, we have seen observational treatment assignment creates confounding and the propensity score summarizes multiple confounders into a single scalar value and can help us achieve a matched data sets. These data sets can be much lower than the original unmatched data sets. Matching discards unmatched subjects (often many), leading to: reduced precision. weaker generalizability,and possibly losing rare treatment subgroups.  
+
+In contrast to PSM, Inverse Probability of Treatment Weighting (IPTW) offers an attractive alternative that avoids discarding subjects. Instead of removing unmatched individuals, IPTW re-weights each observation by the inverse of its probability of receiving the treatment(1/propensity score value for treated and 1/(1-propensity score value for control subjects)) actually observed. That will be my next post. 
 
 After matching, the difference in outcomes can be interpreted as a causal effect for treated individuals.
+
 
 If you have enjoyed reading this, consider subscribing for
 upcoming posts.
