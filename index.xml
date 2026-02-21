@@ -7,7 +7,7 @@
     <description>This is Mihiretu Kebede(PhD)'s personal website.
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Wed, 19 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 20 Nov 2025 00:00:00 +0000</lastBuildDate>
     <item>
       <title>RWE Data Analysis Using Propensity Score Matching (PSM): Concept, Implementation, and Interpretation</title>
       <dc:creator>Mihiretu Kebede (PhD)</dc:creator>
@@ -15,7 +15,7 @@
       <description>In this post, I will go through a basic introduction to the Propensity Score Matching (PSM) method for estimating the causal effects of a treatment on an outcome. PSM is one of the most commonly implemented methods in observational RWE studies.</description>
       <category>Data Science</category>
       <guid>http://www.mihiretukebede.com/posts/2025-11-20-propensity-score-matching</guid>
-      <pubDate>Wed, 19 Nov 2025 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 20 Nov 2025 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2025-11-20-propensity-score-matching/loveplot.jpg" medium="image" type="image/jpeg"/>
     </item>
     <item>
@@ -37,6 +37,16 @@
       <guid>http://www.mihiretukebede.com/posts/2025-09-24-vizualizing-global-testosterone-levels-by-country</guid>
       <pubDate>Wed, 24 Sep 2025 00:00:00 +0000</pubDate>
       <media:content url="http://www.mihiretukebede.com/posts/2025-09-24-vizualizing-global-testosterone-levels-by-country/testosterone.png" medium="image" type="image/png" width="1536" height="1024"/>
+    </item>
+    <item>
+      <title>Inverse Probability Weighting and Marginal Structural Models: comprehensive tutorial</title>
+      <dc:creator>Mihiretu Kebede (PhD)</dc:creator>
+      <link>http://www.mihiretukebede.com/posts/2026-02-20-iptw-and-msm</link>
+      <description>In this post, I will go through a basic introduction to the Inverse Probability Weighting and Marginal Structural Models for estimating the causal effects of a treatment on an outcome.</description>
+      <category>Data Science</category>
+      <guid>http://www.mihiretukebede.com/posts/2026-02-20-iptw-and-msm</guid>
+      <pubDate>Wed, 19 Feb 2025 00:00:00 +0000</pubDate>
+      <media:content url="http://www.mihiretukebede.com/posts/2026-02-20-iptw-and-msm/iptw-and-msm_files/figure-html5/unnamed-chunk-6-1.png" medium="image" type="image/png" width="1248" height="768"/>
     </item>
     <item>
       <title>Quantile regression tutorial in R</title>

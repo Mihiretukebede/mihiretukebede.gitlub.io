@@ -170,3 +170,8 @@ d-article a:hover { color: #034349; }
 .post-card .card-body { padding: 12px 14px; }
 .post-card .card-title { font-size: 1.06rem; line-height: 1.3; margin: 0 0 6px; font-weight: 600; }
 .post-card .card-meta { font-size: .9rem; color: rgba(0,0,0,.55); }
+
+/*---------- for changing the size ---------- */
+.distill-site-content {
+  max-width: 1400px;
+}
