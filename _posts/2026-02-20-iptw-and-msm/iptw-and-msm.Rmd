@@ -29,11 +29,7 @@ collections:
 
 # Introduction
 
-In my previous post I demonstrated, propensity score matching method for covariate balancing and estimating the average causal effects of treatments from observational studies. we have seen treatment assignm
-
-The truncated analysis trades a small amount of bias for improved precision and numerical stability.
-
-ent in observational setting is no random and this creates confounding. The propensity score effectively summarizes multiple confounders into a single scalar value. That scalar value(X) can help us achieve a matched data sets. While finding the matched observations, we have to discard unmatched individuals from our sample. Therefore the data sets can be much lower than the original unmatched data sets leading to: reduced precision. weaker generalizability,and possibly losing rare treatment subgroups.
+In my previous post I demonstrated, propensity score matching method for covariate balancing and estimating the average causal effects of treatments from observational studies. we have seen treatment assignment in observational setting is no random and this creates confounding. The propensity score effectively summarizes multiple confounders into a single scalar value. That scalar value(X) can help us achieve a matched data sets. While finding the matched observations, we have to discard unmatched individuals from our sample. Therefore the data sets can be much lower than the original unmatched data sets leading to: reduced precision. weaker generalizability,and possibly losing rare treatment subgroups.
 
 In contrast to propensity score matching, Inverse Probability of Treatment Weighting (IPTW) offers an attractive solution and avoids discarding subjects. Instead of removing unmatched individuals, IPTW re-weights each observation by the inverse of its probability of receiving the treatment (1/propensity score value for the treated and 1/(1-propensity score value for control subjects)).
 
