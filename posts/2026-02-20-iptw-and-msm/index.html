@@ -2710,6 +2710,10 @@ Number of Fisher Scoring iterations: 4</code></pre>
    0.05154951    0.02333223    0.07976679 </code></pre>
 </div>
 <p>Here β1_1β1​ is the <strong>marginal causal risk difference</strong>. A negative value tells us that treatment reduces risk, a positive value indicates increased risk. We found the causal risk difference of 0.051 which indicates catheterization leads to an estimated 5.15 percent absolute increase in the risk of death, under the assumptions of the MSM.</p>
+<h3 id="number-needed-to-harm-nnh">Number Needed to Harm (NNH)</h3>
+<p>For ease of interpretation, we can also convert this causal risk difference to “number needed to harm” by taking the reciprocal of the causal risk difference.</p>
+<p>NNH=RD = 1​/0.05151​≈19.4</p>
+<p>That means if we treated about <strong>19–20 patients</strong> with RHC, we would cause <strong>one additional death</strong>, compared to those not treated by RHC. A causal RD of 0.0515 indicates treating by RHC increases the absolute risk of the death by 5.15 percentage points in the population, which is equivalent to causing 5 extra death events for every 100 treated subjects.</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://ggplot2.tidyverse.org'>ggplot2</a></span><span class='op'>)</span></span>
@@ -2987,10 +2991,13 @@ is continuous.</p>
 <h2 id="step-3-create-a-survey-design-object">Step 3: Create a survey design object</h2>
 <p>MSMs for continuous outcomes use a Gaussian model with identity link.<br />
 This means we estimate:</p>
-<p>E[Y(a)]=β0+β1aE[Y(a)] = _0 + _1 aE[Y(a)]=β0​+β1​a</p>
+<p>E[Y(a)]=β0​+β1​a</p>
+<p>or equivalently:</p>
+<p>[Y∣do(A=a)]=β0​+β1​a</p>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>design_lalonde</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/survey/man/svydesign.html'>svydesign</a></span><span class='op'>(</span>ids <span class='op'>=</span> <span class='op'>~</span><span class='fl'>1</span>,                            weights <span class='op'>=</span> <span class='op'>~</span><span class='va'>w_iptw</span>,                            data <span class='op'>=</span> <span class='va'>df</span><span class='op'>)</span></span></code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>design_lalonde</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/survey/man/svydesign.html'>svydesign</a></span><span class='op'>(</span>ids <span class='op'>=</span> <span class='op'>~</span><span class='fl'>1</span>,</span>
+<span>                            weights <span class='op'>=</span> <span class='op'>~</span><span class='va'>w_iptw</span>,                            data <span class='op'>=</span> <span class='va'>df</span><span class='op'>)</span></span></code></pre>
 </div>
 </div>
 <h2 id="step-4-fit-the-msm-with-a-gaussian-outcome-model"><strong>4. Step 4: Fit the MSM with a Gaussian outcome model</strong></h2>

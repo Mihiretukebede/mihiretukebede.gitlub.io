@@ -288,6 +288,14 @@ c(RD = causal_rd, LCL = lcl_rd, UCL = ucl_rd)
 
 Here β1\beta_1β1​ is the **marginal causal risk difference**. A negative value tells us that treatment reduces risk, a positive value indicates increased risk. We found the causal risk difference of 0.051 which indicates catheterization leads to an estimated 5.15 percent absolute increase in the risk of death, under the assumptions of the MSM.
 
+### Number Needed to Harm (NNH)
+
+For ease of interpretation, we can also convert this causal risk difference to "number needed to harm" by taking the reciprocal of the causal risk difference.
+
+NNH=RD = 1​/0.05151​≈19.4
+
+That means if we treated about **19--20 patients** with RHC, we would cause **one additional death**, compared to those not treated by RHC. A causal RD of 0.0515 indicates treating by RHC increases the absolute risk of the death by 5.15 percentage points in the population, which is equivalent to causing 5 extra death events for every 100 treated subjects.
+
 ```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
 library(ggplot2)
 
@@ -513,7 +521,7 @@ df$ps <- predict(ps_lalonde, type = "response")
 
 ## Step 2: Determine IPT weights
 
-```{r}
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
 df$w_iptw <- ifelse(df$treat == 1,
                     1 / df$ps,
                     1 / (1 - df$ps))
@@ -525,15 +533,20 @@ summary(df$w_iptw)
 MSMs for continuous outcomes use a Gaussian model with identity link.\
 This means we estimate:
 
-E[Y(a)]=β0+β1aE[Y(a)] = \beta_0 + \beta_1 aE[Y(a)]=β0​+β1​a
+E[Y(a)]=β0​+β1​a
 
-```{r}
-design_lalonde <- svydesign(ids = ~1,                            weights = ~w_iptw,                            data = df)
+or equivalently:
+
+[Y∣do(A=a)]=β0​+β1​a
+
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
+design_lalonde <- svydesign(ids = ~1,
+                            weights = ~w_iptw,                            data = df)
 ```
 
 ## **4. Step 4: Fit the MSM with a Gaussian outcome model**
 
-```{r}
+```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
 msm_cont <- svyglm(re78 ~ treat, 
                    design = design_lalonde, 
                    family = gaussian())
