@@ -110,11 +110,11 @@ For a **continuous outcome**, we use a Gaussian model with identity link and int
 
 # DAG for the RHC example
 
-Let's draw a DAG for our example dataset. We use a right heart catheterization (RHC) example. Let `treatment` indicate whether a patient received RHC in the ICU, and `died` indicate death. Several baseline characteristics affect both the decision to perform RHC and the risk of death.
+Let's draw a DAG for our example data set. We use a right heart catheterization (RHC) example. Let `treatment` indicate whether a patient received RHC in the ICU, and `died` indicate death. Several baseline characteristics affect both the decision to perform RHC and the risk of death.
 
 ![](images/dagitty-model-01.png)
 
-The DAG shows that comorbidities and severity markers are confounders for the effect of RHC on mortality. IPTW uses these variables to construct a pseudo population where treatment is independent of these confounders. Now let's proceed to our analysis.
+The DAG shows that co-morbidities and severity markers are confounders for the effect of RHC on mortality. IPTW uses these variables to construct a pseudo population where treatment is independent of these confounders. Now let's proceed to our analysis.
 
 Load data and prepare variables
 
@@ -194,7 +194,7 @@ We now estimated the propensity score `ps` values for the observations which is 
 
 # Construct IPTW weights
 
-With the following code, we calculate the unstabilied weights. We calculate these weights by simply taking the reciprocal of the propensity(1/ps) scores for the the ones who didn't receive the treatment and 1/(1-ps) for the those subjects who didn't receive the treatment.
+With the following code, we calculate the un-stabilized weights. We calculate these weights by simply taking the reciprocal of the propensity(1/ps) scores for the the ones who didn't receive the treatment and 1/(1-ps) for the those subjects who didn't receive the treatment.
 
 ```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
 #Unstabilised ATE weights
@@ -219,7 +219,7 @@ print(table_w, smd = TRUE)
 
 We can see the SMDs are now closer to zero which tells us that we have improved the balance.
 
-## Visualize using love plot before and after weighting
+## Visualize the balance using love plot 
 
 ```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
 # Using cobalt directly with weights
@@ -240,7 +240,7 @@ The love plot shows how IPTW reduces imbalance. Absolute mean difference below 0
 
 ### Causal risk ratio (log link)
 
-To estimate the causal risk RR, we run a regression of the outcome variable (died) as a function of the treatment variable. We add our iptw weights in the glm. After that we will already have the coefficients.
+To estimate the causal risk RR, we run a regression of the outcome variable (died) as a function of the treatment variable. We add our `iptw` weights in the `glm`. After that we will already have the coefficients.
 
 `The vcovHC()` from the **sandwich** package computes a **heteroskedasticity-consistent variance--covariance matrix**. It tels to use the Basic sandwitch method to calculate the SE. `HC0`works well and is default for large samples. For small samples, `HC3` is often used. Once we have the `SE` of our estimate `𝞫` , calculating the causal RR and its `95%CI` is straightforward.
 
@@ -260,7 +260,7 @@ ucl_rr    <- exp(beta_rr["treatment"] + 1.96 * SE_rr["treatment"])
 c(RR = causal_rr, LCL = lcl_rr, UCL = ucl_rr)
 ```
 
-Here exp⁡(β1)\exp(\beta_1)exp(β1​) is the **marginal causal risk ratio** for death comparing RHC to no RHC in the weighted pseudo population. You can see the treatment increase death by 8%.
+Here exp⁡(β1)\exp(\beta\_1)exp(β1​) is the **marginal causal risk ratio** for death comparing RHC to no RHC in the weighted pseudo population. You can see the treatment increase death by 8%.
 
 ## Causal risk difference (identity link)
 
@@ -282,7 +282,7 @@ ucl_rd    <- beta_rd["treatment"] + 1.96 * SE_rd["treatment"]
 c(RD = causal_rd, LCL = lcl_rd, UCL = ucl_rd)
 ```
 
-Here β1\beta_1β1​ is the **marginal causal risk difference**. A negative value tells us that treatment reduces risk, a positive value indicates increased risk. We found the causal risk difference of 0.051 which indicates catheterization leads to an estimated 5.15 percent absolute increase in the risk of death, under the assumptions of the MSM.
+Here β1\beta\_1β1​ is the **marginal causal risk difference**. A negative value tells us that treatment reduces risk, a positive value indicates increased risk. We found the causal risk difference of 0.051 which indicates catheterization leads to an estimated 5.15 percent absolute increase in the risk of death, under the assumptions of the MSM.
 
 ### Number Needed to Harm (NNH)
 
@@ -480,17 +480,17 @@ paste("Causal RD:", coef_rd, ",", "95%CI:","(",
       confint_rd[2], ")") #lower and upper
 ```
 
-Until now, we have seen how to compute causal risk ration and causal risk difference using two different methods. The outcome variable was death (`died)` which was binary outcome. We have seen comparable output using the two methods. How about continuous outcome? We follow the same procedure for continuous outcomes Y. The steps are identical:
+Until now, we have seen how to compute causal risk ration and causal risk difference using two different methods. The outcome variable was death (`died)` which was binary outcome. We have seen comparable output using the two methods. How about continuous outcome? We follow the same procedure for continuous outcomes Y. The main steps are identical:
 
-1.  Fit a propensity score model for treatment.
+1.  **Fit a propensity score model for treatment.**
 
-2.   Construct IPTW weights.
+2.  **Construct IPTW weights.**
 
-3.   Fit a weighted MSM with a Gaussian outcome model
+3.  **Fit a weighted MSM with a Gaussian outcome model**
 
 Our causal effect measure will be `marginal causal mean difference`.
 
-We can do this using the `lalonde` dataset. I used this dataset in my previous post on propensity score matching. The outcome: **`re78`** = real earnings in 1978\
+We can do this using the `lalonde` data set. I used this data set in my previous post on propensity score matching. The outcome: **`re78`** = real earnings in 1978\
 is continuous.
 
 ```{r include=T, echo=TRUE, warning=FALSE, message=FALSE}
@@ -549,21 +549,21 @@ msm_cont <- svyglm(re78 ~ treat,
 summary(msm_cont)
 ```
 
-After standardising treatment assignment using IPTW, we see that participation in the job training program didnot causally increases the 1978 earnings, compared to those who were not participating.
+After standardizing treatment assignment using IPTW, we see that participation in the job training program didn't causally increases the 1978 earnings, compared to those who were not participating.
 
 # Summary
 
--   IPTW uses the inverse of the propensity score to construct a pseudo population in which treatment is independent of set of suffcient confounders.
+-   IPTW uses the inverse of the propensity score to construct a pseudo population in which treatment is independent of set of sufficient confounders.
 
 -   Marginal structural models are fitted using weighted regression to estimate population average causal effects.
 
--   For binary outcomes, identity and log links give causal risk difference and causal risk ratio, respectively.
+-   For binary outcomes, identity and `log` links give causal risk difference and causal risk ratio, respectively.
 
--    For continuous outcomes, a Gaussian MSM with identity link gives us the margiinal causal mean difference.
+-   For continuous outcomes, a `Gaussian` MSM with identity link gives us the **marginal causal mean difference**.
 
--    Diagnostics such as love plots and weight distributions can be used to assess overlap and the stability of the estimated weights.
+-   Diagnostics such as love plots and weight distributions can be used to assess overlap and the stability of the estimated weights.
 
--    Truncation of extreme weights can improve precision at the cost of a small bias, compare to the simple propensity score matching method.
+-   Truncation of extreme weights can improve precision at the cost of a small bias, compare to the simple propensity score matching method.
 
 Finally, I would like to mention that this post focuses on a single time point treatment variable, but the ideas extend to longitudinal settings with time varying treatments and covariates.
 
